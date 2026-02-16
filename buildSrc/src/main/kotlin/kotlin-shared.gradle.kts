@@ -26,7 +26,6 @@ kotlin.apply {
         languageSettings {
             optIn("kotlin.RequiresOptIn")
             optIn("kotlin.contracts.ExperimentalContracts")
-            optIn("dev.rnett.klif.InternalKlifApi")
         }
     }
 

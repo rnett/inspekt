@@ -1,22 +1,44 @@
+import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
+
 plugins {
-    kotlin("jvm") version "2.3.0"
+    id("dokka")
 }
 
-group = "dev.rnett.spekt"
-version = "1.0-SNAPSHOT"
+tasks.register("updateLegacyAbi") {
+    dependsOn(project.subprojects.map { it.tasks.named("updateLegacyAbi") })
+}
 
-repositories {
-    mavenCentral()
+tasks.register("checkLegacyAbi") {
+    dependsOn(project.subprojects.map { it.tasks.named("checkLegacyAbi") })
+}
+
+tasks.register("checkAll") {
+    group = "verification"
+    dependsOn(project.subprojects.map { it.tasks.named("check") })
+}
+
+afterEvaluate {
+    tasks.register("publishAllToMavenCentral") {
+        group = "publishing"
+        dependsOn(project.subprojects.flatMap { it.tasks.named({ it == "publishAllPublicationsToMavenCentralRepository" }) })
+    }
+    tasks.register("publishAllToMavenLocal") {
+        group = "publishing"
+        dependsOn(project.subprojects.flatMap { it.tasks.named({ it == "publishToMavenLocal" }) })
+    }
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    dokka(project(":api"))
+    dokka(project(":spekt"))
+    dokka(project(":gradle-plugin"))
 }
 
-kotlin {
-    jvmToolchain(17)
+tasks.withType<KotlinNpmInstallTask>().configureEach {
+    if (name == "kotlinWasmNpmInstall")
+        mustRunAfter("kotlinNpmInstall")
 }
 
-tasks.test {
-    useJUnitPlatform()
+tasks.named<UpdateDaemonJvm>("updateDaemonJvm") {
+    languageVersion = JavaLanguageVersion.of(24)
 }

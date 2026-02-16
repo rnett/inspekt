@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="spekt-jvm-0.0.1-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/spekt/build/libs</output-path>
+    <root id="archive" name="spekt-jvm-0.0.1-SNAPSHOT.jar">
+      <element id="module-output" name="spekt.spekt.jvmMain" />
+    </root>
+  </artifact>
+</component>

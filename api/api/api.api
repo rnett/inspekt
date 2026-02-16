@@ -1,0 +1,3 @@
+public abstract interface annotation class dev/rnett/spekt/Spekt : java/lang/annotation/Annotation {
+}
+
