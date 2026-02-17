@@ -1,0 +1,223 @@
+package dev.rnett.spekt.internal
+
+import dev.rnett.spekt.Caster
+import dev.rnett.spekt.ClassName
+import dev.rnett.spekt.MutableProperty
+import dev.rnett.spekt.PackageName
+import dev.rnett.spekt.Parameter
+import dev.rnett.spekt.Parameters
+import dev.rnett.spekt.PropertyMethod
+import dev.rnett.spekt.ReadOnlyProperty
+import dev.rnett.spekt.Spekt
+import dev.rnett.symbolexport.ExportSymbol
+import kotlin.reflect.KClass
+import kotlin.reflect.KFunction
+import kotlin.reflect.KMutableProperty1
+import kotlin.reflect.KProperty1
+import kotlin.reflect.KType
+
+@PublishedApi
+@ExportSymbol
+internal sealed class SpektImplementation<T : Any> {
+    @ExportSymbol
+    abstract fun toSpekt(): Spekt<T>
+}
+
+@PublishedApi
+@ExportSymbol
+internal interface ArgumentsProviderV1 {
+    @ExportSymbol
+    fun v1IsDefaulted(globalIndex: Int): Boolean
+
+    @ExportSymbol
+    fun v1Get(globalIndex: Int): Any?
+}
+
+@PublishedApi
+@ExportSymbol
+internal abstract class SpektImplementationV1<T : Any>
+@ExportSymbol protected constructor(
+    @param:ExportSymbol private val kClass: KClass<*>,
+    @param:ExportSymbol private val isAbstract: Boolean,
+    @ExportSymbol packageNames: Array<String>,
+    @ExportSymbol classNames: Array<String>,
+    @param:ExportSymbol private val supertypes: Array<KType>,
+    @param:ExportSymbol private val annotations: Array<Annotation>,
+    @param:ExportSymbol private val functions: Array<Function>,
+    @param:ExportSymbol private val properties: Array<Property>,
+    @param:ExportSymbol private val constructors: Array<Function>
+) : SpektImplementation<T>() {
+    @ExportSymbol
+    protected open fun getObjectInstance(): T? = null
+
+    @ExportSymbol
+    protected abstract fun getCaster(): Caster<T>
+
+    internal val name = ClassName(PackageName(packageNames.toList()), classNames.toList())
+
+    override fun toSpekt(): Spekt<T> {
+        lateinit var ref: Spekt<T>
+        val lazy = lazy { ref }
+
+
+        @Suppress("UNCHECKED_CAST")
+        return Spekt(
+            kClass as KClass<T>,
+            name,
+            supertypes.toSet(),
+            annotations.toList(),
+            getObjectInstance(),
+            functions.map {
+                it.toSpekt(this)
+            },
+            properties.map {
+                it.toSpekt(this)
+            },
+            constructors.map { it.toSpektCtor(this, lazy) },
+            isAbstract,
+            getCaster()
+        ).also {
+            ref = it
+        }
+    }
+
+    @PublishedApi
+    @ExportSymbol
+    internal class Function
+    @ExportSymbol constructor(
+        @param:ExportSymbol private val name: String,
+        @param:ExportSymbol private val isAbstract: Boolean,
+        @param:ExportSymbol private val kotlin: KFunction<*>,
+        @param:ExportSymbol private val annotations: Array<Annotation>,
+        @param:ExportSymbol private val parameters: Array<Param>,
+        @param:ExportSymbol private val returnType: KType,
+        @param:ExportSymbol private val isSuspend: Boolean,
+        @param:ExportSymbol private val isPrimaryCtor: Boolean,
+        @param:ExportSymbol private val invoker: ((ArgumentsProviderV1) -> Any?)?,
+        @param:ExportSymbol private val suspendInvoker: (suspend (ArgumentsProviderV1) -> Any?)?,
+        @param:ExportSymbol private val inheritedFrom: KClass<*>?,
+    ) {
+        internal fun toSpekt(cls: SpektImplementationV1<*>): dev.rnett.spekt.Function = dev.rnett.spekt.Function(
+            cls.name.member(name),
+            kotlin,
+            annotations.toList(),
+            isAbstract,
+            Parameters(parameters.map { it.toSpekt() }),
+            returnType,
+            isSuspend,
+            invoker,
+            suspendInvoker,
+            inheritedFrom
+        )
+
+        internal fun toPropertySpekt(setter: Boolean, prop: Lazy<dev.rnett.spekt.Property>): PropertyMethod = PropertyMethod(
+            prop,
+            kotlin,
+            Parameters(parameters.map { it.toSpekt() }),
+            isAbstract,
+            annotations.toList(),
+            setter,
+            invoker!!,
+            inheritedFrom
+        )
+
+        internal fun toSpektCtor(cls: SpektImplementationV1<*>, spekt: Lazy<Spekt<*>>): dev.rnett.spekt.Constructor = dev.rnett.spekt.Constructor(
+            cls.name.member(name),
+            kotlin,
+            annotations.toList(),
+            isAbstract,
+            Parameters(parameters.map { it.toSpekt() }),
+            returnType,
+            spekt,
+            isPrimaryCtor,
+            invoker!!
+        )
+    }
+
+    @PublishedApi
+    @ExportSymbol
+    internal class Param
+    @ExportSymbol constructor(
+        @param:ExportSymbol private val name: String,
+        @param:ExportSymbol private val annotations: Array<Annotation>,
+        @param:ExportSymbol private val hasDefault: Boolean,
+        @param:ExportSymbol private val type: KType,
+        @param:ExportSymbol private val globalIndex: Int,
+        @param:ExportSymbol private val indexInKind: Int,
+        /**
+         * 0: dispatch, 1: context, 2: extension, 3: value
+         */
+        @param:ExportSymbol private val kind: Int
+    ) {
+        //TODO getter for default value?  Would need the other params specified
+        internal fun toSpekt(): Parameter = Parameter(
+            type,
+            hasDefault,
+            name,
+            annotations.toList(),
+            globalIndex,
+            indexInKind,
+            when (kind) {
+                0 -> Parameter.Kind.DISPATCH
+                1 -> Parameter.Kind.CONTEXT
+                2 -> Parameter.Kind.EXTENSION
+                3 -> Parameter.Kind.VALUE
+                else -> throw IllegalArgumentException("Invalid parameter kind: $kind")
+            }
+        )
+    }
+
+    @PublishedApi
+    @ExportSymbol
+    internal class Property
+    @ExportSymbol constructor(
+        @param:ExportSymbol private val name: String,
+        @param:ExportSymbol private val annotations: Array<Annotation>,
+        @param:ExportSymbol private val isMutable: Boolean,
+        @param:ExportSymbol private val isInConstructor: Boolean,
+        @param:ExportSymbol private val hasBackingField: Boolean,
+        @param:ExportSymbol private val isAbstract: Boolean,
+        @param:ExportSymbol private val hasDelegate: Boolean,
+        @param:ExportSymbol private val type: KType,
+        @param:ExportSymbol private val kotlin: KProperty1<*, *>,
+        @param:ExportSymbol private val getter: Function,
+        @param:ExportSymbol private val setter: Function?,
+        @param:ExportSymbol private val inheritedFrom: KClass<*>?
+    ) {
+        internal fun toSpekt(cls: SpektImplementationV1<*>): dev.rnett.spekt.Property {
+            lateinit var ref: dev.rnett.spekt.Property
+            val lazy = lazy { ref }
+            val getter = getter.toPropertySpekt(false, lazy)
+            return if (isMutable) {
+                MutableProperty(
+                    kotlin as KMutableProperty1<*, *>,
+                    isInConstructor,
+                    hasBackingField,
+                    hasDelegate,
+                    type,
+                    getter,
+                    setter!!.toPropertySpekt(true, lazy),
+                    cls.name.member(name),
+                    getter.parameters,
+                    annotations.toList(),
+                    isAbstract,
+                    inheritedFrom
+                )
+            } else {
+                ReadOnlyProperty(
+                    kotlin,
+                    isInConstructor,
+                    hasBackingField,
+                    hasDelegate,
+                    type,
+                    getter,
+                    cls.name.member(name),
+                    getter.parameters,
+                    annotations.toList(),
+                    isAbstract,
+                    inheritedFrom
+                )
+            }.also { ref = it }
+        }
+    }
+}

@@ -29,7 +29,6 @@ afterEvaluate {
 }
 
 dependencies {
-    dokka(project(":api"))
     dokka(project(":spekt"))
     dokka(project(":gradle-plugin"))
 }

@@ -1,0 +1,7 @@
+
+@InSpekt
+class Test {
+    companion object Comp {
+        val test: Int = 3
+    }
+}

@@ -1,0 +1,21 @@
+FILE: WithCompanion.kt
+    package auto.spekt_method.fir
+
+    @R|dev/rnett/spekt/InSpekt|() public final class Test : R|kotlin/Any| {
+        public constructor(): R|auto/spekt_method/fir/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final companion object Companion : R|kotlin/Any| {
+            private constructor(): R|auto/spekt_method/fir/Test.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val test: R|kotlin/Int| = Int(3)
+                public get(): R|kotlin/Int|
+
+            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/spekt_method/fir/Test>|
+
+        }
+
+    }

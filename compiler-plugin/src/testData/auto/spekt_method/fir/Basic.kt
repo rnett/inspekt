@@ -1,0 +1,5 @@
+
+@InSpekt
+class Test {
+
+}

@@ -14,6 +14,7 @@ rootProject.name = "spekt"
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
+        maven("https://central.sonatype.com/repository/maven-snapshots/")
     }
 }
 
@@ -26,7 +27,6 @@ gradle.beforeProject {
 
 include(
     "spekt",
-    "api",
     "compiler-plugin",
     "gradle-plugin"
 )

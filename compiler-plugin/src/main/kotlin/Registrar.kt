@@ -1,22 +1,22 @@
 package dev.rnett.spekt
 
 import dev.rnett.kcp.development.registrar.BaseSpecCompilerPluginRegistrar
-import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
+import dev.rnett.spekt.fir.FirExtension
+import dev.rnett.spekt.ir.IrExtension
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.jetbrains.kotlin.config.CompilerConfiguration
-import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrar
 
-class KlifSpec() {
+class SpektSpec() {
 
 }
 
 @OptIn(ExperimentalCompilerApi::class)
-class Registrar : BaseSpecCompilerPluginRegistrar<KlifSpec>() {
-    override fun irExtension(spec: KlifSpec): IrGenerationExtension? = null
+class Registrar : BaseSpecCompilerPluginRegistrar<SpektSpec>() {
+    override fun irExtension(spec: SpektSpec) = IrExtension(spec)
 
-    override fun firExtension(spec: KlifSpec): FirExtensionRegistrar? = null
+    override fun firExtension(spec: SpektSpec) = FirExtension(spec)
 
-    override fun produceSpec(configuration: CompilerConfiguration): KlifSpec = KlifSpec()
+    override fun produceSpec(configuration: CompilerConfiguration): SpektSpec = SpektSpec()
 
     override val supportsK2: Boolean = true
     override val pluginId = BuildConfig.KOTLIN_PLUGIN_ID
