@@ -1,7 +1,7 @@
 
 @InSpekt
 class TestDefaults(val a: Int = 1, val b: String = a.toString()) {
-    fun test(c: Int = 3, d: String = "$c-default"): String {
+    fun test(c: Int = 3, d: String = "fun-$c"): String {
         return "$a-$b-$c-$d"
     }
 }
@@ -17,7 +17,7 @@ fun box(): String {
         // all defaults
         }
     } as TestDefaults
-    assertEquals("1-1-3-3-default", instance1.test())
+    assertEquals("1-1-3-fun-3", instance1.test())
     
     val instance2 = assertSuccessful("constructor override a") {
         constructor.invoke {

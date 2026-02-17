@@ -14,6 +14,8 @@ public final class dev/rnett/spekt/ArgumentList : dev/rnett/spekt/internal/Argum
 }
 
 public final class dev/rnett/spekt/ArgumentList$Builder {
+	public fun <init> (Ldev/rnett/spekt/Parameters;)V
+	public final fun build ()Ldev/rnett/spekt/ArgumentList;
 	public final fun context ([Ljava/lang/Object;)V
 	public final fun getDispatchReceiver ()Ljava/lang/Object;
 	public final fun getExtensionReceiver ()Ljava/lang/Object;
@@ -111,6 +113,7 @@ public final class dev/rnett/spekt/Function : dev/rnett/spekt/Method {
 	public fun hashCode ()I
 	public fun invoke (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public final fun invokeSuspend (Ldev/rnett/spekt/ArgumentList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun invokeSuspend (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun isAbstract ()Z
 	public final fun isSuspend ()Z
 	public fun toString ()Ljava/lang/String;
@@ -304,6 +307,10 @@ public final class dev/rnett/spekt/Parameters : java/util/List, kotlin/jvm/inter
 	public fun toArray ()[Ljava/lang/Object;
 	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/rnett/spekt/ParamsAndArgsKt {
+	public static final fun ArgumentList (Ldev/rnett/spekt/Parameters;Lkotlin/jvm/functions/Function2;)Ldev/rnett/spekt/ArgumentList;
 }
 
 public abstract class dev/rnett/spekt/Property : dev/rnett/spekt/Callable {

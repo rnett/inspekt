@@ -109,6 +109,8 @@ final class dev.rnett.spekt/ArgumentList : dev.rnett.spekt.internal/ArgumentsPro
     final fun v1IsDefaulted(kotlin/Int): kotlin/Boolean // dev.rnett.spekt/ArgumentList.v1IsDefaulted|v1IsDefaulted(kotlin.Int){}[0]
 
     final class Builder { // dev.rnett.spekt/ArgumentList.Builder|null[0]
+        constructor <init>(dev.rnett.spekt/Parameters) // dev.rnett.spekt/ArgumentList.Builder.<init>|<init>(dev.rnett.spekt.Parameters){}[0]
+
         final var dispatchReceiver // dev.rnett.spekt/ArgumentList.Builder.dispatchReceiver|{}dispatchReceiver[0]
             final fun <get-dispatchReceiver>(): kotlin/Any? // dev.rnett.spekt/ArgumentList.Builder.dispatchReceiver.<get-dispatchReceiver>|<get-dispatchReceiver>(){}[0]
             final fun <set-dispatchReceiver>(kotlin/Any?) // dev.rnett.spekt/ArgumentList.Builder.dispatchReceiver.<set-dispatchReceiver>|<set-dispatchReceiver>(kotlin.Any?){}[0]
@@ -116,6 +118,7 @@ final class dev.rnett.spekt/ArgumentList : dev.rnett.spekt.internal/ArgumentsPro
             final fun <get-extensionReceiver>(): kotlin/Any? // dev.rnett.spekt/ArgumentList.Builder.extensionReceiver.<get-extensionReceiver>|<get-extensionReceiver>(){}[0]
             final fun <set-extensionReceiver>(kotlin/Any?) // dev.rnett.spekt/ArgumentList.Builder.extensionReceiver.<set-extensionReceiver>|<set-extensionReceiver>(kotlin.Any?){}[0]
 
+        final fun build(): dev.rnett.spekt/ArgumentList // dev.rnett.spekt/ArgumentList.Builder.build|build(){}[0]
         final fun context(kotlin/Array<out kotlin/Any?>...) // dev.rnett.spekt/ArgumentList.Builder.context|context(kotlin.Array<out|kotlin.Any?>...){}[0]
         final fun set(dev.rnett.spekt/Parameter, kotlin/Any?) // dev.rnett.spekt/ArgumentList.Builder.set|set(dev.rnett.spekt.Parameter;kotlin.Any?){}[0]
         final fun set(dev.rnett.spekt/Parameter.Kind, kotlin/Int, kotlin/Any?) // dev.rnett.spekt/ArgumentList.Builder.set|set(dev.rnett.spekt.Parameter.Kind;kotlin.Int;kotlin.Any?){}[0]
@@ -216,6 +219,7 @@ final class dev.rnett.spekt/Function : dev.rnett.spekt/Method { // dev.rnett.spe
     final fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Function.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
     final fun toString(): kotlin/String // dev.rnett.spekt/Function.toString|toString(){}[0]
     final suspend fun invokeSuspend(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Function.invokeSuspend|invokeSuspend(dev.rnett.spekt.ArgumentList){}[0]
+    final suspend inline fun invokeSuspend(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Function.invokeSuspend|invokeSuspend(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
 }
 
 final class dev.rnett.spekt/MutableProperty : dev.rnett.spekt/Property { // dev.rnett.spekt/MutableProperty|null[0]
@@ -338,7 +342,6 @@ final class dev.rnett.spekt/Parameters : kotlin.collections/List<dev.rnett.spekt
     final val value // dev.rnett.spekt/Parameters.value|{}value[0]
         final fun <get-value>(): kotlin.collections/List<dev.rnett.spekt/Parameter> // dev.rnett.spekt/Parameters.value.<get-value>|<get-value>(){}[0]
 
-    final fun buildArguments(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): dev.rnett.spekt/ArgumentList // dev.rnett.spekt/Parameters.buildArguments|buildArguments(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
     final fun contains(dev.rnett.spekt/Parameter): kotlin/Boolean // dev.rnett.spekt/Parameters.contains|contains(dev.rnett.spekt.Parameter){}[0]
     final fun containsAll(kotlin.collections/Collection<dev.rnett.spekt/Parameter>): kotlin/Boolean // dev.rnett.spekt/Parameters.containsAll|containsAll(kotlin.collections.Collection<dev.rnett.spekt.Parameter>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // dev.rnett.spekt/Parameters.equals|equals(kotlin.Any?){}[0]
@@ -355,6 +358,7 @@ final class dev.rnett.spekt/Parameters : kotlin.collections/List<dev.rnett.spekt
     final fun startOffset(dev.rnett.spekt/Parameter.Kind): kotlin/Int // dev.rnett.spekt/Parameters.startOffset|startOffset(dev.rnett.spekt.Parameter.Kind){}[0]
     final fun subList(kotlin/Int, kotlin/Int): kotlin.collections/List<dev.rnett.spekt/Parameter> // dev.rnett.spekt/Parameters.subList|subList(kotlin.Int;kotlin.Int){}[0]
     final fun toString(): kotlin/String // dev.rnett.spekt/Parameters.toString|toString(){}[0]
+    final inline fun buildArguments(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): dev.rnett.spekt/ArgumentList // dev.rnett.spekt/Parameters.buildArguments|buildArguments(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
 
     // Targets: [js]
     final fun asJsReadonlyArrayView(): kotlin.js.collections/JsReadonlyArray<dev.rnett.spekt/Parameter> // dev.rnett.spekt/Parameters.asJsReadonlyArrayView|asJsReadonlyArrayView(){}[0]
@@ -512,7 +516,7 @@ sealed class dev.rnett.spekt/Method : dev.rnett.spekt/Callable { // dev.rnett.sp
 
     abstract fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
     final fun (kotlin.text/StringBuilder).appendMethodSignature() // dev.rnett.spekt/Method.appendMethodSignature|appendMethodSignature@kotlin.text.StringBuilder(){}[0]
-    final fun invoke(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun invoke(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
 
     final enum class Kind : kotlin/Enum<dev.rnett.spekt/Method.Kind> { // dev.rnett.spekt/Method.Kind|null[0]
         enum entry CONSTRUCTOR // dev.rnett.spekt/Method.Kind.CONSTRUCTOR|null[0]
@@ -556,3 +560,5 @@ final object dev.rnett.spekt/SpecialNames { // dev.rnett.spekt/SpecialNames|null
     final fun getter(kotlin/String): kotlin/String // dev.rnett.spekt/SpecialNames.getter|getter(kotlin.String){}[0]
     final fun setter(kotlin/String): kotlin/String // dev.rnett.spekt/SpecialNames.setter|setter(kotlin.String){}[0]
 }
+
+final inline fun dev.rnett.spekt/ArgumentList(dev.rnett.spekt/Parameters, kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): dev.rnett.spekt/ArgumentList // dev.rnett.spekt/ArgumentList|ArgumentList(dev.rnett.spekt.Parameters;kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]

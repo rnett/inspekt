@@ -33,7 +33,7 @@ FILE: Suspend.kt
         lval test: R|auto/implementation/box/Test| = R|auto/implementation/box/Test.Test|()
         R|kotlinx/coroutines/test/runTest|(<L> = runTest@fun R|kotlinx/coroutines/test/TestScope|.<anonymous>(): R|kotlin/Unit| <inline=NoInline>  {
             R|kotlin/test/assertEquals|<R|kotlin/Any?|>(Int(5), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(suspend function invokeSuspend), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-                ^ R|<local>/suspendFun|.R|dev/rnett/spekt/Function.invokeSuspend|(<L> = invokeSuspend@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                ^ R|<local>/suspendFun|.R|dev/rnett/spekt/Function.invokeSuspend|(<L> = invokeSuspend@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
                     this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(Int(0), R|<local>/test|)
                     Unit
                 }

@@ -1,4 +1,4 @@
-FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
+FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
   CLASS CLASS name:TestDefaults modality:FINAL visibility:public superTypes:[kotlin.Any]
     annotations:
       InSpekt
@@ -188,7 +188,9 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
                               if: CALL 'public abstract fun v1IsDefaulted (globalIndex: kotlin.Int): kotlin.Boolean declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Boolean origin=null
                                 ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=2
-                              then: CONST String type=kotlin.String value="fun-default"
+                              then: STRING_CONCATENATION type=kotlin.String
+                                CONST String type=kotlin.String value="fun-"
+                                GET_VAR 'var tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.SpektImpl.<init>.<anonymous>' type=kotlin.Int origin=null
                             BRANCH
                               if: CONST Boolean type=kotlin.Boolean value=true
                               then: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
@@ -499,7 +501,8 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
                               if: CALL 'public abstract fun v1IsDefaulted (globalIndex: kotlin.Int): kotlin.Boolean declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Boolean origin=null
                                 ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=1
-                              then: CONST String type=kotlin.String value="default"
+                              then: CALL 'public open fun toString (): kotlin.String declared in kotlin.Int' type=kotlin.String origin=null
+                                ARG <this>: GET_VAR 'var tmp_3: kotlin.Int declared in auto.implementation.box.TestDefaults.SpektImpl.<init>.<anonymous>' type=kotlin.Int origin=null
                             BRANCH
                               if: CONST Boolean type=kotlin.Boolean value=true
                               then: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
@@ -526,7 +529,8 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
           CONST Int type=kotlin.Int value=1
       VALUE_PARAMETER kind:Regular name:b index:1 type:kotlin.String
         EXPRESSION_BODY
-          CONST String type=kotlin.String value="default"
+          CALL 'public open fun toString (): kotlin.String declared in kotlin.Int' type=kotlin.String origin=null
+            ARG <this>: GET_VAR 'a: kotlin.Int declared in auto.implementation.box.TestDefaults.<init>' type=kotlin.Int origin=null
       BLOCK_BODY
         DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
         INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:TestDefaults modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
@@ -550,7 +554,9 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
           CONST Int type=kotlin.Int value=3
       VALUE_PARAMETER kind:Regular name:d index:2 type:kotlin.String
         EXPRESSION_BODY
-          CONST String type=kotlin.String value="fun-default"
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="fun-"
+            GET_VAR 'c: kotlin.Int declared in auto.implementation.box.TestDefaults.test' type=kotlin.Int origin=null
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults'
           STRING_CONCATENATION type=kotlin.String
@@ -593,7 +599,7 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
                               GET_OBJECT 'CLASS IR_EXTERNAL_DECLARATION_STUB OBJECT name:Unit modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
-        ARG expected: CONST String type=kotlin.String value="1-default-3-fun-default"
+        ARG expected: CONST String type=kotlin.String value="1-1-3-fun-3"
         ARG actual: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
           ARG <this>: GET_VAR 'val instance1: auto.implementation.box.TestDefaults declared in auto.implementation.box.box' type=auto.implementation.box.TestDefaults origin=null
       VAR name:instance2 type:auto.implementation.box.TestDefaults [val]
@@ -618,7 +624,7 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
                               ARG value: CONST Int type=kotlin.Int value=10
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
-        ARG expected: CONST String type=kotlin.String value="10-default-3-fun-default"
+        ARG expected: CONST String type=kotlin.String value="10-10-3-fun-3"
         ARG actual: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
           ARG <this>: GET_VAR 'val instance2: auto.implementation.box.TestDefaults declared in auto.implementation.box.box' type=auto.implementation.box.TestDefaults origin=null
       VAR name:instance3 type:auto.implementation.box.TestDefaults [val]
@@ -647,7 +653,7 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
                               ARG value: CONST String type=kotlin.String value="provided"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
-        ARG expected: CONST String type=kotlin.String value="20-provided-3-fun-default"
+        ARG expected: CONST String type=kotlin.String value="20-provided-3-fun-3"
         ARG actual: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
           ARG <this>: GET_VAR 'val instance3: auto.implementation.box.TestDefaults declared in auto.implementation.box.box' type=auto.implementation.box.TestDefaults origin=null
       VAR name:testMethod type:dev.rnett.spekt.Function [val]
@@ -667,7 +673,7 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
                     ARG arg1: CONST String type=kotlin.String value="test"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Any?
-        ARG expected: CONST String type=kotlin.String value="20-provided-3-fun-default"
+        ARG expected: CONST String type=kotlin.String value="20-provided-3-fun-3"
         ARG actual: CALL 'public final fun assertSuccessful <T> (message: kotlin.String, block: kotlin.Function0<T of dev.rnett.spekt.assertSuccessful>): T of dev.rnett.spekt.assertSuccessful declared in dev.rnett.spekt' type=kotlin.Any? origin=null
           TYPE_ARG T: kotlin.Any?
           ARG message: CONST String type=kotlin.String value="method defaults with only dispatch receiver"
@@ -687,7 +693,7 @@ FILE fqName:auto.implementation.box fileName:/DefaultArgs.kt
                             ARG value: GET_VAR 'val instance3: auto.implementation.box.TestDefaults declared in auto.implementation.box.box' type=auto.implementation.box.TestDefaults origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Any?
-        ARG expected: CONST String type=kotlin.String value="20-provided-100-fun-default"
+        ARG expected: CONST String type=kotlin.String value="20-provided-100-fun-100"
         ARG actual: CALL 'public final fun assertSuccessful <T> (message: kotlin.String, block: kotlin.Function0<T of dev.rnett.spekt.assertSuccessful>): T of dev.rnett.spekt.assertSuccessful declared in dev.rnett.spekt' type=kotlin.Any? origin=null
           TYPE_ARG T: kotlin.Any?
           ARG message: CONST String type=kotlin.String value="method override c"

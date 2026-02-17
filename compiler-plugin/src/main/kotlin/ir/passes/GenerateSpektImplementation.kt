@@ -8,6 +8,7 @@ import dev.rnett.spekt.DeclarationKeys
 import dev.rnett.spekt.GeneratedNames
 import dev.rnett.spekt.Names
 import dev.rnett.spekt.Symbols
+import dev.rnett.spekt.ir.deepCopyAndRemapSymbols
 import dev.rnett.spekt.toIrOrigin
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import dev.rnett.symbolexport.symbol.compiler.asClassId
@@ -37,7 +38,9 @@ import org.jetbrains.kotlin.ir.builders.irInt
 import org.jetbrains.kotlin.ir.builders.irIs
 import org.jetbrains.kotlin.ir.builders.irNull
 import org.jetbrains.kotlin.ir.builders.irReturn
+import org.jetbrains.kotlin.ir.builders.irSet
 import org.jetbrains.kotlin.ir.builders.irString
+import org.jetbrains.kotlin.ir.builders.irTemporary
 import org.jetbrains.kotlin.ir.builders.irVararg
 import org.jetbrains.kotlin.ir.builders.parent
 import org.jetbrains.kotlin.ir.declarations.IrAnnotationContainer
@@ -48,6 +51,7 @@ import org.jetbrains.kotlin.ir.declarations.IrParameterKind
 import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
+import org.jetbrains.kotlin.ir.declarations.IrVariable
 import org.jetbrains.kotlin.ir.expressions.IrExpression
 import org.jetbrains.kotlin.ir.expressions.IrGetValue
 import org.jetbrains.kotlin.ir.expressions.IrTypeOperator
@@ -57,11 +61,13 @@ import org.jetbrains.kotlin.ir.expressions.impl.IrInstanceInitializerCallImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrPropertyReferenceImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrTypeOperatorCallImpl
 import org.jetbrains.kotlin.ir.symbols.IrValueParameterSymbol
+import org.jetbrains.kotlin.ir.symbols.IrValueSymbol
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.types.makeNullable
 import org.jetbrains.kotlin.ir.types.typeWith
+import org.jetbrains.kotlin.ir.util.DeepCopySymbolRemapper
 import org.jetbrains.kotlin.ir.util.addChild
 import org.jetbrains.kotlin.ir.util.addSimpleDelegatingConstructor
 import org.jetbrains.kotlin.ir.util.classIdOrFail
@@ -284,37 +290,59 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
 
             body = withBuilder {
 
-                fun getParamValue(index: Int, param: IrValueParameter): IrExpression {
-                    val getParamCall = irAs(
-                        irCall(getParam).apply {
-                            arguments[0] = irGet(argsParam)
-                            arguments[1] = irInt(index)
-                        },
-                        param.type
-                    )
+                fun callGetParam(param: IrValueParameter) = irAs(
+                    irCall(getParam).apply {
+                        arguments[0] = irGet(argsParam)
+                        arguments[1] = irInt(param.indexInParameters)
+                    },
+                    param.type
+                )
 
-                    //TODO remap symbols so references to other parms work
-                    val defaultArg = param.defaultValue?.expression?.deepCopyWithSymbols(parent)
+                fun getParamValue(param: IrValueParameter, paramVars: Map<IrValueParameterSymbol, IrVariable>): IrExpression {
+                    val defaultArg = param.defaultValue?.expression?.deepCopyAndRemapSymbols(parent, object : DeepCopySymbolRemapper() {
+                        override fun getReferencedValueParameter(symbol: IrValueParameterSymbol): IrValueSymbol {
+                            return paramVars[symbol]?.symbol ?: symbol
+                        }
+                    })
+
                     return if (defaultArg == null)
-                        getParamCall
+                        callGetParam(param)
                     else
                         irIfThenElse(
                             param.type,
                             irCall(isDefaulted).apply {
                                 arguments[0] = irGet(argsParam)
-                                arguments[1] = irInt(index)
+                                arguments[1] = irInt(param.indexInParameters)
                             },
                             defaultArg,
-                            getParamCall
+                            callGetParam(param)
                         )
                 }
 
                 irBlockBody {
-                    +irReturn(irCall(function).apply {
-                        function.parameters.forEachIndexed { index, param ->
-                            arguments[index] = getParamValue(index, param)
+
+                    if (function.parameters.any { it.defaultValue != null }) {
+                        val paramVars = function.parameters.associate {
+                            it.symbol to irTemporary(null, it.name.asString() + "_" + it.indexInParameters, it.type, true)
                         }
-                    })
+
+                        function.parameters.forEach { param ->
+                            val tempVar = paramVars[param.symbol]
+                            +irSet(tempVar!!, getParamValue(param, paramVars))
+                        }
+
+                        +irReturn(irCall(function).apply {
+                            function.parameters.forEach { param ->
+                                arguments[param.indexInParameters] = irGet(paramVars[param.symbol]!!)
+                            }
+                        })
+                    } else {
+                        +irReturn(irCall(function).apply {
+                            function.parameters.forEach { param ->
+                                arguments[param.indexInParameters] = callGetParam(param)
+                            }
+                        })
+                    }
                 }
             }
         }

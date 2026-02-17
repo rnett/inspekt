@@ -29,7 +29,7 @@ public data class Parameters internal constructor(private val parameters: List<P
         append(")")
     }
 
-    public fun buildArguments(builder: ArgumentsBuilder): ArgumentList {
+    public inline fun buildArguments(builder: ArgumentsBuilder): ArgumentList {
         contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
         return ArgumentList(this, builder)
     }
@@ -107,7 +107,7 @@ public data class ArgumentList internal constructor(private val parameters: Para
         }
     }
 
-    public class Builder internal constructor(private val parameters: Parameters) {
+    public class Builder @PublishedApi internal constructor(private val parameters: Parameters) {
         private val args = mutableMapOf<Int, Any?>()
 
         public var dispatchReceiver: Any?
@@ -155,11 +155,12 @@ public data class ArgumentList internal constructor(private val parameters: Para
             }
         }
 
+        @PublishedApi
         internal fun build(): ArgumentList = ArgumentList(parameters, args.toMap())
     }
 }
 
-internal fun ArgumentList(parameters: Parameters, builder: ArgumentsBuilder): ArgumentList {
+public inline fun ArgumentList(parameters: Parameters, builder: ArgumentsBuilder): ArgumentList {
     contract {
         callsInPlace(builder, InvocationKind.EXACTLY_ONCE)
     }

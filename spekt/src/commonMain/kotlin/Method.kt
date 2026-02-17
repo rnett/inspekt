@@ -1,5 +1,7 @@
 package dev.rnett.spekt
 
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 import kotlin.reflect.KType
@@ -18,7 +20,11 @@ public sealed class Method : Callable() {
 
     public abstract val kind: Kind
 
-    public operator fun invoke(arguments: ArgumentsBuilder): Any? = invoke(parameters.buildArguments(arguments).also { println("Args: $it") })
+    public inline operator fun invoke(arguments: ArgumentsBuilder): Any? {
+        contract { callsInPlace(arguments, InvocationKind.EXACTLY_ONCE) }
+        return invoke(parameters.buildArguments(arguments).also { println("Args: $it") })
+    }
+
     public abstract operator fun invoke(arguments: ArgumentList): Any?
 
     public abstract val returnType: KType
@@ -93,7 +99,10 @@ public data class Function internal constructor(
         return invoker?.invoke(arguments)
     }
 
-    public suspend fun invokeSuspend(arguments: ArgumentsBuilder): Any? = invokeSuspend(parameters.buildArguments(arguments))
+    public suspend inline fun invokeSuspend(arguments: ArgumentsBuilder): Any? {
+        contract { callsInPlace(arguments, InvocationKind.EXACTLY_ONCE) }
+        return invokeSuspend(parameters.buildArguments(arguments))
+    }
 
     public suspend fun invokeSuspend(arguments: ArgumentList): Any? {
         if (isSuspend)
