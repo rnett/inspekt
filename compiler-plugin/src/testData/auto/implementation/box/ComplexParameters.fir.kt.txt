@@ -1,0 +1,115 @@
+package auto.implementation.box
+
+@InSpekt
+class Complex {
+  companion object Companion {
+    private constructor() /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    fun spekt(): Spekt<Complex> {
+      return SpektImpl().toSpekt()
+    }
+
+  }
+
+  private class SpektImpl : SpektImplementationV1<Complex> {
+    private data object CasterImpl : Caster<Complex> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImpl {
+        return value as Complex
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is Complex
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImpl? {
+        return value as? Complex
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = Complex::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Complex"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "extension", isAbstract = false, kotlin = Complex::extension, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Complex>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 2), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 2, indexInKind = 0, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Complex.extension(/* <this> = args.v1Get(globalIndex = 1) as String, */ other = args.v1Get(globalIndex = 2) as Int)
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "multi", isAbstract = false, kotlin = Complex::multi, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Complex>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "a", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "b", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Double>(), globalIndex = 3, indexInKind = 2, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Complex.multi(a = args.v1Get(globalIndex = 1) as Int, b = args.v1Get(globalIndex = 2) as String, c = args.v1Get(globalIndex = 3) as Double)
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "equals", isAbstract = false, kotlin = Complex::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = Complex::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "toString", isAbstract = false, kotlin = Complex::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Complex, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Complex>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return Complex()
+      }
+, suspendInvoker = null, inheritedFrom = null)]))
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<Complex> {
+      return CasterImpl
+    }
+
+  }
+
+  constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  fun String.extension(other: Int): String {
+    return <this> + "-" + other
+  }
+
+  fun multi(a: Int, b: String, c: Double): String {
+    return a + "-" + b + "-" + c
+  }
+
+}
+
+fun box(): String {
+  val spekt: Spekt<Complex> = Companion.spekt()
+  val instance: Complex = Complex()
+  val fExtension: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "extension")
+  }
+)
+  assertEquals<Any?>(expected = "test-123", actual = assertSuccessful<Any?>(message = "extension function invoke", block = local fun <anonymous>(): Any? {
+    return fExtension.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance)
+      $this$invoke.<set-extensionReceiver>(value = "test")
+      $this$invoke.value(values = [123])
+    }
+)
+  }
+))
+  val fMulti: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "multi")
+  }
+)
+  assertEquals<Any?>(expected = "1-two-3.0", actual = assertSuccessful<Any?>(message = "multi parameter function invoke", block = local fun <anonymous>(): Any? {
+    return fMulti.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance)
+      $this$invoke.value(values = [1, "two", 3.0])
+    }
+)
+  }
+))
+  return "OK"
+}

@@ -1,0 +1,309 @@
+package auto.implementation.box
+
+@InSpekt
+abstract class Base {
+  open val openProp: String
+    field = "base_open"
+    open get
+
+  val baseProp: String
+    field = "base"
+    get
+
+  companion object Companion {
+    private constructor() /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    fun spekt(): Spekt<Base> {
+      return SpektImpl().toSpekt()
+    }
+
+  }
+
+  private class SpektImpl : SpektImplementationV1<Base> {
+    private data object CasterImpl : Caster<Base> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImpl {
+        return value as Base
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is Base
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImpl? {
+        return value as? Base
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = Base::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Base"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "abstractFun", isAbstract = true, kotlin = Base::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.abstractFun()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "openFun", isAbstract = false, kotlin = Base::openFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.openFun()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "baseFun", isAbstract = false, kotlin = Base::baseFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.baseFun()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "equals", isAbstract = false, kotlin = Base::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = Base::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "toString", isAbstract = false, kotlin = Base::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = [Property(name = "abstractProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = false, isAbstract = true, hasDelegate = false, type = typeOf<String>(), kotlin = Base::abstractProp, getter = Function(name = "<get-abstractProp>", isAbstract = true, kotlin = Base::<get-abstractProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.<get-abstractProp>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(name = "openProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Base::openProp, getter = Function(name = "<get-openProp>", isAbstract = false, kotlin = Base::<get-openProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.<get-openProp>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(name = "baseProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Base::baseProp, getter = Function(name = "<get-baseProp>", isAbstract = false, kotlin = Base::<get-baseProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.<get-baseProp>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Base, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Base>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return Base()
+      }
+, suspendInvoker = null, inheritedFrom = null)]))
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<Base> {
+      return CasterImpl
+    }
+
+  }
+
+  constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  abstract fun abstractFun(): String
+
+  fun baseFun(): String {
+    return "base_fun"
+  }
+
+  open fun openFun(): String {
+    return "base_open_fun"
+  }
+
+  abstract val abstractProp: String
+    abstract get
+
+}
+
+@InSpekt
+class Derived : Base {
+  override val abstractProp: String
+    field = "derived_abstract"
+    override get
+
+  override val openProp: String
+    field = "derived_open"
+    override get
+
+  companion object Companion {
+    private constructor() /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    fun spekt(): Spekt<Derived> {
+      return SpektImpl().toSpekt()
+    }
+
+  }
+
+  private class SpektImpl : SpektImplementationV1<Derived> {
+    private data object CasterImpl : Caster<Derived> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImpl {
+        return value as Derived
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is Derived
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImpl? {
+        return value as? Derived
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = Derived::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), supertypes = arrayOf<KType>(elements = [typeOf<Base>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "abstractFun", isAbstract = false, kotlin = Derived::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Derived.abstractFun()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "openFun", isAbstract = false, kotlin = Derived::openFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Derived.openFun()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "derivedFun", isAbstract = false, kotlin = Derived::derivedFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Derived.derivedFun()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "baseFun", isAbstract = false, kotlin = Derived::baseFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.baseFun()
+      }
+, suspendInvoker = null, inheritedFrom = Base::class), Function(name = "equals", isAbstract = false, kotlin = Derived::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = Derived::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "toString", isAbstract = false, kotlin = Derived::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = [Property(name = "abstractProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Derived::abstractProp, getter = Function(name = "<get-abstractProp>", isAbstract = false, kotlin = Derived::<get-abstractProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Derived.<get-abstractProp>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(name = "openProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Derived::openProp, getter = Function(name = "<get-openProp>", isAbstract = false, kotlin = Derived::<get-openProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Derived.<get-openProp>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(name = "baseProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = false, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Derived::baseProp, getter = Function(name = "<get-baseProp>", isAbstract = false, kotlin = Derived::<get-baseProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Base.<get-baseProp>()
+      }
+, suspendInvoker = null, inheritedFrom = Base::class), setter = null, inheritedFrom = Base::class)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Derived, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Derived>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return Derived()
+      }
+, suspendInvoker = null, inheritedFrom = null)]))
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<Derived> {
+      return CasterImpl
+    }
+
+  }
+
+  constructor() /* primary */ {
+    super/*Base*/()
+    /* <init>() */
+
+  }
+
+  override fun abstractFun(): String {
+    return "derived_abstract_fun"
+  }
+
+  fun derivedFun(): String {
+    return "derived_fun"
+  }
+
+  override fun openFun(): String {
+    return "derived_open_fun"
+  }
+
+}
+
+fun box(): String {
+  val spekt: Spekt<Derived> = Companion.spekt()
+  val instance: Derived = Derived()
+  val pAbstract: Property = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "abstractProp")
+  }
+)
+  assertEquals<Any?>(expected = "derived_abstract", actual = assertSuccessful<Any?>(message = "abstractProp get", block = local fun <anonymous>(): Any? {
+    return pAbstract.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertEquals<KClass<*>?>(expected = null, actual = pAbstract.<get-inheritedFrom>())
+  val pOpen: Property = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "openProp")
+  }
+)
+  assertEquals<Any?>(expected = "derived_open", actual = assertSuccessful<Any?>(message = "openProp get", block = local fun <anonymous>(): Any? {
+    return pOpen.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertEquals<KClass<*>?>(expected = null, actual = pOpen.<get-inheritedFrom>())
+  val pBase: Property = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "baseProp")
+  }
+)
+  assertEquals<Any?>(expected = "base", actual = assertSuccessful<Any?>(message = "baseProp get", block = local fun <anonymous>(): Any? {
+    return pBase.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertEquals<KClass<out Any>?>(expected = Base::class, actual = pBase.<get-inheritedFrom>())
+  val fAbstract: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "abstractFun")
+  }
+)
+  assertEquals<Any?>(expected = "derived_abstract_fun", actual = assertSuccessful<Any?>(message = "abstractFun invoke", block = local fun <anonymous>(): Any? {
+    return fAbstract.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertEquals<KClass<*>?>(expected = null, actual = fAbstract.<get-inheritedFrom>())
+  val fOpen: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "openFun")
+  }
+)
+  assertEquals<Any?>(expected = "derived_open_fun", actual = assertSuccessful<Any?>(message = "openFun invoke", block = local fun <anonymous>(): Any? {
+    return fOpen.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertEquals<KClass<*>?>(expected = null, actual = fOpen.<get-inheritedFrom>())
+  val fBase: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "baseFun")
+  }
+)
+  assertEquals<Any?>(expected = "base_fun", actual = assertSuccessful<Any?>(message = "baseFun invoke", block = local fun <anonymous>(): Any? {
+    return fBase.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertEquals<KClass<out Any>?>(expected = Base::class, actual = fBase.<get-inheritedFrom>())
+  val fDerived: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "derivedFun")
+  }
+)
+  assertEquals<Any?>(expected = "derived_fun", actual = assertSuccessful<Any?>(message = "derivedFun invoke", block = local fun <anonymous>(): Any? {
+    return fDerived.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertEquals<KClass<*>?>(expected = null, actual = fDerived.<get-inheritedFrom>())
+  return "OK"
+}

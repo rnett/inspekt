@@ -5,6 +5,8 @@ import dev.rnett.kcp.development.testing.generation.BaseTestGenerator
 object TestGenerator : BaseTestGenerator() {
     override val imports: Set<String> = setOf(
         "kotlin.test.*",
-        "dev.rnett.spekt.*"
+        "dev.rnett.spekt.*",
+        "kotlinx.coroutines.*",
+        "kotlinx.coroutines.test.*"
     )
 }

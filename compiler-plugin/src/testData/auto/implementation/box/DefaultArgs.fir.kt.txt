@@ -1,0 +1,162 @@
+package auto.implementation.box
+
+@InSpekt
+class TestDefaults {
+  val a: Int
+    field = a
+    get
+
+  val b: String
+    field = b
+    get
+
+  companion object Companion {
+    private constructor() /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    fun spekt(): Spekt<TestDefaults> {
+      return SpektImpl().toSpekt()
+    }
+
+  }
+
+  private class SpektImpl : SpektImplementationV1<TestDefaults> {
+    private data object CasterImpl : Caster<TestDefaults> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImpl {
+        return value as TestDefaults
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is TestDefaults
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImpl? {
+        return value as? TestDefaults
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = TestDefaults::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "test", isAbstract = false, kotlin = TestDefaults::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestDefaults.test(c = when {
+          args.v1IsDefaulted(globalIndex = 1) -> 3
+          else -> args.v1Get(globalIndex = 1) as Int
+        }, d = when {
+          args.v1IsDefaulted(globalIndex = 2) -> "fun-default"
+          else -> args.v1Get(globalIndex = 2) as String
+        })
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "equals", isAbstract = false, kotlin = TestDefaults::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = TestDefaults::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "toString", isAbstract = false, kotlin = TestDefaults::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = [Property(name = "a", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = true, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<Int>(), kotlin = TestDefaults::a, getter = Function(name = "<get-a>", isAbstract = false, kotlin = TestDefaults::<get-a>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestDefaults.<get-a>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(name = "b", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = true, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestDefaults::b, getter = Function(name = "<get-b>", isAbstract = false, kotlin = TestDefaults::<get-b>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestDefaults.<get-b>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::TestDefaults, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "a", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 0, indexInKind = 0, kind = 3), Param(name = "b", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 1, indexInKind = 1, kind = 3)]), returnType = typeOf<TestDefaults>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return TestDefaults(a = when {
+          args.v1IsDefaulted(globalIndex = 0) -> 1
+          else -> args.v1Get(globalIndex = 0) as Int
+        }, b = when {
+          args.v1IsDefaulted(globalIndex = 1) -> "default"
+          else -> args.v1Get(globalIndex = 1) as String
+        })
+      }
+, suspendInvoker = null, inheritedFrom = null)]))
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<TestDefaults> {
+      return CasterImpl
+    }
+
+  }
+
+  constructor(a: Int = 1, b: String = "default") /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  fun test(c: Int = 3, d: String = "fun-default"): String {
+    return <this>.<get-a>() + "-" + <this>.<get-b>() + "-" + c + "-" + d
+  }
+
+}
+
+fun box(): String {
+  val spekt: Spekt<TestDefaults> = Companion.spekt()
+  val constructor: Constructor = CHECK_NOT_NULL<Constructor>(arg0 = spekt.<get-primaryConstructor>())
+  val instance1: TestDefaults = assertSuccessful<Any?>(message = "constructor all defaults", block = local fun <anonymous>(): Any? {
+    return constructor.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      return Unit
+    }
+)
+  }
+) as TestDefaults
+  assertEquals<String>(expected = "1-default-3-fun-default", actual = instance1.test())
+  val instance2: TestDefaults = assertSuccessful<Any?>(message = "constructor override a", block = local fun <anonymous>(): Any? {
+    return constructor.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.set(name = "a", value = 10)
+    }
+)
+  }
+) as TestDefaults
+  assertEquals<String>(expected = "10-default-3-fun-default", actual = instance2.test())
+  val instance3: TestDefaults = assertSuccessful<Any?>(message = "constructor override a & b", block = local fun <anonymous>(): Any? {
+    return constructor.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.set(name = "a", value = 20)
+      $this$invoke.set(name = "b", value = "provided")
+    }
+)
+  }
+) as TestDefaults
+  assertEquals<String>(expected = "20-provided-3-fun-default", actual = instance3.test())
+  val testMethod: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "test")
+  }
+)
+  assertEquals<Any?>(expected = "20-provided-3-fun-default", actual = assertSuccessful<Any?>(message = "method defaults with only dispatch receiver", block = local fun <anonymous>(): Any? {
+    return testMethod.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance3)
+    }
+)
+  }
+))
+  assertEquals<Any?>(expected = "20-provided-100-fun-default", actual = assertSuccessful<Any?>(message = "method override c", block = local fun <anonymous>(): Any? {
+    return testMethod.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance3)
+      $this$invoke.set(name = "c", value = 100)
+    }
+)
+  }
+))
+  assertEquals<Any?>(expected = "20-provided-100-manual", actual = assertSuccessful<Any?>(message = "method override c & d", block = local fun <anonymous>(): Any? {
+    return testMethod.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.<set-dispatchReceiver>(value = instance3)
+      $this$invoke.set(name = "c", value = 100)
+      $this$invoke.set(name = "d", value = "manual")
+    }
+)
+  }
+))
+  return "OK"
+}

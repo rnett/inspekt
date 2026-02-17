@@ -13,7 +13,7 @@ compilerPluginDevelopment {
 
 dependencies {
     implementation(libs.symbols.kotlin.compiler)
-    compilerTestRuntimeClasspath(project(":spekt"))
+    compilerTestRuntimeClasspath(project(":test-helpers"))
 
     importSymbols(project(":spekt"))
 }

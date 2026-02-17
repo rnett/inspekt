@@ -28,5 +28,6 @@ gradle.beforeProject {
 include(
     "spekt",
     "compiler-plugin",
-    "gradle-plugin"
+    "gradle-plugin",
+    "test-helpers"
 )

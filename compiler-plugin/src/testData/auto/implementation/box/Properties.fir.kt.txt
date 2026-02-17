@@ -1,0 +1,207 @@
+package auto.implementation.box
+
+@InSpekt
+class TestProperties {
+  val readOnly: String
+    field = "fixed"
+    get
+
+  var mutable: String
+    field = "initial"
+    get
+    set
+
+  var withSetter: String
+    field = "initial"
+    get
+    set(value: String) {
+      <this>.#withSetter = value.plus(other = "_set")
+    }
+
+  val delegated: String /* by */
+    field = lazy<String>(initializer = local fun <anonymous>(): String {
+      return "lazy_value"
+    }
+)
+    get(): String {
+      return getValue<String>(/* <this> = <this>.#delegated$delegate, */ thisRef = <this>, property = TestProperties::delegated)
+    }
+
+  companion object Companion {
+    private constructor() /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    fun spekt(): Spekt<TestProperties> {
+      return SpektImpl().toSpekt()
+    }
+
+  }
+
+  private class SpektImpl : SpektImplementationV1<TestProperties> {
+    private data object CasterImpl : Caster<TestProperties> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImpl {
+        return value as TestProperties
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is TestProperties
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImpl? {
+        return value as? TestProperties
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = TestProperties::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "equals", isAbstract = false, kotlin = TestProperties::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = TestProperties::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "toString", isAbstract = false, kotlin = TestProperties::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = [Property(name = "readOnly", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::readOnly, getter = Function(name = "<get-readOnly>", isAbstract = false, kotlin = TestProperties::<get-readOnly>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestProperties.<get-readOnly>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(name = "mutable", annotations = arrayOf<Annotation>(elements = []), isMutable = true, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::mutable, getter = Function(name = "<get-mutable>", isAbstract = false, kotlin = TestProperties::<get-mutable>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestProperties.<get-mutable>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = Function(name = "<set-mutable>", isAbstract = false, kotlin = TestProperties::<set-mutable>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "<set-?>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestProperties.<set-mutable>(<set-?> = args.v1Get(globalIndex = 1) as String)
+      }
+, suspendInvoker = null, inheritedFrom = null), inheritedFrom = null), Property(name = "withGetter", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = false, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::withGetter, getter = Function(name = "<get-withGetter>", isAbstract = false, kotlin = TestProperties::<get-withGetter>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestProperties.<get-withGetter>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(name = "withSetter", annotations = arrayOf<Annotation>(elements = []), isMutable = true, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::withSetter, getter = Function(name = "<get-withSetter>", isAbstract = false, kotlin = TestProperties::<get-withSetter>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestProperties.<get-withSetter>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = Function(name = "<set-withSetter>", isAbstract = false, kotlin = TestProperties::<set-withSetter>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "value", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestProperties.<set-withSetter>(value = args.v1Get(globalIndex = 1) as String)
+      }
+, suspendInvoker = null, inheritedFrom = null), inheritedFrom = null), Property(name = "delegated", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = true, type = typeOf<String>(), kotlin = TestProperties::delegated, getter = Function(name = "<get-delegated>", isAbstract = false, kotlin = TestProperties::<get-delegated>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as TestProperties.<get-delegated>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::TestProperties, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<TestProperties>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return TestProperties()
+      }
+, suspendInvoker = null, inheritedFrom = null)]))
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<TestProperties> {
+      return CasterImpl
+    }
+
+  }
+
+  constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  val withGetter: String
+    get(): String {
+      return <this>.<get-mutable>().plus(other = "_got")
+    }
+
+}
+
+fun box(): String {
+  val spekt: Spekt<TestProperties> = Companion.spekt()
+  val instance: TestProperties = TestProperties()
+  val pReadOnly: ReadOnlyProperty = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "readOnly")
+  }
+) as ReadOnlyProperty
+  assertEquals<Any?>(expected = "fixed", actual = assertSuccessful<Any?>(message = "readOnly get", block = local fun <anonymous>(): Any? {
+    return pReadOnly.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  val pMutable: MutableProperty = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "mutable")
+  }
+) as MutableProperty
+  assertEquals<Any?>(expected = "initial", actual = assertSuccessful<Any?>(message = "mutable get", block = local fun <anonymous>(): Any? {
+    return pMutable.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  assertSuccessful<Any?>(message = "mutable set", block = local fun <anonymous>(): Any? {
+    return pMutable.set(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$set.<set-dispatchReceiver>(value = instance)
+      $this$set.value(values = ["changed"])
+    }
+)
+  }
+) /*~> Unit */
+  assertEquals<String>(expected = "changed", actual = instance.<get-mutable>())
+  assertEquals<Any?>(expected = "changed", actual = assertSuccessful<Any?>(message = "mutable get after set", block = local fun <anonymous>(): Any? {
+    return pMutable.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  val pWithGetter: ReadOnlyProperty = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "withGetter")
+  }
+) as ReadOnlyProperty
+  assertEquals<Any?>(expected = "changed_got", actual = assertSuccessful<Any?>(message = "withGetter get", block = local fun <anonymous>(): Any? {
+    return pWithGetter.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  val pWithSetter: MutableProperty = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "withSetter")
+  }
+) as MutableProperty
+  assertSuccessful<Any?>(message = "withSetter set", block = local fun <anonymous>(): Any? {
+    return pWithSetter.set(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$set.<set-dispatchReceiver>(value = instance)
+      $this$set.value(values = ["new"])
+    }
+)
+  }
+) /*~> Unit */
+  assertEquals<String>(expected = "new_set", actual = instance.<get-withSetter>())
+  assertEquals<Any?>(expected = "new_set", actual = assertSuccessful<Any?>(message = "withSetter get", block = local fun <anonymous>(): Any? {
+    return pWithSetter.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  val pDelegated: ReadOnlyProperty = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "delegated")
+  }
+) as ReadOnlyProperty
+  assertEquals<Any?>(expected = "lazy_value", actual = assertSuccessful<Any?>(message = "delegated get", block = local fun <anonymous>(): Any? {
+    return pDelegated.get(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$get.<set-dispatchReceiver>(value = instance)
+    }
+)
+  }
+))
+  return "OK"
+}

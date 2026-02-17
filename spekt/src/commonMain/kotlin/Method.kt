@@ -18,7 +18,7 @@ public sealed class Method : Callable() {
 
     public abstract val kind: Kind
 
-    public operator fun invoke(arguments: ArgumentsBuilder): Any? = invoke(parameters.buildArguments(arguments))
+    public operator fun invoke(arguments: ArgumentsBuilder): Any? = invoke(parameters.buildArguments(arguments).also { println("Args: $it") })
     public abstract operator fun invoke(arguments: ArgumentList): Any?
 
     public abstract val returnType: KType
@@ -52,7 +52,7 @@ public data class Constructor internal constructor(
 ) : Method() {
     override val inheritedFrom: KClass<*>? = null
     public val forClass: Spekt<*> by forClassRef
-    override val kind: Method.Kind get() = Method.Kind.CONSTRUCTOR
+    override val kind: Kind get() = Kind.CONSTRUCTOR
 
     override operator fun invoke(arguments: ArgumentList): Any? = invoker(arguments)
 
@@ -92,6 +92,8 @@ public data class Function internal constructor(
         if (isSuspend) throw IllegalArgumentException("Can only invoke suspend function via invokeSuspend")
         return invoker?.invoke(arguments)
     }
+
+    public suspend fun invokeSuspend(arguments: ArgumentsBuilder): Any? = invokeSuspend(parameters.buildArguments(arguments))
 
     public suspend fun invokeSuspend(arguments: ArgumentList): Any? {
         if (isSuspend)

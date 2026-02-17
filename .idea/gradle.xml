@@ -24,6 +24,7 @@
             <option value="$PROJECT_DIR$/compiler-plugin" />
             <option value="$PROJECT_DIR$/gradle-plugin" />
             <option value="$PROJECT_DIR$/spekt" />
+            <option value="$PROJECT_DIR$/test-helpers" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -73,17 +73,21 @@ public data class Parameter internal constructor(
     }
 
     public fun checkValue(value: Any?) {
-        if (!possiblyAcceptsValue(value)) {
-            if (value == null)
-                throw IllegalArgumentException("Argument for parameter $this was null, but the parameter is not nullable")
-            else
-                throw IllegalArgumentException("Argument for parameter $this was not an instance of $type")
+        if (value == null && !type.isMarkedNullable)
+            throw IllegalArgumentException("Argument for parameter $this was null, but the parameter is not nullable")
+
+        if (value != null) {
+            val kClass = type.classifier as? KClass<*>
+            if (kClass != null) {
+                if (!kClass.isInstance(value))
+                    throw IllegalArgumentException("Argument for parameter $this was not an instance of $type")
+            }
         }
     }
 }
 
 public data class ArgumentList internal constructor(private val parameters: Parameters, private val arguments: Map<Int, Any?>) : ArgumentsProviderV1 {
-    public fun isDefaulted(globalIndex: Int): Boolean = globalIndex in arguments
+    public fun isDefaulted(globalIndex: Int): Boolean = globalIndex !in arguments
     public operator fun get(globalIndex: Int): Any? = arguments[globalIndex]
     public operator fun get(name: String): Any? = parameters[name]?.let { get(it.globalIndex) }
 
@@ -96,8 +100,10 @@ public data class ArgumentList internal constructor(private val parameters: Para
             if (!it.hasDefault && it.globalIndex !in arguments)
                 throw IllegalArgumentException("Parameter [${it.kind}] ${it.name}: ${it.type} with index ${it.globalIndex} has no default value and is not provided")
 
-            val arg = arguments[it.globalIndex]
-            it.checkValue(arg)
+            if (it.globalIndex in arguments) {
+                val arg = arguments[it.globalIndex]
+                it.checkValue(arg)
+            }
         }
     }
 

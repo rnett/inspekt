@@ -32,6 +32,7 @@ import org.jetbrains.kotlin.ir.builders.irCall
 import org.jetbrains.kotlin.ir.builders.irDelegatingConstructorCall
 import org.jetbrains.kotlin.ir.builders.irGet
 import org.jetbrains.kotlin.ir.builders.irGetObject
+import org.jetbrains.kotlin.ir.builders.irIfThenElse
 import org.jetbrains.kotlin.ir.builders.irInt
 import org.jetbrains.kotlin.ir.builders.irIs
 import org.jetbrains.kotlin.ir.builders.irNull
@@ -279,6 +280,8 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
                 Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1_v1Get.asCallableId()
             ).single()
 
+            returnType = builtIns.anyNType
+
             body = withBuilder {
 
                 fun getParamValue(index: Int, param: IrValueParameter): IrExpression {
@@ -289,21 +292,21 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
                         },
                         param.type
                     )
-                    return getParamCall
-//                    //TODO remap symbols so references to other parms work
-//                    val defaultArg = param.defaultValue?.expression?.deepCopyWithSymbols(parent)
-//                    return if (defaultArg == null)
-//                        getParamCall
-//                    else
-//                        irIfThenElse(
-//                            param.type,
-//                            irCall(isDefaulted).apply {
-//                                arguments[0] = irGet(argsParam)
-//                                arguments[1] = irInt(index)
-//                            },
-//                            defaultArg,
-//                            getParamCall
-//                        )
+
+                    //TODO remap symbols so references to other parms work
+                    val defaultArg = param.defaultValue?.expression?.deepCopyWithSymbols(parent)
+                    return if (defaultArg == null)
+                        getParamCall
+                    else
+                        irIfThenElse(
+                            param.type,
+                            irCall(isDefaulted).apply {
+                                arguments[0] = irGet(argsParam)
+                                arguments[1] = irInt(index)
+                            },
+                            defaultArg,
+                            getParamCall
+                        )
                 }
 
                 irBlockBody {
@@ -326,6 +329,10 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
                 visibility = DescriptorVisibilities.PROTECTED
             }.apply {
                 overriddenSymbols = listOf(ImplementationV1.functionByName(Names.Impl.getObjectInstance.asString()))
+                parameters += buildReceiverParameter {
+                    kind = IrParameterKind.DispatchReceiver
+                    type = implClass.defaultType
+                }
                 body = withBuilder {
                     irBlockBody {
                         +irReturn(irGetObject(declaration.symbol))
@@ -343,7 +350,6 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
             modality = Modality.FINAL
             returnType = Caster.typeWith(declaration.defaultType)
             visibility = DescriptorVisibilities.PROTECTED
-            returnType = Caster.typeWith(declaration.defaultType)
         }.apply {
             parameters += buildReceiverParameter {
                 kind = IrParameterKind.DispatchReceiver

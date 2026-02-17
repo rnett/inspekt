@@ -1,0 +1,56 @@
+FILE: ComplexParameters.kt
+    package auto.implementation.box
+
+    @R|dev/rnett/spekt/InSpekt|() public final class Complex : R|kotlin/Any| {
+        public constructor(): R|auto/implementation/box/Complex| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final fun R|kotlin/String|.extension(other: R|kotlin/Int|): R|kotlin/String| {
+            ^extension <strcat>(this@R|auto/implementation/box/Complex.extension|, String(-), R|<local>/other|)
+        }
+
+        public final fun multi(a: R|kotlin/Int|, b: R|kotlin/String|, c: R|kotlin/Double|): R|kotlin/String| {
+            ^multi <strcat>(R|<local>/a|, String(-), R|<local>/b|, String(-), R|<local>/c|)
+        }
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/Complex>|
+
+            private constructor(): R|auto/implementation/box/Complex.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval spekt: R|dev/rnett/spekt/Spekt<auto/implementation/box/Complex>| = Q|auto/implementation/box/Complex|.R|auto/implementation/box/Complex.Companion.spekt|()
+        lval instance: R|auto/implementation/box/Complex| = R|auto/implementation/box/Complex.Complex|()
+        lval fExtension: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(extension))
+        }
+        )
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(test-123), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(extension function invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/fExtension|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.extensionReceiver| = String(test)
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.value|(vararg(Int(123)))
+            }
+            )
+        }
+        ))
+        lval fMulti: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(multi))
+        }
+        )
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(1-two-3.0), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(multi parameter function invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/fMulti|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.value|(vararg(Int(1), String(two), Double(3.0)))
+            }
+            )
+        }
+        ))
+        ^box String(OK)
+    }

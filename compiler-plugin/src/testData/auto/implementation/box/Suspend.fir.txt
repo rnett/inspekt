@@ -1,0 +1,46 @@
+FILE: Suspend.kt
+    package auto.implementation.box
+
+    @R|dev/rnett/spekt/InSpekt|() public final class Test : R|kotlin/Any| {
+        public constructor(): R|auto/implementation/box/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final suspend fun test(): R|kotlin/Int| {
+            ^test Int(5)
+        }
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/Test>|
+
+            private constructor(): R|auto/implementation/box/Test.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval spekt: R|dev/rnett/spekt/Spekt<auto/implementation/box/Test>| = R|dev/rnett/spekt/assertSuccessful|<R|dev/rnett/spekt/Spekt<auto/implementation/box/Test>|>(String(Test.spekt()), <L> = assertSuccessful@fun <anonymous>(): R|dev/rnett/spekt/Spekt<auto/implementation/box/Test>| <inline=Inline, kind=UNKNOWN>  {
+            ^ Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.spekt|()
+        }
+        )
+        lval suspendFun: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(test))
+        }
+        )
+        R|kotlin/test/assertEquals|<R|kotlin/Boolean|>(Boolean(true), R|<local>/suspendFun|.R|dev/rnett/spekt/Function.isSuspend|)
+        lval test: R|auto/implementation/box/Test| = R|auto/implementation/box/Test.Test|()
+        R|kotlinx/coroutines/test/runTest|(<L> = runTest@fun R|kotlinx/coroutines/test/TestScope|.<anonymous>(): R|kotlin/Unit| <inline=NoInline>  {
+            R|kotlin/test/assertEquals|<R|kotlin/Any?|>(Int(5), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(suspend function invokeSuspend), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+                ^ R|<local>/suspendFun|.R|dev/rnett/spekt/Function.invokeSuspend|(<L> = invokeSuspend@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                    this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(Int(0), R|<local>/test|)
+                    Unit
+                }
+                )
+            }
+            ))
+        }
+        )
+        ^box String(OK)
+    }

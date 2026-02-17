@@ -1,0 +1,92 @@
+FILE: DependentDefaultArgs.kt
+    package auto.implementation.box
+
+    @R|dev/rnett/spekt/InSpekt|() public final class TestDefaults : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int| = Int(1), b: R|kotlin/String| = R|<local>/a|.R|kotlin/Int.toString|()): R|auto/implementation/box/TestDefaults| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final fun test(c: R|kotlin/Int| = Int(3), d: R|kotlin/String| = <strcat>(R|<local>/c|, String(-default))): R|kotlin/String| {
+            ^test <strcat>(this@R|auto/implementation/box/TestDefaults|.R|auto/implementation/box/TestDefaults.a|, String(-), this@R|auto/implementation/box/TestDefaults|.R|auto/implementation/box/TestDefaults.b|, String(-), R|<local>/c|, String(-), R|<local>/d|)
+        }
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/TestDefaults>|
+
+            private constructor(): R|auto/implementation/box/TestDefaults.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval spekt: R|dev/rnett/spekt/Spekt<auto/implementation/box/TestDefaults>| = Q|auto/implementation/box/TestDefaults|.R|auto/implementation/box/TestDefaults.Companion.spekt|()
+        lval constructor: R|dev/rnett/spekt/Constructor| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.primaryConstructor: R|dev/rnett/spekt/Constructor?|>|!!
+        lval instance1: R|auto/implementation/box/TestDefaults| = (R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor all defaults), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/constructor|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                ^@invoke Unit
+            }
+            )
+        }
+        ) as R|auto/implementation/box/TestDefaults|)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(1-1-3-3-default), R|<local>/instance1|.R|auto/implementation/box/TestDefaults.test|())
+        lval instance2: R|auto/implementation/box/TestDefaults| = (R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor override a), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/constructor|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(String(a), Int(10))
+                Unit
+            }
+            )
+        }
+        ) as R|auto/implementation/box/TestDefaults|)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(10-10-3-fun-3), R|<local>/instance2|.R|auto/implementation/box/TestDefaults.test|())
+        lval instance3: R|auto/implementation/box/TestDefaults| = (R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor override a & b), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/constructor|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(String(a), Int(20))
+                Unit
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(String(b), String(provided))
+                Unit
+            }
+            )
+        }
+        ) as R|auto/implementation/box/TestDefaults|)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(20-provided-3-fun-3), R|<local>/instance3|.R|auto/implementation/box/TestDefaults.test|())
+        lval testMethod: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(test))
+        }
+        )
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(20-provided-3-fun-3), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(method defaults with only dispatch receiver), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/testMethod|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
+            }
+            )
+        }
+        ))
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(20-provided-100-fun-100), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(method override c), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/testMethod|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(String(c), Int(100))
+                Unit
+            }
+            )
+        }
+        ))
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(20-provided-100-manual), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(method override c & d), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/testMethod|.R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(String(c), Int(100))
+                Unit
+                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.set|(String(d), String(manual))
+                Unit
+            }
+            )
+        }
+        ))
+        ^box String(OK)
+    }

@@ -41,4 +41,46 @@ public class ImplementationBoxTestGenerated extends AbstractLeveledBoxTest {
   public void testBasic() {
     runTest("src/testData/auto/implementation/box/Basic.kt");
   }
+
+  @Test
+  @TestMetadata("ComplexParameters.kt")
+  public void testComplexParameters() {
+    runTest("src/testData/auto/implementation/box/ComplexParameters.kt");
+  }
+
+  @Test
+  @TestMetadata("DefaultArgs.kt")
+  public void testDefaultArgs() {
+    runTest("src/testData/auto/implementation/box/DefaultArgs.kt");
+  }
+
+  @Test
+  @TestMetadata("DependentDefaultArgs.kt")
+  public void testDependentDefaultArgs() {
+    runTest("src/testData/auto/implementation/box/DependentDefaultArgs.kt");
+  }
+
+  @Test
+  @TestMetadata("Inheritance.kt")
+  public void testInheritance() {
+    runTest("src/testData/auto/implementation/box/Inheritance.kt");
+  }
+
+  @Test
+  @TestMetadata("Objects.kt")
+  public void testObjects() {
+    runTest("src/testData/auto/implementation/box/Objects.kt");
+  }
+
+  @Test
+  @TestMetadata("Properties.kt")
+  public void testProperties() {
+    runTest("src/testData/auto/implementation/box/Properties.kt");
+  }
+
+  @Test
+  @TestMetadata("Suspend.kt")
+  public void testSuspend() {
+    runTest("src/testData/auto/implementation/box/Suspend.kt");
+  }
 }

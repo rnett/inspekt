@@ -8,6 +8,7 @@ import dev.rnett.symbolexport.symbol.compiler.asClassId
 import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.declarations.DirectDeclarationsAccess
+import org.jetbrains.kotlin.fir.declarations.hasAnnotation
 import org.jetbrains.kotlin.fir.declarations.utils.isCompanion
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationGenerationExtension
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationPredicateRegistrar
@@ -96,7 +97,7 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
 
     @OptIn(DirectDeclarationsAccess::class, SymbolInternals::class)
     override fun getCallableNamesForClass(classSymbol: FirClassSymbol<*>, context: MemberGenerationContext): Set<Name> {
-        if (classSymbol.isCompanion) {
+        if (classSymbol.isCompanion || classSymbol.classKind == ClassKind.OBJECT) {
             return buildSet {
                 add(GeneratedNames.spektMethod)
                 if (classSymbol.pluginKey == DeclarationKeys.SpektCompanionObject)
@@ -106,13 +107,19 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
         return emptySet()
     }
 
+    //TODO handle scenarios where both the class and companion are annotated
+
     override fun generateFunctions(
         callableId: CallableId,
         context: MemberGenerationContext?
     ): List<FirNamedFunctionSymbol> {
         context ?: return emptyList()
 
-        val annotatedClass = context.owner.getContainingClassSymbol() as? FirRegularClassSymbol ?: return emptyList()
+        val annotatedClass =
+            if (context.owner.hasAnnotation(Names.InSpektAnnotation.asClassId(), session))
+                context.owner
+            else
+                context.owner.getContainingClassSymbol() as? FirRegularClassSymbol ?: return emptyList()
 
         if (callableId.callableName == GeneratedNames.spektMethod) {
             return listOf(

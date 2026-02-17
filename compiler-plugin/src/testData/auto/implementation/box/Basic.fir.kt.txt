@@ -65,7 +65,10 @@ class Test {
         return args.v1Get(globalIndex = 0) as Test.<get-test2>()
       }
 , suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "test1", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 0, indexInKind = 0, kind = 3)]), returnType = typeOf<Test>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        return Test(test1 = args.v1Get(globalIndex = 0) as String)
+        return Test(test1 = when {
+          args.v1IsDefaulted(globalIndex = 0) -> "test"
+          else -> args.v1Get(globalIndex = 0) as String
+        })
       }
 , suspendInvoker = null, inheritedFrom = null)]))
       /* <init>() */
