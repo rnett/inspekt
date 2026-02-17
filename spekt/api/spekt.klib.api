@@ -6,8 +6,8 @@
 // - Show declarations: true
 
 // Library unique name: <dev.rnett.spekt:spekt>
-open annotation class /InSpekt : kotlin/Annotation { // /InSpekt|null[0]
-    constructor <init>() // /InSpekt.<init>|<init>(){}[0]
+open annotation class dev.rnett.spekt/InSpekt : kotlin/Annotation { // dev.rnett.spekt/InSpekt|null[0]
+    constructor <init>() // dev.rnett.spekt/InSpekt.<init>|<init>(){}[0]
 }
 
 abstract interface <#A: kotlin/Any> dev.rnett.spekt/Caster { // dev.rnett.spekt/Caster|null[0]
@@ -26,81 +26,23 @@ abstract interface dev.rnett.spekt/AnnotatedElement { // dev.rnett.spekt/Annotat
         abstract fun <get-annotations>(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/AnnotatedElement.annotations.<get-annotations>|<get-annotations>(){}[0]
 }
 
-sealed interface dev.rnett.spekt/Callable : dev.rnett.spekt/AnnotatedElement { // dev.rnett.spekt/Callable|null[0]
-    abstract val isAbstract // dev.rnett.spekt/Callable.isAbstract|{}isAbstract[0]
-        abstract fun <get-isAbstract>(): kotlin/Boolean // dev.rnett.spekt/Callable.isAbstract.<get-isAbstract>|<get-isAbstract>(){}[0]
-    abstract val kotlin // dev.rnett.spekt/Callable.kotlin|{}kotlin[0]
-        abstract fun <get-kotlin>(): kotlin.reflect/KCallable<*> // dev.rnett.spekt/Callable.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
-    abstract val name // dev.rnett.spekt/Callable.name|{}name[0]
-        abstract fun <get-name>(): dev.rnett.spekt/MemberName // dev.rnett.spekt/Callable.name.<get-name>|<get-name>(){}[0]
-    abstract val parameters // dev.rnett.spekt/Callable.parameters|{}parameters[0]
-        abstract fun <get-parameters>(): dev.rnett.spekt/Parameters // dev.rnett.spekt/Callable.parameters.<get-parameters>|<get-parameters>(){}[0]
-    open val shortName // dev.rnett.spekt/Callable.shortName|{}shortName[0]
-        open fun <get-shortName>(): kotlin/String // dev.rnett.spekt/Callable.shortName.<get-shortName>|<get-shortName>(){}[0]
-}
-
-sealed interface dev.rnett.spekt/Method : dev.rnett.spekt/Callable { // dev.rnett.spekt/Method|null[0]
-    abstract val kind // dev.rnett.spekt/Method.kind|{}kind[0]
-        abstract fun <get-kind>(): dev.rnett.spekt/Method.Kind // dev.rnett.spekt/Method.kind.<get-kind>|<get-kind>(){}[0]
-    abstract val kotlin // dev.rnett.spekt/Method.kotlin|{}kotlin[0]
-        abstract fun <get-kotlin>(): kotlin.reflect/KFunction<*> // dev.rnett.spekt/Method.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
-    abstract val name // dev.rnett.spekt/Method.name|{}name[0]
-        abstract fun <get-name>(): dev.rnett.spekt/MemberName // dev.rnett.spekt/Method.name.<get-name>|<get-name>(){}[0]
-    abstract val returnType // dev.rnett.spekt/Method.returnType|{}returnType[0]
-        abstract fun <get-returnType>(): kotlin.reflect/KType // dev.rnett.spekt/Method.returnType.<get-returnType>|<get-returnType>(){}[0]
-
-    abstract fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
-    open fun invoke(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
-
-    final enum class Kind : kotlin/Enum<dev.rnett.spekt/Method.Kind> { // dev.rnett.spekt/Method.Kind|null[0]
-        enum entry CONSTRUCTOR // dev.rnett.spekt/Method.Kind.CONSTRUCTOR|null[0]
-        enum entry GETTER // dev.rnett.spekt/Method.Kind.GETTER|null[0]
-        enum entry NORMAL // dev.rnett.spekt/Method.Kind.NORMAL|null[0]
-        enum entry SETTER // dev.rnett.spekt/Method.Kind.SETTER|null[0]
-
-        final val entries // dev.rnett.spekt/Method.Kind.entries|#static{}entries[0]
-            final fun <get-entries>(): kotlin.enums/EnumEntries<dev.rnett.spekt/Method.Kind> // dev.rnett.spekt/Method.Kind.entries.<get-entries>|<get-entries>#static(){}[0]
-
-        final fun valueOf(kotlin/String): dev.rnett.spekt/Method.Kind // dev.rnett.spekt/Method.Kind.valueOf|valueOf#static(kotlin.String){}[0]
-        final fun values(): kotlin/Array<dev.rnett.spekt/Method.Kind> // dev.rnett.spekt/Method.Kind.values|values#static(){}[0]
-    }
-}
-
-sealed interface dev.rnett.spekt/Property : dev.rnett.spekt/Callable { // dev.rnett.spekt/Property|null[0]
-    abstract val getter // dev.rnett.spekt/Property.getter|{}getter[0]
-        abstract fun <get-getter>(): dev.rnett.spekt/PropertyMethod // dev.rnett.spekt/Property.getter.<get-getter>|<get-getter>(){}[0]
-    abstract val hasBackingField // dev.rnett.spekt/Property.hasBackingField|{}hasBackingField[0]
-        abstract fun <get-hasBackingField>(): kotlin/Boolean // dev.rnett.spekt/Property.hasBackingField.<get-hasBackingField>|<get-hasBackingField>(){}[0]
-    abstract val hasDelegate // dev.rnett.spekt/Property.hasDelegate|{}hasDelegate[0]
-        abstract fun <get-hasDelegate>(): kotlin/Boolean // dev.rnett.spekt/Property.hasDelegate.<get-hasDelegate>|<get-hasDelegate>(){}[0]
-    abstract val isConstructorProperty // dev.rnett.spekt/Property.isConstructorProperty|{}isConstructorProperty[0]
-        abstract fun <get-isConstructorProperty>(): kotlin/Boolean // dev.rnett.spekt/Property.isConstructorProperty.<get-isConstructorProperty>|<get-isConstructorProperty>(){}[0]
-    abstract val kotlin // dev.rnett.spekt/Property.kotlin|{}kotlin[0]
-        abstract fun <get-kotlin>(): kotlin.reflect/KProperty<*> // dev.rnett.spekt/Property.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
-    abstract val type // dev.rnett.spekt/Property.type|{}type[0]
-        abstract fun <get-type>(): kotlin.reflect/KType // dev.rnett.spekt/Property.type.<get-type>|<get-type>(){}[0]
-
-    open fun get(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Property.get|get(dev.rnett.spekt.ArgumentList){}[0]
-    open fun get(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Property.get|get(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
-}
-
 abstract class <#A: kotlin/Any> dev.rnett.spekt.internal/SpektImplementationV1 : dev.rnett.spekt.internal/SpektImplementation<#A> { // dev.rnett.spekt.internal/SpektImplementationV1|null[0]
-    constructor <init>(kotlin.reflect/KClass<*>, kotlin/Boolean, kotlin.collections/List<kotlin/String>, kotlin.collections/List<kotlin/String>, kotlin.collections/Set<kotlin.reflect/KType>, kotlin.collections/List<kotlin/Annotation>, kotlin.collections/List<dev.rnett.spekt.internal/SpektImplementationV1.Function>, kotlin.collections/List<dev.rnett.spekt.internal/SpektImplementationV1.Property>, kotlin.collections/List<dev.rnett.spekt.internal/SpektImplementationV1.Function>) // dev.rnett.spekt.internal/SpektImplementationV1.<init>|<init>(kotlin.reflect.KClass<*>;kotlin.Boolean;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.String>;kotlin.collections.Set<kotlin.reflect.KType>;kotlin.collections.List<kotlin.Annotation>;kotlin.collections.List<dev.rnett.spekt.internal.SpektImplementationV1.Function>;kotlin.collections.List<dev.rnett.spekt.internal.SpektImplementationV1.Property>;kotlin.collections.List<dev.rnett.spekt.internal.SpektImplementationV1.Function>){}[0]
+    constructor <init>(kotlin.reflect/KClass<*>, kotlin/Boolean, kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>, kotlin/Array<kotlin.reflect/KType>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Function>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Property>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Function>) // dev.rnett.spekt.internal/SpektImplementationV1.<init>|<init>(kotlin.reflect.KClass<*>;kotlin.Boolean;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.reflect.KType>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Property>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>){}[0]
 
     abstract fun getCaster(): dev.rnett.spekt/Caster<#A> // dev.rnett.spekt.internal/SpektImplementationV1.getCaster|getCaster(){}[0]
     open fun getObjectInstance(): #A? // dev.rnett.spekt.internal/SpektImplementationV1.getObjectInstance|getObjectInstance(){}[0]
-    open fun toSpect(): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt.internal/SpektImplementationV1.toSpect|toSpect(){}[0]
+    open fun toSpekt(): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt.internal/SpektImplementationV1.toSpekt|toSpekt(){}[0]
 
     final class Function { // dev.rnett.spekt.internal/SpektImplementationV1.Function|null[0]
-        constructor <init>(kotlin/String, kotlin/Boolean, kotlin.reflect/KFunction<*>, kotlin.collections/List<kotlin/Annotation>, kotlin.collections/List<dev.rnett.spekt.internal/SpektImplementationV1.Param>, kotlin.reflect/KType, kotlin/Boolean, kotlin/Boolean, kotlin/Function1<dev.rnett.spekt.internal/ArgumentsProviderV1, kotlin/Any?>?, kotlin.coroutines/SuspendFunction1<dev.rnett.spekt.internal/ArgumentsProviderV1, kotlin/Any?>?) // dev.rnett.spekt.internal/SpektImplementationV1.Function.<init>|<init>(kotlin.String;kotlin.Boolean;kotlin.reflect.KFunction<*>;kotlin.collections.List<kotlin.Annotation>;kotlin.collections.List<dev.rnett.spekt.internal.SpektImplementationV1.Param>;kotlin.reflect.KType;kotlin.Boolean;kotlin.Boolean;kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1,kotlin.Any?>?;kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1,kotlin.Any?>?){}[0]
+        constructor <init>(kotlin/String, kotlin/Boolean, kotlin.reflect/KFunction<*>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Param>, kotlin.reflect/KType, kotlin/Boolean, kotlin/Boolean, kotlin/Function1<dev.rnett.spekt.internal/ArgumentsProviderV1, kotlin/Any?>?, kotlin.coroutines/SuspendFunction1<dev.rnett.spekt.internal/ArgumentsProviderV1, kotlin/Any?>?, kotlin.reflect/KClass<*>?) // dev.rnett.spekt.internal/SpektImplementationV1.Function.<init>|<init>(kotlin.String;kotlin.Boolean;kotlin.reflect.KFunction<*>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>;kotlin.reflect.KType;kotlin.Boolean;kotlin.Boolean;kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1,kotlin.Any?>?;kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1,kotlin.Any?>?;kotlin.reflect.KClass<*>?){}[0]
     }
 
     final class Param { // dev.rnett.spekt.internal/SpektImplementationV1.Param|null[0]
-        constructor <init>(kotlin/String, kotlin.collections/List<kotlin/Annotation>, kotlin/Boolean, kotlin.reflect/KType, kotlin/Int, kotlin/Int, kotlin/Int) // dev.rnett.spekt.internal/SpektImplementationV1.Param.<init>|<init>(kotlin.String;kotlin.collections.List<kotlin.Annotation>;kotlin.Boolean;kotlin.reflect.KType;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+        constructor <init>(kotlin/String, kotlin/Array<kotlin/Annotation>, kotlin/Boolean, kotlin.reflect/KType, kotlin/Int, kotlin/Int, kotlin/Int) // dev.rnett.spekt.internal/SpektImplementationV1.Param.<init>|<init>(kotlin.String;kotlin.Array<kotlin.Annotation>;kotlin.Boolean;kotlin.reflect.KType;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
     }
 
     final class Property { // dev.rnett.spekt.internal/SpektImplementationV1.Property|null[0]
-        constructor <init>(kotlin/String, kotlin.collections/List<kotlin/Annotation>, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin.reflect/KType, kotlin.reflect/KProperty<*>, dev.rnett.spekt.internal/SpektImplementationV1.Function, dev.rnett.spekt.internal/SpektImplementationV1.Function?) // dev.rnett.spekt.internal/SpektImplementationV1.Property.<init>|<init>(kotlin.String;kotlin.collections.List<kotlin.Annotation>;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.reflect.KType;kotlin.reflect.KProperty<*>;dev.rnett.spekt.internal.SpektImplementationV1.Function;dev.rnett.spekt.internal.SpektImplementationV1.Function?){}[0]
+        constructor <init>(kotlin/String, kotlin/Array<kotlin/Annotation>, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin.reflect/KType, kotlin.reflect/KProperty1<*, *>, dev.rnett.spekt.internal/SpektImplementationV1.Function, dev.rnett.spekt.internal/SpektImplementationV1.Function?, kotlin.reflect/KClass<*>?) // dev.rnett.spekt.internal/SpektImplementationV1.Property.<init>|<init>(kotlin.String;kotlin.Array<kotlin.Annotation>;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.reflect.KType;kotlin.reflect.KProperty1<*,*>;dev.rnett.spekt.internal.SpektImplementationV1.Function;dev.rnett.spekt.internal.SpektImplementationV1.Function?;kotlin.reflect.KClass<*>?){}[0]
     }
 }
 
@@ -211,6 +153,8 @@ final class dev.rnett.spekt/Constructor : dev.rnett.spekt/Method { // dev.rnett.
         final fun <get-annotations>(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/Constructor.annotations.<get-annotations>|<get-annotations>(){}[0]
     final val forClass // dev.rnett.spekt/Constructor.forClass|{}forClass[0]
         final fun <get-forClass>(): dev.rnett.spekt/Spekt<*> // dev.rnett.spekt/Constructor.forClass.<get-forClass>|<get-forClass>(){}[0]
+    final val inheritedFrom // dev.rnett.spekt/Constructor.inheritedFrom|{}inheritedFrom[0]
+        final fun <get-inheritedFrom>(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/Constructor.inheritedFrom.<get-inheritedFrom>|<get-inheritedFrom>(){}[0]
     final val isAbstract // dev.rnett.spekt/Constructor.isAbstract|{}isAbstract[0]
         final fun <get-isAbstract>(): kotlin/Boolean // dev.rnett.spekt/Constructor.isAbstract.<get-isAbstract>|<get-isAbstract>(){}[0]
     final val isPrimary // dev.rnett.spekt/Constructor.isPrimary|{}isPrimary[0]
@@ -242,6 +186,8 @@ final class dev.rnett.spekt/Constructor : dev.rnett.spekt/Method { // dev.rnett.
 final class dev.rnett.spekt/Function : dev.rnett.spekt/Method { // dev.rnett.spekt/Function|null[0]
     final val annotations // dev.rnett.spekt/Function.annotations|{}annotations[0]
         final fun <get-annotations>(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/Function.annotations.<get-annotations>|<get-annotations>(){}[0]
+    final val inheritedFrom // dev.rnett.spekt/Function.inheritedFrom|{}inheritedFrom[0]
+        final fun <get-inheritedFrom>(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/Function.inheritedFrom.<get-inheritedFrom>|<get-inheritedFrom>(){}[0]
     final val isAbstract // dev.rnett.spekt/Function.isAbstract|{}isAbstract[0]
         final fun <get-isAbstract>(): kotlin/Boolean // dev.rnett.spekt/Function.isAbstract.<get-isAbstract>|<get-isAbstract>(){}[0]
     final val isSuspend // dev.rnett.spekt/Function.isSuspend|{}isSuspend[0]
@@ -258,6 +204,7 @@ final class dev.rnett.spekt/Function : dev.rnett.spekt/Method { // dev.rnett.spe
         final fun <get-returnType>(): kotlin.reflect/KType // dev.rnett.spekt/Function.returnType.<get-returnType>|<get-returnType>(){}[0]
 
     final fun component1(): dev.rnett.spekt/MemberName.Member // dev.rnett.spekt/Function.component1|component1(){}[0]
+    final fun component10(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/Function.component10|component10(){}[0]
     final fun component2(): kotlin.reflect/KFunction<*> // dev.rnett.spekt/Function.component2|component2(){}[0]
     final fun component3(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/Function.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean // dev.rnett.spekt/Function.component4|component4(){}[0]
@@ -280,12 +227,14 @@ final class dev.rnett.spekt/MutableProperty : dev.rnett.spekt/Property { // dev.
         final fun <get-hasBackingField>(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.hasBackingField.<get-hasBackingField>|<get-hasBackingField>(){}[0]
     final val hasDelegate // dev.rnett.spekt/MutableProperty.hasDelegate|{}hasDelegate[0]
         final fun <get-hasDelegate>(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.hasDelegate.<get-hasDelegate>|<get-hasDelegate>(){}[0]
+    final val inheritedFrom // dev.rnett.spekt/MutableProperty.inheritedFrom|{}inheritedFrom[0]
+        final fun <get-inheritedFrom>(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/MutableProperty.inheritedFrom.<get-inheritedFrom>|<get-inheritedFrom>(){}[0]
     final val isAbstract // dev.rnett.spekt/MutableProperty.isAbstract|{}isAbstract[0]
         final fun <get-isAbstract>(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.isAbstract.<get-isAbstract>|<get-isAbstract>(){}[0]
     final val isConstructorProperty // dev.rnett.spekt/MutableProperty.isConstructorProperty|{}isConstructorProperty[0]
         final fun <get-isConstructorProperty>(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.isConstructorProperty.<get-isConstructorProperty>|<get-isConstructorProperty>(){}[0]
     final val kotlin // dev.rnett.spekt/MutableProperty.kotlin|{}kotlin[0]
-        final fun <get-kotlin>(): kotlin.reflect/KMutableProperty<*> // dev.rnett.spekt/MutableProperty.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
+        final fun <get-kotlin>(): kotlin.reflect/KMutableProperty1<*, *> // dev.rnett.spekt/MutableProperty.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
     final val name // dev.rnett.spekt/MutableProperty.name|{}name[0]
         final fun <get-name>(): dev.rnett.spekt/MemberName // dev.rnett.spekt/MutableProperty.name.<get-name>|<get-name>(){}[0]
     final val parameters // dev.rnett.spekt/MutableProperty.parameters|{}parameters[0]
@@ -295,9 +244,10 @@ final class dev.rnett.spekt/MutableProperty : dev.rnett.spekt/Property { // dev.
     final val type // dev.rnett.spekt/MutableProperty.type|{}type[0]
         final fun <get-type>(): kotlin.reflect/KType // dev.rnett.spekt/MutableProperty.type.<get-type>|<get-type>(){}[0]
 
-    final fun component1(): kotlin.reflect/KMutableProperty<*> // dev.rnett.spekt/MutableProperty.component1|component1(){}[0]
+    final fun component1(): kotlin.reflect/KMutableProperty1<*, *> // dev.rnett.spekt/MutableProperty.component1|component1(){}[0]
     final fun component10(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/MutableProperty.component10|component10(){}[0]
     final fun component11(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.component11|component11(){}[0]
+    final fun component12(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/MutableProperty.component12|component12(){}[0]
     final fun component2(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.component2|component2(){}[0]
     final fun component3(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean // dev.rnett.spekt/MutableProperty.component4|component4(){}[0]
@@ -413,6 +363,8 @@ final class dev.rnett.spekt/Parameters : kotlin.collections/List<dev.rnett.spekt
 final class dev.rnett.spekt/PropertyMethod : dev.rnett.spekt/Method { // dev.rnett.spekt/PropertyMethod|null[0]
     final val annotations // dev.rnett.spekt/PropertyMethod.annotations|{}annotations[0]
         final fun <get-annotations>(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/PropertyMethod.annotations.<get-annotations>|<get-annotations>(){}[0]
+    final val inheritedFrom // dev.rnett.spekt/PropertyMethod.inheritedFrom|{}inheritedFrom[0]
+        final fun <get-inheritedFrom>(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/PropertyMethod.inheritedFrom.<get-inheritedFrom>|<get-inheritedFrom>(){}[0]
     final val isAbstract // dev.rnett.spekt/PropertyMethod.isAbstract|{}isAbstract[0]
         final fun <get-isAbstract>(): kotlin/Boolean // dev.rnett.spekt/PropertyMethod.isAbstract.<get-isAbstract>|<get-isAbstract>(){}[0]
     final val kind // dev.rnett.spekt/PropertyMethod.kind|{}kind[0]
@@ -432,6 +384,7 @@ final class dev.rnett.spekt/PropertyMethod : dev.rnett.spekt/Method { // dev.rne
     final fun component3(): dev.rnett.spekt/Parameters // dev.rnett.spekt/PropertyMethod.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean // dev.rnett.spekt/PropertyMethod.component4|component4(){}[0]
     final fun component5(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/PropertyMethod.component5|component5(){}[0]
+    final fun component8(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/PropertyMethod.component8|component8(){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // dev.rnett.spekt/PropertyMethod.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // dev.rnett.spekt/PropertyMethod.hashCode|hashCode(){}[0]
     final fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/PropertyMethod.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
@@ -447,12 +400,14 @@ final class dev.rnett.spekt/ReadOnlyProperty : dev.rnett.spekt/Property { // dev
         final fun <get-hasBackingField>(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.hasBackingField.<get-hasBackingField>|<get-hasBackingField>(){}[0]
     final val hasDelegate // dev.rnett.spekt/ReadOnlyProperty.hasDelegate|{}hasDelegate[0]
         final fun <get-hasDelegate>(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.hasDelegate.<get-hasDelegate>|<get-hasDelegate>(){}[0]
+    final val inheritedFrom // dev.rnett.spekt/ReadOnlyProperty.inheritedFrom|{}inheritedFrom[0]
+        final fun <get-inheritedFrom>(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/ReadOnlyProperty.inheritedFrom.<get-inheritedFrom>|<get-inheritedFrom>(){}[0]
     final val isAbstract // dev.rnett.spekt/ReadOnlyProperty.isAbstract|{}isAbstract[0]
         final fun <get-isAbstract>(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.isAbstract.<get-isAbstract>|<get-isAbstract>(){}[0]
     final val isConstructorProperty // dev.rnett.spekt/ReadOnlyProperty.isConstructorProperty|{}isConstructorProperty[0]
         final fun <get-isConstructorProperty>(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.isConstructorProperty.<get-isConstructorProperty>|<get-isConstructorProperty>(){}[0]
     final val kotlin // dev.rnett.spekt/ReadOnlyProperty.kotlin|{}kotlin[0]
-        final fun <get-kotlin>(): kotlin.reflect/KProperty<*> // dev.rnett.spekt/ReadOnlyProperty.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
+        final fun <get-kotlin>(): kotlin.reflect/KProperty1<*, *> // dev.rnett.spekt/ReadOnlyProperty.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
     final val name // dev.rnett.spekt/ReadOnlyProperty.name|{}name[0]
         final fun <get-name>(): dev.rnett.spekt/MemberName // dev.rnett.spekt/ReadOnlyProperty.name.<get-name>|<get-name>(){}[0]
     final val parameters // dev.rnett.spekt/ReadOnlyProperty.parameters|{}parameters[0]
@@ -460,8 +415,9 @@ final class dev.rnett.spekt/ReadOnlyProperty : dev.rnett.spekt/Property { // dev
     final val type // dev.rnett.spekt/ReadOnlyProperty.type|{}type[0]
         final fun <get-type>(): kotlin.reflect/KType // dev.rnett.spekt/ReadOnlyProperty.type.<get-type>|<get-type>(){}[0]
 
-    final fun component1(): kotlin.reflect/KProperty<*> // dev.rnett.spekt/ReadOnlyProperty.component1|component1(){}[0]
+    final fun component1(): kotlin.reflect/KProperty1<*, *> // dev.rnett.spekt/ReadOnlyProperty.component1|component1(){}[0]
     final fun component10(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.component10|component10(){}[0]
+    final fun component11(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/ReadOnlyProperty.component11|component11(){}[0]
     final fun component2(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.component2|component2(){}[0]
     final fun component3(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean // dev.rnett.spekt/ReadOnlyProperty.component4|component4(){}[0]
@@ -476,7 +432,27 @@ final class dev.rnett.spekt/ReadOnlyProperty : dev.rnett.spekt/Property { // dev
 }
 
 sealed class <#A: kotlin/Any> dev.rnett.spekt.internal/SpektImplementation { // dev.rnett.spekt.internal/SpektImplementation|null[0]
-    abstract fun toSpect(): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt.internal/SpektImplementation.toSpect|toSpect(){}[0]
+    abstract fun toSpekt(): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt.internal/SpektImplementation.toSpekt|toSpekt(){}[0]
+}
+
+sealed class dev.rnett.spekt/Callable : dev.rnett.spekt/AnnotatedElement { // dev.rnett.spekt/Callable|null[0]
+    abstract val inheritedFrom // dev.rnett.spekt/Callable.inheritedFrom|{}inheritedFrom[0]
+        abstract fun <get-inheritedFrom>(): kotlin.reflect/KClass<*>? // dev.rnett.spekt/Callable.inheritedFrom.<get-inheritedFrom>|<get-inheritedFrom>(){}[0]
+    abstract val isAbstract // dev.rnett.spekt/Callable.isAbstract|{}isAbstract[0]
+        abstract fun <get-isAbstract>(): kotlin/Boolean // dev.rnett.spekt/Callable.isAbstract.<get-isAbstract>|<get-isAbstract>(){}[0]
+    abstract val kotlin // dev.rnett.spekt/Callable.kotlin|{}kotlin[0]
+        abstract fun <get-kotlin>(): kotlin.reflect/KCallable<*> // dev.rnett.spekt/Callable.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
+    abstract val name // dev.rnett.spekt/Callable.name|{}name[0]
+        abstract fun <get-name>(): dev.rnett.spekt/MemberName // dev.rnett.spekt/Callable.name.<get-name>|<get-name>(){}[0]
+    abstract val parameters // dev.rnett.spekt/Callable.parameters|{}parameters[0]
+        abstract fun <get-parameters>(): dev.rnett.spekt/Parameters // dev.rnett.spekt/Callable.parameters.<get-parameters>|<get-parameters>(){}[0]
+    final val declared // dev.rnett.spekt/Callable.declared|{}declared[0]
+        final fun <get-declared>(): kotlin/Boolean // dev.rnett.spekt/Callable.declared.<get-declared>|<get-declared>(){}[0]
+    final val shortName // dev.rnett.spekt/Callable.shortName|{}shortName[0]
+        final fun <get-shortName>(): kotlin/String // dev.rnett.spekt/Callable.shortName.<get-shortName>|<get-shortName>(){}[0]
+
+    final fun (kotlin.text/StringBuilder).appendContext() // dev.rnett.spekt/Callable.appendContext|appendContext@kotlin.text.StringBuilder(){}[0]
+    final fun (kotlin.text/StringBuilder).appendExtension() // dev.rnett.spekt/Callable.appendExtension|appendExtension@kotlin.text.StringBuilder(){}[0]
 }
 
 sealed class dev.rnett.spekt/MemberName : dev.rnett.spekt/QualifiedName { // dev.rnett.spekt/MemberName|null[0]
@@ -522,6 +498,53 @@ sealed class dev.rnett.spekt/MemberName : dev.rnett.spekt/QualifiedName { // dev
         final fun segments(): kotlin.collections/List<kotlin/String> // dev.rnett.spekt/MemberName.TopLevel.segments|segments(){}[0]
         final fun toString(): kotlin/String // dev.rnett.spekt/MemberName.TopLevel.toString|toString(){}[0]
     }
+}
+
+sealed class dev.rnett.spekt/Method : dev.rnett.spekt/Callable { // dev.rnett.spekt/Method|null[0]
+    abstract val kind // dev.rnett.spekt/Method.kind|{}kind[0]
+        abstract fun <get-kind>(): dev.rnett.spekt/Method.Kind // dev.rnett.spekt/Method.kind.<get-kind>|<get-kind>(){}[0]
+    abstract val kotlin // dev.rnett.spekt/Method.kotlin|{}kotlin[0]
+        abstract fun <get-kotlin>(): kotlin.reflect/KFunction<*> // dev.rnett.spekt/Method.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
+    abstract val name // dev.rnett.spekt/Method.name|{}name[0]
+        abstract fun <get-name>(): dev.rnett.spekt/MemberName // dev.rnett.spekt/Method.name.<get-name>|<get-name>(){}[0]
+    abstract val returnType // dev.rnett.spekt/Method.returnType|{}returnType[0]
+        abstract fun <get-returnType>(): kotlin.reflect/KType // dev.rnett.spekt/Method.returnType.<get-returnType>|<get-returnType>(){}[0]
+
+    abstract fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
+    final fun (kotlin.text/StringBuilder).appendMethodSignature() // dev.rnett.spekt/Method.appendMethodSignature|appendMethodSignature@kotlin.text.StringBuilder(){}[0]
+    final fun invoke(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
+
+    final enum class Kind : kotlin/Enum<dev.rnett.spekt/Method.Kind> { // dev.rnett.spekt/Method.Kind|null[0]
+        enum entry CONSTRUCTOR // dev.rnett.spekt/Method.Kind.CONSTRUCTOR|null[0]
+        enum entry GETTER // dev.rnett.spekt/Method.Kind.GETTER|null[0]
+        enum entry NORMAL // dev.rnett.spekt/Method.Kind.NORMAL|null[0]
+        enum entry SETTER // dev.rnett.spekt/Method.Kind.SETTER|null[0]
+
+        final val entries // dev.rnett.spekt/Method.Kind.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<dev.rnett.spekt/Method.Kind> // dev.rnett.spekt/Method.Kind.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): dev.rnett.spekt/Method.Kind // dev.rnett.spekt/Method.Kind.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<dev.rnett.spekt/Method.Kind> // dev.rnett.spekt/Method.Kind.values|values#static(){}[0]
+    }
+}
+
+sealed class dev.rnett.spekt/Property : dev.rnett.spekt/Callable { // dev.rnett.spekt/Property|null[0]
+    abstract val getter // dev.rnett.spekt/Property.getter|{}getter[0]
+        abstract fun <get-getter>(): dev.rnett.spekt/PropertyMethod // dev.rnett.spekt/Property.getter.<get-getter>|<get-getter>(){}[0]
+    abstract val hasBackingField // dev.rnett.spekt/Property.hasBackingField|{}hasBackingField[0]
+        abstract fun <get-hasBackingField>(): kotlin/Boolean // dev.rnett.spekt/Property.hasBackingField.<get-hasBackingField>|<get-hasBackingField>(){}[0]
+    abstract val hasDelegate // dev.rnett.spekt/Property.hasDelegate|{}hasDelegate[0]
+        abstract fun <get-hasDelegate>(): kotlin/Boolean // dev.rnett.spekt/Property.hasDelegate.<get-hasDelegate>|<get-hasDelegate>(){}[0]
+    abstract val isConstructorProperty // dev.rnett.spekt/Property.isConstructorProperty|{}isConstructorProperty[0]
+        abstract fun <get-isConstructorProperty>(): kotlin/Boolean // dev.rnett.spekt/Property.isConstructorProperty.<get-isConstructorProperty>|<get-isConstructorProperty>(){}[0]
+    abstract val kotlin // dev.rnett.spekt/Property.kotlin|{}kotlin[0]
+        abstract fun <get-kotlin>(): kotlin.reflect/KProperty1<*, *> // dev.rnett.spekt/Property.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
+    abstract val type // dev.rnett.spekt/Property.type|{}type[0]
+        abstract fun <get-type>(): kotlin.reflect/KType // dev.rnett.spekt/Property.type.<get-type>|<get-type>(){}[0]
+
+    final fun (kotlin.text/StringBuilder).appendPropertySignature(kotlin/String) // dev.rnett.spekt/Property.appendPropertySignature|appendPropertySignature@kotlin.text.StringBuilder(kotlin.String){}[0]
+    final fun get(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Property.get|get(dev.rnett.spekt.ArgumentList){}[0]
+    final fun get(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Property.get|get(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
 }
 
 final object dev.rnett.spekt/SpecialNames { // dev.rnett.spekt/SpecialNames|null[0]

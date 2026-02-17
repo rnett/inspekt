@@ -2,18 +2,33 @@ name: CI
 run-name: CI
 on: [ push, workflow_call ]
 jobs:
-  buildAndTest:
-    name: Build and test
+  checkVersion:
+    name: Check version
     runs-on: ubuntu-latest
-    env:
-      GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m"
     outputs:
       version: ${{ steps.get-version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Get version
+        id: get-version
+        run: echo "version=$(cat version.txt)" >> "$GITHUB_OUTPUT"
+
+  buildAndTest:
+    name: Build and test (${{ matrix.os }})
+    needs: checkVersion
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+    env:
+      GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m"
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java 17
         uses: actions/setup-java@v5
         with:
+          distribution: 'temurin'
           java-version: 17
       - name: Setup Java 24
         uses: actions/setup-java@v5
@@ -39,15 +54,11 @@ jobs:
       - name: Generate docs
         run: ./gradlew :dokkaGenerate
 
-      - name: Get version
-        id: get-version
-        run: echo "version=$(cat version.txt)" >> "$GITHUB_OUTPUT"
-
   publishSnapshot:
     name: Publish snapshot
-    needs: buildAndTest
+    needs: [ checkVersion, buildAndTest ]
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'workflow_call' && github.ref == 'refs/heads/main' && endsWith(needs.buildAndTest.outputs.version, '-SNAPSHOT') }}
+    if: ${{ github.event_name != 'workflow_call' && github.ref == 'refs/heads/main' && endsWith(needs.checkVersion.outputs.version, '-SNAPSHOT') }}
     env:
       GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m"
     steps:
