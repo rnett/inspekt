@@ -6,11 +6,12 @@ public final class dev/rnett/spekt/ArgumentList : dev/rnett/spekt/internal/Argum
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun get (I)Ljava/lang/Object;
 	public final fun get (Ljava/lang/String;)Ljava/lang/Object;
+	public fun getV1DefaultableHasValueBitmask ()I
 	public fun hashCode ()I
 	public final fun isDefaulted (I)Z
+	public fun throwInvalidBitmask ()Ljava/lang/Void;
 	public fun toString ()Ljava/lang/String;
 	public fun v1Get (I)Ljava/lang/Object;
-	public fun v1IsDefaulted (I)Z
 }
 
 public final class dev/rnett/spekt/ArgumentList$Builder {
@@ -433,8 +434,13 @@ public abstract interface annotation class dev/rnett/spekt/SpektCompilerPluginIn
 }
 
 public abstract interface class dev/rnett/spekt/internal/ArgumentsProviderV1 {
+	public abstract fun getV1DefaultableHasValueBitmask ()I
+	public fun throwInvalidBitmask ()Ljava/lang/Void;
 	public abstract fun v1Get (I)Ljava/lang/Object;
-	public abstract fun v1IsDefaulted (I)Z
+}
+
+public final class dev/rnett/spekt/internal/ArgumentsProviderV1$DefaultImpls {
+	public static fun throwInvalidBitmask (Ldev/rnett/spekt/internal/ArgumentsProviderV1;)Ljava/lang/Void;
 }
 
 public abstract class dev/rnett/spekt/internal/SpektImplementation {

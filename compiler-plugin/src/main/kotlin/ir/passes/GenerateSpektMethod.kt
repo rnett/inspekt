@@ -10,6 +10,7 @@ import dev.rnett.spekt.ir.SpektGenerator
 import dev.rnett.spekt.pluginKey
 import dev.rnett.spekt.toIrOrigin
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
+import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation
 import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
 import org.jetbrains.kotlin.ir.builders.declarations.addField
 import org.jetbrains.kotlin.ir.builders.irBlockBody
@@ -22,6 +23,7 @@ import org.jetbrains.kotlin.ir.declarations.IrField
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
 import org.jetbrains.kotlin.ir.types.typeWith
 import org.jetbrains.kotlin.ir.util.defaultType
+import org.jetbrains.kotlin.ir.util.file
 import org.jetbrains.kotlin.ir.util.functions
 import org.jetbrains.kotlin.ir.util.patchDeclarationParents
 import org.jetbrains.kotlin.name.CallableId
@@ -76,7 +78,7 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
                             returnType = generator.Spekt.typeWith(target.defaultType)
                             body = withBuilder {
                                 irBlockBody {
-                                    +irReturn(generator.createSpekt(target))
+                                    +irReturn(generator.createSpekt(target, target.getCompilerMessageLocation(target.file)))
                                 }
                             }
                         }

@@ -108,14 +108,12 @@ sealed interface SealedInt {
         return args.v1Get(globalIndex = 0) as Impl1.component1()
       }
 , suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Impl1"]), name = "copy", isAbstract = false, kotlin = Impl1::copy, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "test", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Impl1>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        var tmp_1: Impl1
-        var tmp_2: Int
-        tmp_1 = args.v1Get(globalIndex = 0) as Impl1
-        tmp_2 = when {
-          args.v1IsDefaulted(globalIndex = 1) -> tmp_1.#test
-          else -> args.v1Get(globalIndex = 1) as Int
+        val tmp_1: Int = args.<get-v1DefaultableHasValueBitmask>()
+        return when {
+          EQEQEQ(arg0 = tmp_1, arg1 = 0) -> args.v1Get(globalIndex = 0) as Impl1.copy()
+          EQEQEQ(arg0 = tmp_1, arg1 = 1) -> args.v1Get(globalIndex = 0) as Impl1.copy(test = args.v1Get(globalIndex = 1) as Int)
+          else -> args.throwInvalidBitmask()
         }
-        return tmp_1.copy(test = tmp_2)
       }
 , suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Impl1"]), name = "toString", isAbstract = false, kotlin = Impl1::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Impl1.toString()
@@ -181,7 +179,7 @@ data object Impl2 : SealedCls {
     when {
       other !is Impl2 -> return false
     }
-    val tmp_3: Impl2 = other /*as Impl2 */
+    val tmp_2: Impl2 = other /*as Impl2 */
     return true
   }
 

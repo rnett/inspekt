@@ -27,10 +27,13 @@ internal sealed class SpektImplementation<T : Any> {
 @ExportSymbol
 internal interface ArgumentsProviderV1 {
     @ExportSymbol
-    fun v1IsDefaulted(globalIndex: Int): Boolean
+    val v1DefaultableHasValueBitmask: Int
 
     @ExportSymbol
     fun v1Get(globalIndex: Int): Any?
+
+    @ExportSymbol
+    fun throwInvalidBitmask(): Nothing = throw IllegalArgumentException("Invalid defaults bitmask")
 }
 
 @PublishedApi

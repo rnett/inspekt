@@ -23,6 +23,11 @@ public data class Parameters internal constructor(private val parameters: List<P
     public fun startOffset(kind: Parameter.Kind): Int = count { it.kind < kind }
     public fun globalIndex(kind: Parameter.Kind, indexInKind: Int): Int = startOffset(kind) + indexInKind
 
+    internal fun defaultIndex(param: Parameter): Int {
+        val index = parameters.indexOf(param).takeUnless { it == -1 } ?: error("Not in params list")
+        return parameters.subList(0, index).count { it.hasDefault }
+    }
+
     override fun toString(): String = buildString {
         append("(")
         joinTo(this, ", ")
@@ -86,14 +91,20 @@ public data class Parameter internal constructor(
     }
 }
 
-public data class ArgumentList internal constructor(private val parameters: Parameters, private val arguments: Array<Any?>, private val hasBeenSet: BitSet) : ArgumentsProviderV1 {
-    public fun isDefaulted(globalIndex: Int): Boolean = !hasBeenSet[globalIndex]
+public data class ArgumentList internal constructor(private val parameters: Parameters, private val arguments: Array<Any?>, private val defaultableHasValueBitmask: Int) : ArgumentsProviderV1 {
+    public fun isDefaulted(globalIndex: Int): Boolean = parameters[globalIndex].let {
+        if (it.hasDefault)
+            return (defaultableHasValueBitmask and (1 shl parameters.defaultIndex(it))) == 0
+        return false
+    }
+
     public operator fun get(globalIndex: Int): Any? = arguments[globalIndex]
     public operator fun get(name: String): Any? = parameters[name]?.let { get(it.globalIndex) }
 
     override fun v1Get(globalIndex: Int): Any? = get(globalIndex)
 
-    override fun v1IsDefaulted(globalIndex: Int): Boolean = isDefaulted(globalIndex)
+    override val v1DefaultableHasValueBitmask: Int
+        get() = defaultableHasValueBitmask
 
     init {
         parameters.forEach {
@@ -108,11 +119,21 @@ public data class ArgumentList internal constructor(private val parameters: Para
     }
 
     public class Builder @PublishedApi internal constructor(private val parameters: Parameters) {
-        private val hasBeenSet = BitSet(parameters.size)
+        init {
+            if (parameters.count { it.hasDefault } > 32) {
+                throw IllegalArgumentException("Can not call function with more than 32 default arguments")
+            }
+        }
+
+        // bit of (# defaultable param) is 1 if the param was set
+        private var defaultableHasValueBitmask: Int = 0
         private val args = arrayOfNulls<Any?>(parameters.size)
 
         public operator fun set(index: Int, value: Any?) {
-            hasBeenSet[index] = true
+            val param = parameters[index]
+            if (param.hasDefault) {
+                defaultableHasValueBitmask = defaultableHasValueBitmask or (1 shl parameters.defaultIndex(param))
+            }
             args[index] = value
         }
 
@@ -158,7 +179,7 @@ public data class ArgumentList internal constructor(private val parameters: Para
         }
 
         @PublishedApi
-        internal fun build(): ArgumentList = ArgumentList(parameters, args, hasBeenSet)
+        internal fun build(): ArgumentList = ArgumentList(parameters, args, defaultableHasValueBitmask)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -167,7 +188,7 @@ public data class ArgumentList internal constructor(private val parameters: Para
 
         if (parameters != other.parameters) return false
         if (!arguments.contentEquals(other.arguments)) return false
-        if (hasBeenSet != other.hasBeenSet) return false
+        if (defaultableHasValueBitmask != other.defaultableHasValueBitmask) return false
 
         return true
     }
@@ -175,7 +196,7 @@ public data class ArgumentList internal constructor(private val parameters: Para
     override fun hashCode(): Int {
         var result = parameters.hashCode()
         result = 31 * result + arguments.contentHashCode()
-        result = 31 * result + hasBeenSet.hashCode()
+        result = 31 * result + defaultableHasValueBitmask.hashCode()
         return result
     }
 }

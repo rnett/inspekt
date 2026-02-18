@@ -15,8 +15,11 @@ open annotation class dev.rnett.spekt/SpektCompilerPluginIntrinsic : kotlin/Anno
 }
 
 abstract interface dev.rnett.spekt.internal/ArgumentsProviderV1 { // dev.rnett.spekt.internal/ArgumentsProviderV1|null[0]
+    abstract val v1DefaultableHasValueBitmask // dev.rnett.spekt.internal/ArgumentsProviderV1.v1DefaultableHasValueBitmask|{}v1DefaultableHasValueBitmask[0]
+        abstract fun <get-v1DefaultableHasValueBitmask>(): kotlin/Int // dev.rnett.spekt.internal/ArgumentsProviderV1.v1DefaultableHasValueBitmask.<get-v1DefaultableHasValueBitmask>|<get-v1DefaultableHasValueBitmask>(){}[0]
+
     abstract fun v1Get(kotlin/Int): kotlin/Any? // dev.rnett.spekt.internal/ArgumentsProviderV1.v1Get|v1Get(kotlin.Int){}[0]
-    abstract fun v1IsDefaulted(kotlin/Int): kotlin/Boolean // dev.rnett.spekt.internal/ArgumentsProviderV1.v1IsDefaulted|v1IsDefaulted(kotlin.Int){}[0]
+    open fun throwInvalidBitmask(): kotlin/Nothing // dev.rnett.spekt.internal/ArgumentsProviderV1.throwInvalidBitmask|throwInvalidBitmask(){}[0]
 }
 
 abstract interface dev.rnett.spekt/AnnotatedElement { // dev.rnett.spekt/AnnotatedElement|null[0]
@@ -103,6 +106,9 @@ final class <#A: kotlin/Any> dev.rnett.spekt/Spekt : dev.rnett.spekt/AnnotatedEl
 }
 
 final class dev.rnett.spekt/ArgumentList : dev.rnett.spekt.internal/ArgumentsProviderV1 { // dev.rnett.spekt/ArgumentList|null[0]
+    final val v1DefaultableHasValueBitmask // dev.rnett.spekt/ArgumentList.v1DefaultableHasValueBitmask|{}v1DefaultableHasValueBitmask[0]
+        final fun <get-v1DefaultableHasValueBitmask>(): kotlin/Int // dev.rnett.spekt/ArgumentList.v1DefaultableHasValueBitmask.<get-v1DefaultableHasValueBitmask>|<get-v1DefaultableHasValueBitmask>(){}[0]
+
     final fun equals(kotlin/Any?): kotlin/Boolean // dev.rnett.spekt/ArgumentList.equals|equals(kotlin.Any?){}[0]
     final fun get(kotlin/Int): kotlin/Any? // dev.rnett.spekt/ArgumentList.get|get(kotlin.Int){}[0]
     final fun get(kotlin/String): kotlin/Any? // dev.rnett.spekt/ArgumentList.get|get(kotlin.String){}[0]
@@ -110,7 +116,6 @@ final class dev.rnett.spekt/ArgumentList : dev.rnett.spekt.internal/ArgumentsPro
     final fun isDefaulted(kotlin/Int): kotlin/Boolean // dev.rnett.spekt/ArgumentList.isDefaulted|isDefaulted(kotlin.Int){}[0]
     final fun toString(): kotlin/String // dev.rnett.spekt/ArgumentList.toString|toString(){}[0]
     final fun v1Get(kotlin/Int): kotlin/Any? // dev.rnett.spekt/ArgumentList.v1Get|v1Get(kotlin.Int){}[0]
-    final fun v1IsDefaulted(kotlin/Int): kotlin/Boolean // dev.rnett.spekt/ArgumentList.v1IsDefaulted|v1IsDefaulted(kotlin.Int){}[0]
 
     final class Builder { // dev.rnett.spekt/ArgumentList.Builder|null[0]
         constructor <init>(dev.rnett.spekt/Parameters) // dev.rnett.spekt/ArgumentList.Builder.<init>|<init>(dev.rnett.spekt.Parameters){}[0]

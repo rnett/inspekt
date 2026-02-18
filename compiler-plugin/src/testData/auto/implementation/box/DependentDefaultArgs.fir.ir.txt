@@ -123,47 +123,67 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:auto.implementation.box.TestDefaults [var]
-                                    VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:kotlin.Int [var]
-                                    VAR IR_TEMPORARY_VARIABLE name:tmp_2 type:kotlin.String [var]
-                                    SET_VAR 'var tmp_0: auto.implementation.box.TestDefaults declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Unit origin=EQ
-                                      TYPE_OP type=auto.implementation.box.TestDefaults origin=CAST typeOperand=auto.implementation.box.TestDefaults
-                                        CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                          ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                          ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                    SET_VAR 'var tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Unit origin=EQ
-                                      WHEN type=kotlin.Int origin=null
-                                        BRANCH
-                                          if: CALL 'public abstract fun v1IsDefaulted (globalIndex: kotlin.Int): kotlin.Boolean declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Boolean origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                            ARG globalIndex: CONST Int type=kotlin.Int value=1
-                                          then: CONST Int type=kotlin.Int value=3
-                                        BRANCH
-                                          if: CONST Boolean type=kotlin.Boolean value=true
-                                          then: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
-                                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                              ARG globalIndex: CONST Int type=kotlin.Int value=1
-                                    SET_VAR 'var tmp_2: kotlin.String declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Unit origin=EQ
+                                    VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:kotlin.Int [val]
+                                      CALL 'public abstract fun <get-v1DefaultableHasValueBitmask> (): kotlin.Int declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Int origin=null
+                                        ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>'
                                       WHEN type=kotlin.String origin=null
                                         BRANCH
-                                          if: CALL 'public abstract fun v1IsDefaulted (globalIndex: kotlin.Int): kotlin.Boolean declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Boolean origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                            ARG globalIndex: CONST Int type=kotlin.Int value=2
-                                          then: STRING_CONCATENATION type=kotlin.String
-                                            CONST String type=kotlin.String value="fun-"
-                                            GET_VAR 'var tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=0
+                                          then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
+                                            ARG <this>: TYPE_OP type=auto.implementation.box.TestDefaults origin=CAST typeOperand=auto.implementation.box.TestDefaults
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                        BRANCH
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=1
+                                          then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
+                                            ARG <this>: TYPE_OP type=auto.implementation.box.TestDefaults origin=CAST typeOperand=auto.implementation.box.TestDefaults
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                            ARG c: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                        BRANCH
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=2
+                                          then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
+                                            ARG <this>: TYPE_OP type=auto.implementation.box.TestDefaults origin=CAST typeOperand=auto.implementation.box.TestDefaults
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                            ARG d: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=2
+                                        BRANCH
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=3
+                                          then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
+                                            ARG <this>: TYPE_OP type=auto.implementation.box.TestDefaults origin=CAST typeOperand=auto.implementation.box.TestDefaults
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                            ARG c: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                            ARG d: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=2
                                         BRANCH
                                           if: CONST Boolean type=kotlin.Boolean value=true
-                                          then: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                              ARG globalIndex: CONST Int type=kotlin.Int value=2
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>'
-                                      CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.String origin=null
-                                        ARG <this>: GET_VAR 'var tmp_0: auto.implementation.box.TestDefaults declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=auto.implementation.box.TestDefaults origin=null
-                                        ARG c: GET_VAR 'var tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
-                                        ARG d: GET_VAR 'var tmp_2: kotlin.String declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.String origin=null
+                                          then: CALL 'public open fun throwInvalidBitmask (): kotlin.Nothing declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                             CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
@@ -522,39 +542,51 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    VAR IR_TEMPORARY_VARIABLE name:tmp_3 type:kotlin.Int [var]
-                                    VAR IR_TEMPORARY_VARIABLE name:tmp_4 type:kotlin.String [var]
-                                    SET_VAR 'var tmp_3: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Unit origin=EQ
-                                      WHEN type=kotlin.Int origin=null
-                                        BRANCH
-                                          if: CALL 'public abstract fun v1IsDefaulted (globalIndex: kotlin.Int): kotlin.Boolean declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Boolean origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                            ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                          then: CONST Int type=kotlin.Int value=1
-                                        BRANCH
-                                          if: CONST Boolean type=kotlin.Boolean value=true
-                                          then: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
-                                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                              ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                    SET_VAR 'var tmp_4: kotlin.String declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Unit origin=EQ
-                                      WHEN type=kotlin.String origin=null
-                                        BRANCH
-                                          if: CALL 'public abstract fun v1IsDefaulted (globalIndex: kotlin.Int): kotlin.Boolean declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Boolean origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                            ARG globalIndex: CONST Int type=kotlin.Int value=1
-                                          then: CALL 'public open fun toString (): kotlin.String declared in kotlin.Int' type=kotlin.String origin=null
-                                            ARG <this>: GET_VAR 'var tmp_3: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
-                                        BRANCH
-                                          if: CONST Boolean type=kotlin.Boolean value=true
-                                          then: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
-                                              ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                    VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:kotlin.Int [val]
+                                      CALL 'public abstract fun <get-v1DefaultableHasValueBitmask> (): kotlin.Int declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Int origin=null
+                                        ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                     RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>'
-                                      CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.TestDefaults' type=auto.implementation.box.TestDefaults origin=null
-                                        ARG a: GET_VAR 'var tmp_3: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
-                                        ARG b: GET_VAR 'var tmp_4: kotlin.String declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.String origin=null
+                                      WHEN type=auto.implementation.box.TestDefaults origin=null
+                                        BRANCH
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=0
+                                          then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.TestDefaults' type=auto.implementation.box.TestDefaults origin=null
+                                        BRANCH
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=1
+                                          then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.TestDefaults' type=auto.implementation.box.TestDefaults origin=null
+                                            ARG a: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                        BRANCH
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=2
+                                          then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.TestDefaults' type=auto.implementation.box.TestDefaults origin=null
+                                            ARG b: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                        BRANCH
+                                          if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                            ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                            ARG arg1: CONST Int type=kotlin.Int value=3
+                                          then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.TestDefaults' type=auto.implementation.box.TestDefaults origin=null
+                                            ARG a: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                            ARG b: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
+                                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                                ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                        BRANCH
+                                          if: CONST Boolean type=kotlin.Boolean value=true
+                                          then: CALL 'public open fun throwInvalidBitmask (): kotlin.Nothing declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                         ARG sealedSubclasses: CONST Null type=kotlin.Nothing? value=null
