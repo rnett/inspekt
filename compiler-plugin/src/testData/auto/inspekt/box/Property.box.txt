@@ -1,1 +1,1 @@
-[constructor] val auto.inspekt.box.Test.test1: java.lang.String
+val auto.inspekt.box.Test.test1: java.lang.String

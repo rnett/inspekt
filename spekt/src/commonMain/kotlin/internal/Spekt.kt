@@ -163,7 +163,6 @@ internal class SpektImplementationV1<T : Any>
          */
         @param:ExportSymbol private val kind: Int
     ) {
-        //TODO getter for default value?  Would need the other params specified
         internal fun toSpekt(): Parameter = Parameter(
             type,
             hasDefault,
@@ -190,7 +189,6 @@ internal class SpektImplementationV1<T : Any>
         @ExportSymbol name: String,
         @param:ExportSymbol private val annotations: Array<Annotation>,
         @param:ExportSymbol private val isMutable: Boolean,
-        @param:ExportSymbol private val isInConstructor: Boolean,
         @param:ExportSymbol private val hasBackingField: Boolean,
         @param:ExportSymbol private val isAbstract: Boolean,
         @param:ExportSymbol private val hasDelegate: Boolean,
@@ -211,7 +209,6 @@ internal class SpektImplementationV1<T : Any>
             return if (isMutable) {
                 MutableProperty(
                     kotlin as KMutableProperty1<*, *>,
-                    isInConstructor,
                     hasBackingField,
                     hasDelegate,
                     type,
@@ -226,7 +223,6 @@ internal class SpektImplementationV1<T : Any>
             } else {
                 ReadOnlyProperty(
                     kotlin,
-                    isInConstructor,
                     hasBackingField,
                     hasDelegate,
                     type,

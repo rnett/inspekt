@@ -13,6 +13,7 @@ public sealed class Callable : AnnotatedElement {
     public abstract val inheritedFrom: KClass<*>?
 
     public val declared: Boolean get() = inheritedFrom == null
+    public val isTopLevel: Boolean get() = name is MemberName.TopLevel
 
     public abstract fun toString(includeFullName: Boolean): String
     final override fun toString(): String {

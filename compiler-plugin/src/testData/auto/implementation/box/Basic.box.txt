@@ -4,6 +4,6 @@ class auto.implementation.box.Test : java.lang.Object {
     fun equals(other: java.lang.Object?): boolean @ class java.lang.Object
     fun hashCode(): int @ class java.lang.Object
     fun toString(): java.lang.String @ class java.lang.Object
-    [constructor] val test1: java.lang.String
+    val test1: java.lang.String
     val test2: int
 }

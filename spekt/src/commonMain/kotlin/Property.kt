@@ -7,7 +7,6 @@ import kotlin.reflect.KType
 
 public sealed class Property : Callable() {
     abstract override val kotlin: KProperty1<*, *>
-    public abstract val isConstructorProperty: Boolean
     public abstract val hasBackingField: Boolean
     public abstract val hasDelegate: Boolean
 
@@ -16,9 +15,6 @@ public sealed class Property : Callable() {
     public abstract val getter: PropertyMethod
 
     protected fun StringBuilder.appendPropertySignature(keyword: String, includeFullName: Boolean) {
-        if (isConstructorProperty) {
-            append("[constructor] ")
-        }
         appendContext()
         if (isAbstract) append("abstract ")
         append(keyword).append(" ")
@@ -42,7 +38,6 @@ public sealed class Property : Callable() {
 
 public data class ReadOnlyProperty internal constructor(
     override val kotlin: KProperty1<*, *>,
-    override val isConstructorProperty: Boolean,
     override val hasBackingField: Boolean,
     override val hasDelegate: Boolean,
     override val type: KType,
@@ -61,7 +56,6 @@ public data class ReadOnlyProperty internal constructor(
 
 public data class MutableProperty internal constructor(
     override val kotlin: KMutableProperty1<*, *>,
-    override val isConstructorProperty: Boolean,
     override val hasBackingField: Boolean,
     override val hasDelegate: Boolean,
     override val type: KType,

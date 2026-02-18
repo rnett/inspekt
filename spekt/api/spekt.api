@@ -40,6 +40,7 @@ public abstract class dev/rnett/spekt/Callable : dev/rnett/spekt/AnnotatedElemen
 	public abstract fun getParameters ()Ldev/rnett/spekt/Parameters;
 	public final fun getShortName ()Ljava/lang/String;
 	public abstract fun isAbstract ()Z
+	public final fun isTopLevel ()Z
 	public final fun toString ()Ljava/lang/String;
 	public abstract fun toString (Z)Ljava/lang/String;
 }
@@ -179,17 +180,16 @@ public final class dev/rnett/spekt/Method$Kind : java/lang/Enum {
 
 public final class dev/rnett/spekt/MutableProperty : dev/rnett/spekt/Property {
 	public final fun component1 ()Lkotlin/reflect/KMutableProperty1;
-	public final fun component10 ()Ljava/util/List;
-	public final fun component11 ()Z
-	public final fun component12 ()Lkotlin/reflect/KClass;
+	public final fun component10 ()Z
+	public final fun component11 ()Lkotlin/reflect/KClass;
 	public final fun component2 ()Z
 	public final fun component3 ()Z
-	public final fun component4 ()Z
-	public final fun component5 ()Lkotlin/reflect/KType;
+	public final fun component4 ()Lkotlin/reflect/KType;
+	public final fun component5 ()Ldev/rnett/spekt/PropertyMethod;
 	public final fun component6 ()Ldev/rnett/spekt/PropertyMethod;
-	public final fun component7 ()Ldev/rnett/spekt/PropertyMethod;
-	public final fun component8 ()Ldev/rnett/spekt/MemberName;
-	public final fun component9 ()Ldev/rnett/spekt/Parameters;
+	public final fun component7 ()Ldev/rnett/spekt/MemberName;
+	public final fun component8 ()Ldev/rnett/spekt/Parameters;
+	public final fun component9 ()Ljava/util/List;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getAnnotations ()Ljava/util/List;
 	public fun getGetter ()Ldev/rnett/spekt/PropertyMethod;
@@ -205,7 +205,6 @@ public final class dev/rnett/spekt/MutableProperty : dev/rnett/spekt/Property {
 	public fun getType ()Lkotlin/reflect/KType;
 	public fun hashCode ()I
 	public fun isAbstract ()Z
-	public fun isConstructorProperty ()Z
 	public final fun set (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public final fun set (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public fun toString (Z)Ljava/lang/String;
@@ -324,7 +323,6 @@ public abstract class dev/rnett/spekt/Property : dev/rnett/spekt/Callable {
 	public abstract fun getHasDelegate ()Z
 	public abstract fun getKotlin ()Lkotlin/reflect/KProperty1;
 	public abstract fun getType ()Lkotlin/reflect/KType;
-	public abstract fun isConstructorProperty ()Z
 }
 
 public final class dev/rnett/spekt/PropertyMethod : dev/rnett/spekt/Method {
@@ -358,16 +356,15 @@ public abstract class dev/rnett/spekt/QualifiedName {
 
 public final class dev/rnett/spekt/ReadOnlyProperty : dev/rnett/spekt/Property {
 	public final fun component1 ()Lkotlin/reflect/KProperty1;
-	public final fun component10 ()Z
-	public final fun component11 ()Lkotlin/reflect/KClass;
+	public final fun component10 ()Lkotlin/reflect/KClass;
 	public final fun component2 ()Z
 	public final fun component3 ()Z
-	public final fun component4 ()Z
-	public final fun component5 ()Lkotlin/reflect/KType;
-	public final fun component6 ()Ldev/rnett/spekt/PropertyMethod;
-	public final fun component7 ()Ldev/rnett/spekt/MemberName;
-	public final fun component8 ()Ldev/rnett/spekt/Parameters;
-	public final fun component9 ()Ljava/util/List;
+	public final fun component4 ()Lkotlin/reflect/KType;
+	public final fun component5 ()Ldev/rnett/spekt/PropertyMethod;
+	public final fun component6 ()Ldev/rnett/spekt/MemberName;
+	public final fun component7 ()Ldev/rnett/spekt/Parameters;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9 ()Z
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getAnnotations ()Ljava/util/List;
 	public fun getGetter ()Ldev/rnett/spekt/PropertyMethod;
@@ -381,7 +378,6 @@ public final class dev/rnett/spekt/ReadOnlyProperty : dev/rnett/spekt/Property {
 	public fun getType ()Lkotlin/reflect/KType;
 	public fun hashCode ()I
 	public fun isAbstract ()Z
-	public fun isConstructorProperty ()Z
 	public fun toString (Z)Ljava/lang/String;
 }
 
@@ -463,7 +459,7 @@ public final class dev/rnett/spekt/internal/SpektImplementationV1$Param {
 }
 
 public final class dev/rnett/spekt/internal/SpektImplementationV1$Property {
-	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/annotation/Annotation;ZZZZZLkotlin/reflect/KType;Lkotlin/reflect/KProperty1;Ldev/rnett/spekt/internal/SpektImplementationV1$Function;Ldev/rnett/spekt/internal/SpektImplementationV1$Function;Lkotlin/reflect/KClass;)V
+	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/annotation/Annotation;ZZZZLkotlin/reflect/KType;Lkotlin/reflect/KProperty1;Ldev/rnett/spekt/internal/SpektImplementationV1$Function;Ldev/rnett/spekt/internal/SpektImplementationV1$Function;Lkotlin/reflect/KClass;)V
 	public final fun toSpekt ()Ldev/rnett/spekt/Property;
 }
 

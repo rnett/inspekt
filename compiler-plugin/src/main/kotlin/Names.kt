@@ -59,7 +59,6 @@ object Names {
             val name = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_name
             val annotations = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_annotations
             val isMutable = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_isMutable
-            val isInConstructor = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_isInConstructor
             val hasBackingField = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_hasBackingField
             val isAbstract = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_isAbstract
             val hasDelegate = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_hasDelegate

@@ -44,13 +44,11 @@ import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.expressions.IrExpression
-import org.jetbrains.kotlin.ir.expressions.IrGetValue
 import org.jetbrains.kotlin.ir.expressions.IrTypeOperator
 import org.jetbrains.kotlin.ir.expressions.impl.IrClassReferenceImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrFunctionReferenceImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrPropertyReferenceImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrTypeOperatorCallImpl
-import org.jetbrains.kotlin.ir.symbols.IrValueParameterSymbol
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.defaultType
@@ -166,17 +164,6 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[this.classNames] = classNames?.toArrayOfStrings() ?: irNull()
                 arguments[annotations] = irArrayOf(builtIns.annotationType, property.annotations.map { it.deepCopyWithSymbols(parent) })
                 arguments[isMutable] = irBoolean(property.isVar)
-                arguments[isInConstructor] = irBoolean(
-                    property.backingField?.initializer?.expression?.let {
-                        if (it is IrGetValue) {
-                            val symbol = it.symbol
-                            if (symbol is IrValueParameterSymbol) {
-                                return@let (symbol.owner.parent as? IrConstructor)?.isPrimary == true
-                            }
-                        }
-                        false
-                    } == true
-                )
                 val returnType = property.getter?.returnType ?: property.backingField?.type ?: error("Could not identify property type")
                 arguments[hasBackingField] = irBoolean(property.backingField != null)
                 arguments[isAbstract] = irBoolean(property.modality.isNonConcrete())
