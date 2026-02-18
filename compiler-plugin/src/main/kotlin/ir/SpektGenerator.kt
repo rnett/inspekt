@@ -58,6 +58,7 @@ import org.jetbrains.kotlin.ir.types.makeNullable
 import org.jetbrains.kotlin.ir.types.typeWith
 import org.jetbrains.kotlin.ir.util.callableId
 import org.jetbrains.kotlin.ir.util.classIdOrFail
+import org.jetbrains.kotlin.ir.util.companionObject
 import org.jetbrains.kotlin.ir.util.constructors
 import org.jetbrains.kotlin.ir.util.deepCopyWithSymbols
 import org.jetbrains.kotlin.ir.util.defaultType
@@ -127,6 +128,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[isInstance] = createIsInstanceLambda(declaration)
                 arguments[safeCast] = creatSafeCastLambda(declaration)
                 arguments[objectInstance] = if (declaration.kind == ClassKind.OBJECT) irGetObject(declaration.symbol) else irNull()
+                arguments[companionObject] = declaration.companionObject()?.takeIf { it.visibility.isPublicAPI }?.let { createSpektImplementation(it, reportLocation) } ?: irNull()
             }
         }
     }
@@ -192,7 +194,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                     origin = null,
                 )
                 arguments[getter] = createFunctionObject(property.getter ?: error("Property must have getter"), reportLocation)
-                arguments[setter] = property.setter?.let { createFunctionObject(it, reportLocation) } ?: irNull()
+                arguments[setter] = property.setter?.takeIf { it.visibility.isPublicAPI }?.let { createFunctionObject(it, reportLocation) } ?: irNull()
                 arguments[inheritedFrom] = originalType?.let { IrClassReferenceImpl(startOffset, endOffset, builtIns.kClassClass.defaultType, it.symbol, it.defaultType) } ?: irNull()
             }
 

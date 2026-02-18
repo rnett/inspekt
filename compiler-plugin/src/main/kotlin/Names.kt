@@ -24,6 +24,7 @@ object Names {
             val isInstance = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_isInstance
             val safeCast = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_safeCast
             val objectInstance = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_objectInstance
+            val companionObject = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_companionObject
         }
 
         object FunctionCtor {

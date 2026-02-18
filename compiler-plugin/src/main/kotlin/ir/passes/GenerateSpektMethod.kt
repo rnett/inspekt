@@ -12,7 +12,7 @@ import dev.rnett.spekt.toIrOrigin
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation
 import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
-import org.jetbrains.kotlin.ir.builders.declarations.addField
+import org.jetbrains.kotlin.ir.builders.declarations.buildField
 import org.jetbrains.kotlin.ir.builders.irBlockBody
 import org.jetbrains.kotlin.ir.builders.irCall
 import org.jetbrains.kotlin.ir.builders.irExprBody
@@ -22,6 +22,7 @@ import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrField
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
 import org.jetbrains.kotlin.ir.types.typeWith
+import org.jetbrains.kotlin.ir.util.addChild
 import org.jetbrains.kotlin.ir.util.defaultType
 import org.jetbrains.kotlin.ir.util.file
 import org.jetbrains.kotlin.ir.util.functions
@@ -46,7 +47,9 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
 
             val declarationClass = context.referenceClass(key.declaration)!!.owner
 
-            val field = createLazyField(declaration, declarationClass)
+            val field = createLazyField(declarationClass)
+
+            declaration.addChild(field)
 
             spektMethod.apply {
                 spektMethod.body = withBuilder {
@@ -61,8 +64,8 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
         super.visitClass(declaration)
     }
 
-    private fun createLazyField(hostClass: IrClass, target: IrClass): IrField {
-        return hostClass.addField {
+    private fun createLazyField(target: IrClass): IrField {
+        return factory.buildField {
             name = GeneratedNames.spektImplFieldV1
             visibility = DescriptorVisibilities.PRIVATE
             origin = DeclarationKeys.SpektImplementationFieldV1.toIrOrigin()

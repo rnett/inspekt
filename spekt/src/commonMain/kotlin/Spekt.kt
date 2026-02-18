@@ -25,6 +25,7 @@ public data class Spekt<T : Any> internal constructor(
     private val cast: (Any) -> T,
     private val isInstance: (Any) -> Boolean,
     private val safeCast: (Any) -> T?,
+    val companionObject: Spekt<Any>?,
 ) : AnnotatedElement {
 
     public val superclasses: Set<KClass<*>> = buildSet { supertypes.mapNotNullTo(this) { it.classifier as? KClass<*> } }
@@ -37,6 +38,8 @@ public data class Spekt<T : Any> internal constructor(
     public val shortName: String get() = name.shortName
 
     public val primaryConstructor: Constructor? get() = constructors.find { it.isPrimary }
+
+    public val companionObjectInstance: Any? get() = companionObject?.objectInstance
 
     override fun toString(): String = toString(false)
 

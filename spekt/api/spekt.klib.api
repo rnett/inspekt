@@ -36,7 +36,7 @@ abstract class dev.rnett.spekt/QualifiedName { // dev.rnett.spekt/QualifiedName|
 }
 
 final class <#A: kotlin/Any> dev.rnett.spekt.internal/SpektImplementationV1 : dev.rnett.spekt.internal/SpektImplementation<#A> { // dev.rnett.spekt.internal/SpektImplementationV1|null[0]
-    constructor <init>(kotlin.reflect/KClass<*>, kotlin/Boolean, kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>, kotlin/Array<kotlin.reflect/KType>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Function>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Property>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Function>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1<out #A>>?, kotlin/Function1<kotlin/Any, #A>, kotlin/Function1<kotlin/Any, kotlin/Boolean>, kotlin/Function1<kotlin/Any, #A?>, #A?) // dev.rnett.spekt.internal/SpektImplementationV1.<init>|<init>(kotlin.reflect.KClass<*>;kotlin.Boolean;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.reflect.KType>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Property>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1<out|1:0>>?;kotlin.Function1<kotlin.Any,1:0>;kotlin.Function1<kotlin.Any,kotlin.Boolean>;kotlin.Function1<kotlin.Any,1:0?>;1:0?){}[0]
+    constructor <init>(kotlin.reflect/KClass<*>, kotlin/Boolean, kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>, kotlin/Array<kotlin.reflect/KType>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Function>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Property>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1.Function>, kotlin/Array<dev.rnett.spekt.internal/SpektImplementationV1<out #A>>?, kotlin/Function1<kotlin/Any, #A>, kotlin/Function1<kotlin/Any, kotlin/Boolean>, kotlin/Function1<kotlin/Any, #A?>, #A?, dev.rnett.spekt.internal/SpektImplementationV1<kotlin/Any>?) // dev.rnett.spekt.internal/SpektImplementationV1.<init>|<init>(kotlin.reflect.KClass<*>;kotlin.Boolean;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.reflect.KType>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Property>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>;kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1<out|1:0>>?;kotlin.Function1<kotlin.Any,1:0>;kotlin.Function1<kotlin.Any,kotlin.Boolean>;kotlin.Function1<kotlin.Any,1:0?>;1:0?;dev.rnett.spekt.internal.SpektImplementationV1<kotlin.Any>?){}[0]
 
     final fun toSpekt(): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt.internal/SpektImplementationV1.toSpekt|toSpekt(){}[0]
 
@@ -60,6 +60,10 @@ final class <#A: kotlin/Any> dev.rnett.spekt.internal/SpektImplementationV1 : de
 final class <#A: kotlin/Any> dev.rnett.spekt/Spekt : dev.rnett.spekt/AnnotatedElement { // dev.rnett.spekt/Spekt|null[0]
     final val annotations // dev.rnett.spekt/Spekt.annotations|{}annotations[0]
         final fun <get-annotations>(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/Spekt.annotations.<get-annotations>|<get-annotations>(){}[0]
+    final val companionObject // dev.rnett.spekt/Spekt.companionObject|{}companionObject[0]
+        final fun <get-companionObject>(): dev.rnett.spekt/Spekt<kotlin/Any>? // dev.rnett.spekt/Spekt.companionObject.<get-companionObject>|<get-companionObject>(){}[0]
+    final val companionObjectInstance // dev.rnett.spekt/Spekt.companionObjectInstance|{}companionObjectInstance[0]
+        final fun <get-companionObjectInstance>(): kotlin/Any? // dev.rnett.spekt/Spekt.companionObjectInstance.<get-companionObjectInstance>|<get-companionObjectInstance>(){}[0]
     final val constructors // dev.rnett.spekt/Spekt.constructors|{}constructors[0]
         final fun <get-constructors>(): kotlin.collections/List<dev.rnett.spekt/Constructor> // dev.rnett.spekt/Spekt.constructors.<get-constructors>|<get-constructors>(){}[0]
     final val functions // dev.rnett.spekt/Spekt.functions|{}functions[0]
@@ -88,6 +92,7 @@ final class <#A: kotlin/Any> dev.rnett.spekt/Spekt : dev.rnett.spekt/AnnotatedEl
     final fun cast(kotlin/Any): #A // dev.rnett.spekt/Spekt.cast|cast(kotlin.Any){}[0]
     final fun component1(): kotlin.reflect/KClass<#A> // dev.rnett.spekt/Spekt.component1|component1(){}[0]
     final fun component10(): kotlin.collections/List<dev.rnett.spekt/Spekt<out #A>> // dev.rnett.spekt/Spekt.component10|component10(){}[0]
+    final fun component14(): dev.rnett.spekt/Spekt<kotlin/Any>? // dev.rnett.spekt/Spekt.component14|component14(){}[0]
     final fun component2(): dev.rnett.spekt/ClassName // dev.rnett.spekt/Spekt.component2|component2(){}[0]
     final fun component3(): kotlin.collections/Set<kotlin.reflect/KType> // dev.rnett.spekt/Spekt.component3|component3(){}[0]
     final fun component4(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/Spekt.component4|component4(){}[0]

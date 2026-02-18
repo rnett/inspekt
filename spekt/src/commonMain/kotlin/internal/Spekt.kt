@@ -53,7 +53,8 @@ internal class SpektImplementationV1<T : Any>
     @param:ExportSymbol private val cast: (Any) -> T,
     @param:ExportSymbol private val isInstance: (Any) -> Boolean,
     @param:ExportSymbol private val safeCast: (Any) -> T?,
-    @param:ExportSymbol private val objectInstance: T?
+    @param:ExportSymbol private val objectInstance: T?,
+    @param:ExportSymbol private val companionObject: SpektImplementationV1<Any>?
 ) : SpektImplementation<T>() {
 
     internal val name = ClassName(PackageName(packageNames.toList()), classNames.toList())
@@ -81,7 +82,8 @@ internal class SpektImplementationV1<T : Any>
             sealedSubclasses.orEmpty().map { it.toSpekt() },
             cast,
             isInstance,
-            safeCast
+            safeCast,
+            companionObject?.toSpekt()
         ).also {
             ref = it
         }

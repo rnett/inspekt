@@ -57,5 +57,5 @@ fun box(): String {
 , safeCast = local fun <anonymous>(it: Any): Test? {
     return it as? Test
   }
-, objectInstance = null).toSpekt().toString()
+, objectInstance = null, companionObject = null).toSpekt().toString()
 }
