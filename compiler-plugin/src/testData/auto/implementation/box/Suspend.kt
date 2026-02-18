@@ -1,5 +1,4 @@
-
-@InSpekt
+@Inspekt
 class Test {
     suspend fun test() = 5
 }

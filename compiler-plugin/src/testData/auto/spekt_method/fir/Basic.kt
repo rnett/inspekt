@@ -1,5 +1,4 @@
-
-@InSpekt
+@Inspekt
 class Test {
 
 }

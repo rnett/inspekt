@@ -1,7 +1,7 @@
 FILE: Inheritance.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/InSpekt|() public abstract class Base : R|kotlin/Any| {
+    @R|dev/rnett/spekt/Inspekt|() public abstract class Base : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/Base| {
             super<R|kotlin/Any|>()
         }
@@ -35,7 +35,7 @@ FILE: Inheritance.kt
         }
 
     }
-    @R|dev/rnett/spekt/InSpekt|() public final class Derived : R|auto/implementation/box/Base| {
+    @R|dev/rnett/spekt/Inspekt|() public final class Derived : R|auto/implementation/box/Base| {
         public constructor(): R|auto/implementation/box/Derived| {
             super<R|auto/implementation/box/Base|>()
         }

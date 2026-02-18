@@ -116,7 +116,7 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
         context ?: return emptyList()
 
         val annotatedClass =
-            if (context.owner.hasAnnotation(Names.InSpektAnnotation.asClassId(), session))
+            if (context.owner.hasAnnotation(Names.InspektAnnotation.asClassId(), session))
                 context.owner
             else
                 context.owner.getContainingClassSymbol() as? FirRegularClassSymbol ?: return emptyList()

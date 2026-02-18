@@ -1,5 +1,4 @@
-
-@InSpekt
+@Inspekt
 object TestObject {
     val prop = "obj_prop"
     fun test() = "obj_fun"

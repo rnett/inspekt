@@ -1,5 +1,4 @@
-
-@InSpekt
+@Inspekt
 class TestProperties {
     val readOnly = "fixed"
     var mutable = "initial"

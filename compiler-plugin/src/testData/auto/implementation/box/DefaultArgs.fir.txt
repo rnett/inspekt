@@ -1,7 +1,7 @@
 FILE: DefaultArgs.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/InSpekt|() public final class TestDefaults : R|kotlin/Any| {
+    @R|dev/rnett/spekt/Inspekt|() public final class TestDefaults : R|kotlin/Any| {
         public constructor(a: R|kotlin/Int| = Int(1), b: R|kotlin/String| = String(default)): R|auto/implementation/box/TestDefaults| {
             super<R|kotlin/Any|>()
         }

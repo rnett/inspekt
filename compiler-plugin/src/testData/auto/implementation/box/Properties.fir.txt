@@ -1,7 +1,7 @@
 FILE: Properties.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/InSpekt|() public final class TestProperties : R|kotlin/Any| {
+    @R|dev/rnett/spekt/Inspekt|() public final class TestProperties : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/TestProperties| {
             super<R|kotlin/Any|>()
         }

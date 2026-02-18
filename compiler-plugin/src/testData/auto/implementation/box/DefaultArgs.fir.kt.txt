@@ -1,6 +1,6 @@
 package auto.implementation.box
 
-@InSpekt
+@Inspekt
 class TestDefaults {
   val a: Int
     field = a
@@ -12,7 +12,7 @@ class TestDefaults {
 
   companion object Companion {
     private /* static final field */ val spektImplV1: Lazy<Spekt<TestDefaults>> = lazy<Spekt<TestDefaults>>(initializer = local fun <anonymous>(): Spekt<TestDefaults> {
-      return SpektImplementationV1</* null */>(kClass = TestDefaults::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "test", isAbstract = false, kotlin = TestDefaults::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      return SpektImplementationV1</* null */>(kClass = TestDefaults::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(name = "test", isAbstract = false, kotlin = TestDefaults::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         var tmp_0: TestDefaults
         var tmp_1: Int
         var tmp_2: String

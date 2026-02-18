@@ -1,6 +1,6 @@
 package auto.implementation.box
 
-@InSpekt
+@Inspekt
 abstract class Base {
   open val openProp: String
     field = "base_open"
@@ -12,7 +12,7 @@ abstract class Base {
 
   companion object Companion {
     private /* static final field */ val spektImplV1: Lazy<Spekt<Base>> = lazy<Spekt<Base>>(initializer = local fun <anonymous>(): Spekt<Base> {
-      return SpektImplementationV1</* null */>(kClass = Base::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Base"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "abstractFun", isAbstract = true, kotlin = Base::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      return SpektImplementationV1</* null */>(kClass = Base::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Base"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(name = "abstractFun", isAbstract = true, kotlin = Base::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Base.abstractFun()
       }
 , suspendInvoker = null, inheritedFrom = null), Function(name = "openFun", isAbstract = false, kotlin = Base::openFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
@@ -87,7 +87,7 @@ abstract class Base {
 
 }
 
-@InSpekt
+@Inspekt
 class Derived : Base {
   override val abstractProp: String
     field = "derived_abstract"
@@ -99,7 +99,7 @@ class Derived : Base {
 
   companion object Companion {
     private /* static final field */ val spektImplV1: Lazy<Spekt<Derived>> = lazy<Spekt<Derived>>(initializer = local fun <anonymous>(): Spekt<Derived> {
-      return SpektImplementationV1</* null */>(kClass = Derived::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), supertypes = arrayOf<KType>(elements = [typeOf<Base>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "abstractFun", isAbstract = false, kotlin = Derived::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      return SpektImplementationV1</* null */>(kClass = Derived::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), supertypes = arrayOf<KType>(elements = [typeOf<Base>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(name = "abstractFun", isAbstract = false, kotlin = Derived::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Derived.abstractFun()
       }
 , suspendInvoker = null, inheritedFrom = null), Function(name = "openFun", isAbstract = false, kotlin = Derived::openFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {

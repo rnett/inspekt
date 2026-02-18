@@ -1,5 +1,4 @@
-
-@InSpekt
+@Inspekt
 class TestDefaults(val a: Int = 1, val b: String = a.toString()) {
     fun test(c: Int = 3, d: String = "fun-$c"): String {
         return "$a-$b-$c-$d"

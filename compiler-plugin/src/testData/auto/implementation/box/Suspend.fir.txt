@@ -1,7 +1,7 @@
 FILE: Suspend.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/InSpekt|() public final class Test : R|kotlin/Any| {
+    @R|dev/rnett/spekt/Inspekt|() public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/Test| {
             super<R|kotlin/Any|>()
         }

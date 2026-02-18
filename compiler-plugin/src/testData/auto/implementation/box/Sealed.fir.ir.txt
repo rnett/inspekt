@@ -22,7 +22,7 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
         public open fun toString (): kotlin.String declared in auto.implementation.box.SealedInt
   CLASS INTERFACE name:SealedInt modality:SEALED visibility:public superTypes:[kotlin.Any]
     annotations:
-      InSpekt
+      Inspekt
     sealedSubclasses:
       CLASS CLASS name:SealedCls modality:SEALED visibility:public superTypes:[auto.implementation.box.SealedInt]
       CLASS CLASS name:Impl1 modality:FINAL visibility:public [data] superTypes:[auto.implementation.box.SealedInt]
@@ -149,7 +149,7 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                         ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                           TYPE_ARG T: kotlin.Annotation
                           ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
-                            CONSTRUCTOR_CALL 'public constructor <init> () declared in dev.rnett.spekt.InSpekt' type=dev.rnett.spekt.InSpekt origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> () declared in dev.rnett.spekt.Inspekt' type=dev.rnett.spekt.Inspekt origin=null
                         ARG functions: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                           TYPE_ARG T: dev.rnett.spekt.internal.SpektImplementationV1.Function
                           ARG elements: VARARG type=kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function> varargElementType=dev.rnett.spekt.internal.SpektImplementationV1.Function

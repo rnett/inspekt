@@ -1,4 +1,4 @@
-@InSpekt
+@Inspekt
 sealed interface SealedInt {
     data class Impl1(val test: Int) : SealedInt
 }

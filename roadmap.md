@@ -1,2 +1,2 @@
-- Support for getting classes, functions, and properties via reference, e.g. `inspekt(MyClass::class)`, `inspekt(::myProp)`
+- Support for getting classes, functions, and properties via reference, e.g. `Inspekt(MyClass::class)`, `Inspekt(::myProp)`
 - Support for creating a proxy for an open class, e.g. `proxy(MyInterface::class) { kind, name, args -> }`

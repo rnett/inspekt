@@ -6,8 +6,12 @@
 // - Show declarations: true
 
 // Library unique name: <dev.rnett.spekt:spekt>
-open annotation class dev.rnett.spekt/InSpekt : kotlin/Annotation { // dev.rnett.spekt/InSpekt|null[0]
-    constructor <init>() // dev.rnett.spekt/InSpekt.<init>|<init>(){}[0]
+open annotation class dev.rnett.spekt/Inspekt : kotlin/Annotation { // dev.rnett.spekt/Inspekt|null[0]
+    constructor <init>() // dev.rnett.spekt/Inspekt.<init>|<init>(){}[0]
+}
+
+open annotation class dev.rnett.spekt/SpektCompilerPluginIntrinsic : kotlin/Annotation { // dev.rnett.spekt/SpektCompilerPluginIntrinsic|null[0]
+    constructor <init>() // dev.rnett.spekt/SpektCompilerPluginIntrinsic.<init>|<init>(){}[0]
 }
 
 abstract interface dev.rnett.spekt.internal/ArgumentsProviderV1 { // dev.rnett.spekt.internal/ArgumentsProviderV1|null[0]
@@ -557,4 +561,7 @@ final object dev.rnett.spekt/SpecialNames { // dev.rnett.spekt/SpecialNames|null
     final fun setter(kotlin/String): kotlin/String // dev.rnett.spekt/SpecialNames.setter|setter(kotlin.String){}[0]
 }
 
+final fun <#A: kotlin/Any> dev.rnett.spekt/inspekt(kotlin.reflect/KClass<#A>): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt/inspekt|inspekt(kotlin.reflect.KClass<0:0>){0§<kotlin.Any>}[0]
+final fun dev.rnett.spekt/inspekt(kotlin.reflect/KFunction<*>): dev.rnett.spekt/Function // dev.rnett.spekt/inspekt|inspekt(kotlin.reflect.KFunction<*>){}[0]
+final fun dev.rnett.spekt/inspekt(kotlin.reflect/KProperty<*>): dev.rnett.spekt/Property // dev.rnett.spekt/inspekt|inspekt(kotlin.reflect.KProperty<*>){}[0]
 final inline fun dev.rnett.spekt/ArgumentList(dev.rnett.spekt/Parameters, kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): dev.rnett.spekt/ArgumentList // dev.rnett.spekt/ArgumentList|ArgumentList(dev.rnett.spekt.Parameters;kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]

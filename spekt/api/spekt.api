@@ -113,7 +113,13 @@ public final class dev/rnett/spekt/Function : dev/rnett/spekt/Method {
 	public fun toString ()Ljava/lang/String;
 }
 
-public abstract interface annotation class dev/rnett/spekt/InSpekt : java/lang/annotation/Annotation {
+public abstract interface annotation class dev/rnett/spekt/Inspekt : java/lang/annotation/Annotation {
+}
+
+public final class dev/rnett/spekt/InspektKt {
+	public static final fun inspekt (Lkotlin/reflect/KClass;)Ldev/rnett/spekt/Spekt;
+	public static final fun inspekt (Lkotlin/reflect/KFunction;)Ldev/rnett/spekt/Function;
+	public static final fun inspekt (Lkotlin/reflect/KProperty;)Ldev/rnett/spekt/Property;
 }
 
 public abstract class dev/rnett/spekt/MemberName : dev/rnett/spekt/QualifiedName {
@@ -418,6 +424,9 @@ public final class dev/rnett/spekt/Spekt : dev/rnett/spekt/AnnotatedElement {
 	public fun toString ()Ljava/lang/String;
 	public final fun toString (ZZ)Ljava/lang/String;
 	public static synthetic fun toString$default (Ldev/rnett/spekt/Spekt;ZZILjava/lang/Object;)Ljava/lang/String;
+}
+
+public abstract interface annotation class dev/rnett/spekt/SpektCompilerPluginIntrinsic : java/lang/annotation/Annotation {
 }
 
 public abstract interface class dev/rnett/spekt/internal/ArgumentsProviderV1 {

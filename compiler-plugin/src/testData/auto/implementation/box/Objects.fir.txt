@@ -1,7 +1,7 @@
 FILE: Objects.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/InSpekt|() public final object TestObject : R|kotlin/Any| {
+    @R|dev/rnett/spekt/Inspekt|() public final object TestObject : R|kotlin/Any| {
         private constructor(): R|auto/implementation/box/TestObject| {
             super<R|kotlin/Any|>()
         }

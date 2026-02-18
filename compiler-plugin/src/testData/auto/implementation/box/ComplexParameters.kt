@@ -1,5 +1,4 @@
-
-@InSpekt
+@Inspekt
 class Complex {
     fun String.extension(other: Int) = "$this-$other"
     

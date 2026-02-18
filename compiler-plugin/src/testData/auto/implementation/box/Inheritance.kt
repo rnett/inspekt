@@ -1,5 +1,4 @@
-
-@InSpekt
+@Inspekt
 abstract class Base {
     abstract val abstractProp: String
     open val openProp = "base_open"
@@ -10,7 +9,7 @@ abstract class Base {
     fun baseFun() = "base_fun"
 }
 
-@InSpekt
+@Inspekt
 class Derived : Base() {
     override val abstractProp = "derived_abstract"
     override val openProp = "derived_open"

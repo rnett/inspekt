@@ -58,6 +58,6 @@ The project uses `kcp-development` for compiler plugin testing. Tests are locate
 ### Guidelines for Test Data
 
 - Keep test cases focused. One feature/case per file.
-- Use `@InSpekt` to trigger the plugin.
+- Use `@Inspekt` to trigger the plugin.
 - In `box()` tests, use `kotlin.test` assertions (e.g., `assertEquals`).
 - The generated `*.txt` files are essentially snapshot tests for the compiler FIR and IR.

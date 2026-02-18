@@ -6,6 +6,6 @@ import org.jetbrains.kotlin.fir.extensions.predicate.DeclarationPredicate
 
 object Predicates {
     val SPEKT_PREDICATE = DeclarationPredicate.create {
-        metaAnnotated(Names.InSpektAnnotation.asFqName(), includeItself = true)
+        metaAnnotated(Names.InspektAnnotation.asFqName(), includeItself = true)
     }
 }

@@ -1,7 +1,7 @@
 FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
   CLASS CLASS name:Complex modality:FINAL visibility:public superTypes:[kotlin.Any]
     annotations:
-      InSpekt
+      Inspekt
     thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Complex
     CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
       thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Complex.Companion
@@ -36,7 +36,7 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                         ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                           TYPE_ARG T: kotlin.Annotation
                           ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
-                            CONSTRUCTOR_CALL 'public constructor <init> () declared in dev.rnett.spekt.InSpekt' type=dev.rnett.spekt.InSpekt origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> () declared in dev.rnett.spekt.Inspekt' type=dev.rnett.spekt.Inspekt origin=null
                         ARG functions: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                           TYPE_ARG T: dev.rnett.spekt.internal.SpektImplementationV1.Function
                           ARG elements: VARARG type=kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function> varargElementType=dev.rnett.spekt.internal.SpektImplementationV1.Function

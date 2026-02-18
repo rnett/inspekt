@@ -3,7 +3,7 @@ package dev.rnett.spekt
 import org.jetbrains.kotlin.name.Name
 
 object Names {
-    val InSpektAnnotation = Symbols.spekt.dev_rnett_spekt_InSpekt
+    val InspektAnnotation = Symbols.spekt.dev_rnett_spekt_Inspekt
     val Spekt = Symbols.spekt.dev_rnett_spekt_Spekt
 
     object Impl {
