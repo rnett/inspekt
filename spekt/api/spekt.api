@@ -33,13 +33,13 @@ public final class dev/rnett/spekt/ArgumentList$Builder {
 public abstract class dev/rnett/spekt/Callable : dev/rnett/spekt/AnnotatedElement {
 	protected final fun appendContext (Ljava/lang/StringBuilder;)V
 	protected final fun appendExtension (Ljava/lang/StringBuilder;)V
-	public final fun getDeclared ()Z
 	public abstract fun getInheritedFrom ()Lkotlin/reflect/KClass;
 	public abstract fun getKotlin ()Lkotlin/reflect/KCallable;
 	public abstract fun getName ()Ldev/rnett/spekt/MemberName;
 	public abstract fun getParameters ()Ldev/rnett/spekt/Parameters;
 	public final fun getShortName ()Ljava/lang/String;
 	public abstract fun isAbstract ()Z
+	public final fun isDeclared ()Z
 	public final fun isTopLevel ()Z
 	public final fun toString ()Ljava/lang/String;
 	public abstract fun toString (Z)Ljava/lang/String;
@@ -407,6 +407,8 @@ public final class dev/rnett/spekt/Spekt : dev/rnett/spekt/AnnotatedElement {
 	public final fun getCompanionObject ()Ldev/rnett/spekt/Spekt;
 	public final fun getCompanionObjectInstance ()Ljava/lang/Object;
 	public final fun getConstructors ()Ljava/util/List;
+	public final fun getDeclaredFunctions ()Ljava/util/List;
+	public final fun getDeclaredProperties ()Ljava/util/List;
 	public final fun getFunctions ()Ljava/util/List;
 	public final fun getKotlin ()Lkotlin/reflect/KClass;
 	public final fun getName ()Ldev/rnett/spekt/ClassName;

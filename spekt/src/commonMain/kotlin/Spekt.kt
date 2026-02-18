@@ -41,6 +41,9 @@ public data class Spekt<T : Any> internal constructor(
 
     public val companionObjectInstance: Any? get() = companionObject?.objectInstance
 
+    public val declaredFunctions: List<Function> get() = functions.filter { it.isDeclared }
+    public val declaredProperties: List<Property> get() = properties.filter { it.isDeclared }
+
     override fun toString(): String = toString(false)
 
     public fun toString(includeSubclasses: Boolean, includeDescendents: Boolean = includeSubclasses): String = buildString {

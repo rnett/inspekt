@@ -1,0 +1,45 @@
+FILE: AnnotationsTest.kt
+    package auto.implementation.annotations.box
+
+    public final annotation class TestAnnotation : R|kotlin/Annotation| {
+        public constructor(a: R|kotlin/Int|): R|auto/implementation/annotations/box/TestAnnotation| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+    }
+    @R|dev/rnett/spekt/Inspekt|() @R|auto/implementation/annotations/box/TestAnnotation|(a = Int(1)) public final class Test : R|kotlin/Any| {
+        public constructor(): R|auto/implementation/annotations/box/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        @R|auto/implementation/annotations/box/TestAnnotation|(a = Int(2)) @R|dev/rnett/spekt/ExternalAnnotation|(name = String(test), type = <getClass>(Q|kotlin/collections/List|)) public final val prop: R|kotlin/Int| = Int(2)
+            public get(): R|kotlin/Int|
+
+        public final fun test(@R|auto/implementation/annotations/box/TestAnnotation|(a = Int(3)) a: R|kotlin/Int| = Int(3)): R|kotlin/String| {
+            ^test String()
+        }
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/annotations/box/Test>|
+
+            private constructor(): R|auto/implementation/annotations/box/Test.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval spekt: R|dev/rnett/spekt/Spekt<auto/implementation/annotations/box/Test>| = Q|auto/implementation/annotations/box/Test|.R|auto/implementation/annotations/box/Test.Companion.spekt|()
+        R|kotlin/test/assertEquals|<R|auto/implementation/annotations/box/TestAnnotation?|>(R|auto/implementation/annotations/box/TestAnnotation.TestAnnotation|(Int(1)), R|<local>/spekt|.R|dev/rnett/spekt/annotation|<R|auto/implementation/annotations/box/TestAnnotation|>(), String(Test annotation should be present))
+        lval prop: R|dev/rnett/spekt/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/spekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Property|>()
+        R|kotlin/test/assertEquals|<R|auto/implementation/annotations/box/TestAnnotation?|>(R|auto/implementation/annotations/box/TestAnnotation.TestAnnotation|(Int(2)), R|<local>/prop|.R|dev/rnett/spekt/annotation|<R|auto/implementation/annotations/box/TestAnnotation|>(), String(Property annotation should be present))
+        R|kotlin/test/assertEquals|<R|dev/rnett/spekt/ExternalAnnotation?|>(R|dev/rnett/spekt/ExternalAnnotation.ExternalAnnotation|(String(test), <getClass>(Q|kotlin/collections/List|)), R|<local>/prop|.R|dev/rnett/spekt/annotation|<R|dev/rnett/spekt/ExternalAnnotation|>(), String(External annotation should be present))
+        lval test: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.declaredFunctions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>()
+        lval testA: R|dev/rnett/spekt/Parameter| = R|<local>/test|.R|dev/rnett/spekt/Function.parameters|.R|kotlin/collections/last|<R|dev/rnett/spekt/Parameter|>()
+        R|kotlin/test/assertEquals|<R|auto/implementation/annotations/box/TestAnnotation?|>(R|auto/implementation/annotations/box/TestAnnotation.TestAnnotation|(Int(3)), R|<local>/testA|.R|dev/rnett/spekt/annotation|<R|auto/implementation/annotations/box/TestAnnotation|>(), String(Parameter annotation should be present))
+        ^box String(OK)
+    }

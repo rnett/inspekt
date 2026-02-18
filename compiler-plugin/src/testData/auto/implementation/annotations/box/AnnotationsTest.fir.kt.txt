@@ -1,0 +1,117 @@
+package auto.implementation.annotations.box
+
+open annotation class TestAnnotation : Annotation {
+  val a: Int
+    field = a
+    get
+
+  constructor(a: Int) /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+}
+
+@Inspekt
+@TestAnnotation(a = 1)
+class Test {
+  @TestAnnotation(a = 2)
+  @ExternalAnnotation(name = "test", type = List<*>::class)
+  val prop: Int
+    field = 2
+    get
+
+  companion object Companion {
+    private /* static final field */ val spektImplV1: Lazy<Spekt<Test>> = lazy<Spekt<Test>>(initializer = local fun <anonymous>(): Spekt<Test> {
+      return SpektImplementationV1</* null */>(kClass = Test::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt, TestAnnotation(a = 1)]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "test", isAbstract = false, kotlin = Test::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Test>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "a", annotations = arrayOf<Annotation>(elements = [TestAnnotation(a = 3)]), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        val tmp_0: Int = args.<get-v1DefaultableHasValueBitmask>()
+        return when {
+          EQEQEQ(arg0 = tmp_0, arg1 = 0) -> args.v1Get(globalIndex = 0) as Test.test()
+          EQEQEQ(arg0 = tmp_0, arg1 = 1) -> args.v1Get(globalIndex = 0) as Test.test(a = args.v1Get(globalIndex = 1) as Int)
+          else -> args.throwInvalidBitmask()
+        }
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "equals", isAbstract = false, kotlin = Test::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "hashCode", isAbstract = false, kotlin = Test::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "toString", isAbstract = false, kotlin = Test::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = [Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "prop", annotations = arrayOf<Annotation>(elements = [TestAnnotation(a = 2), ExternalAnnotation(name = "test", type = List<*>::class)]), isMutable = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<Int>(), kotlin = Test::prop, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "<get-prop>", isAbstract = false, kotlin = Test::<get-prop>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Test>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Test.<get-prop>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "<init>", isAbstract = false, kotlin = ::Test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Test>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return Test()
+      }
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): Test {
+        return it as Test
+      }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+        return it is Test
+      }
+, safeCast = local fun <anonymous>(it: Any): Test? {
+        return it as? Test
+      }
+, objectInstance = null, companionObject = SpektImplementationV1</* null */>(kClass = Companion::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test", "Companion"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test", "Companion"]), name = "spekt", isAbstract = false, kotlin = Companion::spekt, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Companion>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Spekt<Test>>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Companion.spekt()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test", "Companion"]), name = "equals", isAbstract = false, kotlin = Companion::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test", "Companion"]), name = "hashCode", isAbstract = false, kotlin = Companion::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "annotations", "box"]), classNames = arrayOf<String>(elements = ["Test", "Companion"]), name = "toString", isAbstract = false, kotlin = Companion::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = []), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): Companion {
+        return it as Companion
+      }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+        return it is Companion
+      }
+, safeCast = local fun <anonymous>(it: Any): Companion? {
+        return it as? Companion
+      }
+, objectInstance = Companion, companionObject = null)).toSpekt()
+    }
+)
+    private constructor() /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    fun spekt(): Spekt<Test> {
+      return #spektImplV1.<get-value>()
+    }
+
+  }
+
+  constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  fun test(@TestAnnotation(a = 3) a: Int = 3): String {
+    return ""
+  }
+
+}
+
+fun box(): String {
+  val spekt: Spekt<Test> = Companion.spekt()
+  assertEquals<TestAnnotation?>(expected = TestAnnotation(a = 1), actual = annotation<TestAnnotation>(/* <this> = spekt */), message = "Test annotation should be present")
+  val prop: Property = single<Property>(/* <this> = spekt.<get-properties>() */)
+  assertEquals<TestAnnotation?>(expected = TestAnnotation(a = 2), actual = annotation<TestAnnotation>(/* <this> = prop */), message = "Property annotation should be present")
+  assertEquals<ExternalAnnotation?>(expected = ExternalAnnotation(name = "test", type = List<*>::class), actual = annotation<ExternalAnnotation>(/* <this> = prop */), message = "External annotation should be present")
+  val test: Function = single<Function>(/* <this> = spekt.<get-declaredFunctions>() */)
+  val testA: Parameter = last<Parameter>(/* <this> = test.<get-parameters>() */)
+  assertEquals<TestAnnotation?>(expected = TestAnnotation(a = 3), actual = annotation<TestAnnotation>(/* <this> = testA */), message = "Parameter annotation should be present")
+  return "OK"
+}
