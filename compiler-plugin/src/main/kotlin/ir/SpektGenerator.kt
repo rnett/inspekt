@@ -1,4 +1,4 @@
-package dev.rnett.spekt.ir.passes
+package dev.rnett.spekt.ir
 
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.WithIrContext
@@ -6,7 +6,6 @@ import dev.rnett.kcp.development.utils.ir.createLambda
 import dev.rnett.kcp.development.utils.ir.withBuilder
 import dev.rnett.spekt.Names
 import dev.rnett.spekt.Symbols
-import dev.rnett.spekt.ir.deepCopyAndRemapSymbols
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import dev.rnett.symbolexport.symbol.compiler.asClassId
 import dev.rnett.symbolexport.symbol.compiler.set
@@ -55,6 +54,7 @@ import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.types.makeNullable
 import org.jetbrains.kotlin.ir.types.typeWith
 import org.jetbrains.kotlin.ir.util.DeepCopySymbolRemapper
+import org.jetbrains.kotlin.ir.util.callableId
 import org.jetbrains.kotlin.ir.util.classIdOrFail
 import org.jetbrains.kotlin.ir.util.constructors
 import org.jetbrains.kotlin.ir.util.deepCopyWithSymbols
@@ -72,7 +72,7 @@ import org.jetbrains.kotlin.name.Name
 @OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     val Spekt get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_Spekt.asClassId())!!
-    val toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementation_toSpekt.asCallableId()).single()
+    val Spekt_toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementation_toSpekt.asCallableId()).single()
     val ImplementationV1 get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1.asClassId())!!
 
     private val ImplFunction get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function.asClassId())!!
@@ -80,10 +80,28 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     private val ImplParam get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Param.asClassId())!!
     private val ArgumentsProviderV1 get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1.asClassId())!!
 
+    val SpektFunction_toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function_toSpekt.asCallableId()).single()
+
+    val SpektProperty_toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_toSpekt.asCallableId()).single()
+
     context(builder: IrBuilderWithScope)
     fun createSpekt(declaration: IrClass): IrExpression = with(builder) {
-        return irCall(toSpekt).apply {
+        return irCall(Spekt_toSpekt).apply {
             this.arguments[0] = createSpektImplementation(declaration)
+        }
+    }
+
+    context(builder: IrBuilderWithScope)
+    fun createPropertySpekt(declaration: IrProperty): IrExpression = with(builder) {
+        return irCall(SpektProperty_toSpekt).apply {
+            this.arguments[0] = createPropertyObject(declaration)
+        }
+    }
+
+    context(builder: IrBuilderWithScope)
+    fun createFunctionSpekt(declaration: IrFunction): IrExpression = with(builder) {
+        return irCall(SpektFunction_toSpekt).apply {
+            this.arguments[0] = createFunctionObject(declaration)
         }
     }
 
@@ -98,9 +116,9 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[classNames] = classNamesValue.toArrayOfStrings()
                 arguments[supertypes] = irArrayOf(builtIns.kTypeClass.defaultType, declaration.superTypes.map { irTypeOf(it) })
                 arguments[annotations] = irArrayOf(builtIns.annotationType, declaration.annotations.map { it.deepCopyWithSymbols(parent) })
-                arguments[functions] = irArrayOf(ImplFunction.defaultType, getFunctions(declaration, packageNamesValue, classNamesValue))
-                arguments[properties] = irArrayOf(ImplProperty.defaultType, getProperties(declaration, packageNamesValue, classNamesValue))
-                arguments[constructors] = irArrayOf(ImplFunction.defaultType, getConstructors(declaration, packageNamesValue, classNamesValue))
+                arguments[functions] = irArrayOf(ImplFunction.defaultType, getFunctions(declaration))
+                arguments[properties] = irArrayOf(ImplProperty.defaultType, getProperties(declaration))
+                arguments[constructors] = irArrayOf(ImplFunction.defaultType, getConstructors(declaration))
                 arguments[sealedSubclasses] = if (declaration.modality == Modality.SEALED) getSealedSubclasses(declaration) else irNull()
                 arguments[cast] = createCastLambda(declaration)
                 arguments[isInstance] = createIsInstanceLambda(declaration)
@@ -117,27 +135,30 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         return irArrayOf(ImplementationV1.defaultType, implClasses)
     }
 
-    private fun IrBuilderWithScope.getFunctions(declaration: IrClass, packageNames: List<String>, classNames: List<String>): List<IrExpression> {
-        return declaration.functions.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it, packageNames, classNames) }.toList()
+    private fun IrBuilderWithScope.getFunctions(declaration: IrClass): List<IrExpression> {
+        return declaration.functions.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it) }.toList()
     }
 
-    private fun IrBuilderWithScope.getProperties(declaration: IrClass, packageNames: List<String>, classNames: List<String>): List<IrExpression> {
-        return declaration.properties.filter { it.visibility.isPublicAPI }.map { createPropertyObject(it, packageNames, classNames) }.toList()
+    private fun IrBuilderWithScope.getProperties(declaration: IrClass): List<IrExpression> {
+        return declaration.properties.filter { it.visibility.isPublicAPI }.map { createPropertyObject(it) }.toList()
     }
 
 
-    private fun IrBuilderWithScope.getConstructors(declaration: IrClass, packageNames: List<String>, classNames: List<String>): List<IrExpression> {
-        return declaration.constructors.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it, packageNames, classNames) }.toList()
+    private fun IrBuilderWithScope.getConstructors(declaration: IrClass): List<IrExpression> {
+        return declaration.constructors.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it) }.toList()
     }
 
-    private fun IrBuilderWithScope.createPropertyObject(property: IrProperty, packageNames: List<String>, classNames: List<String>): IrExpression {
+    private fun IrBuilderWithScope.createPropertyObject(property: IrProperty): IrExpression {
+        val packageNames = property.callableId.packageName.pathSegments().map { it.asString() }
+        val classNames = property.callableId.className?.pathSegments()?.map { it.asString() }
+
         val originalType = if (property.isFakeOverride) property.realOverrideTarget.parentAsClass else null
 
         return irCall(ImplProperty.constructors.single()).apply {
             with(Names.Impl.PropertyCtor) {
                 arguments[name] = irString(property.name.asString())
                 arguments[this.packageNames] = packageNames.toArrayOfStrings()
-                arguments[this.classNames] = classNames.toArrayOfStrings()
+                arguments[this.classNames] = classNames?.toArrayOfStrings() ?: irNull()
                 arguments[annotations] = irArrayOf(builtIns.annotationType, property.annotations.map { it.deepCopyWithSymbols(parent) })
                 arguments[isMutable] = irBoolean(property.isVar)
                 arguments[isInConstructor] = irBoolean(
@@ -167,15 +188,17 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                     setter = property.setter?.symbol,
                     origin = null,
                 )
-                arguments[getter] = createFunctionObject(property.getter ?: error("Property must have getter"), packageNames, classNames)
-                arguments[setter] = property.setter?.let { createFunctionObject(it, packageNames, classNames) } ?: irNull()
+                arguments[getter] = createFunctionObject(property.getter ?: error("Property must have getter"))
+                arguments[setter] = property.setter?.let { createFunctionObject(it) } ?: irNull()
                 arguments[inheritedFrom] = originalType?.let { IrClassReferenceImpl(startOffset, endOffset, builtIns.kClassClass.defaultType, it.symbol, it.defaultType) } ?: irNull()
             }
 
         }
     }
 
-    private fun IrBuilderWithScope.createFunctionObject(function: IrFunction, packageNames: List<String>, classNames: List<String>): IrExpression {
+    private fun IrBuilderWithScope.createFunctionObject(function: IrFunction): IrExpression {
+        val packageNames = function.callableId.packageName.pathSegments().map { it.asString() }
+        val classNames = function.callableId.className?.pathSegments()?.map { it.asString() }
 
         val originalType = if (function.isFakeOverride) function.realOverrideTarget.parentAsClass else null
 
@@ -183,7 +206,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
             with(Names.Impl.FunctionCtor) {
                 arguments[name] = irString(function.name.asString())
                 arguments[this.packageNames] = packageNames.toArrayOfStrings()
-                arguments[this.classNames] = classNames.toArrayOfStrings()
+                arguments[this.classNames] = classNames?.toArrayOfStrings() ?: irNull()
                 arguments[isAbstract] = irBoolean(function is IrSimpleFunction && function.modality.isNonConcrete())
                 arguments[kotlin] = IrFunctionReferenceImpl(
                     startOffset,
@@ -253,6 +276,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
 
             body = withBuilder {
 
+                //FIXME: this will not work when generating the function outside of the original class using inspekt
                 fun callGetParam(param: IrValueParameter) = irAs(
                     irCall(getParam).apply {
                         arguments[0] = irGet(argsParam)

@@ -9,4 +9,7 @@ object TestGenerator : BaseTestGenerator() {
         "kotlinx.coroutines.*",
         "kotlinx.coroutines.test.*"
     )
+    override val optIns: Set<String> = setOf(
+        "dev.rnett.spekt.SpektCompilerPluginIntrinsic"
+    )
 }

@@ -1,0 +1,22 @@
+FILE: Function.kt
+    package auto.inspekt.box
+
+    public final class Test : R|kotlin/Any| {
+        public constructor(test1: R|kotlin/String| = String(test)): R|auto/inspekt/box/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val test1: R|kotlin/String| = R|<local>/test1|
+            public get(): R|kotlin/String|
+
+        public final fun test(): R|kotlin/Int| {
+            ^test Int(5)
+        }
+
+        public final val test2: R|kotlin/Int| = Int(6)
+            public get(): R|kotlin/Int|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        ^box R|dev/rnett/spekt/inspekt|(Q|auto/inspekt/box/Test|::R|auto/inspekt/box/Test.test|).R|dev/rnett/spekt/Function.toString|()
+    }

@@ -19,6 +19,7 @@ public annotation class Inspekt()
  * [kClass] must be a class reference literal.
  */
 @SpektCompilerPluginIntrinsic
+@ExportSymbol
 public fun <T : Any> inspekt(kClass: KClass<T>): Spekt<T> = throwIntrinsicException()
 
 /**
@@ -26,6 +27,7 @@ public fun <T : Any> inspekt(kClass: KClass<T>): Spekt<T> = throwIntrinsicExcept
  * Instance function references (e.g. `foo::bar`) and class function references (e.g. `Foo::bar`) are handled the same - as class function references.
  */
 @SpektCompilerPluginIntrinsic
+@ExportSymbol
 public fun inspekt(function: KFunction<*>): Function = throwIntrinsicException()
 
 /**
@@ -33,4 +35,5 @@ public fun inspekt(function: KFunction<*>): Function = throwIntrinsicException()
  * Instance property references (e.g. `foo::bar`) and class property references (e.g. `Foo::bar`) are handled the same - as class property references.
  */
 @SpektCompilerPluginIntrinsic
+@ExportSymbol
 public fun inspekt(property: KProperty<*>): Property = throwIntrinsicException()

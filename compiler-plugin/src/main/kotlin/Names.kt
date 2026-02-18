@@ -6,6 +6,8 @@ object Names {
     val InspektAnnotation = Symbols.spekt.dev_rnett_spekt_Inspekt
     val Spekt = Symbols.spekt.dev_rnett_spekt_Spekt
 
+    val inspect = Symbols.spekt.dev_rnett_spekt_inspekt
+
     object Impl {
         object Ctor {
             val kClass = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_kClass

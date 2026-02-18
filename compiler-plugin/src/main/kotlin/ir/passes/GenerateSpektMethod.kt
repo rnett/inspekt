@@ -6,6 +6,7 @@ import dev.rnett.kcp.development.utils.ir.createLambda
 import dev.rnett.kcp.development.utils.ir.withBuilder
 import dev.rnett.spekt.DeclarationKeys
 import dev.rnett.spekt.GeneratedNames
+import dev.rnett.spekt.ir.SpektGenerator
 import dev.rnett.spekt.pluginKey
 import dev.rnett.spekt.toIrOrigin
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
