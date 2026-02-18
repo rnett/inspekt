@@ -5,7 +5,7 @@ import kotlin.js.JsName
 public abstract class QualifiedName {
     public abstract fun segments(): List<String>
     public open fun asString(): String = segments().joinToString(".")
-    override fun toString(): String {
+    final override fun toString(): String {
         return asString()
     }
 }

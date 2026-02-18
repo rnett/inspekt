@@ -1,0 +1,11 @@
+package auto.inspekt.box
+
+fun box(): String {
+  return Property(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "testProp", annotations = arrayOf<Annotation>(elements = []), isMutable = true, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<Int>(), kotlin = ExternalTest::testProp, getter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<get-testProp>", isAbstract = false, kotlin = ExternalTest::<get-testProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as ExternalTest.<get-testProp>()
+  }
+, suspendInvoker = null, inheritedFrom = null), setter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<set-testProp>", isAbstract = false, kotlin = ExternalTest::<set-testProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "<set-?>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as ExternalTest.<set-testProp>(<set-?> = args.v1Get(globalIndex = 1) as Int)
+  }
+, suspendInvoker = null, inheritedFrom = null), inheritedFrom = null).toSpekt().toString()
+}

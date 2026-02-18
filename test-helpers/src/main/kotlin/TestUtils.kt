@@ -12,3 +12,14 @@ inline fun <T> assertSuccessful(message: String, block: () -> T): T {
         throw AssertionError("$message: ${t::class.qualifiedName}: ${t.message}", t)
     }
 }
+
+@Suppress("unused")
+class ExternalTest(val a: Int, val b: String = "test") : AutoCloseable {
+    var testProp: Int = 0
+
+    fun test(c: Int, d: String = "test") {}
+
+    override fun close() {
+
+    }
+}

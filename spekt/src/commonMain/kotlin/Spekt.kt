@@ -49,9 +49,9 @@ public data class Spekt<T : Any> internal constructor(
         append(" : ")
         supertypes.joinTo(this, ", ") { it.friendlyName }
         appendLine(" {")
-        constructors.forEach { append("    ").appendLine(it) }
-        functions.forEach { append("    ").appendLine(it) }
-        properties.forEach { append("    ").appendLine(it) }
+        constructors.forEach { append("    ").appendLine(it.toString(false)) }
+        functions.forEach { append("    ").appendLine(it.toString(false)) }
+        properties.forEach { append("    ").appendLine(it.toString(false)) }
         append("}")
 
         if (includeSubclasses && sealedSubclasses.isNotEmpty()) {

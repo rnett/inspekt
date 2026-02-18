@@ -1,5 +1,5 @@
 class auto.inspekt.box.Test : java.lang.Object {
-    constructor(test1: java.lang.String = ...)
+    <init>(test1: java.lang.String = ...)
     fun test(): int
     fun equals(other: java.lang.Object?): boolean @ class java.lang.Object
     fun hashCode(): int @ class java.lang.Object

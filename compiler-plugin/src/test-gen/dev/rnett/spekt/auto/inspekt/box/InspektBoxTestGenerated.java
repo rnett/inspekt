@@ -43,14 +43,32 @@ public class InspektBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
+  @TestMetadata("ClassExternal.kt")
+  public void testClassExternal() {
+    runTest("src/testData/auto/inspekt/box/ClassExternal.kt");
+  }
+
+  @Test
   @TestMetadata("Function.kt")
   public void testFunction() {
     runTest("src/testData/auto/inspekt/box/Function.kt");
   }
 
   @Test
+  @TestMetadata("FunctionExternal.kt")
+  public void testFunctionExternal() {
+    runTest("src/testData/auto/inspekt/box/FunctionExternal.kt");
+  }
+
+  @Test
   @TestMetadata("Property.kt")
   public void testProperty() {
     runTest("src/testData/auto/inspekt/box/Property.kt");
+  }
+
+  @Test
+  @TestMetadata("PropertyExternal.kt")
+  public void testPropertyExternal() {
+    runTest("src/testData/auto/inspekt/box/PropertyExternal.kt");
   }
 }

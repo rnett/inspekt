@@ -1,1 +1,1 @@
-fun test(): int
+fun auto.inspekt.box.Test.test(): int

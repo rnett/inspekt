@@ -1,0 +1,1 @@
+var dev.rnett.spekt.ExternalTest.testProp: int

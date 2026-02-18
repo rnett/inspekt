@@ -1,0 +1,54 @@
+package auto.inspekt.box
+
+fun box(): String {
+  return SpektImplementationV1</* null */>(kClass = ExternalTest::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), supertypes = arrayOf<KType>(elements = [typeOf<AutoCloseable>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "test", isAbstract = false, kotlin = ExternalTest::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_0: Int = args.<get-v1DefaultableHasValueBitmask>()
+    return when {
+      EQEQEQ(arg0 = tmp_0, arg1 = 0) -> args.v1Get(globalIndex = 0) as ExternalTest.test(c = args.v1Get(globalIndex = 1) as Int)
+      EQEQEQ(arg0 = tmp_0, arg1 = 1) -> args.v1Get(globalIndex = 0) as ExternalTest.test(c = args.v1Get(globalIndex = 1) as Int, d = args.v1Get(globalIndex = 2) as String)
+      else -> args.throwInvalidBitmask()
+    }
+  }
+, suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "close", isAbstract = false, kotlin = ExternalTest::close, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as ExternalTest.close()
+  }
+, suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "equals", isAbstract = false, kotlin = ExternalTest::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+  }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "hashCode", isAbstract = false, kotlin = ExternalTest::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.hashCode()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "toString", isAbstract = false, kotlin = ExternalTest::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.toString()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = [Property(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "a", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<Int>(), kotlin = ExternalTest::a, getter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<get-a>", isAbstract = false, kotlin = ExternalTest::<get-a>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as ExternalTest.<get-a>()
+  }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "b", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = ExternalTest::b, getter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<get-b>", isAbstract = false, kotlin = ExternalTest::<get-b>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as ExternalTest.<get-b>()
+  }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "testProp", annotations = arrayOf<Annotation>(elements = []), isMutable = true, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<Int>(), kotlin = ExternalTest::testProp, getter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<get-testProp>", isAbstract = false, kotlin = ExternalTest::<get-testProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as ExternalTest.<get-testProp>()
+  }
+, suspendInvoker = null, inheritedFrom = null), setter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<set-testProp>", isAbstract = false, kotlin = ExternalTest::<set-testProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "<set-?>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as ExternalTest.<set-testProp>(<set-?> = args.v1Get(globalIndex = 1) as Int)
+  }
+, suspendInvoker = null, inheritedFrom = null), inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<init>", isAbstract = false, kotlin = ::ExternalTest, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "a", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 0, indexInKind = 0, kind = 3), Param(name = "b", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 1, indexInKind = 1, kind = 3)]), returnType = typeOf<ExternalTest>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_1: Int = args.<get-v1DefaultableHasValueBitmask>()
+    return when {
+      EQEQEQ(arg0 = tmp_1, arg1 = 0) -> ExternalTest(a = args.v1Get(globalIndex = 0) as Int)
+      EQEQEQ(arg0 = tmp_1, arg1 = 1) -> ExternalTest(a = args.v1Get(globalIndex = 0) as Int, b = args.v1Get(globalIndex = 1) as String)
+      else -> args.throwInvalidBitmask()
+    }
+  }
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): ExternalTest {
+    return it as ExternalTest
+  }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+    return it is ExternalTest
+  }
+, safeCast = local fun <anonymous>(it: Any): ExternalTest? {
+    return it as? ExternalTest
+  }
+, objectInstance = null, companionObject = null).toSpekt().toString()
+}

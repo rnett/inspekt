@@ -15,7 +15,7 @@ public sealed class Property : Callable() {
 
     public abstract val getter: PropertyMethod
 
-    protected fun StringBuilder.appendPropertySignature(keyword: String) {
+    protected fun StringBuilder.appendPropertySignature(keyword: String, includeFullName: Boolean) {
         if (isConstructorProperty) {
             append("[constructor] ")
         }
@@ -24,7 +24,11 @@ public sealed class Property : Callable() {
         append(keyword).append(" ")
         appendExtension()
 
-        append(shortName)
+        if (includeFullName) {
+            append(name)
+        } else {
+            append(shortName)
+        }
         append(": ")
         append(type.friendlyName)
 
@@ -50,8 +54,8 @@ public data class ReadOnlyProperty internal constructor(
     override val inheritedFrom: KClass<*>?,
 ) : Property() {
 
-    override fun toString(): String = buildString {
-        appendPropertySignature("val")
+    override fun toString(includeFullName: Boolean): String = buildString {
+        appendPropertySignature("val", includeFullName)
     }
 }
 
@@ -72,7 +76,7 @@ public data class MutableProperty internal constructor(
     public fun set(arguments: ArgumentsBuilder): Any? = setter.invoke(arguments)
     public fun set(arguments: ArgumentList): Any? = setter.invoke(arguments)
 
-    override fun toString(): String = buildString {
-        appendPropertySignature("var")
+    override fun toString(includeFullName: Boolean): String = buildString {
+        appendPropertySignature("var", includeFullName)
     }
 }

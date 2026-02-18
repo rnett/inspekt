@@ -51,7 +51,7 @@ FILE fqName:auto.inspekt.box fileName:/Property.kt
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.inspekt.box'
-        CALL 'public open fun toString (): kotlin.String declared in dev.rnett.spekt.Property' type=kotlin.String origin=null
+        CALL 'public final fun toString (): kotlin.String declared in dev.rnett.spekt.Property' type=kotlin.String origin=null
           ARG <this>: CALL 'internal final fun toSpekt (): dev.rnett.spekt.Property declared in dev.rnett.spekt.internal.SpektImplementationV1.Property' type=dev.rnett.spekt.Property origin=null
             ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, isMutable: kotlin.Boolean, isInConstructor: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.spekt.internal.SpektImplementationV1.Function, setter: dev.rnett.spekt.internal.SpektImplementationV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Property' type=dev.rnett.spekt.internal.SpektImplementationV1.Property origin=null
               ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null

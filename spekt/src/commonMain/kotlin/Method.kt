@@ -29,12 +29,16 @@ public sealed class Method : Callable() {
 
     public abstract val returnType: KType
 
-    protected fun StringBuilder.appendMethodSignature() {
+    protected fun StringBuilder.appendMethodSignature(includeFullName: Boolean) {
         appendContext()
         append("fun ")
         appendExtension()
 
-        append(shortName)
+        if (includeFullName) {
+            append(name)
+        } else {
+            append(shortName)
+        }
         append("(")
         parameters.value.joinTo(this, ", ")
         append(")")
@@ -62,8 +66,8 @@ public data class Constructor internal constructor(
 
     override operator fun invoke(arguments: ArgumentList): Any? = invoker(arguments)
 
-    override fun toString(): String = buildString {
-        append("constructor")
+    public override fun toString(includeFullName: Boolean): String = buildString {
+        append(if (includeFullName) name.toString() else "<init>")
         append("(")
         parameters.value.joinTo(this, ", ")
         append(")")
@@ -111,9 +115,9 @@ public data class Function internal constructor(
             return invoker!!.invoke(arguments)
     }
 
-    override fun toString(): String = buildString {
+    public override fun toString(includeFullName: Boolean): String = buildString {
         if (isSuspend) append("suspend ")
-        appendMethodSignature()
+        appendMethodSignature(includeFullName)
     }
 }
 
@@ -145,7 +149,7 @@ public data class PropertyMethod internal constructor(
         return invoker(arguments)
     }
 
-    override fun toString(): String = buildString {
-        appendMethodSignature()
+    override fun toString(includeFullName: Boolean): String = buildString {
+        appendMethodSignature(includeFullName)
     }
 }

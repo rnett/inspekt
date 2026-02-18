@@ -1,0 +1,11 @@
+class dev.rnett.spekt.ExternalTest : java.lang.AutoCloseable {
+    <init>(a: int, b: java.lang.String = ...)
+    fun test(c: int, d: java.lang.String = ...): kotlin.Unit
+    fun close(): kotlin.Unit
+    fun equals(other: java.lang.Object?): boolean @ class java.lang.Object
+    fun hashCode(): int @ class java.lang.Object
+    fun toString(): java.lang.String @ class java.lang.Object
+    val a: int
+    val b: java.lang.String
+    var testProp: int
+}

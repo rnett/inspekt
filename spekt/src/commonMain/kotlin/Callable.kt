@@ -14,6 +14,11 @@ public sealed class Callable : AnnotatedElement {
 
     public val declared: Boolean get() = inheritedFrom == null
 
+    public abstract fun toString(includeFullName: Boolean): String
+    final override fun toString(): String {
+        return toString(true)
+    }
+
     protected fun StringBuilder.appendContext() {
         if (parameters.context.isNotEmpty()) {
             append("context(")

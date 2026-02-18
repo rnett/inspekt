@@ -40,6 +40,8 @@ public abstract class dev/rnett/spekt/Callable : dev/rnett/spekt/AnnotatedElemen
 	public abstract fun getParameters ()Ldev/rnett/spekt/Parameters;
 	public final fun getShortName ()Ljava/lang/String;
 	public abstract fun isAbstract ()Z
+	public final fun toString ()Ljava/lang/String;
+	public abstract fun toString (Z)Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/ClassName : dev/rnett/spekt/QualifiedName {
@@ -57,7 +59,6 @@ public final class dev/rnett/spekt/ClassName : dev/rnett/spekt/QualifiedName {
 	public fun hashCode ()I
 	public final fun member (Ljava/lang/String;)Ldev/rnett/spekt/MemberName$Member;
 	public fun segments ()Ljava/util/List;
-	public fun toString ()Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/Constructor : dev/rnett/spekt/Method {
@@ -83,7 +84,7 @@ public final class dev/rnett/spekt/Constructor : dev/rnett/spekt/Method {
 	public fun invoke (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public fun isAbstract ()Z
 	public final fun isPrimary ()Z
-	public fun toString ()Ljava/lang/String;
+	public fun toString (Z)Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/Function : dev/rnett/spekt/Method {
@@ -110,7 +111,7 @@ public final class dev/rnett/spekt/Function : dev/rnett/spekt/Method {
 	public final fun invokeSuspend (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun isAbstract ()Z
 	public final fun isSuspend ()Z
-	public fun toString ()Ljava/lang/String;
+	public fun toString (Z)Ljava/lang/String;
 }
 
 public abstract interface annotation class dev/rnett/spekt/Inspekt : java/lang/annotation/Annotation {
@@ -140,7 +141,6 @@ public final class dev/rnett/spekt/MemberName$Member : dev/rnett/spekt/MemberNam
 	public fun hashCode ()I
 	public final fun isConstructor ()Z
 	public fun segments ()Ljava/util/List;
-	public fun toString ()Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/MemberName$TopLevel : dev/rnett/spekt/MemberName {
@@ -155,11 +155,10 @@ public final class dev/rnett/spekt/MemberName$TopLevel : dev/rnett/spekt/MemberN
 	public final fun getPackageName ()Ldev/rnett/spekt/PackageName;
 	public fun hashCode ()I
 	public fun segments ()Ljava/util/List;
-	public fun toString ()Ljava/lang/String;
 }
 
 public abstract class dev/rnett/spekt/Method : dev/rnett/spekt/Callable {
-	protected final fun appendMethodSignature (Ljava/lang/StringBuilder;)V
+	protected final fun appendMethodSignature (Ljava/lang/StringBuilder;Z)V
 	public abstract fun getKind ()Ldev/rnett/spekt/Method$Kind;
 	public abstract fun getKotlin ()Lkotlin/reflect/KFunction;
 	public abstract fun getName ()Ldev/rnett/spekt/MemberName;
@@ -209,7 +208,7 @@ public final class dev/rnett/spekt/MutableProperty : dev/rnett/spekt/Property {
 	public fun isConstructorProperty ()Z
 	public final fun set (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public final fun set (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-	public fun toString ()Ljava/lang/String;
+	public fun toString (Z)Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/NamesKt {
@@ -230,7 +229,6 @@ public final class dev/rnett/spekt/PackageName : dev/rnett/spekt/QualifiedName {
 	public final fun isRoot ()Z
 	public final fun member (Ljava/lang/String;)Ldev/rnett/spekt/MemberName$TopLevel;
 	public fun segments ()Ljava/util/List;
-	public fun toString ()Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/Parameter : dev/rnett/spekt/AnnotatedElement {
@@ -318,7 +316,7 @@ public final class dev/rnett/spekt/ParamsAndArgsKt {
 }
 
 public abstract class dev/rnett/spekt/Property : dev/rnett/spekt/Callable {
-	protected final fun appendPropertySignature (Ljava/lang/StringBuilder;Ljava/lang/String;)V
+	protected final fun appendPropertySignature (Ljava/lang/StringBuilder;Ljava/lang/String;Z)V
 	public final fun get (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public final fun get (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public abstract fun getGetter ()Ldev/rnett/spekt/PropertyMethod;
@@ -348,14 +346,14 @@ public final class dev/rnett/spekt/PropertyMethod : dev/rnett/spekt/Method {
 	public fun hashCode ()I
 	public fun invoke (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public fun isAbstract ()Z
-	public fun toString ()Ljava/lang/String;
+	public fun toString (Z)Ljava/lang/String;
 }
 
 public abstract class dev/rnett/spekt/QualifiedName {
 	public fun <init> ()V
 	public fun asString ()Ljava/lang/String;
 	public abstract fun segments ()Ljava/util/List;
-	public fun toString ()Ljava/lang/String;
+	public final fun toString ()Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/ReadOnlyProperty : dev/rnett/spekt/Property {
@@ -384,7 +382,7 @@ public final class dev/rnett/spekt/ReadOnlyProperty : dev/rnett/spekt/Property {
 	public fun hashCode ()I
 	public fun isAbstract ()Z
 	public fun isConstructorProperty ()Z
-	public fun toString ()Ljava/lang/String;
+	public fun toString (Z)Ljava/lang/String;
 }
 
 public final class dev/rnett/spekt/SpecialNames {

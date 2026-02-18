@@ -1,0 +1,13 @@
+package auto.inspekt.box
+
+fun box(): String {
+  return Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "spekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "test", isAbstract = false, kotlin = ExternalTest::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_0: Int = args.<get-v1DefaultableHasValueBitmask>()
+    return when {
+      EQEQEQ(arg0 = tmp_0, arg1 = 0) -> args.v1Get(globalIndex = 0) as ExternalTest.test(c = args.v1Get(globalIndex = 1) as Int)
+      EQEQEQ(arg0 = tmp_0, arg1 = 1) -> args.v1Get(globalIndex = 0) as ExternalTest.test(c = args.v1Get(globalIndex = 1) as Int, d = args.v1Get(globalIndex = 2) as String)
+      else -> args.throwInvalidBitmask()
+    }
+  }
+, suspendInvoker = null, inheritedFrom = null).toSpekt().toString()
+}
