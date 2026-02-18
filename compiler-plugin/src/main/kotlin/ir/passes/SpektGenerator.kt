@@ -69,7 +69,7 @@ import org.jetbrains.kotlin.name.CallableId
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.name.Name
 
-@OptIn(ExperimentalIrHelpers::class)
+@OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     val Spekt get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_Spekt.asClassId())!!
     val toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementation_toSpekt.asCallableId()).single()
@@ -89,16 +89,18 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
 
     private fun IrBuilderWithScope.createSpektImplementation(declaration: IrClass): IrExpression {
         return irCall(ImplementationV1.constructors.single().owner).apply {
+            val packageNamesValue = declaration.classIdOrFail.packageFqName.pathSegments().map { it.asString() }
+            val classNamesValue = declaration.classIdOrFail.relativeClassName.pathSegments().map { it.asString() }
             with(Names.Impl.Ctor) {
                 arguments[kClass] = IrClassReferenceImpl(startOffset, endOffset, builtIns.kClassClass.typeWith(declaration.defaultType), declaration.symbol, declaration.defaultType)
                 arguments[isAbstract] = irBoolean(declaration.modality.isNonConcrete())
-                arguments[packageNames] = declaration.classIdOrFail.packageFqName.pathSegments().map { it.asString() }.toArrayOfStrings()
-                arguments[classNames] = declaration.classIdOrFail.relativeClassName.pathSegments().map { it.asString() }.toArrayOfStrings()
+                arguments[packageNames] = packageNamesValue.toArrayOfStrings()
+                arguments[classNames] = classNamesValue.toArrayOfStrings()
                 arguments[supertypes] = irArrayOf(builtIns.kTypeClass.defaultType, declaration.superTypes.map { irTypeOf(it) })
                 arguments[annotations] = irArrayOf(builtIns.annotationType, declaration.annotations.map { it.deepCopyWithSymbols(parent) })
-                arguments[functions] = irArrayOf(ImplFunction.defaultType, getFunctions(declaration))
-                arguments[properties] = irArrayOf(ImplProperty.defaultType, getProperties(declaration))
-                arguments[constructors] = irArrayOf(ImplFunction.defaultType, getConstructors(declaration))
+                arguments[functions] = irArrayOf(ImplFunction.defaultType, getFunctions(declaration, packageNamesValue, classNamesValue))
+                arguments[properties] = irArrayOf(ImplProperty.defaultType, getProperties(declaration, packageNamesValue, classNamesValue))
+                arguments[constructors] = irArrayOf(ImplFunction.defaultType, getConstructors(declaration, packageNamesValue, classNamesValue))
                 arguments[sealedSubclasses] = if (declaration.modality == Modality.SEALED) getSealedSubclasses(declaration) else irNull()
                 arguments[cast] = createCastLambda(declaration)
                 arguments[isInstance] = createIsInstanceLambda(declaration)
@@ -115,27 +117,27 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         return irArrayOf(ImplementationV1.defaultType, implClasses)
     }
 
-    private fun IrBuilderWithScope.getFunctions(declaration: IrClass): List<IrExpression> {
-        return declaration.functions.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it) }.toList()
+    private fun IrBuilderWithScope.getFunctions(declaration: IrClass, packageNames: List<String>, classNames: List<String>): List<IrExpression> {
+        return declaration.functions.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it, packageNames, classNames) }.toList()
     }
 
-    private fun IrBuilderWithScope.getProperties(declaration: IrClass): List<IrExpression> {
-        return declaration.properties.filter { it.visibility.isPublicAPI }.map { createPropertyObject(it) }.toList()
+    private fun IrBuilderWithScope.getProperties(declaration: IrClass, packageNames: List<String>, classNames: List<String>): List<IrExpression> {
+        return declaration.properties.filter { it.visibility.isPublicAPI }.map { createPropertyObject(it, packageNames, classNames) }.toList()
     }
 
 
-    private fun IrBuilderWithScope.getConstructors(declaration: IrClass): List<IrExpression> {
-        return declaration.constructors.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it) }.toList()
+    private fun IrBuilderWithScope.getConstructors(declaration: IrClass, packageNames: List<String>, classNames: List<String>): List<IrExpression> {
+        return declaration.constructors.filter { it.visibility.isPublicAPI }.map { createFunctionObject(it, packageNames, classNames) }.toList()
     }
 
-    @OptIn(UnsafeDuringIrConstructionAPI::class)
-    private fun IrBuilderWithScope.createPropertyObject(property: IrProperty): IrExpression {
+    private fun IrBuilderWithScope.createPropertyObject(property: IrProperty, packageNames: List<String>, classNames: List<String>): IrExpression {
         val originalType = if (property.isFakeOverride) property.realOverrideTarget.parentAsClass else null
-        val callTarget = if (property.isFakeOverride) property.realOverrideTarget else property
 
         return irCall(ImplProperty.constructors.single()).apply {
             with(Names.Impl.PropertyCtor) {
                 arguments[name] = irString(property.name.asString())
+                arguments[this.packageNames] = packageNames.toArrayOfStrings()
+                arguments[this.classNames] = classNames.toArrayOfStrings()
                 arguments[annotations] = irArrayOf(builtIns.annotationType, property.annotations.map { it.deepCopyWithSymbols(parent) })
                 arguments[isMutable] = irBoolean(property.isVar)
                 arguments[isInConstructor] = irBoolean(
@@ -165,22 +167,23 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                     setter = property.setter?.symbol,
                     origin = null,
                 )
-                arguments[getter] = createFunctionObject(property.getter ?: error("Property must have getter"))
-                arguments[setter] = property.setter?.let { createFunctionObject(it) } ?: irNull()
+                arguments[getter] = createFunctionObject(property.getter ?: error("Property must have getter"), packageNames, classNames)
+                arguments[setter] = property.setter?.let { createFunctionObject(it, packageNames, classNames) } ?: irNull()
                 arguments[inheritedFrom] = originalType?.let { IrClassReferenceImpl(startOffset, endOffset, builtIns.kClassClass.defaultType, it.symbol, it.defaultType) } ?: irNull()
             }
 
         }
     }
 
-    private fun IrBuilderWithScope.createFunctionObject(function: IrFunction): IrExpression {
+    private fun IrBuilderWithScope.createFunctionObject(function: IrFunction, packageNames: List<String>, classNames: List<String>): IrExpression {
 
         val originalType = if (function.isFakeOverride) function.realOverrideTarget.parentAsClass else null
-        val callTarget = if (function.isFakeOverride) function.realOverrideTarget else function
 
         return irCall(ImplFunction.constructors.single()).apply {
             with(Names.Impl.FunctionCtor) {
                 arguments[name] = irString(function.name.asString())
+                arguments[this.packageNames] = packageNames.toArrayOfStrings()
+                arguments[this.classNames] = classNames.toArrayOfStrings()
                 arguments[isAbstract] = irBoolean(function is IrSimpleFunction && function.modality.isNonConcrete())
                 arguments[kotlin] = IrFunctionReferenceImpl(
                     startOffset,

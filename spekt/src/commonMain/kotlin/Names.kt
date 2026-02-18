@@ -82,6 +82,13 @@ public sealed class MemberName : QualifiedName() {
     }
 }
 
+public fun MemberName(packageNames: List<String>, classNames: List<String>?, name: String): MemberName {
+    if (classNames == null) {
+        return MemberName.TopLevel(PackageName(packageNames), name)
+    }
+    return MemberName.Member(ClassName(PackageName(packageNames), classNames), name)
+}
+
 public object SpecialNames {
     //TODO make sure these match what the compiler uses
     @JsName("ctor")

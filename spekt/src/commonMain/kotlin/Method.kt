@@ -22,7 +22,7 @@ public sealed class Method : Callable() {
 
     public inline operator fun invoke(arguments: ArgumentsBuilder): Any? {
         contract { callsInPlace(arguments, InvocationKind.EXACTLY_ONCE) }
-        return invoke(parameters.buildArguments(arguments).also { println("Args: $it") })
+        return invoke(parameters.buildArguments(arguments))
     }
 
     public abstract operator fun invoke(arguments: ArgumentList): Any?
@@ -71,7 +71,7 @@ public data class Constructor internal constructor(
 }
 
 public data class Function internal constructor(
-    override val name: MemberName.Member,
+    override val name: MemberName,
     override val kotlin: KFunction<*>,
     override val annotations: List<Annotation>,
     override val isAbstract: Boolean,

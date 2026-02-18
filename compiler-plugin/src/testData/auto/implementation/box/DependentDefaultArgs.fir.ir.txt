@@ -62,7 +62,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                         ARG functions: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                           TYPE_ARG T: dev.rnett.spekt.internal.SpektImplementationV1.Function
                           ARG elements: VARARG type=kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function> varargElementType=dev.rnett.spekt.internal.SpektImplementationV1.Function
-                            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                              ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="auto"
+                                  CONST String type=kotlin.String value="implementation"
+                                  CONST String type=kotlin.String value="box"
+                              ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="TestDefaults"
                               ARG name: CONST String type=kotlin.String value="test"
                               ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
                               ARG kotlin: FUNCTION_REFERENCE 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.reflect.KFunction3<P1 of kotlin.reflect.KFunction3, P2 of kotlin.reflect.KFunction3, P3 of kotlin.reflect.KFunction3, R of kotlin.reflect.KFunction3> origin=null reflectionTarget=<same>
@@ -156,7 +166,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                                         ARG d: GET_VAR 'var tmp_2: kotlin.String declared in auto.implementation.box.TestDefaults.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.String origin=null
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-                            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                              ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="auto"
+                                  CONST String type=kotlin.String value="implementation"
+                                  CONST String type=kotlin.String value="box"
+                              ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="TestDefaults"
                               ARG name: CONST String type=kotlin.String value="equals"
                               ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
                               ARG kotlin: FUNCTION_REFERENCE 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.TestDefaults' type=kotlin.reflect.KFunction2<P1 of kotlin.reflect.KFunction2, P2 of kotlin.reflect.KFunction2, R of kotlin.reflect.KFunction2> origin=null reflectionTarget=<same>
@@ -208,7 +228,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                                             ARG globalIndex: CONST Int type=kotlin.Int value=1
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
-                            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                              ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="auto"
+                                  CONST String type=kotlin.String value="implementation"
+                                  CONST String type=kotlin.String value="box"
+                              ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="TestDefaults"
                               ARG name: CONST String type=kotlin.String value="hashCode"
                               ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
                               ARG kotlin: FUNCTION_REFERENCE 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.TestDefaults' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
@@ -245,7 +275,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
-                            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                              ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="auto"
+                                  CONST String type=kotlin.String value="implementation"
+                                  CONST String type=kotlin.String value="box"
+                              ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="TestDefaults"
                               ARG name: CONST String type=kotlin.String value="toString"
                               ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
                               ARG kotlin: FUNCTION_REFERENCE 'public open fun toString (): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
@@ -285,7 +325,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                         ARG properties: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                           TYPE_ARG T: dev.rnett.spekt.internal.SpektImplementationV1.Property
                           ARG elements: VARARG type=kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Property> varargElementType=dev.rnett.spekt.internal.SpektImplementationV1.Property
-                            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, isMutable: kotlin.Boolean, isInConstructor: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.spekt.internal.SpektImplementationV1.Function, setter: dev.rnett.spekt.internal.SpektImplementationV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Property' type=dev.rnett.spekt.internal.SpektImplementationV1.Property origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, isMutable: kotlin.Boolean, isInConstructor: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.spekt.internal.SpektImplementationV1.Function, setter: dev.rnett.spekt.internal.SpektImplementationV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Property' type=dev.rnett.spekt.internal.SpektImplementationV1.Property origin=null
+                              ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="auto"
+                                  CONST String type=kotlin.String value="implementation"
+                                  CONST String type=kotlin.String value="box"
+                              ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="TestDefaults"
                               ARG name: CONST String type=kotlin.String value="a"
                               ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                                 TYPE_ARG T: kotlin.Annotation
@@ -298,7 +348,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                               ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                                 TYPE_ARG T: kotlin.Int
                               ARG kotlin: PROPERTY_REFERENCE 'public final a: kotlin.Int declared in auto.implementation.box.TestDefaults' field='FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' getter='public final fun <get-a> (): kotlin.Int declared in auto.implementation.box.TestDefaults' setter=null type=kotlin.reflect.KProperty1<T of kotlin.reflect.KProperty1, V of kotlin.reflect.KProperty1> origin=null
-                              ARG getter: CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                              ARG getter: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                                ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                  TYPE_ARG T: kotlin.String
+                                  ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                    CONST String type=kotlin.String value="auto"
+                                    CONST String type=kotlin.String value="implementation"
+                                    CONST String type=kotlin.String value="box"
+                                ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                  TYPE_ARG T: kotlin.String
+                                  ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                    CONST String type=kotlin.String value="TestDefaults"
                                 ARG name: CONST String type=kotlin.String value="<get-a>"
                                 ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
                                 ARG kotlin: FUNCTION_REFERENCE 'public final fun <get-a> (): kotlin.Int declared in auto.implementation.box.TestDefaults' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
@@ -337,7 +397,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                               ARG setter: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-                            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, isMutable: kotlin.Boolean, isInConstructor: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.spekt.internal.SpektImplementationV1.Function, setter: dev.rnett.spekt.internal.SpektImplementationV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Property' type=dev.rnett.spekt.internal.SpektImplementationV1.Property origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, isMutable: kotlin.Boolean, isInConstructor: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.spekt.internal.SpektImplementationV1.Function, setter: dev.rnett.spekt.internal.SpektImplementationV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Property' type=dev.rnett.spekt.internal.SpektImplementationV1.Property origin=null
+                              ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="auto"
+                                  CONST String type=kotlin.String value="implementation"
+                                  CONST String type=kotlin.String value="box"
+                              ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="TestDefaults"
                               ARG name: CONST String type=kotlin.String value="b"
                               ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                                 TYPE_ARG T: kotlin.Annotation
@@ -350,7 +420,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                               ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                                 TYPE_ARG T: kotlin.String
                               ARG kotlin: PROPERTY_REFERENCE 'public final b: kotlin.String declared in auto.implementation.box.TestDefaults' field='FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' getter='public final fun <get-b> (): kotlin.String declared in auto.implementation.box.TestDefaults' setter=null type=kotlin.reflect.KProperty1<T of kotlin.reflect.KProperty1, V of kotlin.reflect.KProperty1> origin=null
-                              ARG getter: CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                              ARG getter: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                                ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                  TYPE_ARG T: kotlin.String
+                                  ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                    CONST String type=kotlin.String value="auto"
+                                    CONST String type=kotlin.String value="implementation"
+                                    CONST String type=kotlin.String value="box"
+                                ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                  TYPE_ARG T: kotlin.String
+                                  ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                    CONST String type=kotlin.String value="TestDefaults"
                                 ARG name: CONST String type=kotlin.String value="<get-b>"
                                 ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
                                 ARG kotlin: FUNCTION_REFERENCE 'public final fun <get-b> (): kotlin.String declared in auto.implementation.box.TestDefaults' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
@@ -392,7 +472,17 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
                         ARG constructors: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                           TYPE_ARG T: dev.rnett.spekt.internal.SpektImplementationV1.Function
                           ARG elements: VARARG type=kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function> varargElementType=dev.rnett.spekt.internal.SpektImplementationV1.Function
-                            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                            CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.spekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.spekt.internal.SpektImplementationV1.Function' type=dev.rnett.spekt.internal.SpektImplementationV1.Function origin=null
+                              ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="auto"
+                                  CONST String type=kotlin.String value="implementation"
+                                  CONST String type=kotlin.String value="box"
+                              ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                                TYPE_ARG T: kotlin.String
+                                ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                                  CONST String type=kotlin.String value="TestDefaults"
                               ARG name: CONST String type=kotlin.String value="<init>"
                               ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
                               ARG kotlin: FUNCTION_REFERENCE 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.TestDefaults' type=kotlin.reflect.KFunction2<P1 of kotlin.reflect.KFunction2, P2 of kotlin.reflect.KFunction2, R of kotlin.reflect.KFunction2> origin=null reflectionTarget=<same>
@@ -657,8 +747,8 @@ FILE fqName:auto.implementation.box fileName:/DependentDefaultArgs.kt
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.spekt.Function): kotlin.Boolean declared in auto.implementation.box.box'
                   CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                    ARG arg0: CALL 'public open fun <get-name> (): kotlin.String declared in dev.rnett.spekt.MemberName.Member' type=kotlin.String origin=GET_PROPERTY
-                      ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.spekt.MemberName.Member declared in dev.rnett.spekt.Function' type=dev.rnett.spekt.MemberName.Member origin=GET_PROPERTY
+                    ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.spekt.MemberName' type=kotlin.String origin=GET_PROPERTY
+                      ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.spekt.MemberName declared in dev.rnett.spekt.Function' type=dev.rnett.spekt.MemberName origin=GET_PROPERTY
                         ARG <this>: GET_VAR 'it: dev.rnett.spekt.Function declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.spekt.Function origin=null
                     ARG arg1: CONST String type=kotlin.String value="test"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null

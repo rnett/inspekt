@@ -108,7 +108,7 @@ FILE: Inheritance.kt
         ))
         R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<out kotlin/Any>?|>(<getClass>(Q|auto/implementation/box/Base|), R|<local>/pBase|.R|dev/rnett/spekt/Callable.inheritedFrom|)
         lval fAbstract: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(abstractFun))
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.name|, String(abstractFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_abstract_fun), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(abstractFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -120,7 +120,7 @@ FILE: Inheritance.kt
         ))
         R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fAbstract|.R|dev/rnett/spekt/Function.inheritedFrom|)
         lval fOpen: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(openFun))
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.name|, String(openFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_open_fun), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(openFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -132,7 +132,7 @@ FILE: Inheritance.kt
         ))
         R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fOpen|.R|dev/rnett/spekt/Function.inheritedFrom|)
         lval fBase: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(baseFun))
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.name|, String(baseFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(base_fun), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(baseFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -144,7 +144,7 @@ FILE: Inheritance.kt
         ))
         R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<out kotlin/Any>?|>(<getClass>(Q|auto/implementation/box/Base|), R|<local>/fBase|.R|dev/rnett/spekt/Function.inheritedFrom|)
         lval fDerived: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(derivedFun))
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.name|, String(derivedFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_fun), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(derivedFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {

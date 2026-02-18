@@ -25,6 +25,8 @@ object Names {
         }
 
         object FunctionCtor {
+            val packageNames = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function_init_packageNames
+            val classNames = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function_init_classNames
             val name = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function_init_name
             val isAbstract = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function_init_isAbstract
             val kotlin = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function_init_kotlin
@@ -49,6 +51,8 @@ object Names {
         }
 
         object PropertyCtor {
+            val packageNames = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_packageNames
+            val classNames = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_classNames
             val name = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_name
             val annotations = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_annotations
             val isMutable = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_isMutable

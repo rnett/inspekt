@@ -28,7 +28,7 @@ FILE: ComplexParameters.kt
         lval spekt: R|dev/rnett/spekt/Spekt<auto/implementation/box/Complex>| = Q|auto/implementation/box/Complex|.R|auto/implementation/box/Complex.Companion.spekt|()
         lval instance: R|auto/implementation/box/Complex| = R|auto/implementation/box/Complex.Complex|()
         lval fExtension: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(extension))
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.name|, String(extension))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(test-123), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(extension function invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -41,7 +41,7 @@ FILE: ComplexParameters.kt
         }
         ))
         lval fMulti: R|dev/rnett/spekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(multi))
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.name|, String(multi))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(1-two-3.0), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(multi parameter function invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {

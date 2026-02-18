@@ -1,6 +1,7 @@
 package dev.rnett.spekt.internal
 
 import dev.rnett.spekt.ClassName
+import dev.rnett.spekt.MemberName
 import dev.rnett.spekt.MutableProperty
 import dev.rnett.spekt.PackageName
 import dev.rnett.spekt.Parameter
@@ -67,12 +68,12 @@ internal class SpektImplementationV1<T : Any>
             annotations.toList(),
             objectInstance,
             functions.map {
-                it.toSpekt(this)
+                it.toSpekt()
             },
             properties.map {
-                it.toSpekt(this)
+                it.toSpekt()
             },
-            constructors.map { it.toSpektCtor(this, lazy) },
+            constructors.map { it.toSpektCtor(lazy) },
             isAbstract,
             sealedSubclasses.orEmpty().map { it.toSpekt() },
             cast,
@@ -87,7 +88,9 @@ internal class SpektImplementationV1<T : Any>
     @ExportSymbol
     internal class Function
     @ExportSymbol constructor(
-        @param:ExportSymbol private val name: String,
+        @ExportSymbol packageNames: Array<String>,
+        @ExportSymbol classNames: Array<String>?,
+        @ExportSymbol name: String,
         @param:ExportSymbol private val isAbstract: Boolean,
         @param:ExportSymbol private val kotlin: KFunction<*>,
         @param:ExportSymbol private val annotations: Array<Annotation>,
@@ -99,8 +102,12 @@ internal class SpektImplementationV1<T : Any>
         @param:ExportSymbol private val suspendInvoker: (suspend (ArgumentsProviderV1) -> Any?)?,
         @param:ExportSymbol private val inheritedFrom: KClass<*>?,
     ) {
-        internal fun toSpekt(cls: SpektImplementationV1<*>): dev.rnett.spekt.Function = dev.rnett.spekt.Function(
-            cls.name.member(name),
+        private val name = MemberName(packageNames.toList(), classNames?.toList(), name)
+
+        @ExportSymbol
+        @PublishedApi
+        internal fun toSpekt(): dev.rnett.spekt.Function = dev.rnett.spekt.Function(
+            name,
             kotlin,
             annotations.toList(),
             isAbstract,
@@ -123,8 +130,8 @@ internal class SpektImplementationV1<T : Any>
             inheritedFrom
         )
 
-        internal fun toSpektCtor(cls: SpektImplementationV1<*>, spekt: Lazy<Spekt<*>>): dev.rnett.spekt.Constructor = dev.rnett.spekt.Constructor(
-            cls.name.member(name),
+        internal fun toSpektCtor(spekt: Lazy<Spekt<*>>): dev.rnett.spekt.Constructor = dev.rnett.spekt.Constructor(
+            name as MemberName.Member,
             kotlin,
             annotations.toList(),
             isAbstract,
@@ -173,7 +180,9 @@ internal class SpektImplementationV1<T : Any>
     @ExportSymbol
     internal class Property
     @ExportSymbol constructor(
-        @param:ExportSymbol private val name: String,
+        @ExportSymbol packageNames: Array<String>,
+        @ExportSymbol classNames: Array<String>?,
+        @ExportSymbol name: String,
         @param:ExportSymbol private val annotations: Array<Annotation>,
         @param:ExportSymbol private val isMutable: Boolean,
         @param:ExportSymbol private val isInConstructor: Boolean,
@@ -186,7 +195,11 @@ internal class SpektImplementationV1<T : Any>
         @param:ExportSymbol private val setter: Function?,
         @param:ExportSymbol private val inheritedFrom: KClass<*>?
     ) {
-        internal fun toSpekt(cls: SpektImplementationV1<*>): dev.rnett.spekt.Property {
+        private val name = MemberName(packageNames.toList(), classNames?.toList(), name)
+
+        @ExportSymbol
+        @PublishedApi
+        internal fun toSpekt(): dev.rnett.spekt.Property {
             lateinit var ref: dev.rnett.spekt.Property
             val lazy = lazy { ref }
             val getter = getter.toPropertySpekt(false, lazy)
@@ -199,7 +212,7 @@ internal class SpektImplementationV1<T : Any>
                     type,
                     getter,
                     setter!!.toPropertySpekt(true, lazy),
-                    cls.name.member(name),
+                    name,
                     getter.parameters,
                     annotations.toList(),
                     isAbstract,
@@ -213,7 +226,7 @@ internal class SpektImplementationV1<T : Any>
                     hasDelegate,
                     type,
                     getter,
-                    cls.name.member(name),
+                    name,
                     getter.parameters,
                     annotations.toList(),
                     isAbstract,

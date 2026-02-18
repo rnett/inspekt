@@ -40,7 +40,7 @@ FILE: Objects.kt
         }
         ))
         lval fObj: R|dev/rnett/spekt/Function| = R|<local>/spektObj|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/spekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.Member.name|, String(test))
+            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Function.name|.R|dev/rnett/spekt/MemberName.name|, String(test))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(obj_fun), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(test invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
