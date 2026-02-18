@@ -2,44 +2,86 @@ package dev.rnett.spekt.ir.passes
 
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.IrFullProcessor
+import dev.rnett.kcp.development.utils.ir.createLambda
 import dev.rnett.kcp.development.utils.ir.withBuilder
 import dev.rnett.spekt.DeclarationKeys
-import dev.rnett.spekt.Symbols
+import dev.rnett.spekt.GeneratedNames
 import dev.rnett.spekt.pluginKey
-import dev.rnett.symbolexport.symbol.compiler.asCallableId
+import dev.rnett.spekt.toIrOrigin
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
+import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
+import org.jetbrains.kotlin.ir.builders.declarations.addField
 import org.jetbrains.kotlin.ir.builders.irBlockBody
 import org.jetbrains.kotlin.ir.builders.irCall
+import org.jetbrains.kotlin.ir.builders.irExprBody
+import org.jetbrains.kotlin.ir.builders.irGetField
 import org.jetbrains.kotlin.ir.builders.irReturn
 import org.jetbrains.kotlin.ir.declarations.IrClass
-import org.jetbrains.kotlin.ir.declarations.IrFunction
+import org.jetbrains.kotlin.ir.declarations.IrField
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
-import org.jetbrains.kotlin.ir.util.primaryConstructor
+import org.jetbrains.kotlin.ir.types.typeWith
+import org.jetbrains.kotlin.ir.util.defaultType
+import org.jetbrains.kotlin.ir.util.functions
+import org.jetbrains.kotlin.ir.util.patchDeclarationParents
+import org.jetbrains.kotlin.name.CallableId
+import org.jetbrains.kotlin.name.ClassId
+import org.jetbrains.kotlin.name.FqName
+import org.jetbrains.kotlin.name.Name
 
-@OptIn(ExperimentalIrHelpers::class)
+@OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
-    @OptIn(UnsafeDuringIrConstructionAPI::class)
-    override fun visitFunction(declaration: IrFunction) {
-        val key = declaration.pluginKey
-        if (key is DeclarationKeys.SpektMethod) {
+    val generator = SpektGenerator(context)
+
+    private val lazy get() = context.referenceFunctions(CallableId(FqName("kotlin"), Name.identifier("lazy"))).single { it.owner.parameters.size == 1 }
+    private val lazyClass get() = context.referenceClass(ClassId.fromString("kotlin/Lazy"))!!
+    private val lazyValue get() = context.referenceProperties(CallableId(FqName("kotlin"), FqName("Lazy"), Name.identifier("value"))).single()
+
+    override fun visitClass(declaration: IrClass) {
+        val spektMethod = declaration.functions.find { it.pluginKey is DeclarationKeys.SpektMethod }
+        if (spektMethod != null) {
+            val key = spektMethod.pluginKey as DeclarationKeys.SpektMethod
+
             val declarationClass = context.referenceClass(key.declaration)!!.owner
-            val implClass = declarationClass.declarations.filterIsInstance<IrClass>().single {
-                it.pluginKey == DeclarationKeys.SpektImplementation
-            }
-            //TODO make lazy
-            declaration.apply {
-                body = withBuilder {
+
+            val field = createLazyField(declaration, declarationClass)
+
+            spektMethod.apply {
+                spektMethod.body = withBuilder {
                     irBlockBody {
-                        val impl = irCall(implClass.primaryConstructor!!.symbol)
-                        val toSpektMethod = this@GenerateSpektMethod.context.referenceFunctions(
-                            Symbols.spekt.dev_rnett_spekt_internal_SpektImplementation_toSpekt.asCallableId()
-                        ).single()
-                        +irReturn(irCall(toSpektMethod).apply {
-                            arguments[0] = impl
+                        +irReturn(irCall(lazyValue.owner.getter!!.symbol).apply {
+                            arguments[0] = irGetField(null, field)
                         })
                     }
                 }
             }
+        }
+        super.visitClass(declaration)
+    }
+
+    private fun createLazyField(hostClass: IrClass, target: IrClass): IrField {
+        return hostClass.addField {
+            name = GeneratedNames.spektImplFieldV1
+            visibility = DescriptorVisibilities.PRIVATE
+            origin = DeclarationKeys.SpektImplementationFieldV1.toIrOrigin()
+            type = lazyClass.typeWith(generator.Spekt.typeWith(target.defaultType))
+            isStatic = true
+            isFinal = true
+        }.apply field@{
+            initializer = withBuilder {
+                irExprBody(
+                    irCall(lazy).apply {
+                        typeArguments[0] = generator.Spekt.typeWith(target.defaultType)
+                        arguments[0] = createLambda(this@GenerateSpektMethod.context) {
+                            returnType = generator.Spekt.typeWith(target.defaultType)
+                            body = withBuilder {
+                                irBlockBody {
+                                    +irReturn(generator.createSpekt(target))
+                                }
+                            }
+                        }
+                    }
+                )
+            }.patchDeclarationParents(this)
         }
     }
 }

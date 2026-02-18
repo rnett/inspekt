@@ -11,7 +11,7 @@ object DeclarationKeys {
     data object SpektCompanionObject : GeneratedDeclarationKey()
     data object SpektCompanionObjectCtor : GeneratedDeclarationKey()
     data class SpektMethod(val declaration: ClassId) : GeneratedDeclarationKey()
-    data object SpektImplementation : GeneratedDeclarationKey()
+    data object SpektImplementationFieldV1 : GeneratedDeclarationKey()
     data object SpektCasterImplementation : GeneratedDeclarationKey()
 }
 

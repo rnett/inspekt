@@ -1,6 +1,5 @@
 package dev.rnett.spekt.internal
 
-import dev.rnett.spekt.Caster
 import dev.rnett.spekt.ClassName
 import dev.rnett.spekt.MutableProperty
 import dev.rnett.spekt.PackageName
@@ -35,8 +34,8 @@ internal interface ArgumentsProviderV1 {
 
 @PublishedApi
 @ExportSymbol
-internal abstract class SpektImplementationV1<T : Any>
-@ExportSymbol protected constructor(
+internal class SpektImplementationV1<T : Any>
+@ExportSymbol @PublishedApi internal constructor(
     @param:ExportSymbol private val kClass: KClass<*>,
     @param:ExportSymbol private val isAbstract: Boolean,
     @ExportSymbol packageNames: Array<String>,
@@ -46,13 +45,12 @@ internal abstract class SpektImplementationV1<T : Any>
     @param:ExportSymbol private val functions: Array<Function>,
     @param:ExportSymbol private val properties: Array<Property>,
     @param:ExportSymbol private val constructors: Array<Function>,
-    @param:ExportSymbol private val sealedSubclasses: Array<SpektImplementationV1<out T>>?
+    @param:ExportSymbol private val sealedSubclasses: Array<SpektImplementationV1<out T>>?,
+    @param:ExportSymbol private val cast: (Any) -> T,
+    @param:ExportSymbol private val isInstance: (Any) -> Boolean,
+    @param:ExportSymbol private val safeCast: (Any) -> T?,
+    @param:ExportSymbol private val objectInstance: T?
 ) : SpektImplementation<T>() {
-    @ExportSymbol
-    protected open fun getObjectInstance(): T? = null
-
-    @ExportSymbol
-    protected abstract fun getCaster(): Caster<T>
 
     internal val name = ClassName(PackageName(packageNames.toList()), classNames.toList())
 
@@ -67,7 +65,7 @@ internal abstract class SpektImplementationV1<T : Any>
             name,
             supertypes.toSet(),
             annotations.toList(),
-            getObjectInstance(),
+            objectInstance,
             functions.map {
                 it.toSpekt(this)
             },
@@ -76,8 +74,10 @@ internal abstract class SpektImplementationV1<T : Any>
             },
             constructors.map { it.toSpektCtor(this, lazy) },
             isAbstract,
-            getCaster(),
             sealedSubclasses.orEmpty().map { it.toSpekt() },
+            cast,
+            isInstance,
+            safeCast
         ).also {
             ref = it
         }

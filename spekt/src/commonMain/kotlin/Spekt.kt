@@ -21,16 +21,18 @@ public data class Spekt<T : Any> internal constructor(
      * Attempting to call constructors will fail.
      */
     public val isAbstract: Boolean,
-    private val caster: Caster<T>,
-    public val sealedSubclasses: List<Spekt<out T>>
+    public val sealedSubclasses: List<Spekt<out T>>,
+    private val cast: (Any) -> T,
+    private val isInstance: (Any) -> Boolean,
+    private val safeCast: (Any) -> T?,
 ) : AnnotatedElement {
 
     public val superclasses: Set<KClass<*>> = buildSet { supertypes.mapNotNullTo(this) { it.classifier as? KClass<*> } }
     public fun isSubtypeOf(other: KClass<*>): Boolean = other == Any::class || other in superclasses
 
-    public fun cast(value: Any): T = caster.cast(value)
-    public fun isInstance(value: Any): Boolean = caster.isInstance(value)
-    public fun safeCast(value: Any): T? = caster.safeCast(value)
+    public fun cast(value: Any): T = cast.invoke(value)
+    public fun isInstance(value: Any): Boolean = isInstance.invoke(value)
+    public fun safeCast(value: Any): T? = safeCast.invoke(value)
 
     public val shortName: String get() = name.shortName
 
@@ -59,17 +61,4 @@ public data class Spekt<T : Any> internal constructor(
         }
     }.trim()
 
-}
-
-@ExportSymbol
-@PublishedApi
-internal interface Caster<T : Any> {
-    @ExportSymbol
-    fun cast(@ExportSymbol value: Any): T
-
-    @ExportSymbol
-    fun isInstance(@ExportSymbol value: Any): Boolean
-
-    @ExportSymbol
-    fun safeCast(@ExportSymbol value: Any): T?
 }

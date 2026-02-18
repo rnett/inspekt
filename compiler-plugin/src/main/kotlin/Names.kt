@@ -1,6 +1,5 @@
 package dev.rnett.spekt
 
-import dev.rnett.symbolexport.symbol.compiler.name
 import org.jetbrains.kotlin.name.Name
 
 object Names {
@@ -8,9 +7,6 @@ object Names {
     val Spekt = Symbols.spekt.dev_rnett_spekt_Spekt
 
     object Impl {
-        val getObjectInstance = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_getObjectInstance.name()
-        val getCaster = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_getCaster.name()
-
         object Ctor {
             val kClass = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_kClass
             val isAbstract = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_isAbstract
@@ -22,6 +18,10 @@ object Names {
             val properties = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_properties
             val constructors = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_constructors
             val sealedSubclasses = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_sealedSubclasses
+            val cast = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_cast
+            val isInstance = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_isInstance
+            val safeCast = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_safeCast
+            val objectInstance = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_objectInstance
         }
 
         object FunctionCtor {
@@ -64,15 +64,6 @@ object Names {
         }
     }
 
-    object Caster {
-        val cast = Symbols.spekt.dev_rnett_spekt_Caster_cast
-        val castValue = Symbols.spekt.dev_rnett_spekt_Caster_cast_value
-        val isInstance = Symbols.spekt.dev_rnett_spekt_Caster_isInstance
-        val isInstanceValue = Symbols.spekt.dev_rnett_spekt_Caster_isInstance_value
-        val safeCast = Symbols.spekt.dev_rnett_spekt_Caster_safeCast
-        val safeCastValue = Symbols.spekt.dev_rnett_spekt_Caster_safeCast_value
-    }
-
 
 }
 
@@ -81,4 +72,5 @@ object GeneratedNames {
     val CasterImpl = Name.identifier("CasterImpl")
 
     val spektMethod = Name.identifier("spekt")
+    val spektImplFieldV1 = Name.identifier("spektImplV1")
 }

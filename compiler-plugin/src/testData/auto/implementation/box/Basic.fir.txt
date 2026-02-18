@@ -17,11 +17,19 @@ FILE: Basic.kt
             public get(): R|kotlin/Int|
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/Test>|
-
             private constructor(): R|auto/implementation/box/Test.Companion| {
                 super<R|kotlin/Any|>()
             }
+
+            public final val t: R|kotlin/Int|by R|kotlin/lazy|<R|kotlin/Int|>(<L> = lazy@fun <anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+                ^ Int(5)
+            }
+            )
+                public get(): R|kotlin/Int| {
+                    ^ this@R|auto/implementation/box/Test.Companion|.D|auto/implementation/box/Test.Companion.t|.R|kotlin/getValue|<R|kotlin/Int|>(this@R|auto/implementation/box/Test.Companion|, ::R|auto/implementation/box/Test.Companion.t|)
+                }
+
+            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/Test>|
 
         }
 

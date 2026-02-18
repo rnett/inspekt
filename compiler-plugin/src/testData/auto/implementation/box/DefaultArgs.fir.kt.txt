@@ -11,42 +11,8 @@ class TestDefaults {
     get
 
   companion object Companion {
-    private constructor() /* primary */ {
-      super/*Any*/()
-      /* <init>() */
-
-    }
-
-    fun spekt(): Spekt<TestDefaults> {
-      return SpektImplV1().toSpekt()
-    }
-
-  }
-
-  private class SpektImplV1 : SpektImplementationV1<TestDefaults> {
-    private data object CasterImpl : Caster<TestDefaults> {
-      constructor() /* primary */ {
-        super/*Any*/()
-        /* <init>() */
-
-      }
-
-      override /* static */ fun cast(value: Any): SpektImplV1 {
-        return value as TestDefaults
-      }
-
-      override /* static */ fun isInstance(value: Any): Boolean {
-        return value is TestDefaults
-      }
-
-      override /* static */ fun safeCast(value: Any): SpektImplV1? {
-        return value as? TestDefaults
-      }
-
-    }
-
-    internal constructor() /* primary */ {
-      super/*SpektImplementationV1*/</* null */>(kClass = TestDefaults::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "test", isAbstract = false, kotlin = TestDefaults::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    private /* static final field */ val spektImplV1: Lazy<Spekt<TestDefaults>> = lazy<Spekt<TestDefaults>>(initializer = local fun <anonymous>(): Spekt<TestDefaults> {
+      return SpektImplementationV1</* null */>(kClass = TestDefaults::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "test", isAbstract = false, kotlin = TestDefaults::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         var tmp_0: TestDefaults
         var tmp_1: Int
         var tmp_2: String
@@ -89,13 +55,26 @@ class TestDefaults {
         }
         return TestDefaults(a = tmp_3, b = tmp_4)
       }
-, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): TestDefaults {
+        return it as TestDefaults
+      }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+        return it is TestDefaults
+      }
+, safeCast = local fun <anonymous>(it: Any): TestDefaults? {
+        return it as? TestDefaults
+      }
+, objectInstance = null).toSpekt()
+    }
+)
+    private constructor() /* primary */ {
+      super/*Any*/()
       /* <init>() */
 
     }
 
-    protected override fun getCaster(): Caster<TestDefaults> {
-      return CasterImpl
+    fun spekt(): Spekt<TestDefaults> {
+      return #spektImplV1.<get-value>()
     }
 
   }

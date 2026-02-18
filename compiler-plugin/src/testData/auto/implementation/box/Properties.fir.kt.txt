@@ -28,42 +28,8 @@ class TestProperties {
     }
 
   companion object Companion {
-    private constructor() /* primary */ {
-      super/*Any*/()
-      /* <init>() */
-
-    }
-
-    fun spekt(): Spekt<TestProperties> {
-      return SpektImplV1().toSpekt()
-    }
-
-  }
-
-  private class SpektImplV1 : SpektImplementationV1<TestProperties> {
-    private data object CasterImpl : Caster<TestProperties> {
-      constructor() /* primary */ {
-        super/*Any*/()
-        /* <init>() */
-
-      }
-
-      override /* static */ fun cast(value: Any): SpektImplV1 {
-        return value as TestProperties
-      }
-
-      override /* static */ fun isInstance(value: Any): Boolean {
-        return value is TestProperties
-      }
-
-      override /* static */ fun safeCast(value: Any): SpektImplV1? {
-        return value as? TestProperties
-      }
-
-    }
-
-    internal constructor() /* primary */ {
-      super/*SpektImplementationV1*/</* null */>(kClass = TestProperties::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "equals", isAbstract = false, kotlin = TestProperties::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    private /* static final field */ val spektImplV1: Lazy<Spekt<TestProperties>> = lazy<Spekt<TestProperties>>(initializer = local fun <anonymous>(): Spekt<TestProperties> {
+      return SpektImplementationV1</* null */>(kClass = TestProperties::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "equals", isAbstract = false, kotlin = TestProperties::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
       }
 , suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = TestProperties::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
@@ -96,13 +62,26 @@ class TestProperties {
 , suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::TestProperties, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<TestProperties>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return TestProperties()
       }
-, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): TestProperties {
+        return it as TestProperties
+      }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+        return it is TestProperties
+      }
+, safeCast = local fun <anonymous>(it: Any): TestProperties? {
+        return it as? TestProperties
+      }
+, objectInstance = null).toSpekt()
+    }
+)
+    private constructor() /* primary */ {
+      super/*Any*/()
       /* <init>() */
 
     }
 
-    protected override fun getCaster(): Caster<TestProperties> {
-      return CasterImpl
+    fun spekt(): Spekt<TestProperties> {
+      return #spektImplV1.<get-value>()
     }
 
   }
