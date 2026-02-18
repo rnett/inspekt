@@ -45,7 +45,8 @@ internal abstract class SpektImplementationV1<T : Any>
     @param:ExportSymbol private val annotations: Array<Annotation>,
     @param:ExportSymbol private val functions: Array<Function>,
     @param:ExportSymbol private val properties: Array<Property>,
-    @param:ExportSymbol private val constructors: Array<Function>
+    @param:ExportSymbol private val constructors: Array<Function>,
+    @param:ExportSymbol private val sealedSubclasses: Array<SpektImplementationV1<out T>>?
 ) : SpektImplementation<T>() {
     @ExportSymbol
     protected open fun getObjectInstance(): T? = null
@@ -75,7 +76,8 @@ internal abstract class SpektImplementationV1<T : Any>
             },
             constructors.map { it.toSpektCtor(this, lazy) },
             isAbstract,
-            getCaster()
+            getCaster(),
+            sealedSubclasses.orEmpty().map { it.toSpekt() },
         ).also {
             ref = it
         }

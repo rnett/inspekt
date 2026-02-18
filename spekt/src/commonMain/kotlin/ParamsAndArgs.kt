@@ -86,8 +86,8 @@ public data class Parameter internal constructor(
     }
 }
 
-public data class ArgumentList internal constructor(private val parameters: Parameters, private val arguments: Map<Int, Any?>) : ArgumentsProviderV1 {
-    public fun isDefaulted(globalIndex: Int): Boolean = globalIndex !in arguments
+public data class ArgumentList internal constructor(private val parameters: Parameters, private val arguments: Array<Any?>, private val hasBeenSet: BitSet) : ArgumentsProviderV1 {
+    public fun isDefaulted(globalIndex: Int): Boolean = !hasBeenSet[globalIndex]
     public operator fun get(globalIndex: Int): Any? = arguments[globalIndex]
     public operator fun get(name: String): Any? = parameters[name]?.let { get(it.globalIndex) }
 
@@ -97,10 +97,10 @@ public data class ArgumentList internal constructor(private val parameters: Para
 
     init {
         parameters.forEach {
-            if (!it.hasDefault && it.globalIndex !in arguments)
+            if (!it.hasDefault && isDefaulted(it.globalIndex))
                 throw IllegalArgumentException("Parameter [${it.kind}] ${it.name}: ${it.type} with index ${it.globalIndex} has no default value and is not provided")
 
-            if (it.globalIndex in arguments) {
+            if (!isDefaulted(it.globalIndex)) {
                 val arg = arguments[it.globalIndex]
                 it.checkValue(arg)
             }
@@ -108,7 +108,13 @@ public data class ArgumentList internal constructor(private val parameters: Para
     }
 
     public class Builder @PublishedApi internal constructor(private val parameters: Parameters) {
-        private val args = mutableMapOf<Int, Any?>()
+        private val hasBeenSet = BitSet(parameters.size)
+        private val args = arrayOfNulls<Any?>(parameters.size)
+
+        public operator fun set(index: Int, value: Any?) {
+            hasBeenSet[index] = true
+            args[index] = value
+        }
 
         public var dispatchReceiver: Any?
             get() = null
@@ -122,12 +128,8 @@ public data class ArgumentList internal constructor(private val parameters: Para
                 set(Parameter.Kind.EXTENSION, 0, value)
             }
 
-        public operator fun set(index: Int, value: Any?) {
-            args[index] = value
-        }
-
         public operator fun set(kind: Parameter.Kind, indexInKind: Int, value: Any?) {
-            args[parameters.globalIndex(kind, indexInKind)] = value
+            this[parameters.globalIndex(kind, indexInKind)] = value
         }
 
         public operator fun set(name: String, value: Any?) {
@@ -156,7 +158,25 @@ public data class ArgumentList internal constructor(private val parameters: Para
         }
 
         @PublishedApi
-        internal fun build(): ArgumentList = ArgumentList(parameters, args.toMap())
+        internal fun build(): ArgumentList = ArgumentList(parameters, args, hasBeenSet)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ArgumentList) return false
+
+        if (parameters != other.parameters) return false
+        if (!arguments.contentEquals(other.arguments)) return false
+        if (hasBeenSet != other.hasBeenSet) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = parameters.hashCode()
+        result = 31 * result + arguments.contentHashCode()
+        result = 31 * result + hasBeenSet.hashCode()
+        return result
     }
 }
 

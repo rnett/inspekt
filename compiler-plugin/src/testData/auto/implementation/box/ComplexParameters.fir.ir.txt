@@ -27,42 +27,42 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
         BLOCK_BODY
           RETURN type=kotlin.Nothing from='public final fun spekt (): dev.rnett.spekt.Spekt<auto.implementation.box.Complex> declared in auto.implementation.box.Complex.Companion'
             CALL 'public abstract fun toSpekt (): dev.rnett.spekt.Spekt<T of dev.rnett.spekt.internal.SpektImplementation> declared in dev.rnett.spekt.internal.SpektImplementation' type=dev.rnett.spekt.Spekt<T of dev.rnett.spekt.internal.SpektImplementation> origin=null
-              ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> () declared in auto.implementation.box.Complex.SpektImpl' type=auto.implementation.box.Complex.SpektImpl origin=null
-    CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektImplementation] CLASS name:SpektImpl modality:FINAL visibility:private superTypes:[dev.rnett.spekt.internal.SpektImplementationV1<auto.implementation.box.Complex>]
-      thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Complex.SpektImpl
+              ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> () declared in auto.implementation.box.Complex.SpektImplV1' type=auto.implementation.box.Complex.SpektImplV1 origin=null
+    CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektImplementation] CLASS name:SpektImplV1 modality:FINAL visibility:private superTypes:[dev.rnett.spekt.internal.SpektImplementationV1<auto.implementation.box.Complex>]
+      thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Complex.SpektImplV1
       CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektCasterImplementation] OBJECT name:CasterImpl modality:FINAL visibility:private [data] superTypes:[dev.rnett.spekt.Caster<auto.implementation.box.Complex>]
-        thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Complex.SpektImpl.CasterImpl
-        CONSTRUCTOR GENERATED[dev.rnett.spekt.DeclarationKeys.SpektCasterImplementation] visibility:public returnType:auto.implementation.box.Complex.SpektImpl.CasterImpl [primary]
+        thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Complex.SpektImplV1.CasterImpl
+        CONSTRUCTOR GENERATED[dev.rnett.spekt.DeclarationKeys.SpektCasterImplementation] visibility:public returnType:auto.implementation.box.Complex.SpektImplV1.CasterImpl [primary]
           BLOCK_BODY
             DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
             INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektCasterImplementation] OBJECT name:CasterImpl modality:FINAL visibility:private [data] superTypes:[dev.rnett.spekt.Caster<auto.implementation.box.Complex>]' type=kotlin.Unit
-        FUN name:cast visibility:public modality:FINAL returnType:auto.implementation.box.Complex.SpektImpl
+        FUN name:cast visibility:public modality:FINAL returnType:auto.implementation.box.Complex.SpektImplV1
           VALUE_PARAMETER kind:Regular name:value index:0 type:kotlin.Any
           overridden:
             public abstract fun cast (value: kotlin.Any): T of dev.rnett.spekt.Caster declared in dev.rnett.spekt.Caster
           BLOCK_BODY
-            RETURN type=kotlin.Nothing from='public final fun cast (value: kotlin.Any): auto.implementation.box.Complex.SpektImpl declared in auto.implementation.box.Complex.SpektImpl.CasterImpl'
+            RETURN type=kotlin.Nothing from='public final fun cast (value: kotlin.Any): auto.implementation.box.Complex.SpektImplV1 declared in auto.implementation.box.Complex.SpektImplV1.CasterImpl'
               TYPE_OP type=auto.implementation.box.Complex origin=CAST typeOperand=auto.implementation.box.Complex
-                GET_VAR 'value: kotlin.Any declared in auto.implementation.box.Complex.SpektImpl.CasterImpl.cast' type=kotlin.Any origin=null
+                GET_VAR 'value: kotlin.Any declared in auto.implementation.box.Complex.SpektImplV1.CasterImpl.cast' type=kotlin.Any origin=null
         FUN name:isInstance visibility:public modality:FINAL returnType:kotlin.Boolean
           VALUE_PARAMETER kind:Regular name:value index:0 type:kotlin.Any
           overridden:
             public abstract fun isInstance (value: kotlin.Any): kotlin.Boolean declared in dev.rnett.spekt.Caster
           BLOCK_BODY
-            RETURN type=kotlin.Nothing from='public final fun isInstance (value: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Complex.SpektImpl.CasterImpl'
+            RETURN type=kotlin.Nothing from='public final fun isInstance (value: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Complex.SpektImplV1.CasterImpl'
               TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.Complex
-                GET_VAR 'value: kotlin.Any declared in auto.implementation.box.Complex.SpektImpl.CasterImpl.isInstance' type=kotlin.Any origin=null
-        FUN name:safeCast visibility:public modality:FINAL returnType:auto.implementation.box.Complex.SpektImpl?
+                GET_VAR 'value: kotlin.Any declared in auto.implementation.box.Complex.SpektImplV1.CasterImpl.isInstance' type=kotlin.Any origin=null
+        FUN name:safeCast visibility:public modality:FINAL returnType:auto.implementation.box.Complex.SpektImplV1?
           VALUE_PARAMETER kind:Regular name:value index:0 type:kotlin.Any
           overridden:
             public abstract fun safeCast (value: kotlin.Any): T of dev.rnett.spekt.Caster? declared in dev.rnett.spekt.Caster
           BLOCK_BODY
-            RETURN type=kotlin.Nothing from='public final fun safeCast (value: kotlin.Any): auto.implementation.box.Complex.SpektImpl? declared in auto.implementation.box.Complex.SpektImpl.CasterImpl'
+            RETURN type=kotlin.Nothing from='public final fun safeCast (value: kotlin.Any): auto.implementation.box.Complex.SpektImplV1? declared in auto.implementation.box.Complex.SpektImplV1.CasterImpl'
               TYPE_OP type=auto.implementation.box.Complex origin=SAFE_CAST typeOperand=auto.implementation.box.Complex
-                GET_VAR 'value: kotlin.Any declared in auto.implementation.box.Complex.SpektImpl.CasterImpl.safeCast' type=kotlin.Any origin=null
-      CONSTRUCTOR visibility:internal returnType:auto.implementation.box.Complex.SpektImpl [primary]
+                GET_VAR 'value: kotlin.Any declared in auto.implementation.box.Complex.SpektImplV1.CasterImpl.safeCast' type=kotlin.Any origin=null
+      CONSTRUCTOR visibility:internal returnType:auto.implementation.box.Complex.SpektImplV1 [primary]
         BLOCK_BODY
-          DELEGATING_CONSTRUCTOR_CALL 'protected constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>, properties: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Property>, constructors: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>) declared in dev.rnett.spekt.internal.SpektImplementationV1'
+          DELEGATING_CONSTRUCTOR_CALL 'protected constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>, properties: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Property>, constructors: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.spekt.internal.SpektImplementationV1<out T of dev.rnett.spekt.internal.SpektImplementationV1>>?) declared in dev.rnett.spekt.internal.SpektImplementationV1'
             TYPE_ARG T: <none>
             ARG kClass: CLASS_REFERENCE 'CLASS CLASS name:Complex modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.Complex>
             ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
@@ -139,19 +139,19 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
-                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImpl.<init>'
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImplV1.<init>'
                           CALL 'public final fun extension (<this>: kotlin.String, other: kotlin.Int): kotlin.String declared in auto.implementation.box.Complex' type=kotlin.String origin=null
                             ARG <this>(index:0): TYPE_OP type=auto.implementation.box.Complex origin=CAST typeOperand=auto.implementation.box.Complex
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=0
                             ARG <this>(index:1): TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=1
                             ARG other: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=2
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -217,23 +217,23 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
-                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImpl.<init>'
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImplV1.<init>'
                           CALL 'public final fun multi (a: kotlin.Int, b: kotlin.String, c: kotlin.Double): kotlin.String declared in auto.implementation.box.Complex' type=kotlin.String origin=null
                             ARG <this>: TYPE_OP type=auto.implementation.box.Complex origin=CAST typeOperand=auto.implementation.box.Complex
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=0
                             ARG a: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=1
                             ARG b: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=2
                             ARG c: TYPE_OP type=kotlin.Double origin=CAST typeOperand=kotlin.Double
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=3
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -277,15 +277,15 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
-                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImpl.<init>'
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImplV1.<init>'
                           CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.Complex' type=kotlin.Boolean origin=null
                             ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=0
                             ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=1
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -318,11 +318,11 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
-                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImpl.<init>'
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImplV1.<init>'
                           CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.Complex' type=kotlin.Int origin=null
                             ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=0
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -355,11 +355,11 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
-                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImpl.<init>'
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImplV1.<init>'
                           CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.Complex' type=kotlin.String origin=null
                             ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                               CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.spekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImpl.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.spekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Complex.SpektImplV1.<init>.<anonymous>' type=dev.rnett.spekt.internal.ArgumentsProviderV1 origin=null
                                 ARG globalIndex: CONST Int type=kotlin.Int value=0
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -387,18 +387,19 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.spekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
-                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImpl.<init>'
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.spekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Complex.SpektImplV1.<init>'
                           CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.Complex' type=auto.implementation.box.Complex origin=null
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektImplementation] CLASS name:SpektImpl modality:FINAL visibility:private superTypes:[dev.rnett.spekt.internal.SpektImplementationV1<auto.implementation.box.Complex>]' type=kotlin.Unit
+            ARG sealedSubclasses: CONST Null type=kotlin.Nothing? value=null
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektImplementation] CLASS name:SpektImplV1 modality:FINAL visibility:private superTypes:[dev.rnett.spekt.internal.SpektImplementationV1<auto.implementation.box.Complex>]' type=kotlin.Unit
       FUN name:getCaster visibility:protected modality:FINAL returnType:dev.rnett.spekt.Caster<auto.implementation.box.Complex>
-        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.implementation.box.Complex.SpektImpl
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.implementation.box.Complex.SpektImplV1
         overridden:
           protected abstract fun getCaster (): dev.rnett.spekt.Caster<T of dev.rnett.spekt.internal.SpektImplementationV1> declared in dev.rnett.spekt.internal.SpektImplementationV1
         BLOCK_BODY
-          RETURN type=kotlin.Nothing from='protected final fun getCaster (): dev.rnett.spekt.Caster<auto.implementation.box.Complex> declared in auto.implementation.box.Complex.SpektImpl'
-            GET_OBJECT 'CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektCasterImplementation] OBJECT name:CasterImpl modality:FINAL visibility:private [data] superTypes:[dev.rnett.spekt.Caster<auto.implementation.box.Complex>]' type=auto.implementation.box.Complex.SpektImpl.CasterImpl
+          RETURN type=kotlin.Nothing from='protected final fun getCaster (): dev.rnett.spekt.Caster<auto.implementation.box.Complex> declared in auto.implementation.box.Complex.SpektImplV1'
+            GET_OBJECT 'CLASS GENERATED[dev.rnett.spekt.DeclarationKeys.SpektCasterImplementation] OBJECT name:CasterImpl modality:FINAL visibility:private [data] superTypes:[dev.rnett.spekt.Caster<auto.implementation.box.Complex>]' type=auto.implementation.box.Complex.SpektImplV1.CasterImpl
     CONSTRUCTOR visibility:public returnType:auto.implementation.box.Complex [primary]
       BLOCK_BODY
         DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'

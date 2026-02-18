@@ -394,6 +394,7 @@ public final class dev/rnett/spekt/SpecialNames {
 public final class dev/rnett/spekt/Spekt : dev/rnett/spekt/AnnotatedElement {
 	public final fun cast (Ljava/lang/Object;)Ljava/lang/Object;
 	public final fun component1 ()Lkotlin/reflect/KClass;
+	public final fun component11 ()Ljava/util/List;
 	public final fun component2 ()Ldev/rnett/spekt/ClassName;
 	public final fun component3 ()Ljava/util/Set;
 	public final fun component4 ()Ljava/util/List;
@@ -411,6 +412,7 @@ public final class dev/rnett/spekt/Spekt : dev/rnett/spekt/AnnotatedElement {
 	public final fun getObjectInstance ()Ljava/lang/Object;
 	public final fun getPrimaryConstructor ()Ldev/rnett/spekt/Constructor;
 	public final fun getProperties ()Ljava/util/List;
+	public final fun getSealedSubclasses ()Ljava/util/List;
 	public final fun getShortName ()Ljava/lang/String;
 	public final fun getSuperclasses ()Ljava/util/Set;
 	public final fun getSupertypes ()Ljava/util/Set;
@@ -420,6 +422,8 @@ public final class dev/rnett/spekt/Spekt : dev/rnett/spekt/AnnotatedElement {
 	public final fun isSubtypeOf (Lkotlin/reflect/KClass;)Z
 	public final fun safeCast (Ljava/lang/Object;)Ljava/lang/Object;
 	public fun toString ()Ljava/lang/String;
+	public final fun toString (ZZ)Ljava/lang/String;
+	public static synthetic fun toString$default (Ldev/rnett/spekt/Spekt;ZZILjava/lang/Object;)Ljava/lang/String;
 }
 
 public abstract interface class dev/rnett/spekt/internal/ArgumentsProviderV1 {
@@ -432,7 +436,7 @@ public abstract class dev/rnett/spekt/internal/SpektImplementation {
 }
 
 public abstract class dev/rnett/spekt/internal/SpektImplementationV1 : dev/rnett/spekt/internal/SpektImplementation {
-	protected fun <init> (Lkotlin/reflect/KClass;Z[Ljava/lang/String;[Ljava/lang/String;[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/spekt/internal/SpektImplementationV1$Function;[Ldev/rnett/spekt/internal/SpektImplementationV1$Property;[Ldev/rnett/spekt/internal/SpektImplementationV1$Function;)V
+	protected fun <init> (Lkotlin/reflect/KClass;Z[Ljava/lang/String;[Ljava/lang/String;[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/spekt/internal/SpektImplementationV1$Function;[Ldev/rnett/spekt/internal/SpektImplementationV1$Property;[Ldev/rnett/spekt/internal/SpektImplementationV1$Function;[Ldev/rnett/spekt/internal/SpektImplementationV1;)V
 	protected abstract fun getCaster ()Ldev/rnett/spekt/Caster;
 	protected fun getObjectInstance ()Ljava/lang/Object;
 	public fun toSpekt ()Ldev/rnett/spekt/Spekt;

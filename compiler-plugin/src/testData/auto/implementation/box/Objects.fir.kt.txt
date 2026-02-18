@@ -14,12 +14,12 @@ object TestObject {
     }
 
     fun spekt(): Spekt<TestObject> {
-      return SpektImpl().toSpekt()
+      return SpektImplV1().toSpekt()
     }
 
   }
 
-  private class SpektImpl : SpektImplementationV1<TestObject> {
+  private class SpektImplV1 : SpektImplementationV1<TestObject> {
     private data object CasterImpl : Caster<TestObject> {
       constructor() /* primary */ {
         super/*Any*/()
@@ -27,7 +27,7 @@ object TestObject {
 
       }
 
-      override /* static */ fun cast(value: Any): SpektImpl {
+      override /* static */ fun cast(value: Any): SpektImplV1 {
         return value as TestObject
       }
 
@@ -35,7 +35,7 @@ object TestObject {
         return value is TestObject
       }
 
-      override /* static */ fun safeCast(value: Any): SpektImpl? {
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
         return value as? TestObject
       }
 
@@ -60,7 +60,7 @@ object TestObject {
 , suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = [Property(name = "prop", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestObject::prop, getter = Function(name = "<get-prop>", isAbstract = false, kotlin = TestObject::<get-prop>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestObject>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as TestObject.<get-prop>()
       }
-, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = []))
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = []), sealedSubclasses = null)
       /* <init>() */
 
     }
@@ -82,7 +82,7 @@ object TestObject {
   }
 
   fun spekt(): Spekt<TestObject> {
-    return SpektImpl().toSpekt()
+    return SpektImplV1().toSpekt()
   }
 
   fun test(): String {

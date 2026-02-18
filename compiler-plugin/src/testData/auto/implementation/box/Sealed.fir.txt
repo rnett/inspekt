@@ -1,0 +1,43 @@
+FILE: Sealed.kt
+    package auto.implementation.box
+
+    @R|dev/rnett/spekt/InSpekt|() public sealed interface SealedInt : R|kotlin/Any| {
+        public final data class Impl1 : R|auto/implementation/box/SealedInt| {
+            public constructor(test: R|kotlin/Int|): R|auto/implementation/box/SealedInt.Impl1| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val test: R|kotlin/Int| = R|<local>/test|
+                public get(): R|kotlin/Int|
+
+            public final operator fun component1(): R|kotlin/Int|
+
+            public final fun copy(test: R|kotlin/Int| = this@R|auto/implementation/box/SealedInt.Impl1|.R|auto/implementation/box/SealedInt.Impl1.test|): R|auto/implementation/box/SealedInt.Impl1|
+
+        }
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/SealedInt>|
+
+            private constructor(): R|auto/implementation/box/SealedInt.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+    }
+    public sealed class SealedCls : R|auto/implementation/box/SealedInt| {
+        protected constructor(): R|auto/implementation/box/SealedCls| {
+            super<R|kotlin/Any|>()
+        }
+
+    }
+    public final data object Impl2 : R|auto/implementation/box/SealedCls| {
+        private constructor(): R|auto/implementation/box/Impl2| {
+            super<R|auto/implementation/box/SealedCls|>()
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        ^box Q|auto/implementation/box/SealedInt|.R|auto/implementation/box/SealedInt.Companion.spekt|().R|SubstitutionOverride<dev/rnett/spekt/Spekt.toString: R|kotlin/String|>|(Boolean(true))
+    }

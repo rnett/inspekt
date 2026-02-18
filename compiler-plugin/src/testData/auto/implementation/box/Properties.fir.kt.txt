@@ -35,12 +35,12 @@ class TestProperties {
     }
 
     fun spekt(): Spekt<TestProperties> {
-      return SpektImpl().toSpekt()
+      return SpektImplV1().toSpekt()
     }
 
   }
 
-  private class SpektImpl : SpektImplementationV1<TestProperties> {
+  private class SpektImplV1 : SpektImplementationV1<TestProperties> {
     private data object CasterImpl : Caster<TestProperties> {
       constructor() /* primary */ {
         super/*Any*/()
@@ -48,7 +48,7 @@ class TestProperties {
 
       }
 
-      override /* static */ fun cast(value: Any): SpektImpl {
+      override /* static */ fun cast(value: Any): SpektImplV1 {
         return value as TestProperties
       }
 
@@ -56,7 +56,7 @@ class TestProperties {
         return value is TestProperties
       }
 
-      override /* static */ fun safeCast(value: Any): SpektImpl? {
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
         return value as? TestProperties
       }
 
@@ -96,7 +96,7 @@ class TestProperties {
 , suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::TestProperties, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<TestProperties>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return TestProperties()
       }
-, suspendInvoker = null, inheritedFrom = null)]))
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
       /* <init>() */
 
     }

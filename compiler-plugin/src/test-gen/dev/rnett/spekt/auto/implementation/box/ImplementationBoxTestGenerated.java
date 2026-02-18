@@ -79,6 +79,12 @@ public class ImplementationBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
+  @TestMetadata("Sealed.kt")
+  public void testSealed() {
+    runTest("src/testData/auto/implementation/box/Sealed.kt");
+  }
+
+  @Test
   @TestMetadata("Suspend.kt")
   public void testSuspend() {
     runTest("src/testData/auto/implementation/box/Suspend.kt");

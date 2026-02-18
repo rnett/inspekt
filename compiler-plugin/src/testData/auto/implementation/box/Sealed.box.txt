@@ -1,0 +1,28 @@
+abstract class auto.implementation.box.SealedInt : java.lang.Object {
+    fun equals(other: java.lang.Object?): boolean @ class java.lang.Object
+    fun hashCode(): int @ class java.lang.Object
+    fun toString(): java.lang.String @ class java.lang.Object
+}
+
+abstract class auto.implementation.box.SealedCls : auto.implementation.box.SealedInt {
+    constructor()
+    fun equals(other: java.lang.Object?): boolean @ class java.lang.Object
+    fun hashCode(): int @ class java.lang.Object
+    fun toString(): java.lang.String @ class java.lang.Object
+}
+
+object auto.implementation.box.Impl2 : auto.implementation.box.SealedCls {
+    fun toString(): java.lang.String
+    fun hashCode(): int
+    fun equals(other: java.lang.Object?): boolean
+}
+
+class auto.implementation.box.SealedInt.Impl1 : auto.implementation.box.SealedInt {
+    constructor(test: int)
+    fun component1(): int
+    fun copy(test: int = ...): auto.implementation.box.SealedInt$Impl1
+    fun toString(): java.lang.String
+    fun hashCode(): int
+    fun equals(other: java.lang.Object?): boolean
+    [constructor] val test: int
+}

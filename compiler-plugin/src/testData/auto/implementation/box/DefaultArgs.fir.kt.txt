@@ -18,12 +18,12 @@ class TestDefaults {
     }
 
     fun spekt(): Spekt<TestDefaults> {
-      return SpektImpl().toSpekt()
+      return SpektImplV1().toSpekt()
     }
 
   }
 
-  private class SpektImpl : SpektImplementationV1<TestDefaults> {
+  private class SpektImplV1 : SpektImplementationV1<TestDefaults> {
     private data object CasterImpl : Caster<TestDefaults> {
       constructor() /* primary */ {
         super/*Any*/()
@@ -31,7 +31,7 @@ class TestDefaults {
 
       }
 
-      override /* static */ fun cast(value: Any): SpektImpl {
+      override /* static */ fun cast(value: Any): SpektImplV1 {
         return value as TestDefaults
       }
 
@@ -39,7 +39,7 @@ class TestDefaults {
         return value is TestDefaults
       }
 
-      override /* static */ fun safeCast(value: Any): SpektImpl? {
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
         return value as? TestDefaults
       }
 
@@ -89,7 +89,7 @@ class TestDefaults {
         }
         return TestDefaults(a = tmp_3, b = tmp_4)
       }
-, suspendInvoker = null, inheritedFrom = null)]))
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
       /* <init>() */
 
     }

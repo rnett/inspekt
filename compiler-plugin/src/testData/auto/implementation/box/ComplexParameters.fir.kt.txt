@@ -10,12 +10,12 @@ class Complex {
     }
 
     fun spekt(): Spekt<Complex> {
-      return SpektImpl().toSpekt()
+      return SpektImplV1().toSpekt()
     }
 
   }
 
-  private class SpektImpl : SpektImplementationV1<Complex> {
+  private class SpektImplV1 : SpektImplementationV1<Complex> {
     private data object CasterImpl : Caster<Complex> {
       constructor() /* primary */ {
         super/*Any*/()
@@ -23,7 +23,7 @@ class Complex {
 
       }
 
-      override /* static */ fun cast(value: Any): SpektImpl {
+      override /* static */ fun cast(value: Any): SpektImplV1 {
         return value as Complex
       }
 
@@ -31,7 +31,7 @@ class Complex {
         return value is Complex
       }
 
-      override /* static */ fun safeCast(value: Any): SpektImpl? {
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
         return value as? Complex
       }
 
@@ -56,7 +56,7 @@ class Complex {
 , suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Complex, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Complex>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return Complex()
       }
-, suspendInvoker = null, inheritedFrom = null)]))
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
       /* <init>() */
 
     }

@@ -18,12 +18,12 @@ abstract class Base {
     }
 
     fun spekt(): Spekt<Base> {
-      return SpektImpl().toSpekt()
+      return SpektImplV1().toSpekt()
     }
 
   }
 
-  private class SpektImpl : SpektImplementationV1<Base> {
+  private class SpektImplV1 : SpektImplementationV1<Base> {
     private data object CasterImpl : Caster<Base> {
       constructor() /* primary */ {
         super/*Any*/()
@@ -31,7 +31,7 @@ abstract class Base {
 
       }
 
-      override /* static */ fun cast(value: Any): SpektImpl {
+      override /* static */ fun cast(value: Any): SpektImplV1 {
         return value as Base
       }
 
@@ -39,7 +39,7 @@ abstract class Base {
         return value is Base
       }
 
-      override /* static */ fun safeCast(value: Any): SpektImpl? {
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
         return value as? Base
       }
 
@@ -76,7 +76,7 @@ abstract class Base {
 , suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Base, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Base>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return Base()
       }
-, suspendInvoker = null, inheritedFrom = null)]))
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
       /* <init>() */
 
     }
@@ -126,12 +126,12 @@ class Derived : Base {
     }
 
     fun spekt(): Spekt<Derived> {
-      return SpektImpl().toSpekt()
+      return SpektImplV1().toSpekt()
     }
 
   }
 
-  private class SpektImpl : SpektImplementationV1<Derived> {
+  private class SpektImplV1 : SpektImplementationV1<Derived> {
     private data object CasterImpl : Caster<Derived> {
       constructor() /* primary */ {
         super/*Any*/()
@@ -139,7 +139,7 @@ class Derived : Base {
 
       }
 
-      override /* static */ fun cast(value: Any): SpektImpl {
+      override /* static */ fun cast(value: Any): SpektImplV1 {
         return value as Derived
       }
 
@@ -147,7 +147,7 @@ class Derived : Base {
         return value is Derived
       }
 
-      override /* static */ fun safeCast(value: Any): SpektImpl? {
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
         return value as? Derived
       }
 
@@ -187,7 +187,7 @@ class Derived : Base {
 , suspendInvoker = null, inheritedFrom = Base::class), setter = null, inheritedFrom = Base::class)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Derived, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Derived>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return Derived()
       }
-, suspendInvoker = null, inheritedFrom = null)]))
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
       /* <init>() */
 
     }

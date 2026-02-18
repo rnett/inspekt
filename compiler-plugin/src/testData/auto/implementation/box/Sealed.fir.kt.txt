@@ -1,0 +1,300 @@
+package auto.implementation.box
+
+sealed class SealedCls : SealedInt {
+  private class SpektImplV1 : SpektImplementationV1<SealedCls> {
+    private data object CasterImpl : Caster<SealedCls> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImplV1 {
+        return value as SealedCls
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is SealedCls
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
+        return value as? SealedCls
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = SealedCls::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedCls"]), supertypes = arrayOf<KType>(elements = [typeOf<SealedInt>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(name = "equals", isAbstract = false, kotlin = SealedCls::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = SealedCls::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "toString", isAbstract = false, kotlin = SealedCls::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::SealedCls, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<SealedCls>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return SealedCls()
+      }
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = arrayOf<SpektImplementationV1<T>>(elements = [SpektImplV1()]))
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<SealedCls> {
+      return CasterImpl
+    }
+
+  }
+
+  protected constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+}
+
+@InSpekt
+sealed interface SealedInt {
+  data class Impl1 : SealedInt {
+    val test: Int
+      field = test
+      get
+
+    private class SpektImplV1 : SpektImplementationV1<Impl1> {
+      private data object CasterImpl : Caster<Impl1> {
+        constructor() /* primary */ {
+          super/*Any*/()
+          /* <init>() */
+
+        }
+
+        override /* static */ fun cast(value: Any): SpektImplV1 {
+          return value as Impl1
+        }
+
+        override /* static */ fun isInstance(value: Any): Boolean {
+          return value is Impl1
+        }
+
+        override /* static */ fun safeCast(value: Any): SpektImplV1? {
+          return value as? Impl1
+        }
+
+      }
+
+      internal constructor() /* primary */ {
+        super/*SpektImplementationV1*/</* null */>(kClass = Impl1::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Impl1"]), supertypes = arrayOf<KType>(elements = [typeOf<SealedInt>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(name = "component1", isAbstract = false, kotlin = Impl1::component1, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return args.v1Get(globalIndex = 0) as Impl1.component1()
+        }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "copy", isAbstract = false, kotlin = Impl1::copy, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "test", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Impl1>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          var tmp_0: Impl1
+          var tmp_1: Int
+          tmp_0 = args.v1Get(globalIndex = 0) as Impl1
+          tmp_1 = when {
+            args.v1IsDefaulted(globalIndex = 1) -> tmp_0.#test
+            else -> args.v1Get(globalIndex = 1) as Int
+          }
+          return tmp_0.copy(test = tmp_1)
+        }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "toString", isAbstract = false, kotlin = Impl1::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return args.v1Get(globalIndex = 0) as Impl1.toString()
+        }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "hashCode", isAbstract = false, kotlin = Impl1::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return args.v1Get(globalIndex = 0) as Impl1.hashCode()
+        }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "equals", isAbstract = false, kotlin = Impl1::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return args.v1Get(globalIndex = 0) as Impl1.equals(other = args.v1Get(globalIndex = 1) as Any?)
+        }
+, suspendInvoker = null, inheritedFrom = null)]), properties = arrayOf<Property>(elements = [Property(name = "test", annotations = arrayOf<Annotation>(elements = []), isMutable = false, isInConstructor = true, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<Int>(), kotlin = Impl1::test, getter = Function(name = "<get-test>", isAbstract = false, kotlin = Impl1::<get-test>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl1>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return args.v1Get(globalIndex = 0) as Impl1.<get-test>()
+        }
+, suspendInvoker = null, inheritedFrom = null), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(name = "<init>", isAbstract = false, kotlin = ::Impl1, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "test", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 0, indexInKind = 0, kind = 3)]), returnType = typeOf<Impl1>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return Impl1(test = args.v1Get(globalIndex = 0) as Int)
+        }
+, suspendInvoker = null, inheritedFrom = null)]), sealedSubclasses = null)
+        /* <init>() */
+
+      }
+
+      protected override fun getCaster(): Caster<Impl1> {
+        return CasterImpl
+      }
+
+    }
+
+    constructor(test: Int) /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    operator fun component1(): Int {
+      return <this>.#test
+    }
+
+    fun copy(test: Int = <this>.#test): Impl1 {
+      return Impl1(test = test)
+    }
+
+    override operator fun equals(other: Any?): Boolean {
+      when {
+        EQEQEQ(arg0 = <this>, arg1 = other) -> return true
+      }
+      when {
+        other !is Impl1 -> return false
+      }
+      val tmp_2: Impl1 = other /*as Impl1 */
+      when {
+        EQEQ(arg0 = <this>.#test, arg1 = tmp_2.#test).not() -> return false
+      }
+      return true
+    }
+
+    override fun hashCode(): Int {
+      return <this>.#test.hashCode()
+    }
+
+    override fun toString(): String {
+      return "Impl1(" + "test=" + <this>.#test + ")"
+    }
+
+  }
+
+  companion object Companion {
+    private constructor() /* primary */ {
+      super/*Any*/()
+      /* <init>() */
+
+    }
+
+    fun spekt(): Spekt<SealedInt> {
+      return SpektImplV1().toSpekt()
+    }
+
+  }
+
+  private class SpektImplV1 : SpektImplementationV1<SealedInt> {
+    private data object CasterImpl : Caster<SealedInt> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImplV1 {
+        return value as SealedInt
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is SealedInt
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
+        return value as? SealedInt
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = SealedInt::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [InSpekt]), functions = arrayOf<Function>(elements = [Function(name = "equals", isAbstract = false, kotlin = SealedInt::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "hashCode", isAbstract = false, kotlin = SealedInt::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(name = "toString", isAbstract = false, kotlin = SealedInt::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Any.toString()
+      }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = []), sealedSubclasses = arrayOf<SpektImplementationV1<T>>(elements = [SpektImplV1(), SpektImplV1()]))
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<SealedInt> {
+      return CasterImpl
+    }
+
+  }
+
+}
+
+data object Impl2 : SealedCls {
+  private class SpektImplV1 : SpektImplementationV1<Impl2> {
+    private data object CasterImpl : Caster<Impl2> {
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override /* static */ fun cast(value: Any): SpektImplV1 {
+        return value as Impl2
+      }
+
+      override /* static */ fun isInstance(value: Any): Boolean {
+        return value is Impl2
+      }
+
+      override /* static */ fun safeCast(value: Any): SpektImplV1? {
+        return value as? Impl2
+      }
+
+    }
+
+    internal constructor() /* primary */ {
+      super/*SpektImplementationV1*/</* null */>(kClass = Impl2::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Impl2"]), supertypes = arrayOf<KType>(elements = [typeOf<SealedCls>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(name = "toString", isAbstract = false, kotlin = Impl2::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl2>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Impl2.toString()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "hashCode", isAbstract = false, kotlin = Impl2::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl2>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Impl2.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = null), Function(name = "equals", isAbstract = false, kotlin = Impl2::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl2>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Impl2.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = null)]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = []), sealedSubclasses = null)
+      /* <init>() */
+
+    }
+
+    protected override fun getCaster(): Caster<Impl2> {
+      return CasterImpl
+    }
+
+    protected override fun getObjectInstance(): Impl2 {
+      return Impl2
+    }
+
+  }
+
+  private constructor() /* primary */ {
+    super/*SealedCls*/()
+    /* <init>() */
+
+  }
+
+  override operator fun equals(other: Any?): Boolean {
+    when {
+      EQEQEQ(arg0 = <this>, arg1 = other) -> return true
+    }
+    when {
+      other !is Impl2 -> return false
+    }
+    val tmp_3: Impl2 = other /*as Impl2 */
+    return true
+  }
+
+  override fun hashCode(): Int {
+    return 379358258
+  }
+
+  override fun toString(): String {
+    return "Impl2"
+  }
+
+}
+
+fun box(): String {
+  return Companion.spekt().toString(includeSubclasses = true)
+}

@@ -21,6 +21,7 @@ object Names {
             val functions = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_functions
             val properties = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_properties
             val constructors = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_constructors
+            val sealedSubclasses = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_init_sealedSubclasses
         }
 
         object FunctionCtor {
@@ -76,7 +77,7 @@ object Names {
 }
 
 object GeneratedNames {
-    val SpektImpl = Name.identifier("SpektImpl")
+    val SpektImplV1 = Name.identifier("SpektImplV1")
     val CasterImpl = Name.identifier("CasterImpl")
 
     val spektMethod = Name.identifier("spekt")

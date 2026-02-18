@@ -9,6 +9,7 @@ import dev.rnett.spekt.GeneratedNames
 import dev.rnett.spekt.Names
 import dev.rnett.spekt.Symbols
 import dev.rnett.spekt.ir.deepCopyAndRemapSymbols
+import dev.rnett.spekt.pluginKey
 import dev.rnett.spekt.toIrOrigin
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import dev.rnett.symbolexport.symbol.compiler.asClassId
@@ -82,6 +83,7 @@ import org.jetbrains.kotlin.ir.util.isFakeOverride
 import org.jetbrains.kotlin.ir.util.isObject
 import org.jetbrains.kotlin.ir.util.isSuspend
 import org.jetbrains.kotlin.ir.util.parentAsClass
+import org.jetbrains.kotlin.ir.util.primaryConstructor
 import org.jetbrains.kotlin.ir.util.properties
 import org.jetbrains.kotlin.ir.util.toIrConst
 import org.jetbrains.kotlin.name.CallableId
@@ -105,9 +107,13 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
     private val ImplParam get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Param.asClassId())!!
     private val ArgumentsProviderV1 get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1.asClassId())!!
 
-    private fun createSpektImplementation(declaration: IrClass) {
+    private fun createSpektImplementation(declaration: IrClass): IrClass {
+        val existing = declaration.declarations.find { it is IrClass && it.pluginKey == DeclarationKeys.SpektImplementation && it.name == GeneratedNames.SpektImplV1 } as? IrClass
+
+        if (existing != null) return existing
+
         val implClass = factory.buildClass {
-            name = GeneratedNames.SpektImpl
+            name = GeneratedNames.SpektImplV1
             kind = ClassKind.CLASS
             visibility = DescriptorVisibilities.PRIVATE
             modality = Modality.FINAL
@@ -122,6 +128,7 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
 
         addSuperConstructor(declaration, implClass)
         addOverrides(declaration, implClass)
+        return implClass
     }
 
     private fun Modality.isNonConcrete() = (this != Modality.FINAL && this != Modality.OPEN)
@@ -139,20 +146,28 @@ class GenerateSpektImplementation(context: IrPluginContext) : IrFullProcessor(co
                     +irDelegatingConstructorCall(ImplementationV1.constructors.single().owner).apply {
                         with(Names.Impl.Ctor) {
                             arguments[kClass] = IrClassReferenceImpl(startOffset, endOffset, builtIns.kClassClass.typeWith(declaration.defaultType), declaration.symbol, declaration.defaultType)
-                            arguments[isAbstract.index] = irBoolean(declaration.modality.isNonConcrete())
-                            arguments[packageNames.index] = declaration.classIdOrFail.packageFqName.pathSegments().map { it.asString() }.toArrayOfStrings()
-                            arguments[classNames.index] = declaration.classIdOrFail.relativeClassName.pathSegments().map { it.asString() }.toArrayOfStrings()
-                            arguments[supertypes.index] = irArrayOf(builtIns.kTypeClass.defaultType, declaration.superTypes.map { irTypeOf(it) })
-                            arguments[annotations.index] = irArrayOf(builtIns.annotationType, declaration.annotations.map { it.deepCopyWithSymbols(parent) })
-                            arguments[functions.index] = irArrayOf(ImplFunction.defaultType, getFunctions(declaration))
-                            arguments[properties.index] = irArrayOf(ImplProperty.defaultType, getProperties(declaration))
-                            arguments[constructors.index] = irArrayOf(ImplFunction.defaultType, getConstructors(declaration))
+                            arguments[isAbstract] = irBoolean(declaration.modality.isNonConcrete())
+                            arguments[packageNames] = declaration.classIdOrFail.packageFqName.pathSegments().map { it.asString() }.toArrayOfStrings()
+                            arguments[classNames] = declaration.classIdOrFail.relativeClassName.pathSegments().map { it.asString() }.toArrayOfStrings()
+                            arguments[supertypes] = irArrayOf(builtIns.kTypeClass.defaultType, declaration.superTypes.map { irTypeOf(it) })
+                            arguments[annotations] = irArrayOf(builtIns.annotationType, declaration.annotations.map { it.deepCopyWithSymbols(parent) })
+                            arguments[functions] = irArrayOf(ImplFunction.defaultType, getFunctions(declaration))
+                            arguments[properties] = irArrayOf(ImplProperty.defaultType, getProperties(declaration))
+                            arguments[constructors] = irArrayOf(ImplFunction.defaultType, getConstructors(declaration))
+                            arguments[sealedSubclasses] = if (declaration.modality == Modality.SEALED) getSealedSubclasses(declaration) else irNull()
                         }
                     }
                     +IrInstanceInitializerCallImpl(startOffset, endOffset, implClass.symbol, builtIns.unitType)
                 }
             }
         }
+    }
+
+    private fun IrBuilderWithScope.getSealedSubclasses(declaration: IrClass): IrExpression {
+        val implClasses = declaration.sealedSubclasses.map { createSpektImplementation(it.owner) }
+        return irArrayOf(ImplementationV1.defaultType, implClasses.map {
+            irCall(it.primaryConstructor!!)
+        })
     }
 
     private fun IrBuilderWithScope.getFunctions(declaration: IrClass): List<IrExpression> {

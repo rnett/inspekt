@@ -21,7 +21,8 @@ public data class Spekt<T : Any> internal constructor(
      * Attempting to call constructors will fail.
      */
     public val isAbstract: Boolean,
-    private val caster: Caster<T>
+    private val caster: Caster<T>,
+    public val sealedSubclasses: List<Spekt<out T>>
 ) : AnnotatedElement {
 
     public val superclasses: Set<KClass<*>> = buildSet { supertypes.mapNotNullTo(this) { it.classifier as? KClass<*> } }
@@ -35,8 +36,10 @@ public data class Spekt<T : Any> internal constructor(
 
     public val primaryConstructor: Constructor? get() = constructors.find { it.isPrimary }
 
-    override fun toString(): String = buildString {
-        append(if (isAbstract) "abstract class " else "class ")
+    override fun toString(): String = toString(false)
+
+    public fun toString(includeSubclasses: Boolean, includeDescendents: Boolean = includeSubclasses): String = buildString {
+        append(if (isAbstract) "abstract class " else if (objectInstance != null) "object " else "class ")
         append(name.asString())
         append(" : ")
         supertypes.joinTo(this, ", ") { it.friendlyName }
@@ -45,7 +48,16 @@ public data class Spekt<T : Any> internal constructor(
         functions.forEach { append("    ").appendLine(it) }
         properties.forEach { append("    ").appendLine(it) }
         append("}")
-    }
+
+        if (includeSubclasses && sealedSubclasses.isNotEmpty()) {
+            appendLine()
+            appendLine()
+            sealedSubclasses.forEach {
+                appendLine(it.toString(includeDescendents))
+                appendLine()
+            }
+        }
+    }.trim()
 
 }
 
