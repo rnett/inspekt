@@ -797,7 +797,7 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                           CALL 'public final fun <set-extensionReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
                             ARG <this>: GET_VAR '$this$invoke: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: CONST String type=kotlin.String value="test"
-                          CALL 'public final fun value (vararg values: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
+                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
                             ARG <this>: GET_VAR '$this$invoke: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG values: VARARG type=kotlin.Array<out kotlin.Any?> varargElementType=kotlin.Any?
                               CONST Int type=kotlin.Int value=123
@@ -836,7 +836,7 @@ FILE fqName:auto.implementation.box fileName:/ComplexParameters.kt
                           CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
                             ARG <this>: GET_VAR '$this$invoke: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.Complex declared in auto.implementation.box.box' type=auto.implementation.box.Complex origin=null
-                          CALL 'public final fun value (vararg values: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
+                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
                             ARG <this>: GET_VAR '$this$invoke: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG values: VARARG type=kotlin.Array<out kotlin.Any?> varargElementType=kotlin.Any?
                               CONST Int type=kotlin.Int value=1

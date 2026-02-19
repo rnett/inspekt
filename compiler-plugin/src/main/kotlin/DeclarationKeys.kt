@@ -12,7 +12,8 @@ object DeclarationKeys {
     data object SpektCompanionObjectCtor : GeneratedDeclarationKey()
     data class SpektMethod(val declaration: ClassId) : GeneratedDeclarationKey()
     data object SpektImplementationFieldV1 : GeneratedDeclarationKey()
-    data object SpektCasterImplementation : GeneratedDeclarationKey()
+    data object ProxyObject : GeneratedDeclarationKey()
+    data object ProxyObjectOverride : GeneratedDeclarationKey()
 }
 
 val FirBasedSymbol<*>.pluginKey get() = (origin as? FirDeclarationOrigin.Plugin)?.key

@@ -4,6 +4,7 @@ import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.spekt.SpektSpec
 import dev.rnett.spekt.ir.passes.GenerateSpektMethod
 import dev.rnett.spekt.ir.passes.ReplaceInspektCalls
+import dev.rnett.spekt.ir.passes.ReplaceProxyCalls
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.declarations.IrModuleFragment
@@ -15,5 +16,6 @@ class IrExtension(spec: SpektSpec) : IrGenerationExtension {
     override fun generate(moduleFragment: IrModuleFragment, pluginContext: IrPluginContext) {
         moduleFragment.acceptVoid(GenerateSpektMethod(pluginContext))
         moduleFragment.transformChildrenVoid(ReplaceInspektCalls(pluginContext))
+        moduleFragment.transformChildrenVoid(ReplaceProxyCalls(pluginContext))
     }
 }

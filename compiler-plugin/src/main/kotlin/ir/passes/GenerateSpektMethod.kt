@@ -87,7 +87,8 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
                         }
                     }
                 )
-            }.patchDeclarationParents(this)
+            }
+            patchDeclarationParents()
         }
     }
 }

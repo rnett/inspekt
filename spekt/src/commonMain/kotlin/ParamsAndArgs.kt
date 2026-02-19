@@ -3,6 +3,7 @@ package dev.rnett.spekt
 import dev.rnett.spekt.internal.ArgumentsProviderV1
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import kotlin.jvm.JvmName
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 
@@ -14,6 +15,15 @@ public data class Parameters internal constructor(private val parameters: List<P
         return find { it.name == name }
     }
 
+    public operator fun get(kind: Parameter.Kind, indexInKind: Int): Parameter {
+        val kindCount = count(kind)
+        if (indexInKind >= kindCount)
+            throw IllegalArgumentException("Parameter index out of bounds: $indexInKind, number of parameters of kind $kind is $kindCount")
+        return parameters[startOffset(kind) + indexInKind]
+    }
+
+    public fun count(kind: Parameter.Kind): Int = parameters.count { it.kind == kind }
+
     public val dispatch: Parameter? get() = find { it.kind == Parameter.Kind.DISPATCH }
     public val extension: Parameter? get() = find { it.kind == Parameter.Kind.EXTENSION }
 
@@ -21,7 +31,13 @@ public data class Parameters internal constructor(private val parameters: List<P
     public val context: List<Parameter> get() = filter { it.kind == Parameter.Kind.CONTEXT }
 
     public fun startOffset(kind: Parameter.Kind): Int = count { it.kind < kind }
-    public fun globalIndex(kind: Parameter.Kind, indexInKind: Int): Int = startOffset(kind) + indexInKind
+    public fun globalIndex(kind: Parameter.Kind, indexInKind: Int): Int {
+        val kindCount = count(kind)
+        if (indexInKind >= kindCount)
+            throw IllegalArgumentException("Parameter index out of bounds: $indexInKind, number of parameters of kind $kind is $kindCount")
+
+        return startOffset(kind) + indexInKind
+    }
 
     internal fun defaultIndex(param: Parameter): Int {
         val index = parameters.indexOf(param).takeUnless { it == -1 } ?: error("Not in params list")
@@ -37,6 +53,20 @@ public data class Parameters internal constructor(private val parameters: List<P
     public inline fun buildArguments(builder: ArgumentsBuilder): ArgumentList {
         contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
         return ArgumentList(this, builder)
+    }
+
+    /**
+     * Requires specifying a value for all parameters, aka `args.size == this.size`.
+     */
+    public fun arguments(args: Iterable<Any?>): ArgumentList {
+        return ArgumentList(this, args.toList())
+    }
+
+    /**
+     * Requires specifying a value for all parameters, aka `args.size == this.size`.
+     */
+    public fun arguments(args: Array<Any?>): ArgumentList {
+        return ArgumentList(this, args.asList())
     }
 }
 
@@ -130,11 +160,50 @@ public data class ArgumentList internal constructor(private val parameters: Para
         private val args = arrayOfNulls<Any?>(parameters.size)
 
         public operator fun set(index: Int, value: Any?) {
+            if (index >= parameters.size) throw IllegalArgumentException("Argument index out of bounds: $index, number of parameters is ${parameters.size}")
             val param = parameters[index]
             if (param.hasDefault) {
                 defaultableHasValueBitmask = defaultableHasValueBitmask or (1 shl parameters.defaultIndex(param))
             }
             args[index] = value
+        }
+
+        public fun setAll(args: Iterable<Any?>, offset: Int = 0) {
+            args.forEachIndexed { idx, it ->
+                this[idx + offset] = it
+            }
+        }
+
+        public fun setAll(args: Array<Any?>, offset: Int = 0) {
+            args.forEachIndexed { idx, it ->
+                this[idx + offset] = it
+            }
+        }
+
+        @JvmName("setAllVararg")
+        public fun setAll(vararg args: Any?, offset: Int = 0) {
+            args.forEachIndexed { idx, it ->
+                this[idx + offset] = it
+            }
+        }
+
+        public fun setAll(kind: Parameter.Kind, args: Iterable<Any?>, offset: Int = 0) {
+            args.forEachIndexed { idx, it ->
+                this[kind, idx + offset] = it
+            }
+        }
+
+        public fun setAll(kind: Parameter.Kind, args: Array<Any?>, offset: Int = 0) {
+            args.forEachIndexed { idx, it ->
+                this[kind, idx + offset] = it
+            }
+        }
+
+        @JvmName("setAllVararg")
+        public fun setAll(kind: Parameter.Kind, vararg args: Any?, offset: Int = 0) {
+            args.forEachIndexed { idx, it ->
+                this[kind, idx + offset] = it
+            }
         }
 
         public var dispatchReceiver: Any?
@@ -150,7 +219,8 @@ public data class ArgumentList internal constructor(private val parameters: Para
             }
 
         public operator fun set(kind: Parameter.Kind, indexInKind: Int, value: Any?) {
-            this[parameters.globalIndex(kind, indexInKind)] = value
+            val globalIndex = parameters.globalIndex(kind, indexInKind)
+            this[globalIndex] = value
         }
 
         public operator fun set(name: String, value: Any?) {
@@ -166,16 +236,12 @@ public data class ArgumentList internal constructor(private val parameters: Para
             values.forEach { this[it.first] = it.second }
         }
 
-        public fun context(vararg values: Any?) {
-            values.forEachIndexed { index, value ->
-                this[Parameter.Kind.CONTEXT, index] = value
-            }
+        public fun context(vararg values: Any?, offset: Int = 0) {
+            setAll(Parameter.Kind.CONTEXT, *values, offset = offset)
         }
 
-        public fun value(vararg values: Any?) {
-            values.forEachIndexed { index, value ->
-                this[Parameter.Kind.VALUE, index] = value
-            }
+        public fun value(vararg values: Any?, offset: Int = 0) {
+            setAll(Parameter.Kind.VALUE, *values, offset = offset)
         }
 
         @PublishedApi
@@ -208,6 +274,17 @@ public inline fun ArgumentList(parameters: Parameters, builder: ArgumentsBuilder
     return ArgumentList.Builder(parameters).apply {
         builder(parameters)
     }.build()
+}
+
+public fun ArgumentList(parameters: Parameters, args: List<Any?>): ArgumentList {
+    if (args.size != parameters.size) {
+        throw IllegalArgumentException("Creating ArgumentList from list requires specifying all ${parameters.size} arguments, received ${args.size}")
+    }
+    return ArgumentList(parameters) {
+        args.forEachIndexed { idx, it ->
+            this[idx] = it
+        }
+    }
 }
 
 public typealias ArgumentsBuilder = ArgumentList.Builder.(Parameters) -> Unit

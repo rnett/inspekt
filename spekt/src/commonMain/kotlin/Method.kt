@@ -1,5 +1,6 @@
 package dev.rnett.spekt
 
+import dev.rnett.symbolexport.ExportSymbol
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import kotlin.reflect.KClass
@@ -25,7 +26,16 @@ public sealed class Method : Callable() {
         return invoke(parameters.buildArguments(arguments))
     }
 
-    public abstract operator fun invoke(arguments: ArgumentList): Any?
+    public operator fun invoke(arguments: ArgumentList): Any? {
+        assertInvokable()
+        return doInvoke(arguments)
+    }
+
+    protected fun assertInvokable() {
+        if (isAbstract) error("Method $this is abstract and cannot be invoked")
+    }
+
+    protected abstract fun doInvoke(arguments: ArgumentList): Any?
 
     public abstract val returnType: KType
 
@@ -64,7 +74,7 @@ public data class Constructor internal constructor(
     public val forClass: Spekt<*> by forClassRef
     override val kind: Kind get() = Kind.CONSTRUCTOR
 
-    override operator fun invoke(arguments: ArgumentList): Any? = invoker(arguments)
+    override fun doInvoke(arguments: ArgumentList): Any? = invoker(arguments)
 
     public override fun toString(includeFullName: Boolean): String = buildString {
         append(if (includeFullName) name.toString() else "<init>")
@@ -74,6 +84,9 @@ public data class Constructor internal constructor(
     }
 }
 
+public sealed class SimpleFunction : Method()
+
+@ExportSymbol
 public data class Function internal constructor(
     override val name: MemberName,
     override val kotlin: KFunction<*>,
@@ -85,7 +98,7 @@ public data class Function internal constructor(
     private val invoker: ((ArgumentList) -> Any?)?,
     private val suspendInvoker: (suspend (ArgumentList) -> Any?)?,
     override val inheritedFrom: KClass<*>?,
-) : Method() {
+) : SimpleFunction() {
     override val kind: Kind get() = Kind.NORMAL
 
     init {
@@ -98,7 +111,31 @@ public data class Function internal constructor(
         }
     }
 
-    override operator fun invoke(arguments: ArgumentList): Any? {
+    internal fun asSetter(property: Property): PropertySetter {
+        return PropertySetter(
+            lazyOf(property),
+            kotlin,
+            parameters,
+            isAbstract,
+            annotations,
+            invoker!!,
+            inheritedFrom
+        )
+    }
+
+    internal fun asGetter(property: Property): PropertyGetter {
+        return PropertyGetter(
+            lazyOf(property),
+            kotlin,
+            parameters,
+            isAbstract,
+            annotations,
+            invoker!!,
+            inheritedFrom
+        )
+    }
+
+    override fun doInvoke(arguments: ArgumentList): Any? {
         if (isSuspend) throw IllegalArgumentException("Can only invoke suspend function via invokeSuspend")
         return invoker?.invoke(arguments)
     }
@@ -109,6 +146,7 @@ public data class Function internal constructor(
     }
 
     public suspend fun invokeSuspend(arguments: ArgumentList): Any? {
+        assertInvokable()
         if (isSuspend)
             return suspendInvoker!!.invoke(arguments)
         else
@@ -121,31 +159,54 @@ public data class Function internal constructor(
     }
 }
 
-public data class PropertyMethod internal constructor(
+public sealed class PropertyAccessor : SimpleFunction() {}
+
+public data class PropertyGetter internal constructor(
     private val propertyRef: Lazy<Property>,
     override val kotlin: KFunction<*>,
     override val parameters: Parameters,
     override val isAbstract: Boolean,
     override val annotations: List<Annotation>,
-    private val isSetter: Boolean,
     private val invoker: (ArgumentList) -> Any?,
     override val inheritedFrom: KClass<*>?,
-) : Method() {
-    override val kind: Kind = if (isSetter) Kind.SETTER else Kind.GETTER
-
+) : PropertyAccessor() {
+    override val kind: Kind = Kind.GETTER
     public val property: Property by propertyRef
 
     override val returnType: KType
-        get() = if (kind == Kind.GETTER) {
-            property.type
-        } else {
-            typeOf<Unit>()
-        }
+        get() = property.type
 
     override val name: MemberName
-        get() = property.name.sibling(if (kind == Kind.GETTER) SpecialNames.getter(property.name.name) else SpecialNames.setter(property.name.name))
+        get() = property.name.sibling(SpecialNames.getter(property.name.name))
 
-    override fun invoke(arguments: ArgumentList): Any? {
+    override fun doInvoke(arguments: ArgumentList): Any? {
+        return invoker(arguments)
+    }
+
+    override fun toString(includeFullName: Boolean): String = buildString {
+        appendMethodSignature(includeFullName)
+    }
+}
+
+public data class PropertySetter internal constructor(
+    private val propertyRef: Lazy<Property>,
+    override val kotlin: KFunction<*>,
+    override val parameters: Parameters,
+    override val isAbstract: Boolean,
+    override val annotations: List<Annotation>,
+    private val invoker: (ArgumentList) -> Any?,
+    override val inheritedFrom: KClass<*>?,
+) : PropertyAccessor() {
+    override val kind: Kind = Kind.SETTER
+    public val property: Property by propertyRef
+
+    override val returnType: KType
+        get() = typeOf<Unit>()
+
+    override val name: MemberName
+        get() = property.name.sibling(SpecialNames.setter(property.name.name))
+
+    override fun doInvoke(arguments: ArgumentList): Any? {
         return invoker(arguments)
     }
 

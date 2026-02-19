@@ -1,10 +1,12 @@
 package dev.rnett.spekt
 
+import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty1
 import kotlin.reflect.KType
 
+@ExportSymbol
 public sealed class Property : Callable() {
     abstract override val kotlin: KProperty1<*, *>
     public abstract val hasBackingField: Boolean
@@ -12,7 +14,8 @@ public sealed class Property : Callable() {
 
     public abstract val type: KType
 
-    public abstract val getter: PropertyMethod
+    public abstract val getter: PropertyGetter
+    public open val setter: PropertySetter? get() = null
 
     protected fun StringBuilder.appendPropertySignature(keyword: String, includeFullName: Boolean) {
         appendContext()
@@ -41,7 +44,7 @@ public data class ReadOnlyProperty internal constructor(
     override val hasBackingField: Boolean,
     override val hasDelegate: Boolean,
     override val type: KType,
-    override val getter: PropertyMethod,
+    override val getter: PropertyGetter,
     override val name: MemberName,
     override val parameters: Parameters,
     override val annotations: List<Annotation>,
@@ -59,8 +62,8 @@ public data class MutableProperty internal constructor(
     override val hasBackingField: Boolean,
     override val hasDelegate: Boolean,
     override val type: KType,
-    override val getter: PropertyMethod,
-    public val setter: PropertyMethod,
+    override val getter: PropertyGetter,
+    override val setter: PropertySetter,
     override val name: MemberName,
     override val parameters: Parameters,
     override val annotations: List<Annotation>,

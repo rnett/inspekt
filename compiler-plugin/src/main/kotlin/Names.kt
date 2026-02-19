@@ -68,12 +68,25 @@ object Names {
             val setter = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_setter
             val inheritedFrom = Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_init_inheritedFrom
         }
+
+        object ProxyHelper {
+            val handler = Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyHelper_handler
+            val originalMethod = Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyHelper_originalMethod
+            val originalProperty = Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyHelper_originalProperty
+            val args = Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyHelper_args
+            val isSetter = Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyHelper_isSetter
+        }
     }
 
 
 }
 
 object GeneratedNames {
+    fun proxyMethodField(name: String, index: Int): Name {
+        return Name.identifier("proxyMethod_${index}_${name}")
+    }
+
+    val proxyHandlerField = Name.identifier("proxyHandler")
     val SpektImplV1 = Name.identifier("SpektImplV1")
     val CasterImpl = Name.identifier("CasterImpl")
 

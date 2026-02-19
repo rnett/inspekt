@@ -1,0 +1,17 @@
+FILE: ProxyWithDefault.kt
+    package auto.proxy.box
+
+    public abstract interface Test : R|kotlin/Any| {
+        public open fun test(a: R|kotlin/Int|): R|kotlin/Int| {
+            ^test R|<local>/a|.R|kotlin/Int.plus|(Int(5))
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval proxy: R|auto/proxy/box/Test| = R|dev/rnett/spekt/proxy/proxy|<R|auto/proxy/box/Test|>(<getClass>(Q|auto/proxy/box/Test|), <L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+            ^ (this@R|special/anonymous|.R|dev/rnett/spekt/proxy/SuperCall.callSuper|() as R|kotlin/Int|).R|kotlin/Int.plus|(Int(2))
+        }
+        ))
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(9), R|<local>/proxy|.R|auto/proxy/box/Test.test|(Int(2)), String(proxy method returns correct result call))
+        ^box String(OK)
+    }

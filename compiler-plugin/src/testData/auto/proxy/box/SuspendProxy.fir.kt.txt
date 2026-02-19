@@ -1,0 +1,12 @@
+package auto.proxy.box
+
+interface Base {
+  suspend fun test(): String {
+    return "Base"
+  }
+
+}
+
+fun box(): String {
+  return "OK"
+}

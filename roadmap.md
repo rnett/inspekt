@@ -1,1 +1,1 @@
-- Support for creating a proxy for an open class, e.g. `proxy(MyInterface::class) { kind, name, args -> }`
+- Move all error reporting to the frontend

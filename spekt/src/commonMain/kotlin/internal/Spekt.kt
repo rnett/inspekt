@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package dev.rnett.spekt.internal
 
 import dev.rnett.spekt.ClassName
@@ -6,7 +8,8 @@ import dev.rnett.spekt.MutableProperty
 import dev.rnett.spekt.PackageName
 import dev.rnett.spekt.Parameter
 import dev.rnett.spekt.Parameters
-import dev.rnett.spekt.PropertyMethod
+import dev.rnett.spekt.PropertyGetter
+import dev.rnett.spekt.PropertySetter
 import dev.rnett.spekt.ReadOnlyProperty
 import dev.rnett.spekt.Spekt
 import dev.rnett.symbolexport.ExportSymbol
@@ -61,7 +64,7 @@ internal class SpektImplementationV1<T : Any>
 
     override fun toSpekt(): Spekt<T> {
         lateinit var ref: Spekt<T>
-        val lazy = lazy { ref }
+        val lazy = lazy(LazyThreadSafetyMode.NONE) { ref }
 
 
         @Suppress("UNCHECKED_CAST")
@@ -124,13 +127,22 @@ internal class SpektImplementationV1<T : Any>
             inheritedFrom
         )
 
-        internal fun toPropertySpekt(setter: Boolean, prop: Lazy<dev.rnett.spekt.Property>): PropertyMethod = PropertyMethod(
+        internal fun toPropertyGetterSpekt(prop: Lazy<dev.rnett.spekt.Property>): PropertyGetter = PropertyGetter(
             prop,
             kotlin,
             Parameters(parameters.map { it.toSpekt() }),
             isAbstract,
             annotations.toList(),
-            setter,
+            invoker!!,
+            inheritedFrom
+        )
+
+        internal fun toPropertySetterSpekt(prop: Lazy<dev.rnett.spekt.Property>): PropertySetter = PropertySetter(
+            prop,
+            kotlin,
+            Parameters(parameters.map { it.toSpekt() }),
+            isAbstract,
+            annotations.toList(),
             invoker!!,
             inheritedFrom
         )
@@ -204,8 +216,9 @@ internal class SpektImplementationV1<T : Any>
         @PublishedApi
         internal fun toSpekt(): dev.rnett.spekt.Property {
             lateinit var ref: dev.rnett.spekt.Property
-            val lazy = lazy { ref }
-            val getter = getter.toPropertySpekt(false, lazy)
+            val lazy = lazy(LazyThreadSafetyMode.NONE) { ref }
+            val getter = getter.toPropertyGetterSpekt(lazy)
+            //TODO make sure there is always a setter for vars with backing fields
             return if (isMutable) {
                 MutableProperty(
                     kotlin as KMutableProperty1<*, *>,
@@ -213,7 +226,7 @@ internal class SpektImplementationV1<T : Any>
                     hasDelegate,
                     type,
                     getter,
-                    setter!!.toPropertySpekt(true, lazy),
+                    setter!!.toPropertySetterSpekt(lazy),
                     name,
                     getter.parameters,
                     annotations.toList(),

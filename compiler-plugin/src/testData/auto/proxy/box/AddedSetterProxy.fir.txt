@@ -1,0 +1,34 @@
+FILE: AddedSetterProxy.kt
+    package auto.proxy.box
+
+    public abstract interface Base : R|kotlin/Any| {
+        public abstract val prop: R|kotlin/String|
+            public get(): R|kotlin/String|
+
+    }
+    public abstract interface Sub : R|auto/proxy/box/Base| {
+        public abstract override var prop: R|kotlin/String|
+            public get(): R|kotlin/String|
+            public set(value: R|kotlin/String|): R|kotlin/Unit|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lvar backing: R|kotlin/String| = String(initial)
+        lval proxy: R|auto/proxy/box/Sub| = R|dev/rnett/spekt/proxy/proxy|<R|auto/proxy/box/Sub|>(<getClass>(Q|auto/proxy/box/Sub|), <L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+            ^ when () {
+                (this@R|special/anonymous|.R|dev/rnett/spekt/proxy/SuperCall.superMethod| is R|dev/rnett/spekt/PropertySetter|) ->  {
+                    R|<local>/backing| = (this@R|special/anonymous|.R|dev/rnett/spekt/proxy/SuperCall.args|.R|SubstitutionOverride<kotlin/collections/List.get: R|kotlin/Any?|>|(Int(1)) as R|kotlin/String|)
+                    Null(null)
+                }
+                else ->  {
+                    R|<local>/backing|
+                }
+            }
+
+        }
+        ))
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(initial), R|<local>/proxy|.R|auto/proxy/box/Sub.prop|, String(initial value))
+        R|<local>/proxy|.R|auto/proxy/box/Sub.prop| = String(updated)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(updated), R|<local>/proxy|.R|auto/proxy/box/Sub.prop|, String(updated value))
+        ^box String(OK)
+    }

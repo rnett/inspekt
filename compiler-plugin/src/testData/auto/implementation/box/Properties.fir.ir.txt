@@ -1216,7 +1216,7 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
                           CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
                             ARG <this>: GET_VAR '$this$set: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-                          CALL 'public final fun value (vararg values: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
+                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
                             ARG <this>: GET_VAR '$this$set: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG values: VARARG type=kotlin.Array<out kotlin.Any?> varargElementType=kotlin.Any?
                               CONST String type=kotlin.String value="changed"
@@ -1315,7 +1315,7 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
                           CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
                             ARG <this>: GET_VAR '$this$set: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-                          CALL 'public final fun value (vararg values: kotlin.Any?): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
+                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.spekt.ArgumentList.Builder' type=kotlin.Unit origin=null
                             ARG <this>: GET_VAR '$this$set: dev.rnett.spekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.spekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG values: VARARG type=kotlin.Array<out kotlin.Any?> varargElementType=kotlin.Any?
                               CONST String type=kotlin.String value="new"

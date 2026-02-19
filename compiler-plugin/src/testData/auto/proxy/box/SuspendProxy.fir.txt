@@ -1,0 +1,12 @@
+FILE: SuspendProxy.kt
+    package auto.proxy.box
+
+    public abstract interface Base : R|kotlin/Any| {
+        public open suspend fun test(): R|kotlin/String| {
+            ^test String(Base)
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        ^box String(OK)
+    }

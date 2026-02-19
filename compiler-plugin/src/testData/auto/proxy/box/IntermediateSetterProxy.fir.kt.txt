@@ -1,0 +1,90 @@
+package auto.proxy.box
+
+interface Base {
+  var prop: String
+    get(): String {
+      return "BaseGetter"
+    }
+    set(value: String) {
+    }
+
+}
+
+interface Intermediate : Base {
+  override var prop: String
+    override get(): String {
+      return super<Base>.<get-prop>()
+    }
+    override set(value: String) {
+    }
+
+}
+
+fun box(): String {
+  val proxy: Intermediate = { // BLOCK
+    local class <no name provided> : Intermediate {
+      internal /* final field */ val proxyHandler: ProxyHandler = local fun SuperCall.<anonymous>(): Any? {
+        return $this$proxy.callSuper()
+      }
+ /*-> ProxyHandler */
+      private /* final field */ val proxyMethod_1_prop: Property = Property(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "prop", annotations = arrayOf<Annotation>(elements = []), isMutable = true, hasBackingField = false, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Intermediate::prop, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "<get-prop>", isAbstract = false, kotlin = Intermediate::<get-prop>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return super<Intermediate>.<get-prop>()
+      }
+, suspendInvoker = null, inheritedFrom = null), setter = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "<set-prop>", isAbstract = false, kotlin = Intermediate::<set-prop>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "value", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return super<Intermediate>.<set-prop>(value = args.v1Get(globalIndex = 1) as String)
+      }
+, suspendInvoker = null, inheritedFrom = null), inheritedFrom = null).toSpekt()
+      private /* final field */ val proxyMethod_1_get-prop: Function = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "<get-prop>", isAbstract = false, kotlin = Intermediate::<get-prop>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return super<Intermediate>.<get-prop>()
+      }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+      private /* final field */ val proxyMethod_1_set-prop: Function = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "<set-prop>", isAbstract = false, kotlin = Intermediate::<set-prop>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "value", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return super<Intermediate>.<set-prop>(value = args.v1Get(globalIndex = 1) as String)
+      }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+      private /* final field */ val proxyMethod_2_equals: Function = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return super<Any>.equals(other = args.v1Get(globalIndex = 1) as Any?)
+      }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+      private /* final field */ val proxyMethod_3_hashCode: Function = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return super<Any>.hashCode()
+      }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+      private /* final field */ val proxyMethod_4_toString: Function = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return super<Any>.toString()
+      }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+      constructor() /* primary */ {
+        super/*Any*/()
+        /* <init>() */
+
+      }
+
+      override operator fun equals(other: Any?): Boolean {
+        return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_2_equals, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>, other]))
+      }
+
+      override fun hashCode(): Int {
+        return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_3_hashCode, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+      }
+
+      override fun toString(): String {
+        return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_4_toString, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+      }
+
+      override var prop: String
+        override get(): String {
+          return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_1_get-prop, originalProperty = <this>.#proxyMethod_1_prop, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+        }
+        override set(value: String) {
+          return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_1_set-prop, originalProperty = <this>.#proxyMethod_1_prop, isSetter = true, args = arrayOf<Any?>(elements = [<this>, value]))
+        }
+
+    }
+
+    <no name provided>()
+  }
+  assertEquals<String>(expected = "BaseGetter", actual = proxy.<get-prop>(), message = "Intermediate getter (delegates to Base)")
+  proxy.<set-prop>(value = "something")
+  return "OK"
+}
