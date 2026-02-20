@@ -1,17 +1,45 @@
 name: CI
 run-name: CI
-on: [ push, workflow_call ]
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      run_all_platforms:
+        description: 'Run tests on all platforms'
+        required: false
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      run_all_platforms:
+        description: 'Run tests on all platforms'
+        required: false
+        type: boolean
+        default: false
 jobs:
   checkVersion:
     name: Check version
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.get-version.outputs.version }}
+      os_matrix: ${{ steps.get-matrix.outputs.os_matrix }}
+      jvm_only: ${{ steps.get-matrix.outputs.jvm_only }}
     steps:
       - uses: actions/checkout@v6
       - name: Get version
         id: get-version
         run: echo "version=$(cat version.txt)" >> "$GITHUB_OUTPUT"
+      - name: Get OS matrix
+        id: get-matrix
+        shell: bash
+        run: |
+          if [[ "${{ inputs.run_all_platforms }}" == "true" ]]; then
+            echo 'os_matrix=["ubuntu-latest", "macos-latest", "windows-latest"]' >> "$GITHUB_OUTPUT"
+            echo "jvm_only=false" >> "$GITHUB_OUTPUT"
+          else
+            echo 'os_matrix=["ubuntu-latest"]' >> "$GITHUB_OUTPUT"
+            echo "jvm_only=true" >> "$GITHUB_OUTPUT"
+          fi
 
   buildAndTest:
     name: Build and test (${{ matrix.os }})
@@ -20,9 +48,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        os: ${{ fromJson(needs.checkVersion.outputs.os_matrix) }}
     env:
-      GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m"
+      GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m -Pinspekt.onlyJvm=${{ needs.checkVersion.outputs.jvm_only }}"
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java 17

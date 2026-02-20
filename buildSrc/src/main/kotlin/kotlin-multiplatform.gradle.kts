@@ -5,29 +5,33 @@ plugins {
     id("kotlin-shared")
 }
 
+val onlyJvm = providers.gradleProperty("inspekt.onlyJvm").orNull?.lowercase() == "true"
+
 kotlin {
     jvm()
-    js() {
-        browser()
-        nodejs()
+    if (!onlyJvm) {
+        js() {
+            browser()
+            nodejs()
+        }
+        @OptIn(ExperimentalWasmDsl::class)
+        wasmJs() {
+            d8()
+            nodejs()
+            browser()
+        }
+        @OptIn(ExperimentalWasmDsl::class)
+        wasmWasi() {
+            nodejs()
+        }
+        iosArm64()
+        iosX64()
+        mingwX64()
+        macosX64()
+        macosArm64()
+        linuxX64()
+        linuxArm64()
     }
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs() {
-        d8()
-        nodejs()
-        browser()
-    }
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmWasi() {
-        nodejs()
-    }
-    iosArm64()
-    iosX64()
-    mingwX64()
-    macosX64()
-    macosArm64()
-    linuxX64()
-    linuxArm64()
 }
 
 dependencies {
