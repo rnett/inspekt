@@ -44,6 +44,9 @@ public data class Spekt<T : Any> internal constructor(
     public val declaredFunctions: List<Function> get() = functions.filter { it.isDeclared }
     public val declaredProperties: List<Property> get() = properties.filter { it.isDeclared }
 
+    public fun singleProperty(name: String): Property = properties.single { it.shortName == name }
+    public fun function(name: String): Function = functions.single { it.shortName == name }
+
     override fun toString(): String = toString(false)
 
     public fun toString(includeSubclasses: Boolean, includeDescendents: Boolean = includeSubclasses): String = buildString {

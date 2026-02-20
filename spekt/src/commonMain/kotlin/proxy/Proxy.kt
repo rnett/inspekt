@@ -10,6 +10,7 @@ import dev.rnett.spekt.Property
 import dev.rnett.spekt.PropertyAccessor
 import dev.rnett.spekt.PropertyGetter
 import dev.rnett.spekt.PropertySetter
+import dev.rnett.spekt.Spekt
 import dev.rnett.spekt.SpektCompilerPluginIntrinsic
 import dev.rnett.spekt.throwIntrinsicException
 import dev.rnett.symbolexport.ExportSymbol
@@ -124,3 +125,30 @@ internal suspend fun v1SuspendProxyHelper(
 @ExportSymbol
 @SpektCompilerPluginIntrinsic
 public fun <T : Any> proxy(@ExportSymbol toImplement: KClass<T>, @ExportSymbol vararg additionalInterfaces: KClass<*>, @ExportSymbol handler: ProxyHandler): T = throwIntrinsicException()
+
+/**
+ * [toImplement] and each [additionalInterfaces] must be an interface.
+ */
+@ExportSymbol
+@SpektCompilerPluginIntrinsic
+public fun <T : Any> proxyFactory(@ExportSymbol toImplement: KClass<T>, @ExportSymbol vararg additionalInterfaces: KClass<*>): (ProxyHandler) -> T = throwIntrinsicException()
+
+public class ProxyableSpekt<T : Any>(public val spekt: Spekt<T>, private val factory: (ProxyHandler) -> T) {
+    public fun proxy(handler: ProxyHandler): T = factory(handler)
+}
+
+/**
+ * [toImplement] must be an interface.
+ */
+@ExportSymbol
+@SpektCompilerPluginIntrinsic
+public fun <T : Any> proxyableSpekt(@ExportSymbol toImplement: KClass<T>): ProxyableSpekt<T> = throwIntrinsicException()
+
+
+@Suppress("UNCHECKED_CAST", "unused")
+@ExportSymbol
+@PublishedApi
+internal fun <T : Any> v1ProxyableSpektHelper(
+    spekt: Spekt<*>,
+    proxyFactory: (ProxyHandler) -> Any?
+): ProxyableSpekt<T> = ProxyableSpekt(spekt as Spekt<T>, proxyFactory as (ProxyHandler) -> T)

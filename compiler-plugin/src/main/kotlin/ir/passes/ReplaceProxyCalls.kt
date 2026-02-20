@@ -2,29 +2,99 @@ package dev.rnett.spekt.ir.passes
 
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.IrFullTransformerWithContext
+import dev.rnett.kcp.development.utils.ir.createLambda
+import dev.rnett.kcp.development.utils.ir.withBuilder
 import dev.rnett.spekt.Symbols
 import dev.rnett.spekt.ir.ProxyGenerator
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation
+import org.jetbrains.kotlin.cli.common.messages.CompilerMessageLocation
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageSeverity
+import org.jetbrains.kotlin.ir.builders.IrBuilderWithScope
+import org.jetbrains.kotlin.ir.builders.declarations.addValueParameter
+import org.jetbrains.kotlin.ir.builders.irBlockBody
+import org.jetbrains.kotlin.ir.builders.irCall
+import org.jetbrains.kotlin.ir.builders.irGet
+import org.jetbrains.kotlin.ir.builders.irReturn
+import org.jetbrains.kotlin.ir.builders.parent
 import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.expressions.IrClassReference
 import org.jetbrains.kotlin.ir.expressions.IrExpression
 import org.jetbrains.kotlin.ir.expressions.IrVararg
 import org.jetbrains.kotlin.ir.expressions.IrVarargElement
+import org.jetbrains.kotlin.ir.expressions.impl.IrFunctionExpressionImpl
+import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
+import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.util.callableId
+import org.jetbrains.kotlin.ir.util.defaultType
 import org.jetbrains.kotlin.ir.util.isInterface
 
-@OptIn(ExperimentalIrHelpers::class)
+@OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext(context) {
     val generator = ProxyGenerator(context)
+
     override fun visitCall(expression: IrCall): IrExpression {
-        val result = if (expression.symbol.owner.callableId == Symbols.spekt.dev_rnett_spekt_proxy_proxy.asCallableId()) {
-            intrinsifyProxy(expression)
-        } else expression
+        val result = when (expression.symbol.owner.callableId) {
+            Symbols.spekt.dev_rnett_spekt_proxy_proxy.asCallableId() ->
+                intrinsifyProxy(expression)
+
+            Symbols.spekt.dev_rnett_spekt_proxy_proxyFactory.asCallableId() ->
+                intrinsifyProxyFactory(expression)
+
+            Symbols.spekt.dev_rnett_spekt_proxy_proxyableSpekt.asCallableId() ->
+                intrinsifyProxyableSpekt(expression)
+
+            else -> expression
+        }
         return super.visitExpression(result)
+    }
+
+    private val proxyableSpektHelper get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyableSpektHelper.asCallableId()).single()
+
+    private fun intrinsifyProxyableSpekt(expression: IrCall): IrExpression {
+        val baseInterface = checkIsInterface(expression.arguments[0] ?: error("proxyableSpekt first argument is required")) ?: error("proxyableSpekt first argument must be an interface")
+        return withBuilderForCurrentScope {
+            irCall(proxyableSpektHelper).apply {
+                arguments[0] = generator.spektGenerator.createSpekt(baseInterface, expression.getCompilerMessageLocation(currentFile))
+                arguments[1] = createProxyFactory(listOf(baseInterface), expression.getCompilerMessageLocation(currentFile))
+            }
+
+        }
+    }
+
+    private fun intrinsifyProxyFactory(expression: IrCall): IrExpression {
+        val baseInterface = checkIsInterface(expression.arguments[0] ?: error("proxyFactory first argument is required"))
+        val otherInterfacesArg = expression.arguments[1]
+        val otherInterfaces = if (otherInterfacesArg is IrVararg) {
+            otherInterfacesArg.elements.mapNotNull { checkIsInterface(it) }
+        } else emptyList()
+
+        val allInterfaces = listOfNotNull(baseInterface) + otherInterfaces
+
+        return withBuilderForCurrentScope {
+            createProxyFactory(allInterfaces, expression.getCompilerMessageLocation(currentFile))
+        }
+    }
+
+    private fun IrBuilderWithScope.createProxyFactory(interfaces: List<IrClass>, messageLocation: CompilerMessageLocation?): IrFunctionExpressionImpl {
+        val baseType = interfaces.first()
+        return createLambda(this@ReplaceProxyCalls.context, parent) {
+            returnType = baseType.defaultType
+            val handlerParam = addValueParameter("handler", generator.ProxyHandler.defaultType)
+            body = withBuilder {
+                irBlockBody {
+                    +irReturn(
+                        generator.generateProxy(
+                            irGet(handlerParam),
+                            interfaces,
+                            messageLocation
+                        )
+                    )
+                }
+            }
+        }
     }
 
     private fun intrinsifyProxy(expression: IrCall): IrExpression {
@@ -48,7 +118,11 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
         }
 
         return withBuilderForCurrentScope {
-            generator.generateProxy(handler, allInterfaces, expression.getCompilerMessageLocation(currentFile))
+            generator.generateProxy(
+                handler,
+                allInterfaces,
+                expression.getCompilerMessageLocation(currentFile)
+            )
         }
 
     }

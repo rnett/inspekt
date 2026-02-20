@@ -63,6 +63,15 @@ final class <#A: kotlin/Any> dev.rnett.spekt.internal/SpektImplementationV1 : de
     }
 }
 
+final class <#A: kotlin/Any> dev.rnett.spekt.proxy/ProxyableSpekt { // dev.rnett.spekt.proxy/ProxyableSpekt|null[0]
+    constructor <init>(dev.rnett.spekt/Spekt<#A>, kotlin/Function1<dev.rnett.spekt.proxy/ProxyHandler, #A>) // dev.rnett.spekt.proxy/ProxyableSpekt.<init>|<init>(dev.rnett.spekt.Spekt<1:0>;kotlin.Function1<dev.rnett.spekt.proxy.ProxyHandler,1:0>){}[0]
+
+    final val spekt // dev.rnett.spekt.proxy/ProxyableSpekt.spekt|{}spekt[0]
+        final fun <get-spekt>(): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt.proxy/ProxyableSpekt.spekt.<get-spekt>|<get-spekt>(){}[0]
+
+    final fun proxy(dev.rnett.spekt.proxy/ProxyHandler): #A // dev.rnett.spekt.proxy/ProxyableSpekt.proxy|proxy(dev.rnett.spekt.proxy.ProxyHandler){}[0]
+}
+
 final class <#A: kotlin/Any> dev.rnett.spekt/Spekt : dev.rnett.spekt/AnnotatedElement { // dev.rnett.spekt/Spekt|null[0]
     final val annotations // dev.rnett.spekt/Spekt.annotations|{}annotations[0]
         final fun <get-annotations>(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.spekt/Spekt.annotations.<get-annotations>|<get-annotations>(){}[0]
@@ -112,10 +121,12 @@ final class <#A: kotlin/Any> dev.rnett.spekt/Spekt : dev.rnett.spekt/AnnotatedEl
     final fun component8(): kotlin.collections/List<dev.rnett.spekt/Constructor> // dev.rnett.spekt/Spekt.component8|component8(){}[0]
     final fun component9(): kotlin/Boolean // dev.rnett.spekt/Spekt.component9|component9(){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // dev.rnett.spekt/Spekt.equals|equals(kotlin.Any?){}[0]
+    final fun function(kotlin/String): dev.rnett.spekt/Function // dev.rnett.spekt/Spekt.function|function(kotlin.String){}[0]
     final fun hashCode(): kotlin/Int // dev.rnett.spekt/Spekt.hashCode|hashCode(){}[0]
     final fun isInstance(kotlin/Any): kotlin/Boolean // dev.rnett.spekt/Spekt.isInstance|isInstance(kotlin.Any){}[0]
     final fun isSubtypeOf(kotlin.reflect/KClass<*>): kotlin/Boolean // dev.rnett.spekt/Spekt.isSubtypeOf|isSubtypeOf(kotlin.reflect.KClass<*>){}[0]
     final fun safeCast(kotlin/Any): #A? // dev.rnett.spekt/Spekt.safeCast|safeCast(kotlin.Any){}[0]
+    final fun singleProperty(kotlin/String): dev.rnett.spekt/Property // dev.rnett.spekt/Spekt.singleProperty|singleProperty(kotlin.String){}[0]
     final fun toString(): kotlin/String // dev.rnett.spekt/Spekt.toString|toString(){}[0]
     final fun toString(kotlin/Boolean, kotlin/Boolean = ...): kotlin/String // dev.rnett.spekt/Spekt.toString|toString(kotlin.Boolean;kotlin.Boolean){}[0]
 }
@@ -244,6 +255,7 @@ final class dev.rnett.spekt/Function : dev.rnett.spekt/SimpleFunction { // dev.r
     final fun component7(): kotlin/Boolean // dev.rnett.spekt/Function.component7|component7(){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // dev.rnett.spekt/Function.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // dev.rnett.spekt/Function.hashCode|hashCode(){}[0]
+    final fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Function.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
     final fun toString(kotlin/Boolean): kotlin/String // dev.rnett.spekt/Function.toString|toString(kotlin.Boolean){}[0]
     final suspend fun invokeSuspend(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Function.invokeSuspend|invokeSuspend(dev.rnett.spekt.ArgumentList){}[0]
     final suspend inline fun invokeSuspend(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Function.invokeSuspend|invokeSuspend(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
@@ -644,6 +656,8 @@ sealed class dev.rnett.spekt/MemberName : dev.rnett.spekt/QualifiedName { // dev
 }
 
 sealed class dev.rnett.spekt/Method : dev.rnett.spekt/Callable { // dev.rnett.spekt/Method|null[0]
+    abstract val invoker // dev.rnett.spekt/Method.invoker|{}invoker[0]
+        abstract fun <get-invoker>(): kotlin/Function1<dev.rnett.spekt/ArgumentList, kotlin/Any?>? // dev.rnett.spekt/Method.invoker.<get-invoker>|<get-invoker>(){}[0]
     abstract val kind // dev.rnett.spekt/Method.kind|{}kind[0]
         abstract fun <get-kind>(): dev.rnett.spekt/Method.Kind // dev.rnett.spekt/Method.kind.<get-kind>|<get-kind>(){}[0]
     abstract val kotlin // dev.rnett.spekt/Method.kotlin|{}kotlin[0]
@@ -653,11 +667,10 @@ sealed class dev.rnett.spekt/Method : dev.rnett.spekt/Callable { // dev.rnett.sp
     abstract val returnType // dev.rnett.spekt/Method.returnType|{}returnType[0]
         abstract fun <get-returnType>(): kotlin.reflect/KType // dev.rnett.spekt/Method.returnType.<get-returnType>|<get-returnType>(){}[0]
 
-    abstract fun doInvoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Method.doInvoke|doInvoke(dev.rnett.spekt.ArgumentList){}[0]
     final fun (kotlin.text/StringBuilder).appendMethodSignature(kotlin/Boolean) // dev.rnett.spekt/Method.appendMethodSignature|appendMethodSignature@kotlin.text.StringBuilder(kotlin.Boolean){}[0]
-    final fun assertInvokable() // dev.rnett.spekt/Method.assertInvokable|assertInvokable(){}[0]
-    final fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
     final inline fun invoke(kotlin/Function2<dev.rnett.spekt/ArgumentList.Builder, dev.rnett.spekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(kotlin.Function2<dev.rnett.spekt.ArgumentList.Builder,dev.rnett.spekt.Parameters,kotlin.Unit>){}[0]
+    open fun assertInvokable() // dev.rnett.spekt/Method.assertInvokable|assertInvokable(){}[0]
+    open fun invoke(dev.rnett.spekt/ArgumentList): kotlin/Any? // dev.rnett.spekt/Method.invoke|invoke(dev.rnett.spekt.ArgumentList){}[0]
 
     final enum class Kind : kotlin/Enum<dev.rnett.spekt/Method.Kind> { // dev.rnett.spekt/Method.Kind|null[0]
         enum entry CONSTRUCTOR // dev.rnett.spekt/Method.Kind.CONSTRUCTOR|null[0]
@@ -707,6 +720,9 @@ final object dev.rnett.spekt/SpecialNames { // dev.rnett.spekt/SpecialNames|null
 }
 
 final fun <#A: kotlin/Any> dev.rnett.spekt.proxy/proxy(kotlin.reflect/KClass<#A>, kotlin/Array<out kotlin.reflect/KClass<*>>..., dev.rnett.spekt.proxy/ProxyHandler): #A // dev.rnett.spekt.proxy/proxy|proxy(kotlin.reflect.KClass<0:0>;kotlin.Array<out|kotlin.reflect.KClass<*>>...;dev.rnett.spekt.proxy.ProxyHandler){0§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any> dev.rnett.spekt.proxy/proxyFactory(kotlin.reflect/KClass<#A>, kotlin/Array<out kotlin.reflect/KClass<*>>...): kotlin/Function1<dev.rnett.spekt.proxy/ProxyHandler, #A> // dev.rnett.spekt.proxy/proxyFactory|proxyFactory(kotlin.reflect.KClass<0:0>;kotlin.Array<out|kotlin.reflect.KClass<*>>...){0§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any> dev.rnett.spekt.proxy/proxyableSpekt(kotlin.reflect/KClass<#A>): dev.rnett.spekt.proxy/ProxyableSpekt<#A> // dev.rnett.spekt.proxy/proxyableSpekt|proxyableSpekt(kotlin.reflect.KClass<0:0>){0§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any> dev.rnett.spekt.proxy/v1ProxyableSpektHelper(dev.rnett.spekt/Spekt<*>, kotlin/Function1<dev.rnett.spekt.proxy/ProxyHandler, kotlin/Any?>): dev.rnett.spekt.proxy/ProxyableSpekt<#A> // dev.rnett.spekt.proxy/v1ProxyableSpektHelper|v1ProxyableSpektHelper(dev.rnett.spekt.Spekt<*>;kotlin.Function1<dev.rnett.spekt.proxy.ProxyHandler,kotlin.Any?>){0§<kotlin.Any>}[0]
 final fun <#A: kotlin/Any> dev.rnett.spekt/inspekt(kotlin.reflect/KClass<#A>): dev.rnett.spekt/Spekt<#A> // dev.rnett.spekt/inspekt|inspekt(kotlin.reflect.KClass<0:0>){0§<kotlin.Any>}[0]
 final fun dev.rnett.spekt.proxy/v1ProxyHelper(dev.rnett.spekt.proxy/ProxyHandler, dev.rnett.spekt/Function, dev.rnett.spekt/Property?, kotlin/Boolean, kotlin/Array<kotlin/Any?>): kotlin/Any? // dev.rnett.spekt.proxy/v1ProxyHelper|v1ProxyHelper(dev.rnett.spekt.proxy.ProxyHandler;dev.rnett.spekt.Function;dev.rnett.spekt.Property?;kotlin.Boolean;kotlin.Array<kotlin.Any?>){}[0]
 final fun dev.rnett.spekt/ArgumentList(dev.rnett.spekt/Parameters, kotlin.collections/List<kotlin/Any?>): dev.rnett.spekt/ArgumentList // dev.rnett.spekt/ArgumentList|ArgumentList(dev.rnett.spekt.Parameters;kotlin.collections.List<kotlin.Any?>){}[0]

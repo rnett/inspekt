@@ -1,0 +1,90 @@
+package auto.proxy.box
+
+interface TestProxyable {
+  abstract fun test(): Int
+
+}
+
+fun box(): String {
+  val proxyable: ProxyableSpekt<TestProxyable> = v1ProxyableSpektHelper</* null */>(spekt = SpektImplementationV1</* null */>(kClass = TestProxyable::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "test", isAbstract = true, kotlin = TestProxyable::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProxyable>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as TestProxyable.test()
+  }
+, suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "equals", isAbstract = false, kotlin = TestProxyable::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+  }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "hashCode", isAbstract = false, kotlin = TestProxyable::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.hashCode()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class), Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "toString", isAbstract = false, kotlin = TestProxyable::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.toString()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class)]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = []), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): TestProxyable {
+    return it as TestProxyable
+  }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+    return it is TestProxyable
+  }
+, safeCast = local fun <anonymous>(it: Any): TestProxyable? {
+    return it as? TestProxyable
+  }
+, objectInstance = null, companionObject = null).toSpekt(), proxyFactory = local fun <anonymous>(handler: ProxyHandler): TestProxyable {
+    return { // BLOCK
+      local class <no name provided> : TestProxyable {
+        internal /* final field */ val proxyHandler: ProxyHandler = handler
+        private /* final field */ val proxyMethod_1_test: Function = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "test", isAbstract = true, kotlin = TestProxyable::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProxyable>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return null
+        }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+        private /* final field */ val proxyMethod_2_equals: Function = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return super<Any>.equals(other = args.v1Get(globalIndex = 1) as Any?)
+        }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+        private /* final field */ val proxyMethod_3_hashCode: Function = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return super<Any>.hashCode()
+        }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+        private /* final field */ val proxyMethod_4_toString: Function = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+          return super<Any>.toString()
+        }
+, suspendInvoker = null, inheritedFrom = null).toSpekt()
+        constructor() /* primary */ {
+          super/*Any*/()
+          /* <init>() */
+
+        }
+
+        override operator fun equals(other: Any?): Boolean {
+          return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_2_equals, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>, other]))
+        }
+
+        override fun hashCode(): Int {
+          return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_3_hashCode, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+        }
+
+        override fun test(): Int {
+          return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_1_test, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+        }
+
+        override fun toString(): String {
+          return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_4_toString, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+        }
+
+      }
+
+      <no name provided>()
+    }
+  }
+)
+  assertEquals<String>(expected = "TestProxyable", actual = proxyable.<get-spekt>().<get-shortName>())
+  val proxy: TestProxyable = proxyable.proxy(handler = local fun SuperCall.<anonymous>(): Any? {
+    return 4
+  }
+ /*-> ProxyHandler */)
+  assertTrue(actual = proxy is TestProxyable, message = "proxy is subtype of TestProxyable")
+  assertEquals<Int>(expected = 4, actual = proxy.test(), message = "proxy method returns correct result call")
+  assertEquals<Int>(expected = 4, actual = proxyable.<get-spekt>().function(name = "test").invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+    $this$invoke.<set-dispatchReceiver>(value = proxy)
+  }
+) as Int, message = "spekt called method on proxy returns correct result")
+  return "OK"
+}

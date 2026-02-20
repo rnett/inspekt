@@ -1,0 +1,22 @@
+FILE: ProxyableSpekt.kt
+    package auto.proxy.box
+
+    public abstract interface TestProxyable : R|kotlin/Any| {
+        public abstract fun test(): R|kotlin/Int|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval proxyable: R|dev/rnett/spekt/proxy/ProxyableSpekt<auto/proxy/box/TestProxyable>| = R|dev/rnett/spekt/proxy/proxyableSpekt|<R|auto/proxy/box/TestProxyable|>(<getClass>(Q|auto/proxy/box/TestProxyable|))
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(TestProxyable), R|<local>/proxyable|.R|SubstitutionOverride<dev/rnett/spekt/proxy/ProxyableSpekt.spekt: R|dev/rnett/spekt/Spekt<auto/proxy/box/TestProxyable>|>|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.shortName: R|kotlin/String|>|)
+        lval proxy: R|auto/proxy/box/TestProxyable| = R|<local>/proxyable|.R|SubstitutionOverride<dev/rnett/spekt/proxy/ProxyableSpekt.proxy: R|auto/proxy/box/TestProxyable|>|(<L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+            ^ Int(4)
+        }
+        ))
+        @R|kotlin/Suppress|(names = vararg(String(USELESS_IS_CHECK))) R|kotlin/test/assertTrue|((R|<local>/proxy| is R|auto/proxy/box/TestProxyable|), String(proxy is subtype of TestProxyable))
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), R|<local>/proxy|.R|auto/proxy/box/TestProxyable.test|(), String(proxy method returns correct result call))
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), (R|<local>/proxyable|.R|SubstitutionOverride<dev/rnett/spekt/proxy/ProxyableSpekt.spekt: R|dev/rnett/spekt/Spekt<auto/proxy/box/TestProxyable>|>|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.function: R|dev/rnett/spekt/Function|>|(String(test)).R|dev/rnett/spekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/proxy|
+        }
+        ) as R|kotlin/Int|), String(spekt called method on proxy returns correct result))
+        ^box String(OK)
+    }

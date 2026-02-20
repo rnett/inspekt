@@ -120,6 +120,7 @@ public final class dev/rnett/spekt/Function : dev/rnett/spekt/SimpleFunction {
 	public fun getParameters ()Ldev/rnett/spekt/Parameters;
 	public fun getReturnType ()Lkotlin/reflect/KType;
 	public fun hashCode ()I
+	public fun invoke (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public final fun invokeSuspend (Ldev/rnett/spekt/ArgumentList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun invokeSuspend (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun isAbstract ()Z
@@ -172,13 +173,13 @@ public final class dev/rnett/spekt/MemberName$TopLevel : dev/rnett/spekt/MemberN
 
 public abstract class dev/rnett/spekt/Method : dev/rnett/spekt/Callable {
 	protected final fun appendMethodSignature (Ljava/lang/StringBuilder;Z)V
-	protected final fun assertInvokable ()V
-	protected abstract fun doInvoke (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
+	protected fun assertInvokable ()V
+	protected abstract fun getInvoker ()Lkotlin/jvm/functions/Function1;
 	public abstract fun getKind ()Ldev/rnett/spekt/Method$Kind;
 	public abstract fun getKotlin ()Lkotlin/reflect/KFunction;
 	public abstract fun getName ()Ldev/rnett/spekt/MemberName;
 	public abstract fun getReturnType ()Lkotlin/reflect/KType;
-	public final fun invoke (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
+	public fun invoke (Ldev/rnett/spekt/ArgumentList;)Ljava/lang/Object;
 	public final fun invoke (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 }
 
@@ -449,6 +450,7 @@ public final class dev/rnett/spekt/Spekt : dev/rnett/spekt/AnnotatedElement {
 	public final fun component8 ()Ljava/util/List;
 	public final fun component9 ()Z
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun function (Ljava/lang/String;)Ldev/rnett/spekt/Function;
 	public fun getAnnotations ()Ljava/util/List;
 	public final fun getCompanionObject ()Ldev/rnett/spekt/Spekt;
 	public final fun getCompanionObjectInstance ()Ljava/lang/Object;
@@ -470,6 +472,7 @@ public final class dev/rnett/spekt/Spekt : dev/rnett/spekt/AnnotatedElement {
 	public final fun isInstance (Ljava/lang/Object;)Z
 	public final fun isSubtypeOf (Lkotlin/reflect/KClass;)Z
 	public final fun safeCast (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun singleProperty (Ljava/lang/String;)Ldev/rnett/spekt/Property;
 	public fun toString ()Ljava/lang/String;
 	public final fun toString (ZZ)Ljava/lang/String;
 	public static synthetic fun toString$default (Ldev/rnett/spekt/Spekt;ZZILjava/lang/Object;)Ljava/lang/String;
@@ -524,8 +527,17 @@ public final class dev/rnett/spekt/proxy/ProxyHandler$DefaultImpls {
 
 public final class dev/rnett/spekt/proxy/ProxyKt {
 	public static final fun proxy (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ldev/rnett/spekt/proxy/ProxyHandler;)Ljava/lang/Object;
+	public static final fun proxyFactory (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;)Lkotlin/jvm/functions/Function1;
+	public static final fun proxyableSpekt (Lkotlin/reflect/KClass;)Ldev/rnett/spekt/proxy/ProxyableSpekt;
 	public static final fun v1ProxyHelper (Ldev/rnett/spekt/proxy/ProxyHandler;Ldev/rnett/spekt/Function;Ldev/rnett/spekt/Property;Z[Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun v1ProxyableSpektHelper (Ldev/rnett/spekt/Spekt;Lkotlin/jvm/functions/Function1;)Ldev/rnett/spekt/proxy/ProxyableSpekt;
 	public static final fun v1SuspendProxyHelper (Ldev/rnett/spekt/proxy/ProxyHandler;Ldev/rnett/spekt/Function;Ldev/rnett/spekt/Property;Z[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class dev/rnett/spekt/proxy/ProxyableSpekt {
+	public fun <init> (Ldev/rnett/spekt/Spekt;Lkotlin/jvm/functions/Function1;)V
+	public final fun getSpekt ()Ldev/rnett/spekt/Spekt;
+	public final fun proxy (Ldev/rnett/spekt/proxy/ProxyHandler;)Ljava/lang/Object;
 }
 
 public abstract class dev/rnett/spekt/proxy/SuperCall {

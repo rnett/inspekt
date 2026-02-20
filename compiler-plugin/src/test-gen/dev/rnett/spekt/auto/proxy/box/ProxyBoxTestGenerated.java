@@ -73,9 +73,21 @@ public class ProxyBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
+  @TestMetadata("ProxyFactory.kt")
+  public void testProxyFactory() {
+    runTest("src/testData/auto/proxy/box/ProxyFactory.kt");
+  }
+
+  @Test
   @TestMetadata("ProxyWithDefault.kt")
   public void testProxyWithDefault() {
     runTest("src/testData/auto/proxy/box/ProxyWithDefault.kt");
+  }
+
+  @Test
+  @TestMetadata("ProxyableSpekt.kt")
+  public void testProxyableSpekt() {
+    runTest("src/testData/auto/proxy/box/ProxyableSpekt.kt");
   }
 
   @Test

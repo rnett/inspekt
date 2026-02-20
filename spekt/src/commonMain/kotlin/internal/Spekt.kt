@@ -133,7 +133,7 @@ internal class SpektImplementationV1<T : Any>
             Parameters(parameters.map { it.toSpekt() }),
             isAbstract,
             annotations.toList(),
-            invoker!!,
+            invoker,
             inheritedFrom
         )
 
@@ -143,7 +143,7 @@ internal class SpektImplementationV1<T : Any>
             Parameters(parameters.map { it.toSpekt() }),
             isAbstract,
             annotations.toList(),
-            invoker!!,
+            invoker,
             inheritedFrom
         )
 
@@ -156,7 +156,7 @@ internal class SpektImplementationV1<T : Any>
             returnType,
             spekt,
             isPrimaryCtor,
-            invoker!!
+            invoker
         )
     }
 

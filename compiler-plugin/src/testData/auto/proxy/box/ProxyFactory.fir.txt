@@ -1,0 +1,17 @@
+FILE: ProxyFactory.kt
+    package auto.proxy.box
+
+    public abstract interface TestFactory : R|kotlin/Any| {
+        public abstract fun test(): R|kotlin/Int|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval factory: R|(dev/rnett/spekt/proxy/ProxyHandler) -> auto/proxy/box/TestFactory| = R|dev/rnett/spekt/proxy/proxyFactory|<R|auto/proxy/box/TestFactory|>(<getClass>(Q|auto/proxy/box/TestFactory|))
+        lval proxy: R|auto/proxy/box/TestFactory| = R|<local>/factory|.R|SubstitutionOverride<kotlin/Function1.invoke: R|auto/proxy/box/TestFactory|>|(<L> = SAM(factory@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+            ^ Int(4)
+        }
+        ))
+        @R|kotlin/Suppress|(names = vararg(String(USELESS_IS_CHECK))) R|kotlin/test/assertTrue|((R|<local>/proxy| is R|auto/proxy/box/TestFactory|), String(proxy is subtype of TestFactory))
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), R|<local>/proxy|.R|auto/proxy/box/TestFactory.test|(), String(proxy method returns correct result call))
+        ^box String(OK)
+    }

@@ -26,16 +26,16 @@ public sealed class Method : Callable() {
         return invoke(parameters.buildArguments(arguments))
     }
 
-    public operator fun invoke(arguments: ArgumentList): Any? {
+    public open operator fun invoke(arguments: ArgumentList): Any? {
         assertInvokable()
-        return doInvoke(arguments)
+        return invoker!!.invoke(arguments)
     }
 
-    protected fun assertInvokable() {
-        if (isAbstract) error("Method $this is abstract and cannot be invoked")
-    }
+    protected abstract val invoker: ((ArgumentList) -> Any?)?
 
-    protected abstract fun doInvoke(arguments: ArgumentList): Any?
+    protected open fun assertInvokable() {
+        if (invoker == null) error("Method $this is abstract and cannot be invoked")
+    }
 
     public abstract val returnType: KType
 
@@ -68,13 +68,11 @@ public data class Constructor internal constructor(
     override val returnType: KType,
     private val forClassRef: Lazy<Spekt<*>>,
     public val isPrimary: Boolean,
-    private val invoker: (ArgumentList) -> Any?
+    override val invoker: ((ArgumentList) -> Any?)?
 ) : Method() {
     override val inheritedFrom: KClass<*>? = null
     public val forClass: Spekt<*> by forClassRef
     override val kind: Kind get() = Kind.CONSTRUCTOR
-
-    override fun doInvoke(arguments: ArgumentList): Any? = invoker(arguments)
 
     public override fun toString(includeFullName: Boolean): String = buildString {
         append(if (includeFullName) name.toString() else "<init>")
@@ -95,7 +93,7 @@ public data class Function internal constructor(
     override val parameters: Parameters,
     override val returnType: KType,
     public val isSuspend: Boolean,
-    private val invoker: ((ArgumentList) -> Any?)?,
+    override val invoker: ((ArgumentList) -> Any?)?,
     private val suspendInvoker: (suspend (ArgumentList) -> Any?)?,
     override val inheritedFrom: KClass<*>?,
 ) : SimpleFunction() {
@@ -135,9 +133,15 @@ public data class Function internal constructor(
         )
     }
 
-    override fun doInvoke(arguments: ArgumentList): Any? {
+    override fun assertInvokable() {
+        // super call checks that invoker is not null
+        if (suspendInvoker == null) super.assertInvokable()
+    }
+
+    override fun invoke(arguments: ArgumentList): Any? {
+        assertInvokable()
         if (isSuspend) throw IllegalArgumentException("Can only invoke suspend function via invokeSuspend")
-        return invoker?.invoke(arguments)
+        return super.invoke(arguments)
     }
 
     public suspend inline fun invokeSuspend(arguments: ArgumentsBuilder): Any? {
@@ -147,10 +151,10 @@ public data class Function internal constructor(
 
     public suspend fun invokeSuspend(arguments: ArgumentList): Any? {
         assertInvokable()
-        if (isSuspend)
-            return suspendInvoker!!.invoke(arguments)
+        return if (isSuspend)
+            suspendInvoker!!.invoke(arguments)
         else
-            return invoker!!.invoke(arguments)
+            invoker!!.invoke(arguments)
     }
 
     public override fun toString(includeFullName: Boolean): String = buildString {
@@ -167,7 +171,7 @@ public data class PropertyGetter internal constructor(
     override val parameters: Parameters,
     override val isAbstract: Boolean,
     override val annotations: List<Annotation>,
-    private val invoker: (ArgumentList) -> Any?,
+    override val invoker: ((ArgumentList) -> Any?)?,
     override val inheritedFrom: KClass<*>?,
 ) : PropertyAccessor() {
     override val kind: Kind = Kind.GETTER
@@ -178,10 +182,6 @@ public data class PropertyGetter internal constructor(
 
     override val name: MemberName
         get() = property.name.sibling(SpecialNames.getter(property.name.name))
-
-    override fun doInvoke(arguments: ArgumentList): Any? {
-        return invoker(arguments)
-    }
 
     override fun toString(includeFullName: Boolean): String = buildString {
         appendMethodSignature(includeFullName)
@@ -194,7 +194,7 @@ public data class PropertySetter internal constructor(
     override val parameters: Parameters,
     override val isAbstract: Boolean,
     override val annotations: List<Annotation>,
-    private val invoker: (ArgumentList) -> Any?,
+    override val invoker: ((ArgumentList) -> Any?)?,
     override val inheritedFrom: KClass<*>?,
 ) : PropertyAccessor() {
     override val kind: Kind = Kind.SETTER
@@ -205,10 +205,6 @@ public data class PropertySetter internal constructor(
 
     override val name: MemberName
         get() = property.name.sibling(SpecialNames.setter(property.name.name))
-
-    override fun doInvoke(arguments: ArgumentList): Any? {
-        return invoker(arguments)
-    }
 
     override fun toString(includeFullName: Boolean): String = buildString {
         appendMethodSignature(includeFullName)
