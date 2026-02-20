@@ -29,7 +29,7 @@ afterEvaluate {
 }
 
 dependencies {
-    dokka(project(":spekt"))
+    dokka(project(":inspekt"))
     dokka(project(":gradle-plugin"))
 }
 

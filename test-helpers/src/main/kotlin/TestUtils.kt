@@ -1,4 +1,4 @@
-package dev.rnett.spekt
+package dev.rnett.inspekt
 
 import kotlin.reflect.KClass
 

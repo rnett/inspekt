@@ -1,4 +1,4 @@
-package dev.rnett.spekt.ir
+package dev.rnett.inspekt.ir
 
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.WithIrContext

@@ -1,1 +1,1 @@
-fun dev.rnett.spekt.ExternalTest.test(c: int, d: java.lang.String = ...): kotlin.Unit
+fun dev.rnett.inspekt.ExternalTest.test(c: int, d: java.lang.String = ...): kotlin.Unit

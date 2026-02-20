@@ -1,11 +1,11 @@
-package dev.rnett.spekt.ir
+package dev.rnett.inspekt.ir
 
+import dev.rnett.inspekt.Names
+import dev.rnett.inspekt.Symbols
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.WithIrContext
 import dev.rnett.kcp.development.utils.ir.createLambda
 import dev.rnett.kcp.development.utils.ir.withBuilder
-import dev.rnett.spekt.Names
-import dev.rnett.spekt.Symbols
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import dev.rnett.symbolexport.symbol.compiler.asClassId
 import dev.rnett.symbolexport.symbol.compiler.set
@@ -69,18 +69,18 @@ import org.jetbrains.kotlin.ir.util.properties
 
 @OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
-    val Spekt get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_Spekt.asClassId())!!
-    val Spekt_toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementation_toSpekt.asCallableId()).single()
-    val ImplementationV1 get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1.asClassId())!!
+    val Spekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_Spekt.asClassId())!!
+    val Spekt_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementation_toSpekt.asCallableId()).single()
+    val ImplementationV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1.asClassId())!!
 
-    private val ImplFunction get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function.asClassId())!!
-    private val ImplProperty get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property.asClassId())!!
-    private val ImplParam get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Param.asClassId())!!
-    private val ArgumentsProviderV1 get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1.asClassId())!!
+    private val ImplFunction get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Function.asClassId())!!
+    private val ImplProperty get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Property.asClassId())!!
+    private val ImplParam get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Param.asClassId())!!
+    private val ArgumentsProviderV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1.asClassId())!!
 
-    val SpektFunction_toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Function_toSpekt.asCallableId()).single()
+    val SpektFunction_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Function_toSpekt.asCallableId()).single()
 
-    val SpektProperty_toSpekt get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_internal_SpektImplementationV1_Property_toSpekt.asCallableId()).single()
+    val SpektProperty_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Property_toSpekt.asCallableId()).single()
 
     private data class GenerationContext(
         val makeSuperFor: IrClass?,
@@ -297,7 +297,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                         +irReturn(generateDefaultingCall(function, argsParam, shouldBeSuper))
                     } else {
                         val getParam = this@SpektGenerator.context.referenceFunctions(
-                            Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1_v1Get.asCallableId()
+                            Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1_v1Get.asCallableId()
                         ).single()
 
                         +irReturn(irCall(function).apply {
@@ -329,15 +329,15 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         val maxBitset = 1 shl defaultCount
 
         val getParam = this@SpektGenerator.context.referenceFunctions(
-            Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1_v1Get.asCallableId()
+            Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1_v1Get.asCallableId()
         ).single()
 
         val hasValueMaskProp = this@SpektGenerator.context.referenceProperties(
-            Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1_v1DefaultableHasValueBitmask.asCallableId()
+            Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1_v1DefaultableHasValueBitmask.asCallableId()
         ).single()
 
         val throwInvalidBitmask = this@SpektGenerator.context.referenceFunctions(
-            Symbols.spekt.dev_rnett_spekt_internal_ArgumentsProviderV1_throwInvalidBitmask.asCallableId()
+            Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1_throwInvalidBitmask.asCallableId()
         ).single()
 
         val hasValueMarkArg = irTemporary(irCall(hasValueMaskProp.owner.getter!!).apply {

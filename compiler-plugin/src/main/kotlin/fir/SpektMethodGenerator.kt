@@ -1,9 +1,9 @@
-package dev.rnett.spekt.fir
+package dev.rnett.inspekt.fir
 
-import dev.rnett.spekt.DeclarationKeys
-import dev.rnett.spekt.GeneratedNames
-import dev.rnett.spekt.Names
-import dev.rnett.spekt.pluginKey
+import dev.rnett.inspekt.DeclarationKeys
+import dev.rnett.inspekt.GeneratedNames
+import dev.rnett.inspekt.Names
+import dev.rnett.inspekt.pluginKey
 import dev.rnett.symbolexport.symbol.compiler.asClassId
 import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.fir.FirSession
@@ -37,7 +37,7 @@ import org.jetbrains.kotlin.name.SpecialNames
  * ```kotlin
  * class $Target {
  *   companion object {
- *     fun spekt(): Spekt<$Target<*, *, ...>>
+ *     fun inspekt(): Spekt<$Target<*, *, ...>>
  *   }
  * }
  *

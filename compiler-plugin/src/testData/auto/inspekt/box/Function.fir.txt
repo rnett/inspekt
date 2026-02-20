@@ -18,5 +18,5 @@ FILE: Function.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box R|dev/rnett/spekt/inspekt|(Q|auto/inspekt/box/Test|::R|auto/inspekt/box/Test.test|).R|dev/rnett/spekt/Callable.toString|()
+        ^box R|dev/rnett/inspekt/inspekt|(Q|auto/inspekt/box/Test|::R|auto/inspekt/box/Test.test|).R|dev/rnett/inspekt/Callable.toString|()
     }

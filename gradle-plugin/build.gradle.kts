@@ -14,7 +14,7 @@ gradlePlugin {
             id = group.toString()
             displayName = "Spekt Gradle Plugin"
             description = "Spekt Gradle Plugin - a Kotlin Multiplatform logging facade"
-            implementationClass = "dev.rnett.spekt.SpektPlugin"
+            implementationClass = "dev.rnett.inspekt.SpektPlugin"
         }
     }
 }

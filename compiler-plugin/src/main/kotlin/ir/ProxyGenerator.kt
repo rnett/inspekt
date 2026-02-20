@@ -1,13 +1,13 @@
-package dev.rnett.spekt.ir
+package dev.rnett.inspekt.ir
 
+import dev.rnett.inspekt.DeclarationKeys
+import dev.rnett.inspekt.GeneratedNames
+import dev.rnett.inspekt.Names
+import dev.rnett.inspekt.Symbols
+import dev.rnett.inspekt.toIrOrigin
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.WithIrContext
 import dev.rnett.kcp.development.utils.ir.withBuilder
-import dev.rnett.spekt.DeclarationKeys
-import dev.rnett.spekt.GeneratedNames
-import dev.rnett.spekt.Names
-import dev.rnett.spekt.Symbols
-import dev.rnett.spekt.toIrOrigin
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import dev.rnett.symbolexport.symbol.compiler.asClassId
 import dev.rnett.symbolexport.symbol.compiler.set
@@ -70,14 +70,14 @@ import org.jetbrains.kotlin.name.StandardClassIds
 class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
 
     val spektGenerator = SpektGenerator(context)
-    val ProxyHandler get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_proxy_ProxyHandler.asClassId())!!
+    val ProxyHandler get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_proxy_ProxyHandler.asClassId())!!
 
-    val proxyHelper get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyHelper.asCallableId()).single()
-    val suspendProxyHelper get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_proxy_v1SuspendProxyHelper.asCallableId()).single()
+    val proxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyHelper.asCallableId()).single()
+    val suspendProxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_proxy_v1SuspendProxyHelper.asCallableId()).single()
 
-    val FunctionSpekt get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_Function.asClassId())!!
+    val FunctionSpekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_Function.asClassId())!!
 
-    val PropertySpekt get() = context.referenceClass(Symbols.spekt.dev_rnett_spekt_Property.asClassId())!!
+    val PropertySpekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_Property.asClassId())!!
 
     context(builder: IrBuilderWithScope)
     fun generateProxy(handler: IrExpression, superinterfaces: List<IrClass>, reportLocation: CompilerMessageLocation?): IrExpression = context(reportLocation) {

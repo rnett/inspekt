@@ -35,8 +35,8 @@ extensionIfPresent<MavenPublishBaseExtension> {
         }
         scm {
             url = "https://github.com/rnett/spekt/"
-            connection = "scm:git:git://github.com/rnett/spekt.git"
-            developerConnection = "scm:git:ssh://git@github.com/rnett/spekt.git"
+            connection = "scm:git:git://github.com/rnett/inspekt.git"
+            developerConnection = "scm:git:ssh://git@github.com/rnett/inspekt.git"
         }
     }
 }

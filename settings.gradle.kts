@@ -9,7 +9,7 @@ pluginManagement {
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
-rootProject.name = "spekt"
+rootProject.name = "inspekt"
 
 dependencyResolutionManagement {
     repositories {
@@ -21,12 +21,12 @@ dependencyResolutionManagement {
 val projectVersion = providers.fileContents(layout.rootDirectory.file("version.txt")).asText.get().trim()
 
 gradle.beforeProject {
-    group = "dev.rnett.spekt"
+    group = "dev.rnett.inspekt"
     version = projectVersion
 }
 
 include(
-    "spekt",
+    "inspekt",
     "compiler-plugin",
     "gradle-plugin",
     "test-helpers"

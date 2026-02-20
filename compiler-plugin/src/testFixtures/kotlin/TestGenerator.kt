@@ -1,16 +1,16 @@
-package dev.rnett.spekt
+package dev.rnett.inspekt
 
 import dev.rnett.kcp.development.testing.generation.BaseTestGenerator
 
 object TestGenerator : BaseTestGenerator() {
     override val imports: Set<String> = setOf(
         "kotlin.test.*",
-        "dev.rnett.spekt.*",
-        "dev.rnett.spekt.proxy.*",
+        "dev.rnett.inspekt.*",
+        "dev.rnett.inspekt.proxy.*",
         "kotlinx.coroutines.*",
         "kotlinx.coroutines.test.*"
     )
     override val optIns: Set<String> = setOf(
-        "dev.rnett.spekt.SpektCompilerPluginIntrinsic"
+        "dev.rnett.inspekt.SpektCompilerPluginIntrinsic"
     )
 }

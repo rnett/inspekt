@@ -6,7 +6,7 @@ FILE: BasicProxy.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval proxy: R|auto/proxy/box/Test| = R|dev/rnett/spekt/proxy/proxy|<R|auto/proxy/box/Test|>(<getClass>(Q|auto/proxy/box/Test|), <L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+        lval proxy: R|auto/proxy/box/Test| = R|dev/rnett/inspekt/proxy/proxy|<R|auto/proxy/box/Test|>(<getClass>(Q|auto/proxy/box/Test|), <L> = SAM(proxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
             ^ Int(4)
         }
         ))

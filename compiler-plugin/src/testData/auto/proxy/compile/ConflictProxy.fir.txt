@@ -14,7 +14,7 @@ FILE: ConflictProxy.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval proxy: R|auto/proxy/compile/Interface1| = R|dev/rnett/spekt/proxy/proxy|<R|auto/proxy/compile/Interface1|>(<getClass>(Q|auto/proxy/compile/Interface1|), vararg(<getClass>(Q|auto/proxy/compile/Interface2|)), <L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+        lval proxy: R|auto/proxy/compile/Interface1| = R|dev/rnett/inspekt/proxy/proxy|<R|auto/proxy/compile/Interface1|>(<getClass>(Q|auto/proxy/compile/Interface1|), vararg(<getClass>(Q|auto/proxy/compile/Interface2|)), <L> = SAM(proxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
             ^ String(OK)
         }
         ))

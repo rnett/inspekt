@@ -1,7 +1,7 @@
 FILE: Properties.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/Inspekt|() public final class TestProperties : R|kotlin/Any| {
+    @R|dev/rnett/inspekt/Inspekt|() public final class TestProperties : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/TestProperties| {
             super<R|kotlin/Any|>()
         }
@@ -33,7 +33,7 @@ FILE: Properties.kt
             }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/TestProperties>|
+            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/TestProperties>|
 
             private constructor(): R|auto/implementation/box/TestProperties.Companion| {
                 super<R|kotlin/Any|>()
@@ -43,84 +43,84 @@ FILE: Properties.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/spekt/Spekt<auto/implementation/box/TestProperties>| = Q|auto/implementation/box/TestProperties|.R|auto/implementation/box/TestProperties.Companion.spekt|()
+        lval spekt: R|dev/rnett/inspekt/Spekt<auto/implementation/box/TestProperties>| = Q|auto/implementation/box/TestProperties|.R|auto/implementation/box/TestProperties.Companion.spekt|()
         lval instance: R|auto/implementation/box/TestProperties| = R|auto/implementation/box/TestProperties.TestProperties|()
-        lval pReadOnly: R|dev/rnett/spekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/spekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Callable.name|.R|dev/rnett/spekt/MemberName.name|, String(readOnly))
+        lval pReadOnly: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(readOnly))
         }
-        ) as R|dev/rnett/spekt/ReadOnlyProperty|)
-        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(fixed), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(readOnly get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pReadOnly|.R|dev/rnett/spekt/Property.get|(<L> = get@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+        ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(fixed), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(readOnly get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pReadOnly|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        lval pMutable: R|dev/rnett/spekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/spekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Callable.name|.R|dev/rnett/spekt/MemberName.name|, String(mutable))
+        lval pMutable: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(mutable))
         }
-        ) as R|dev/rnett/spekt/MutableProperty|)
-        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(initial), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(mutable get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pMutable|.R|dev/rnett/spekt/Property.get|(<L> = get@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+        ) as R|dev/rnett/inspekt/MutableProperty|)
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(initial), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(mutable get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pMutable|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(mutable set), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pMutable|.R|dev/rnett/spekt/MutableProperty.set|(<L> = set@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.value|(vararg(String(changed)))
+        R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(mutable set), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pMutable|.R|dev/rnett/inspekt/MutableProperty.set|(<L> = set@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.value|(vararg(String(changed)))
             }
             )
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(changed), R|<local>/instance|.R|auto/implementation/box/TestProperties.mutable|)
-        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(changed), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(mutable get after set), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pMutable|.R|dev/rnett/spekt/Property.get|(<L> = get@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(changed), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(mutable get after set), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pMutable|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        lval pWithGetter: R|dev/rnett/spekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/spekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Callable.name|.R|dev/rnett/spekt/MemberName.name|, String(withGetter))
+        lval pWithGetter: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(withGetter))
         }
-        ) as R|dev/rnett/spekt/ReadOnlyProperty|)
-        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(changed_got), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(withGetter get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pWithGetter|.R|dev/rnett/spekt/Property.get|(<L> = get@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+        ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(changed_got), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(withGetter get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pWithGetter|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        lval pWithSetter: R|dev/rnett/spekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/spekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Callable.name|.R|dev/rnett/spekt/MemberName.name|, String(withSetter))
+        lval pWithSetter: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(withSetter))
         }
-        ) as R|dev/rnett/spekt/MutableProperty|)
-        R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(withSetter set), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pWithSetter|.R|dev/rnett/spekt/MutableProperty.set|(<L> = set@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.value|(vararg(String(new)))
+        ) as R|dev/rnett/inspekt/MutableProperty|)
+        R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(withSetter set), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pWithSetter|.R|dev/rnett/inspekt/MutableProperty.set|(<L> = set@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.value|(vararg(String(new)))
             }
             )
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(new_set), R|<local>/instance|.R|auto/implementation/box/TestProperties.withSetter|)
-        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(new_set), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(withSetter get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pWithSetter|.R|dev/rnett/spekt/Property.get|(<L> = get@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(new_set), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(withSetter get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pWithSetter|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        lval pDelegated: R|dev/rnett/spekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/spekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/spekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/spekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/spekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/spekt/Callable.name|.R|dev/rnett/spekt/MemberName.name|, String(delegated))
+        lval pDelegated: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(delegated))
         }
-        ) as R|dev/rnett/spekt/ReadOnlyProperty|)
-        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(lazy_value), R|dev/rnett/spekt/assertSuccessful|<R|kotlin/Any?|>(String(delegated get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pDelegated|.R|dev/rnett/spekt/Property.get|(<L> = get@fun R|dev/rnett/spekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/spekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/spekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+        ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
+        R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(lazy_value), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(delegated get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/pDelegated|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }

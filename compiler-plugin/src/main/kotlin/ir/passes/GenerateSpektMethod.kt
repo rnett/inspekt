@@ -1,14 +1,14 @@
-package dev.rnett.spekt.ir.passes
+package dev.rnett.inspekt.ir.passes
 
+import dev.rnett.inspekt.DeclarationKeys
+import dev.rnett.inspekt.GeneratedNames
+import dev.rnett.inspekt.ir.SpektGenerator
+import dev.rnett.inspekt.pluginKey
+import dev.rnett.inspekt.toIrOrigin
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.IrFullProcessor
 import dev.rnett.kcp.development.utils.ir.createLambda
 import dev.rnett.kcp.development.utils.ir.withBuilder
-import dev.rnett.spekt.DeclarationKeys
-import dev.rnett.spekt.GeneratedNames
-import dev.rnett.spekt.ir.SpektGenerator
-import dev.rnett.spekt.pluginKey
-import dev.rnett.spekt.toIrOrigin
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation
 import org.jetbrains.kotlin.descriptors.DescriptorVisibilities

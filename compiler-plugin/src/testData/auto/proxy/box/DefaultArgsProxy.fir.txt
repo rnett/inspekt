@@ -8,8 +8,8 @@ FILE: DefaultArgsProxy.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval proxy: R|auto/proxy/box/Base| = R|dev/rnett/spekt/proxy/proxy|<R|auto/proxy/box/Base|>(<getClass>(Q|auto/proxy/box/Base|), <L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
-            ^ this@R|special/anonymous|.R|dev/rnett/spekt/proxy/SuperCall.callSuper|()
+        lval proxy: R|auto/proxy/box/Base| = R|dev/rnett/inspekt/proxy/proxy|<R|auto/proxy/box/Base|>(<getClass>(Q|auto/proxy/box/Base|), <L> = SAM(proxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+            ^ this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.callSuper|()
         }
         ))
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(Base(1)), R|<local>/proxy|.R|auto/proxy/box/Base.test|(), String(Default value))

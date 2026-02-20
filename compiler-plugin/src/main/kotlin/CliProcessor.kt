@@ -1,4 +1,4 @@
-package dev.rnett.spekt
+package dev.rnett.inspekt
 
 import dev.rnett.kcp.development.options.BaseCommandLineProcessor
 import dev.rnett.kcp.development.options.CompilerOptionsHost

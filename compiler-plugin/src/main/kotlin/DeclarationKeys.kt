@@ -1,4 +1,4 @@
-package dev.rnett.spekt
+package dev.rnett.inspekt
 
 import org.jetbrains.kotlin.GeneratedDeclarationKey
 import org.jetbrains.kotlin.fir.declarations.FirDeclarationOrigin

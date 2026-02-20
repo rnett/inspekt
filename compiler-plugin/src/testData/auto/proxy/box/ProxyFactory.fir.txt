@@ -6,8 +6,8 @@ FILE: ProxyFactory.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval factory: R|(dev/rnett/spekt/proxy/ProxyHandler) -> auto/proxy/box/TestFactory| = R|dev/rnett/spekt/proxy/proxyFactory|<R|auto/proxy/box/TestFactory|>(<getClass>(Q|auto/proxy/box/TestFactory|))
-        lval proxy: R|auto/proxy/box/TestFactory| = R|<local>/factory|.R|SubstitutionOverride<kotlin/Function1.invoke: R|auto/proxy/box/TestFactory|>|(<L> = SAM(factory@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+        lval factory: R|(dev/rnett/inspekt/proxy/ProxyHandler) -> auto/proxy/box/TestFactory| = R|dev/rnett/inspekt/proxy/proxyFactory|<R|auto/proxy/box/TestFactory|>(<getClass>(Q|auto/proxy/box/TestFactory|))
+        lval proxy: R|auto/proxy/box/TestFactory| = R|<local>/factory|.R|SubstitutionOverride<kotlin/Function1.invoke: R|auto/proxy/box/TestFactory|>|(<L> = SAM(factory@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
             ^ Int(4)
         }
         ))

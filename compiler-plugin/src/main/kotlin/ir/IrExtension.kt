@@ -1,10 +1,10 @@
-package dev.rnett.spekt.ir
+package dev.rnett.inspekt.ir
 
+import dev.rnett.inspekt.SpektSpec
+import dev.rnett.inspekt.ir.passes.GenerateSpektMethod
+import dev.rnett.inspekt.ir.passes.ReplaceInspektCalls
+import dev.rnett.inspekt.ir.passes.ReplaceProxyCalls
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
-import dev.rnett.spekt.SpektSpec
-import dev.rnett.spekt.ir.passes.GenerateSpektMethod
-import dev.rnett.spekt.ir.passes.ReplaceInspektCalls
-import dev.rnett.spekt.ir.passes.ReplaceProxyCalls
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.declarations.IrModuleFragment

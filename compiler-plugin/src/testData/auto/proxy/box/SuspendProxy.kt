@@ -1,4 +1,4 @@
-import dev.rnett.spekt.proxy.proxy
+import dev.rnett.inspekt.proxy.proxy
 
 interface Base {
     suspend fun test(): String = "Base"

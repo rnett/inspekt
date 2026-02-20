@@ -1,4 +1,4 @@
-import dev.rnett.spekt.proxy.proxy
+import dev.rnett.inspekt.proxy.proxy
 
 interface Base {
     val prop: String
@@ -13,7 +13,7 @@ fun box(): String {
     var backing = "initial"
 
     val proxy = proxy(Sub::class) {
-        if (superMethod is dev.rnett.spekt.PropertySetter) {
+        if (superMethod is dev.rnett.inspekt.PropertySetter) {
             backing = args[1] as String
             null
         } else {

@@ -1,7 +1,7 @@
 FILE: Basic.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/Inspekt|() public final class Test : R|kotlin/Any| {
+    @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
         public constructor(test1: R|kotlin/String| = String(test)): R|auto/implementation/box/Test| {
             super<R|kotlin/Any|>()
         }
@@ -29,11 +29,11 @@ FILE: Basic.kt
                     ^ this@R|auto/implementation/box/Test.Companion|.D|auto/implementation/box/Test.Companion.t|.R|kotlin/getValue|<R|kotlin/Int|>(this@R|auto/implementation/box/Test.Companion|, ::R|auto/implementation/box/Test.Companion.t|)
                 }
 
-            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/Test>|
+            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/Test>|
 
         }
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.spekt|().R|SubstitutionOverride<dev/rnett/spekt/Spekt.toString: R|kotlin/String|>|()
+        ^box Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.spekt|().R|SubstitutionOverride<dev/rnett/inspekt/Spekt.toString: R|kotlin/String|>|()
     }

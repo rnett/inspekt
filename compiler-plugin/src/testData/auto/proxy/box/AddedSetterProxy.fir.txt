@@ -14,10 +14,10 @@ FILE: AddedSetterProxy.kt
     }
     public final fun box(): R|kotlin/String| {
         lvar backing: R|kotlin/String| = String(initial)
-        lval proxy: R|auto/proxy/box/Sub| = R|dev/rnett/spekt/proxy/proxy|<R|auto/proxy/box/Sub|>(<getClass>(Q|auto/proxy/box/Sub|), <L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+        lval proxy: R|auto/proxy/box/Sub| = R|dev/rnett/inspekt/proxy/proxy|<R|auto/proxy/box/Sub|>(<getClass>(Q|auto/proxy/box/Sub|), <L> = SAM(proxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
             ^ when () {
-                (this@R|special/anonymous|.R|dev/rnett/spekt/proxy/SuperCall.superMethod| is R|dev/rnett/spekt/PropertySetter|) ->  {
-                    R|<local>/backing| = (this@R|special/anonymous|.R|dev/rnett/spekt/proxy/SuperCall.args|.R|SubstitutionOverride<kotlin/collections/List.get: R|kotlin/Any?|>|(Int(1)) as R|kotlin/String|)
+                (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.superMethod| is R|dev/rnett/inspekt/PropertySetter|) ->  {
+                    R|<local>/backing| = (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.args|.R|SubstitutionOverride<kotlin/collections/List.get: R|kotlin/Any?|>|(Int(1)) as R|kotlin/String|)
                     Null(null)
                 }
                 else ->  {

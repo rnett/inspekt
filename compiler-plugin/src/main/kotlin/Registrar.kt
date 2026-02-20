@@ -1,8 +1,8 @@
-package dev.rnett.spekt
+package dev.rnett.inspekt
 
+import dev.rnett.inspekt.fir.FirExtension
+import dev.rnett.inspekt.ir.IrExtension
 import dev.rnett.kcp.development.registrar.BaseSpecCompilerPluginRegistrar
-import dev.rnett.spekt.fir.FirExtension
-import dev.rnett.spekt.ir.IrExtension
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.jetbrains.kotlin.config.CompilerConfiguration
 

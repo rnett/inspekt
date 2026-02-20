@@ -1,6 +1,6 @@
-package dev.rnett.spekt.fir
+package dev.rnett.inspekt.fir
 
-import dev.rnett.spekt.Names
+import dev.rnett.inspekt.Names
 import dev.rnett.symbolexport.symbol.compiler.asFqName
 import org.jetbrains.kotlin.fir.extensions.predicate.DeclarationPredicate
 

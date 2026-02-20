@@ -1,11 +1,11 @@
-package dev.rnett.spekt.ir.passes
+package dev.rnett.inspekt.ir.passes
 
+import dev.rnett.inspekt.Symbols
+import dev.rnett.inspekt.ir.ProxyGenerator
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.IrFullTransformerWithContext
 import dev.rnett.kcp.development.utils.ir.createLambda
 import dev.rnett.kcp.development.utils.ir.withBuilder
-import dev.rnett.spekt.Symbols
-import dev.rnett.spekt.ir.ProxyGenerator
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation
@@ -37,13 +37,13 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
 
     override fun visitCall(expression: IrCall): IrExpression {
         val result = when (expression.symbol.owner.callableId) {
-            Symbols.spekt.dev_rnett_spekt_proxy_proxy.asCallableId() ->
+            Symbols.inspekt.dev_rnett_inspekt_proxy_proxy.asCallableId() ->
                 intrinsifyProxy(expression)
 
-            Symbols.spekt.dev_rnett_spekt_proxy_proxyFactory.asCallableId() ->
+            Symbols.inspekt.dev_rnett_inspekt_proxy_proxyFactory.asCallableId() ->
                 intrinsifyProxyFactory(expression)
 
-            Symbols.spekt.dev_rnett_spekt_proxy_proxyableSpekt.asCallableId() ->
+            Symbols.inspekt.dev_rnett_inspekt_proxy_proxyableSpekt.asCallableId() ->
                 intrinsifyProxyableSpekt(expression)
 
             else -> expression
@@ -51,7 +51,7 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
         return super.visitExpression(result)
     }
 
-    private val proxyableSpektHelper get() = context.referenceFunctions(Symbols.spekt.dev_rnett_spekt_proxy_v1ProxyableSpektHelper.asCallableId()).single()
+    private val proxyableSpektHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyableSpektHelper.asCallableId()).single()
 
     private fun intrinsifyProxyableSpekt(expression: IrCall): IrExpression {
         val baseInterface = checkIsInterface(expression.arguments[0] ?: error("proxyableSpekt first argument is required")) ?: error("proxyableSpekt first argument must be an interface")

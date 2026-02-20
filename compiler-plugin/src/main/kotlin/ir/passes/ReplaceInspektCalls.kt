@@ -1,9 +1,9 @@
-package dev.rnett.spekt.ir.passes
+package dev.rnett.inspekt.ir.passes
 
+import dev.rnett.inspekt.Names
+import dev.rnett.inspekt.ir.SpektGenerator
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.IrFullTransformerWithContext
-import dev.rnett.spekt.Names
-import dev.rnett.spekt.ir.SpektGenerator
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation

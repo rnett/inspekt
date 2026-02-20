@@ -5,6 +5,6 @@ plugins {
 
 dependencies {
     api(libs.kotlinx.coroutines.test)
-    api(project(":spekt"))
+    api(project(":inspekt"))
     api(kotlin("test-junit5"))
 }

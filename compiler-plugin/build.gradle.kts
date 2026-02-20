@@ -6,16 +6,16 @@ plugins {
 }
 
 compilerPluginDevelopment {
-    compilerPluginRegistrar = "dev.rnett.spekt.Registrar"
-    commandLineProcessor = "dev.rnett.spekt.CliProcessor"
-    testGenerator = "dev.rnett.spekt.TestGenerator"
+    compilerPluginRegistrar = "dev.rnett.inspekt.Registrar"
+    commandLineProcessor = "dev.rnett.inspekt.CliProcessor"
+    testGenerator = "dev.rnett.inspekt.TestGenerator"
 }
 
 dependencies {
     implementation(libs.symbols.kotlin.compiler)
     compilerTestRuntimeClasspath(project(":test-helpers"))
 
-    importSymbols(project(":spekt"))
+    importSymbols(project(":inspekt"))
 }
 
 tasks.test {

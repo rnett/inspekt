@@ -1,7 +1,7 @@
 FILE: WithCompanion.kt
     package auto.spekt_method.fir
 
-    @R|dev/rnett/spekt/Inspekt|() public final class Test : R|kotlin/Any| {
+    @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/spekt_method/fir/Test| {
             super<R|kotlin/Any|>()
         }
@@ -14,7 +14,7 @@ FILE: WithCompanion.kt
             public final val test: R|kotlin/Int| = Int(3)
                 public get(): R|kotlin/Int|
 
-            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/spekt_method/fir/Test>|
+            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/spekt_method/fir/Test>|
 
         }
 

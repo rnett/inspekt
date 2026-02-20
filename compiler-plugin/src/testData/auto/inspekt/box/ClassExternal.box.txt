@@ -1,4 +1,4 @@
-class dev.rnett.spekt.ExternalTest : java.lang.AutoCloseable {
+class dev.rnett.inspekt.ExternalTest : java.lang.AutoCloseable {
     <init>(a: int, b: java.lang.String = ...)
     fun test(c: int, d: java.lang.String = ...): kotlin.Unit
     fun close(): kotlin.Unit

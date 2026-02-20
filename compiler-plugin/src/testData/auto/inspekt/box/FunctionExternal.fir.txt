@@ -2,5 +2,5 @@ FILE: FunctionExternal.kt
     package auto.inspekt.box
 
     public final fun box(): R|kotlin/String| {
-        ^box R|dev/rnett/spekt/inspekt|(Q|dev/rnett/spekt/ExternalTest|::R|dev/rnett/spekt/ExternalTest.test|).R|dev/rnett/spekt/Callable.toString|()
+        ^box R|dev/rnett/inspekt/inspekt|(Q|dev/rnett/inspekt/ExternalTest|::R|dev/rnett/inspekt/ExternalTest.test|).R|dev/rnett/inspekt/Callable.toString|()
     }

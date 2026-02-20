@@ -14,8 +14,8 @@ FILE: IntermediateOverrideProxy.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval proxy: R|auto/proxy/box/Intermediate| = R|dev/rnett/spekt/proxy/proxy|<R|auto/proxy/box/Intermediate|>(<getClass>(Q|auto/proxy/box/Intermediate|), <L> = SAM(proxy@fun R|dev/rnett/spekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
-            ^ (this@R|special/anonymous|.R|dev/rnett/spekt/proxy/SuperCall.callSuper|() as R|kotlin/String|)
+        lval proxy: R|auto/proxy/box/Intermediate| = R|dev/rnett/inspekt/proxy/proxy|<R|auto/proxy/box/Intermediate|>(<getClass>(Q|auto/proxy/box/Intermediate|), <L> = SAM(proxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
+            ^ (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.callSuper|() as R|kotlin/String|)
         }
         ))
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(Intermediate), R|<local>/proxy|.R|auto/proxy/box/Intermediate.test|(), String(Intermediate.test()))

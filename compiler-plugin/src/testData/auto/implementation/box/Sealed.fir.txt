@@ -1,7 +1,7 @@
 FILE: Sealed.kt
     package auto.implementation.box
 
-    @R|dev/rnett/spekt/Inspekt|() public sealed interface SealedInt : R|kotlin/Any| {
+    @R|dev/rnett/inspekt/Inspekt|() public sealed interface SealedInt : R|kotlin/Any| {
         public final data class Impl1 : R|auto/implementation/box/SealedInt| {
             public constructor(test: R|kotlin/Int|): R|auto/implementation/box/SealedInt.Impl1| {
                 super<R|kotlin/Any|>()
@@ -17,7 +17,7 @@ FILE: Sealed.kt
         }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/spekt/Spekt<auto/implementation/box/SealedInt>|
+            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/SealedInt>|
 
             private constructor(): R|auto/implementation/box/SealedInt.Companion| {
                 super<R|kotlin/Any|>()
@@ -39,5 +39,5 @@ FILE: Sealed.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box Q|auto/implementation/box/SealedInt|.R|auto/implementation/box/SealedInt.Companion.spekt|().R|SubstitutionOverride<dev/rnett/spekt/Spekt.toString: R|kotlin/String|>|(Boolean(true))
+        ^box Q|auto/implementation/box/SealedInt|.R|auto/implementation/box/SealedInt.Companion.spekt|().R|SubstitutionOverride<dev/rnett/inspekt/Spekt.toString: R|kotlin/String|>|(Boolean(true))
     }

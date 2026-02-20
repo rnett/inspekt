@@ -23,7 +23,7 @@ the<DokkaExtension>().apply {
     }
     dokkaSourceSets.configureEach {
         sourceLink {
-            remoteUrl = commit.map { URI.create("https://github.com/rnett/spekt/blob/${it.trim()}") }
+            remoteUrl = commit.map { URI.create("https://github.com/rnett/inspekt/blob/${it.trim()}") }
             localDirectory = project.rootDir
             remoteLineSuffix = "#L"
         }

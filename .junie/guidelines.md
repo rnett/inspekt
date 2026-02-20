@@ -1,6 +1,6 @@
 # Project Guidelines
 
-This is `spekt`, a Gradle project for a Kotlin Multiplatform compile time reflection library.
+This is `inspekt`, a Gradle project for a Kotlin Multiplatform compile time reflection library.
 
 Use the Gradle MCP to interact with Gradle whenever possible.
 
