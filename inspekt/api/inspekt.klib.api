@@ -16,7 +16,7 @@ open annotation class dev.rnett.inspekt/InspektCompilerPluginIntrinsic : kotlin/
 
 abstract fun interface dev.rnett.inspekt.proxy/ProxyHandler { // dev.rnett.inspekt.proxy/ProxyHandler|null[0]
     abstract fun (dev.rnett.inspekt.proxy/SuperCall).handle(): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.handle|handle@dev.rnett.inspekt.proxy.SuperCall(){}[0]
-    open fun (context(dev.rnett.inspekt.proxy/SuperCall), kotlin/Array<kotlin/Any?>).get(dev.rnett.inspekt/Parameter): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.get|get(dev.rnett.inspekt.proxy.SuperCall)@kotlin.Array<kotlin.Any?>(dev.rnett.inspekt.Parameter){}[0]
+    open fun (context(dev.rnett.inspekt.proxy/SuperCall), kotlin.collections/List<kotlin/Any?>).get(dev.rnett.inspekt/Parameter): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.get|get(dev.rnett.inspekt.proxy.SuperCall)@kotlin.collections.List<kotlin.Any?>(dev.rnett.inspekt.Parameter){}[0]
     open suspend fun (dev.rnett.inspekt.proxy/SuperCall).handleSuspend(): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.handleSuspend|handleSuspend@dev.rnett.inspekt.proxy.SuperCall(){}[0]
 }
 
@@ -519,6 +519,9 @@ sealed class dev.rnett.inspekt.proxy/SuperCall { // dev.rnett.inspekt.proxy/Supe
         final fun <get-parameters>(): dev.rnett.inspekt/Parameters // dev.rnett.inspekt.proxy/SuperCall.parameters.<get-parameters>|<get-parameters>(){}[0]
 
     final fun (dev.rnett.inspekt/ArgumentList.Builder).copyArgs() // dev.rnett.inspekt.proxy/SuperCall.copyArgs|copyArgs@dev.rnett.inspekt.ArgumentList.Builder(){}[0]
+    final fun arg(dev.rnett.inspekt/Parameter): kotlin/Any? // dev.rnett.inspekt.proxy/SuperCall.arg|arg(dev.rnett.inspekt.Parameter){}[0]
+    final fun arg(kotlin/String): kotlin/Any? // dev.rnett.inspekt.proxy/SuperCall.arg|arg(kotlin.String){}[0]
+    final fun argOrNull(kotlin/String): kotlin/Any? // dev.rnett.inspekt.proxy/SuperCall.argOrNull|argOrNull(kotlin.String){}[0]
     final fun callSuper(): kotlin/Any? // dev.rnett.inspekt.proxy/SuperCall.callSuper|callSuper(){}[0]
     final inline fun callSuper(kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.inspekt.proxy/SuperCall.callSuper|callSuper(kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
 

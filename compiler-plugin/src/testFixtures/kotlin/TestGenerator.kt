@@ -11,6 +11,6 @@ object TestGenerator : BaseTestGenerator() {
         "kotlinx.coroutines.test.*"
     )
     override val optIns: Set<String> = setOf(
-        "dev.rnett.inspekt.SpektCompilerPluginIntrinsic"
+        "dev.rnett.inspekt.InspektCompilerPluginIntrinsic"
     )
 }

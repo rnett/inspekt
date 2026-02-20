@@ -6,6 +6,7 @@ import dev.rnett.inspekt.Function
 import dev.rnett.inspekt.InspektCompilerPluginIntrinsic
 import dev.rnett.inspekt.Inspektion
 import dev.rnett.inspekt.Method
+import dev.rnett.inspekt.MustBeReferenceLiteral
 import dev.rnett.inspekt.Parameter
 import dev.rnett.inspekt.Parameters
 import dev.rnett.inspekt.Property
@@ -20,6 +21,10 @@ public sealed class SuperCall {
     public abstract val superMethod: Method
     public val parameters: Parameters get() = superMethod.parameters
     public abstract val args: List<Any?>
+
+    public fun arg(param: Parameter): Any? = args[param.globalIndex]
+    public fun arg(name: String): Any? = arg(parameters[name] ?: throw IllegalArgumentException("No argument for parameter named $name"))
+    public fun argOrNull(name: String): Any? = args[parameters[name]?.globalIndex ?: return null]
 
     public val isSuperCallable: Boolean get() = !superMethod.isAbstract
     public val isSuperAbstract: Boolean get() = superMethod.isAbstract
@@ -73,7 +78,7 @@ public fun interface ProxyHandler {
     public suspend fun SuperCall.handleSuspend(): Any? = handle()
 
     context(superCall: SuperCall)
-    public operator fun Array<Any?>.get(param: Parameter): Any? = this[param.globalIndex]
+    public operator fun List<Any?>.get(param: Parameter): Any? = this[param.globalIndex]
 }
 
 @Suppress("unused")
@@ -124,14 +129,21 @@ internal suspend fun v1SuspendProxyHelper(
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
-public fun <T : Any> proxy(toImplement: KClass<T>, vararg additionalInterfaces: KClass<*>, handler: ProxyHandler): T = throwIntrinsicException()
+public fun <T : Any> proxy(
+    @MustBeReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
+    @MustBeReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
+    handler: ProxyHandler
+): T = throwIntrinsicException()
 
 /**
  * [toImplement] and each [additionalInterfaces] must be an interface.
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
-public fun <T : Any> proxyFactory(toImplement: KClass<T>, vararg additionalInterfaces: KClass<*>): (ProxyHandler) -> T = throwIntrinsicException()
+public fun <T : Any> proxyFactory(
+    @MustBeReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
+    @MustBeReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>
+): (ProxyHandler) -> T = throwIntrinsicException()
 
 public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, private val factory: (ProxyHandler) -> T) {
     public fun createProxy(handler: ProxyHandler): T = factory(handler)
@@ -142,7 +154,7 @@ public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, 
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
-public fun <T : Any> proxyableInspektion(toImplement: KClass<T>): ProxyableInspektion<T> = throwIntrinsicException()
+public fun <T : Any> proxyableInspektion(@MustBeReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>): ProxyableInspektion<T> = throwIntrinsicException()
 
 
 @Suppress("UNCHECKED_CAST", "unused")

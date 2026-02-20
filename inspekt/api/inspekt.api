@@ -517,13 +517,13 @@ public final class dev/rnett/inspekt/internal/InspektionResultV1$Property {
 }
 
 public abstract interface class dev/rnett/inspekt/proxy/ProxyHandler {
-	public fun get (Ldev/rnett/inspekt/proxy/SuperCall;[Ljava/lang/Object;Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
+	public fun get (Ldev/rnett/inspekt/proxy/SuperCall;Ljava/util/List;Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
 	public abstract fun handle (Ldev/rnett/inspekt/proxy/SuperCall;)Ljava/lang/Object;
 	public fun handleSuspend (Ldev/rnett/inspekt/proxy/SuperCall;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class dev/rnett/inspekt/proxy/ProxyHandler$DefaultImpls {
-	public static fun get (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/proxy/SuperCall;[Ljava/lang/Object;Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
+	public static fun get (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/proxy/SuperCall;Ljava/util/List;Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
 	public static fun handleSuspend (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/proxy/SuperCall;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
@@ -543,6 +543,9 @@ public final class dev/rnett/inspekt/proxy/ProxyableInspektion {
 }
 
 public abstract class dev/rnett/inspekt/proxy/SuperCall {
+	public final fun arg (Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
+	public final fun arg (Ljava/lang/String;)Ljava/lang/Object;
+	public final fun argOrNull (Ljava/lang/String;)Ljava/lang/Object;
 	public final fun callSuper ()Ljava/lang/Object;
 	public final fun callSuper (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public final fun copyArgs (Ldev/rnett/inspekt/ArgumentList$Builder;)V
