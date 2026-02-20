@@ -25,5 +25,5 @@ fun box(): String {
   return Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "test", isAbstract = false, kotlin = Test::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Test>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
     return args.v1Get(globalIndex = 0) as Test.test()
   }
-, suspendInvoker = null, inheritedFrom = null).toSpekt().toString()
+, suspendInvoker = null, inheritedFrom = null).toModel().toString()
 }

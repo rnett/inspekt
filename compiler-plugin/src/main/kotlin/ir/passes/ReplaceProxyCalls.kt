@@ -57,7 +57,7 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
         val baseInterface = checkIsInterface(expression.arguments[0] ?: error("proxyableSpekt first argument is required")) ?: error("proxyableSpekt first argument must be an interface")
         return withBuilderForCurrentScope {
             irCall(proxyableSpektHelper).apply {
-                arguments[0] = generator.spektGenerator.createSpekt(baseInterface, expression.getCompilerMessageLocation(currentFile))
+                arguments[0] = generator.spektGenerator.createInspektion(baseInterface, expression.getCompilerMessageLocation(currentFile))
                 arguments[1] = createProxyFactory(listOf(baseInterface), expression.getCompilerMessageLocation(currentFile))
             }
 

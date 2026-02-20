@@ -69,19 +69,19 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
             name = GeneratedNames.inspektImplFieldV1
             visibility = DescriptorVisibilities.PRIVATE
             origin = DeclarationKeys.SpektImplementationFieldV1.toIrOrigin()
-            type = lazyClass.typeWith(generator.Spekt.typeWith(target.defaultType))
+            type = lazyClass.typeWith(generator.Inspektion.typeWith(target.defaultType))
             isStatic = true
             isFinal = true
         }.apply field@{
             initializer = withBuilder {
                 irExprBody(
                     irCall(lazy).apply {
-                        typeArguments[0] = generator.Spekt.typeWith(target.defaultType)
+                        typeArguments[0] = generator.Inspektion.typeWith(target.defaultType)
                         arguments[0] = createLambda(this@GenerateSpektMethod.context) {
-                            returnType = generator.Spekt.typeWith(target.defaultType)
+                            returnType = generator.Inspektion.typeWith(target.defaultType)
                             body = withBuilder {
                                 irBlockBody {
-                                    +irReturn(generator.createSpekt(target, target.getCompilerMessageLocation(target.file)))
+                                    +irReturn(generator.createInspektion(target, target.getCompilerMessageLocation(target.file)))
                                 }
                             }
                         }

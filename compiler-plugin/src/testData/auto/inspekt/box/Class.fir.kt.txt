@@ -22,7 +22,7 @@ class Test {
 }
 
 fun box(): String {
-  return SpektImplementationV1</* null */>(kClass = Test::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Test"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "test", isAbstract = false, kotlin = Test::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Test>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+  return InspektionResultV1</* null */>(kClass = Test::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Test"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "test", isAbstract = false, kotlin = Test::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Test>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
     return args.v1Get(globalIndex = 0) as Test.test()
   }
 , suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Test"]), name = "equals", isAbstract = false, kotlin = Test::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
@@ -57,5 +57,5 @@ fun box(): String {
 , safeCast = local fun <anonymous>(it: Any): Test? {
     return it as? Test
   }
-, objectInstance = null, companionObject = null).toSpekt().toString()
+, objectInstance = null, companionObject = null).toModel().toString()
 }

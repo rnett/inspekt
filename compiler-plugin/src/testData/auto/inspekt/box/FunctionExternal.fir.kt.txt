@@ -9,5 +9,5 @@ fun box(): String {
       else -> args.throwInvalidBitmask()
     }
   }
-, suspendInvoker = null, inheritedFrom = null).toSpekt().toString()
+, suspendInvoker = null, inheritedFrom = null).toModel().toString()
 }

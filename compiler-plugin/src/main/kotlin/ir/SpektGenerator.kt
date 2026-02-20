@@ -69,18 +69,18 @@ import org.jetbrains.kotlin.ir.util.properties
 
 @OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
-    val Spekt get() = context.referenceClass(Names.Inspektion.asClassId())!!
-    val Spekt_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementation_toSpekt.asCallableId()).single()
-    val ImplementationV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1.asClassId())!!
+    val Inspektion get() = context.referenceClass(Names.Inspektion.asClassId())!!
+    private val Spekt_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResult_toModel.asCallableId()).single()
+    private val ImplementationV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1.asClassId())!!
 
-    private val ImplFunction get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Function.asClassId())!!
-    private val ImplProperty get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Property.asClassId())!!
-    private val ImplParam get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Param.asClassId())!!
+    private val ImplFunction get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function.asClassId())!!
+    private val ImplProperty get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property.asClassId())!!
+    private val ImplParam get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param.asClassId())!!
     private val ArgumentsProviderV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1.asClassId())!!
 
-    val SpektFunction_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Function_toSpekt.asCallableId()).single()
+    private val SpektFunction_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_toModel.asCallableId()).single()
 
-    val SpektProperty_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1_Property_toSpekt.asCallableId()).single()
+    private val SpektProperty_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_toModel.asCallableId()).single()
 
     private data class GenerationContext(
         val makeSuperFor: IrClass?,
@@ -88,16 +88,16 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     )
 
     context(builder: IrBuilderWithScope)
-    fun createSpekt(declaration: IrClass, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null): IrExpression = with(builder) {
+    fun createInspektion(declaration: IrClass, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null): IrExpression = with(builder) {
         context(GenerationContext(makeSuperFor, reportLocation)) {
             return irCall(Spekt_toSpekt).apply {
-                this.arguments[0] = createSpektImplementation(declaration)
+                this.arguments[0] = createInspektionImplementation(declaration)
             }
         }
     }
 
     context(builder: IrBuilderWithScope)
-    fun createPropertySpekt(declaration: IrProperty, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null): IrExpression = with(builder) {
+    fun createPropertyInspektion(declaration: IrProperty, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null): IrExpression = with(builder) {
         context(GenerationContext(makeSuperFor, reportLocation)) {
             return irCall(SpektProperty_toSpekt).apply {
                 this.arguments[0] = createPropertyObject(declaration)
@@ -106,7 +106,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     }
 
     context(builder: IrBuilderWithScope)
-    fun createFunctionSpekt(declaration: IrFunction, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null): IrExpression = with(builder) {
+    fun createFunctionInspektion(declaration: IrFunction, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null): IrExpression = with(builder) {
         context(GenerationContext(makeSuperFor, reportLocation)) {
             return irCall(SpektFunction_toSpekt).apply {
                 this.arguments[0] = createFunctionObject(declaration)
@@ -115,7 +115,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     }
 
     context(context: GenerationContext)
-    private fun IrBuilderWithScope.createSpektImplementation(declaration: IrClass): IrExpression {
+    private fun IrBuilderWithScope.createInspektionImplementation(declaration: IrClass): IrExpression {
         return irCall(ImplementationV1.constructors.single().owner).apply {
             val packageNamesValue = declaration.classIdOrFail.packageFqName.pathSegments().map { it.asString() }
             val classNamesValue = declaration.classIdOrFail.relativeClassName.pathSegments().map { it.asString() }
@@ -134,7 +134,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[isInstance] = createIsInstanceLambda(declaration)
                 arguments[safeCast] = creatSafeCastLambda(declaration)
                 arguments[objectInstance] = if (declaration.kind == ClassKind.OBJECT) irGetObject(declaration.symbol) else irNull()
-                arguments[companionObject] = declaration.companionObject()?.takeIf { it.visibility.isPublicAPI }?.let { createSpektImplementation(it) } ?: irNull()
+                arguments[companionObject] = declaration.companionObject()?.takeIf { it.visibility.isPublicAPI }?.let { createInspektionImplementation(it) } ?: irNull()
             }
         }
     }
@@ -143,7 +143,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
 
     context(context: GenerationContext)
     private fun IrBuilderWithScope.getSealedSubclasses(declaration: IrClass): IrExpression {
-        val implClasses = declaration.sealedSubclasses.map { createSpektImplementation(it.owner) }
+        val implClasses = declaration.sealedSubclasses.map { createInspektionImplementation(it.owner) }
         return irArrayOf(ImplementationV1.defaultType, implClasses)
     }
 

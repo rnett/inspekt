@@ -21,9 +21,9 @@ import kotlin.reflect.KType
 
 @PublishedApi
 @ExportSymbol
-internal sealed class SpektImplementation<T : Any> {
+internal sealed class InspektionResult<T : Any> {
     @ExportSymbol
-    abstract fun toSpekt(): Inspektion<T>
+    abstract fun toModel(): Inspektion<T>
 }
 
 @PublishedApi
@@ -41,7 +41,7 @@ internal interface ArgumentsProviderV1 {
 
 @PublishedApi
 @ExportSymbol
-internal class SpektImplementationV1<T : Any>
+internal class InspektionResultV1<T : Any>
 @ExportSymbol @PublishedApi internal constructor(
     @param:ExportSymbol private val kClass: KClass<*>,
     @param:ExportSymbol private val isAbstract: Boolean,
@@ -52,17 +52,17 @@ internal class SpektImplementationV1<T : Any>
     @param:ExportSymbol private val functions: Array<Function>,
     @param:ExportSymbol private val properties: Array<Property>,
     @param:ExportSymbol private val constructors: Array<Function>,
-    @param:ExportSymbol private val sealedSubclasses: Array<SpektImplementationV1<out T>>?,
+    @param:ExportSymbol private val sealedSubclasses: Array<InspektionResultV1<out T>>?,
     @param:ExportSymbol private val cast: (Any) -> T,
     @param:ExportSymbol private val isInstance: (Any) -> Boolean,
     @param:ExportSymbol private val safeCast: (Any) -> T?,
     @param:ExportSymbol private val objectInstance: T?,
-    @param:ExportSymbol private val companionObject: SpektImplementationV1<Any>?
-) : SpektImplementation<T>() {
+    @param:ExportSymbol private val companionObject: InspektionResultV1<Any>?
+) : InspektionResult<T>() {
 
     internal val name = ClassName(PackageName(packageNames.toList()), classNames.toList())
 
-    override fun toSpekt(): Inspektion<T> {
+    override fun toModel(): Inspektion<T> {
         lateinit var ref: Inspektion<T>
         val lazy = lazy(LazyThreadSafetyMode.NONE) { ref }
 
@@ -75,18 +75,18 @@ internal class SpektImplementationV1<T : Any>
             annotations.toList(),
             objectInstance,
             functions.map {
-                it.toSpekt()
+                it.toModel()
             },
             properties.map {
-                it.toSpekt()
+                it.toModel()
             },
-            constructors.map { it.toSpektCtor(lazy) },
+            constructors.map { it.toModelCtor(lazy) },
             isAbstract,
-            sealedSubclasses.orEmpty().map { it.toSpekt() },
+            sealedSubclasses.orEmpty().map { it.toModel() },
             cast,
             isInstance,
             safeCast,
-            companionObject?.toSpekt()
+            companionObject?.toModel()
         ).also {
             ref = it
         }
@@ -114,12 +114,12 @@ internal class SpektImplementationV1<T : Any>
 
         @ExportSymbol
         @PublishedApi
-        internal fun toSpekt(): dev.rnett.inspekt.Function = dev.rnett.inspekt.Function(
+        internal fun toModel(): dev.rnett.inspekt.Function = dev.rnett.inspekt.Function(
             name,
             kotlin,
             annotations.toList(),
             isAbstract,
-            Parameters(parameters.map { it.toSpekt() }),
+            Parameters(parameters.map { it.toModel() }),
             returnType,
             isSuspend,
             invoker,
@@ -127,34 +127,34 @@ internal class SpektImplementationV1<T : Any>
             inheritedFrom
         )
 
-        internal fun toPropertyGetterSpekt(prop: Lazy<dev.rnett.inspekt.Property>): PropertyGetter = PropertyGetter(
+        internal fun toPropertyGetterModel(prop: Lazy<dev.rnett.inspekt.Property>): PropertyGetter = PropertyGetter(
             prop,
             kotlin,
-            Parameters(parameters.map { it.toSpekt() }),
+            Parameters(parameters.map { it.toModel() }),
             isAbstract,
             annotations.toList(),
             invoker,
             inheritedFrom
         )
 
-        internal fun toPropertySetterSpekt(prop: Lazy<dev.rnett.inspekt.Property>): PropertySetter = PropertySetter(
+        internal fun toPropertySetterModel(prop: Lazy<dev.rnett.inspekt.Property>): PropertySetter = PropertySetter(
             prop,
             kotlin,
-            Parameters(parameters.map { it.toSpekt() }),
+            Parameters(parameters.map { it.toModel() }),
             isAbstract,
             annotations.toList(),
             invoker,
             inheritedFrom
         )
 
-        internal fun toSpektCtor(inspektion: Lazy<Inspektion<*>>): dev.rnett.inspekt.Constructor = dev.rnett.inspekt.Constructor(
+        internal fun toModelCtor(cls: Lazy<Inspektion<*>>): dev.rnett.inspekt.Constructor = dev.rnett.inspekt.Constructor(
             name as MemberName.Member,
             kotlin,
             annotations.toList(),
             isAbstract,
-            Parameters(parameters.map { it.toSpekt() }),
+            Parameters(parameters.map { it.toModel() }),
             returnType,
-            inspektion,
+            cls,
             isPrimaryCtor,
             invoker
         )
@@ -175,7 +175,7 @@ internal class SpektImplementationV1<T : Any>
          */
         @param:ExportSymbol private val kind: Int
     ) {
-        internal fun toSpekt(): Parameter = Parameter(
+        internal fun toModel(): Parameter = Parameter(
             type,
             hasDefault,
             name,
@@ -214,10 +214,10 @@ internal class SpektImplementationV1<T : Any>
 
         @ExportSymbol
         @PublishedApi
-        internal fun toSpekt(): dev.rnett.inspekt.Property {
+        internal fun toModel(): dev.rnett.inspekt.Property {
             lateinit var ref: dev.rnett.inspekt.Property
             val lazy = lazy(LazyThreadSafetyMode.NONE) { ref }
-            val getter = getter.toPropertyGetterSpekt(lazy)
+            val getter = getter.toPropertyGetterModel(lazy)
             //TODO make sure there is always a setter for vars with backing fields
             return if (isMutable) {
                 MutableProperty(
@@ -226,7 +226,7 @@ internal class SpektImplementationV1<T : Any>
                     hasDelegate,
                     type,
                     getter,
-                    setter!!.toPropertySetterSpekt(lazy),
+                    setter!!.toPropertySetterModel(lazy),
                     name,
                     getter.parameters,
                     annotations.toList(),

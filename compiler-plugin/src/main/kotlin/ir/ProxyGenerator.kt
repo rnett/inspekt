@@ -149,7 +149,7 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
     private fun addProxyBody(function: IrSimpleFunction, handlerField: IrField, index: Int) {
         val original = function.updateDeclaration()
 
-        val originalField = createSpektField(function, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionSpekt(original, reportLocation, cls) }
+        val originalField = createSpektField(function, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionInspektion(original, reportLocation, cls) }
 
         function.body = function.withBuilder {
             irBlockBody {
@@ -163,12 +163,12 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
     private fun addProxyBody(property: IrProperty, handlerField: IrField, index: Int) {
         val overriddenProperty = property.updateDeclaration()
 
-        val originalPropertyField = createSpektField(property, index, PropertySpekt.defaultType) { spektGenerator.createPropertySpekt(overriddenProperty, reportLocation, cls) }
+        val originalPropertyField = createSpektField(property, index, PropertySpekt.defaultType) { spektGenerator.createPropertyInspektion(overriddenProperty, reportLocation, cls) }
 
         property.getter?.apply {
             val overriddenGetter = updateDeclaration()
 
-            val originalGetterField = createSpektField(overriddenGetter, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionSpekt(overriddenGetter, reportLocation, cls) }
+            val originalGetterField = createSpektField(overriddenGetter, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionInspektion(overriddenGetter, reportLocation, cls) }
 
             body = withBuilder {
                 irBlockBody {
@@ -188,7 +188,7 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
         property.setter?.apply {
             val overriddenSetter = updateDeclaration()
 
-            val originalSetterField = createSpektField(overriddenSetter, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionSpekt(overriddenSetter, reportLocation, cls) }
+            val originalSetterField = createSpektField(overriddenSetter, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionInspektion(overriddenSetter, reportLocation, cls) }
 
             body = withBuilder {
                 irBlockBody {

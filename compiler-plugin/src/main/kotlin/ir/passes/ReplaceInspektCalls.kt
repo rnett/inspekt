@@ -52,7 +52,7 @@ class ReplaceInspektCalls(context: IrPluginContext) : IrFullTransformerWithConte
         val function = arg.symbol.owner
 
         return withBuilderForCurrentScope {
-            generator.createFunctionSpekt(function, arg.getCompilerMessageLocation(currentFile))
+            generator.createFunctionInspektion(function, arg.getCompilerMessageLocation(currentFile))
         }
     }
 
@@ -60,7 +60,7 @@ class ReplaceInspektCalls(context: IrPluginContext) : IrFullTransformerWithConte
         val property = arg.symbol.owner
 
         return withBuilderForCurrentScope {
-            generator.createPropertySpekt(property, arg.getCompilerMessageLocation(currentFile))
+            generator.createPropertyInspektion(property, arg.getCompilerMessageLocation(currentFile))
         }
     }
 
@@ -76,7 +76,7 @@ class ReplaceInspektCalls(context: IrPluginContext) : IrFullTransformerWithConte
         }
 
         return withBuilderForCurrentScope {
-            generator.createSpekt(cls.owner, arg.getCompilerMessageLocation(currentFile))
+            generator.createInspektion(cls.owner, arg.getCompilerMessageLocation(currentFile))
         }
     }
 }

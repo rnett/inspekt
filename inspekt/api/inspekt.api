@@ -493,27 +493,27 @@ public final class dev/rnett/inspekt/internal/ArgumentsProviderV1$DefaultImpls {
 	public static fun throwInvalidBitmask (Ldev/rnett/inspekt/internal/ArgumentsProviderV1;)Ljava/lang/Void;
 }
 
-public abstract class dev/rnett/inspekt/internal/SpektImplementation {
-	public abstract fun toSpekt ()Ldev/rnett/inspekt/Inspektion;
+public abstract class dev/rnett/inspekt/internal/InspektionResult {
+	public abstract fun toModel ()Ldev/rnett/inspekt/Inspektion;
 }
 
-public final class dev/rnett/inspekt/internal/SpektImplementationV1 : dev/rnett/inspekt/internal/SpektImplementation {
-	public fun <init> (Lkotlin/reflect/KClass;Z[Ljava/lang/String;[Ljava/lang/String;[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/SpektImplementationV1$Function;[Ldev/rnett/inspekt/internal/SpektImplementationV1$Property;[Ldev/rnett/inspekt/internal/SpektImplementationV1$Function;[Ldev/rnett/inspekt/internal/SpektImplementationV1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ldev/rnett/inspekt/internal/SpektImplementationV1;)V
-	public fun toSpekt ()Ldev/rnett/inspekt/Inspektion;
+public final class dev/rnett/inspekt/internal/InspektionResultV1 : dev/rnett/inspekt/internal/InspektionResult {
+	public fun <init> (Lkotlin/reflect/KClass;Z[Ljava/lang/String;[Ljava/lang/String;[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/InspektionResultV1$Function;[Ldev/rnett/inspekt/internal/InspektionResultV1$Property;[Ldev/rnett/inspekt/internal/InspektionResultV1$Function;[Ldev/rnett/inspekt/internal/InspektionResultV1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ldev/rnett/inspekt/internal/InspektionResultV1;)V
+	public fun toModel ()Ldev/rnett/inspekt/Inspektion;
 }
 
-public final class dev/rnett/inspekt/internal/SpektImplementationV1$Function {
-	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;ZLkotlin/reflect/KFunction;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/SpektImplementationV1$Param;Lkotlin/reflect/KType;ZZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/reflect/KClass;)V
-	public final fun toSpekt ()Ldev/rnett/inspekt/Function;
+public final class dev/rnett/inspekt/internal/InspektionResultV1$Function {
+	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;ZLkotlin/reflect/KFunction;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/InspektionResultV1$Param;Lkotlin/reflect/KType;ZZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/reflect/KClass;)V
+	public final fun toModel ()Ldev/rnett/inspekt/Function;
 }
 
-public final class dev/rnett/inspekt/internal/SpektImplementationV1$Param {
+public final class dev/rnett/inspekt/internal/InspektionResultV1$Param {
 	public fun <init> (Ljava/lang/String;[Ljava/lang/annotation/Annotation;ZLkotlin/reflect/KType;III)V
 }
 
-public final class dev/rnett/inspekt/internal/SpektImplementationV1$Property {
-	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/annotation/Annotation;ZZZZLkotlin/reflect/KType;Lkotlin/reflect/KProperty1;Ldev/rnett/inspekt/internal/SpektImplementationV1$Function;Ldev/rnett/inspekt/internal/SpektImplementationV1$Function;Lkotlin/reflect/KClass;)V
-	public final fun toSpekt ()Ldev/rnett/inspekt/Property;
+public final class dev/rnett/inspekt/internal/InspektionResultV1$Property {
+	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/annotation/Annotation;ZZZZLkotlin/reflect/KType;Lkotlin/reflect/KProperty1;Ldev/rnett/inspekt/internal/InspektionResultV1$Function;Ldev/rnett/inspekt/internal/InspektionResultV1$Function;Lkotlin/reflect/KClass;)V
+	public final fun toModel ()Ldev/rnett/inspekt/Property;
 }
 
 public abstract interface class dev/rnett/inspekt/proxy/ProxyHandler {
