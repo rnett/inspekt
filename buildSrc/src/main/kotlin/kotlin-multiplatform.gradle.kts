@@ -5,7 +5,7 @@ plugins {
     id("kotlin-shared")
 }
 
-val onlyJvm = providers.gradleProperty("inspekt.onlyJvm").orNull?.lowercase() == "true"
+val onlyJvm = providers.systemProperty("inspekt.onlyJvm").orNull?.lowercase() == "true"
 
 kotlin {
     jvm()

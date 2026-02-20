@@ -50,7 +50,7 @@ jobs:
       matrix:
         os: ${{ fromJson(needs.checkVersion.outputs.os_matrix) }}
     env:
-      GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m -Pinspekt.onlyJvm=${{ needs.checkVersion.outputs.jvm_only }}"
+      GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m -Dinspekt.onlyJvm=${{ needs.checkVersion.outputs.jvm_only }}"
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java 17
