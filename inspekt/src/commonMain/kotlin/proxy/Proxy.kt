@@ -3,6 +3,7 @@ package dev.rnett.inspekt.proxy
 import dev.rnett.inspekt.ArgumentList
 import dev.rnett.inspekt.ArgumentsBuilder
 import dev.rnett.inspekt.Function
+import dev.rnett.inspekt.Inspektion
 import dev.rnett.inspekt.Method
 import dev.rnett.inspekt.Parameter
 import dev.rnett.inspekt.Parameters
@@ -10,7 +11,6 @@ import dev.rnett.inspekt.Property
 import dev.rnett.inspekt.PropertyAccessor
 import dev.rnett.inspekt.PropertyGetter
 import dev.rnett.inspekt.PropertySetter
-import dev.rnett.inspekt.Spekt
 import dev.rnett.inspekt.SpektCompilerPluginIntrinsic
 import dev.rnett.inspekt.throwIntrinsicException
 import dev.rnett.symbolexport.ExportSymbol
@@ -124,17 +124,17 @@ internal suspend fun v1SuspendProxyHelper(
  */
 @ExportSymbol
 @SpektCompilerPluginIntrinsic
-public fun <T : Any> proxy(@ExportSymbol toImplement: KClass<T>, @ExportSymbol vararg additionalInterfaces: KClass<*>, @ExportSymbol handler: ProxyHandler): T = throwIntrinsicException()
+public fun <T : Any> proxy(toImplement: KClass<T>, vararg additionalInterfaces: KClass<*>, handler: ProxyHandler): T = throwIntrinsicException()
 
 /**
  * [toImplement] and each [additionalInterfaces] must be an interface.
  */
 @ExportSymbol
 @SpektCompilerPluginIntrinsic
-public fun <T : Any> proxyFactory(@ExportSymbol toImplement: KClass<T>, @ExportSymbol vararg additionalInterfaces: KClass<*>): (ProxyHandler) -> T = throwIntrinsicException()
+public fun <T : Any> proxyFactory(toImplement: KClass<T>, vararg additionalInterfaces: KClass<*>): (ProxyHandler) -> T = throwIntrinsicException()
 
-public class ProxyableSpekt<T : Any>(public val spekt: Spekt<T>, private val factory: (ProxyHandler) -> T) {
-    public fun proxy(handler: ProxyHandler): T = factory(handler)
+public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, private val factory: (ProxyHandler) -> T) {
+    public fun createProxy(handler: ProxyHandler): T = factory(handler)
 }
 
 /**
@@ -142,13 +142,13 @@ public class ProxyableSpekt<T : Any>(public val spekt: Spekt<T>, private val fac
  */
 @ExportSymbol
 @SpektCompilerPluginIntrinsic
-public fun <T : Any> proxyableSpekt(@ExportSymbol toImplement: KClass<T>): ProxyableSpekt<T> = throwIntrinsicException()
+public fun <T : Any> proxyableInspektion(toImplement: KClass<T>): ProxyableInspektion<T> = throwIntrinsicException()
 
 
 @Suppress("UNCHECKED_CAST", "unused")
 @ExportSymbol
 @PublishedApi
 internal fun <T : Any> v1ProxyableSpektHelper(
-    spekt: Spekt<*>,
+    inspektion: Inspektion<*>,
     proxyFactory: (ProxyHandler) -> Any?
-): ProxyableSpekt<T> = ProxyableSpekt(spekt as Spekt<T>, proxyFactory as (ProxyHandler) -> T)
+): ProxyableInspektion<T> = ProxyableInspektion(inspektion as Inspektion<T>, proxyFactory as (ProxyHandler) -> T)

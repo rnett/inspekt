@@ -11,7 +11,7 @@ FILE: Suspend.kt
         }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/Test>|
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>|
 
             private constructor(): R|auto/implementation/box/Test.Companion| {
                 super<R|kotlin/Any|>()
@@ -21,11 +21,11 @@ FILE: Suspend.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Spekt<auto/implementation/box/Test>| = R|dev/rnett/inspekt/assertSuccessful|<R|dev/rnett/inspekt/Spekt<auto/implementation/box/Test>|>(String(Test.spekt()), <L> = assertSuccessful@fun <anonymous>(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/Test>| <inline=Inline, kind=UNKNOWN>  {
-            ^ Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.spekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>| = R|dev/rnett/inspekt/assertSuccessful|<R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>|>(String(Test.inspekt()), <L> = assertSuccessful@fun <anonymous>(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>| <inline=Inline, kind=UNKNOWN>  {
+            ^ Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.inspekt|()
         }
         )
-        lval suspendFun: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval suspendFun: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Function.name|.R|dev/rnett/inspekt/MemberName.name|, String(test))
         }
         )

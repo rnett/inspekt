@@ -66,7 +66,7 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
 
     private fun createLazyField(target: IrClass): IrField {
         return factory.buildField {
-            name = GeneratedNames.spektImplFieldV1
+            name = GeneratedNames.inspektImplFieldV1
             visibility = DescriptorVisibilities.PRIVATE
             origin = DeclarationKeys.SpektImplementationFieldV1.toIrOrigin()
             type = lazyClass.typeWith(generator.Spekt.typeWith(target.defaultType))

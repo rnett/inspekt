@@ -11,7 +11,7 @@ class TestDefaults {
     get
 
   companion object Companion {
-    private /* static final field */ val spektImplV1: Lazy<Spekt<TestDefaults>> = lazy<Spekt<TestDefaults>>(initializer = local fun <anonymous>(): Spekt<TestDefaults> {
+    private /* static final field */ val inspektImplV1: Lazy<Inspektion<TestDefaults>> = lazy<Inspektion<TestDefaults>>(initializer = local fun <anonymous>(): Inspektion<TestDefaults> {
       return SpektImplementationV1</* null */>(kClass = TestDefaults::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), name = "test", isAbstract = false, kotlin = TestDefaults::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         val tmp_0: Int = args.<get-v1DefaultableHasValueBitmask>()
         return when {
@@ -56,8 +56,8 @@ class TestDefaults {
 , safeCast = local fun <anonymous>(it: Any): TestDefaults? {
         return it as? TestDefaults
       }
-, objectInstance = null, companionObject = SpektImplementationV1</* null */>(kClass = Companion::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults", "Companion"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults", "Companion"]), name = "spekt", isAbstract = false, kotlin = Companion::spekt, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Companion>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Spekt<TestDefaults>>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        return args.v1Get(globalIndex = 0) as Companion.spekt()
+, objectInstance = null, companionObject = SpektImplementationV1</* null */>(kClass = Companion::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults", "Companion"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults", "Companion"]), name = "inspekt", isAbstract = false, kotlin = Companion::inspekt, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Companion>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Inspektion<TestDefaults>>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Companion.inspekt()
       }
 , suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestDefaults", "Companion"]), name = "equals", isAbstract = false, kotlin = Companion::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
@@ -86,8 +86,8 @@ class TestDefaults {
 
     }
 
-    fun spekt(): Spekt<TestDefaults> {
-      return #spektImplV1.<get-value>()
+    fun inspekt(): Inspektion<TestDefaults> {
+      return #inspektImplV1.<get-value>()
     }
 
   }
@@ -105,7 +105,7 @@ class TestDefaults {
 }
 
 fun box(): String {
-  val spekt: Spekt<TestDefaults> = Companion.spekt()
+  val spekt: Inspektion<TestDefaults> = Companion.inspekt()
   val constructor: Constructor = CHECK_NOT_NULL<Constructor>(arg0 = spekt.<get-primaryConstructor>())
   val instance1: TestDefaults = assertSuccessful<Any?>(message = "constructor all defaults", block = local fun <anonymous>(): Any? {
     return constructor.invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {

@@ -18,10 +18,10 @@ FILE fqName:auto.proxy.box fileName:/ProxyableSpekt.kt
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.TestProxyable
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:proxyable type:dev.rnett.inspekt.proxy.ProxyableSpekt<auto.proxy.box.TestProxyable> [val]
-        CALL 'internal final fun v1ProxyableSpektHelper <T> (spekt: dev.rnett.inspekt.Spekt<*>, proxyFactory: kotlin.Function1<dev.rnett.inspekt.proxy.ProxyHandler, kotlin.Any?>): dev.rnett.inspekt.proxy.ProxyableSpekt<T of dev.rnett.inspekt.proxy.v1ProxyableSpektHelper> declared in dev.rnett.inspekt.proxy' type=dev.rnett.inspekt.proxy.ProxyableSpekt<T of dev.rnett.inspekt.proxy.v1ProxyableSpektHelper> origin=null
+      VAR name:proxyable type:dev.rnett.inspekt.proxy.ProxyableInspektion<auto.proxy.box.TestProxyable> [val]
+        CALL 'internal final fun v1ProxyableSpektHelper <T> (inspektion: dev.rnett.inspekt.Inspektion<*>, proxyFactory: kotlin.Function1<dev.rnett.inspekt.proxy.ProxyHandler, kotlin.Any?>): dev.rnett.inspekt.proxy.ProxyableInspektion<T of dev.rnett.inspekt.proxy.v1ProxyableSpektHelper> declared in dev.rnett.inspekt.proxy' type=dev.rnett.inspekt.proxy.ProxyableInspektion<T of dev.rnett.inspekt.proxy.v1ProxyableSpektHelper> origin=null
           TYPE_ARG T: <none>
-          ARG spekt: CALL 'public abstract fun toSpekt (): dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.internal.SpektImplementation> declared in dev.rnett.inspekt.internal.SpektImplementation' type=dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.internal.SpektImplementation> origin=null
+          ARG inspektion: CALL 'public abstract fun toSpekt (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.SpektImplementation> declared in dev.rnett.inspekt.internal.SpektImplementation' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.SpektImplementation> origin=null
             ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1<out T of dev.rnett.inspekt.internal.SpektImplementationV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1?>, objectInstance: T of dev.rnett.inspekt.internal.SpektImplementationV1?, companionObject: dev.rnett.inspekt.internal.SpektImplementationV1<kotlin.Any>?) declared in dev.rnett.inspekt.internal.SpektImplementationV1' type=dev.rnett.inspekt.internal.SpektImplementationV1<T of dev.rnett.inspekt.internal.SpektImplementationV1> origin=null
               TYPE_ARG (of class) T: <none>
               ARG kClass: CLASS_REFERENCE 'CLASS INTERFACE name:TestProxyable modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.proxy.box.TestProxyable>
@@ -577,18 +577,18 @@ FILE fqName:auto.proxy.box fileName:/ProxyableSpekt.kt
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
         ARG expected: CONST String type=kotlin.String value="TestProxyable"
-        ARG actual: CALL 'public final fun <get-shortName> (): kotlin.String declared in dev.rnett.inspekt.Spekt' type=kotlin.String origin=GET_PROPERTY
-          ARG <this>: CALL 'public final fun <get-spekt> (): dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.proxy.ProxyableSpekt> declared in dev.rnett.inspekt.proxy.ProxyableSpekt' type=dev.rnett.inspekt.Spekt<auto.proxy.box.TestProxyable> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val proxyable: dev.rnett.inspekt.proxy.ProxyableSpekt<auto.proxy.box.TestProxyable> declared in auto.proxy.box.box' type=dev.rnett.inspekt.proxy.ProxyableSpekt<auto.proxy.box.TestProxyable> origin=null
+        ARG actual: CALL 'public final fun <get-shortName> (): kotlin.String declared in dev.rnett.inspekt.Inspektion' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: CALL 'public final fun <get-inspektion> (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.proxy.ProxyableInspektion> declared in dev.rnett.inspekt.proxy.ProxyableInspektion' type=dev.rnett.inspekt.Inspektion<auto.proxy.box.TestProxyable> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val proxyable: dev.rnett.inspekt.proxy.ProxyableInspektion<auto.proxy.box.TestProxyable> declared in auto.proxy.box.box' type=dev.rnett.inspekt.proxy.ProxyableInspektion<auto.proxy.box.TestProxyable> origin=null
       VAR name:proxy type:auto.proxy.box.TestProxyable [val]
-        CALL 'public final fun proxy (handler: dev.rnett.inspekt.proxy.ProxyHandler): T of dev.rnett.inspekt.proxy.ProxyableSpekt declared in dev.rnett.inspekt.proxy.ProxyableSpekt' type=auto.proxy.box.TestProxyable origin=null
-          ARG <this>: GET_VAR 'val proxyable: dev.rnett.inspekt.proxy.ProxyableSpekt<auto.proxy.box.TestProxyable> declared in auto.proxy.box.box' type=dev.rnett.inspekt.proxy.ProxyableSpekt<auto.proxy.box.TestProxyable> origin=null
+        CALL 'public final fun createProxy (handler: dev.rnett.inspekt.proxy.ProxyHandler): T of dev.rnett.inspekt.proxy.ProxyableInspektion declared in dev.rnett.inspekt.proxy.ProxyableInspektion' type=auto.proxy.box.TestProxyable origin=null
+          ARG <this>: GET_VAR 'val proxyable: dev.rnett.inspekt.proxy.ProxyableInspektion<auto.proxy.box.TestProxyable> declared in auto.proxy.box.box' type=dev.rnett.inspekt.proxy.ProxyableInspektion<auto.proxy.box.TestProxyable> origin=null
           ARG handler: TYPE_OP type=dev.rnett.inspekt.proxy.ProxyHandler origin=SAM_CONVERSION typeOperand=dev.rnett.inspekt.proxy.ProxyHandler
             FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<dev.rnett.inspekt.proxy.SuperCall, kotlin.Any?> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
-                VALUE_PARAMETER kind:ExtensionReceiver name:$this$proxy index:0 type:dev.rnett.inspekt.proxy.SuperCall
+                VALUE_PARAMETER kind:ExtensionReceiver name:$this$createProxy index:0 type:dev.rnett.inspekt.proxy.SuperCall
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$proxy: dev.rnett.inspekt.proxy.SuperCall): kotlin.Any? declared in auto.proxy.box.box'
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$createProxy: dev.rnett.inspekt.proxy.SuperCall): kotlin.Any? declared in auto.proxy.box.box'
                     CONST Int type=kotlin.Int value=4
       CALL 'public final fun assertTrue (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         ARG actual: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.proxy.box.TestProxyable
@@ -605,9 +605,9 @@ FILE fqName:auto.proxy.box fileName:/ProxyableSpekt.kt
         ARG expected: CONST Int type=kotlin.Int value=4
         ARG actual: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
           CALL 'public final fun invoke (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.Function' type=kotlin.Any? origin=null
-            ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.Spekt' type=dev.rnett.inspekt.Function origin=null
-              ARG <this>: CALL 'public final fun <get-spekt> (): dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.proxy.ProxyableSpekt> declared in dev.rnett.inspekt.proxy.ProxyableSpekt' type=dev.rnett.inspekt.Spekt<auto.proxy.box.TestProxyable> origin=GET_PROPERTY
-                ARG <this>: GET_VAR 'val proxyable: dev.rnett.inspekt.proxy.ProxyableSpekt<auto.proxy.box.TestProxyable> declared in auto.proxy.box.box' type=dev.rnett.inspekt.proxy.ProxyableSpekt<auto.proxy.box.TestProxyable> origin=null
+            ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.Inspektion' type=dev.rnett.inspekt.Function origin=null
+              ARG <this>: CALL 'public final fun <get-inspektion> (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.proxy.ProxyableInspektion> declared in dev.rnett.inspekt.proxy.ProxyableInspektion' type=dev.rnett.inspekt.Inspektion<auto.proxy.box.TestProxyable> origin=GET_PROPERTY
+                ARG <this>: GET_VAR 'val proxyable: dev.rnett.inspekt.proxy.ProxyableInspektion<auto.proxy.box.TestProxyable> declared in auto.proxy.box.box' type=dev.rnett.inspekt.proxy.ProxyableInspektion<auto.proxy.box.TestProxyable> origin=null
               ARG name: CONST String type=kotlin.String value="test"
             ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
@@ -617,6 +617,6 @@ FILE fqName:auto.proxy.box fileName:/ProxyableSpekt.kt
                   CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
                     ARG <this>: GET_VAR '$this$invoke: dev.rnett.inspekt.ArgumentList.Builder declared in auto.proxy.box.box.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                     ARG value: GET_VAR 'val proxy: auto.proxy.box.TestProxyable declared in auto.proxy.box.box' type=auto.proxy.box.TestProxyable origin=null
-        ARG message: CONST String type=kotlin.String value="spekt called method on proxy returns correct result"
+        ARG message: CONST String type=kotlin.String value="inspektion called method on proxy returns correct result"
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.proxy.box'
         CONST String type=kotlin.String value="OK"

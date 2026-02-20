@@ -27,15 +27,15 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
               receiver: GET_VAR '<this>: auto.implementation.box.Base declared in auto.implementation.box.Base.<get-baseProp>' type=auto.implementation.box.Base origin=null
     CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
       thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Base.Companion
-      FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:spektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Spekt<auto.implementation.box.Base>> visibility:private [final,static]
+      FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:inspektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>> visibility:private [final,static]
         EXPRESSION_BODY
           CALL 'public final fun lazy <T> (initializer: kotlin.Function0<T of kotlin.lazy>): kotlin.Lazy<T of kotlin.lazy> declared in kotlin' type=kotlin.Lazy<T of kotlin.lazy> origin=null
-            TYPE_ARG T: dev.rnett.inspekt.Spekt<auto.implementation.box.Base>
-            ARG initializer: FUN_EXPR type=kotlin.Function0<dev.rnett.inspekt.Spekt<auto.implementation.box.Base>> origin=LAMBDA
-              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:dev.rnett.inspekt.Spekt<auto.implementation.box.Base>
+            TYPE_ARG T: dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>
+            ARG initializer: FUN_EXPR type=kotlin.Function0<dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>> origin=LAMBDA
+              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (): dev.rnett.inspekt.Spekt<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion.spektImplV1'
-                    CALL 'public abstract fun toSpekt (): dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.internal.SpektImplementation> declared in dev.rnett.inspekt.internal.SpektImplementation' type=dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.internal.SpektImplementation> origin=null
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion.inspektImplV1'
+                    CALL 'public abstract fun toSpekt (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.SpektImplementation> declared in dev.rnett.inspekt.internal.SpektImplementation' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.SpektImplementation> origin=null
                       ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1<out T of dev.rnett.inspekt.internal.SpektImplementationV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1?>, objectInstance: T of dev.rnett.inspekt.internal.SpektImplementationV1?, companionObject: dev.rnett.inspekt.internal.SpektImplementationV1<kotlin.Any>?) declared in dev.rnett.inspekt.internal.SpektImplementationV1' type=dev.rnett.inspekt.internal.SpektImplementationV1<T of dev.rnett.inspekt.internal.SpektImplementationV1> origin=null
                         TYPE_ARG (of class) T: <none>
                         ARG kClass: CLASS_REFERENCE 'CLASS CLASS name:Base modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.Base>
@@ -101,11 +101,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public abstract fun abstractFun (): kotlin.String declared in auto.implementation.box.Base' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -148,11 +148,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun openFun (): kotlin.String declared in auto.implementation.box.Base' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -195,11 +195,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public final fun baseFun (): kotlin.String declared in auto.implementation.box.Base' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -253,15 +253,15 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.Base' type=kotlin.Boolean origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                                         ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=1
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -304,11 +304,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.Base' type=kotlin.Int origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -351,11 +351,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.Base' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -423,11 +423,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public abstract fun <get-abstractProp> (): kotlin.String declared in auto.implementation.box.Base' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -494,11 +494,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun <get-openProp> (): kotlin.String declared in auto.implementation.box.Base' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -565,11 +565,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public final fun <get-baseProp> (): kotlin.String declared in auto.implementation.box.Base' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -606,7 +606,7 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                       CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.Base' type=auto.implementation.box.Base origin=null
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -615,23 +615,23 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Base
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                 TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                 TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.Base
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.Base?> origin=LAMBDA
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Base?
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                 TYPE_OP type=auto.implementation.box.Base origin=SAFE_CAST typeOperand=auto.implementation.box.Base
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG objectInstance: CONST Null type=kotlin.Nothing? value=null
                         ARG companionObject: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1<out T of dev.rnett.inspekt.internal.SpektImplementationV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1?>, objectInstance: T of dev.rnett.inspekt.internal.SpektImplementationV1?, companionObject: dev.rnett.inspekt.internal.SpektImplementationV1<kotlin.Any>?) declared in dev.rnett.inspekt.internal.SpektImplementationV1' type=dev.rnett.inspekt.internal.SpektImplementationV1<T of dev.rnett.inspekt.internal.SpektImplementationV1> origin=null
                           TYPE_ARG (of class) T: <none>
@@ -671,9 +671,9 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
                                     CONST String type=kotlin.String value="Base"
                                     CONST String type=kotlin.String value="Companion"
-                                ARG name: CONST String type=kotlin.String value="spekt"
+                                ARG name: CONST String type=kotlin.String value="inspekt"
                                 ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
-                                ARG kotlin: FUNCTION_REFERENCE 'public final fun spekt (): dev.rnett.inspekt.Spekt<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
+                                ARG kotlin: FUNCTION_REFERENCE 'public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
                                 ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                                   TYPE_ARG T: kotlin.Annotation
                                   ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
@@ -692,18 +692,18 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                       ARG indexInKind: CONST Int type=kotlin.Int value=0
                                       ARG kind: CONST Int type=kotlin.Int value=0
                                 ARG returnType: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
-                                  TYPE_ARG T: dev.rnett.inspekt.Spekt<auto.implementation.box.Base>
+                                  TYPE_ARG T: dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>
                                 ARG isSuspend: CONST Boolean type=kotlin.Boolean value=false
                                 ARG isPrimaryCtor: CONST Boolean type=kotlin.Boolean value=false
                                 ARG invoker: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?> origin=LAMBDA
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
-                                        CALL 'public final fun spekt (): dev.rnett.inspekt.Spekt<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Base> origin=null
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
+                                        CALL 'public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Base> origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Base.Companion origin=CAST typeOperand=auto.implementation.box.Base.Companion
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -758,15 +758,15 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.Base.Companion' type=kotlin.Boolean origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                           ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=1
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -810,11 +810,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.Base.Companion' type=kotlin.Int origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -858,11 +858,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.Base.Companion' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -877,23 +877,23 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Base.Companion
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base.Companion declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base.Companion declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                   TYPE_OP type=auto.implementation.box.Base.Companion origin=CAST typeOperand=auto.implementation.box.Base.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                   TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.Base.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.Base.Companion?> origin=LAMBDA
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Base.Companion?
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base.Companion? declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Base.Companion? declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>'
                                   TYPE_OP type=auto.implementation.box.Base.Companion origin=SAFE_CAST typeOperand=auto.implementation.box.Base.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Base.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG objectInstance: GET_OBJECT 'CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=auto.implementation.box.Base.Companion
                           ARG companionObject: CONST Null type=kotlin.Nothing? value=null
       CONSTRUCTOR GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObjectCtor] visibility:private returnType:auto.implementation.box.Base.Companion [primary]
@@ -913,12 +913,12 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
         VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
         overridden:
           public open fun toString (): kotlin.String declared in kotlin.Any
-      FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektMethod] name:spekt visibility:public modality:FINAL returnType:dev.rnett.inspekt.Spekt<auto.implementation.box.Base>
+      FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektMethod] name:inspekt visibility:public modality:FINAL returnType:dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>
         VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.implementation.box.Base.Companion
         BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun spekt (): dev.rnett.inspekt.Spekt<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion'
+          RETURN type=kotlin.Nothing from='public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Base> declared in auto.implementation.box.Base.Companion'
             CALL 'public abstract fun <get-value> (): T of kotlin.Lazy declared in kotlin.Lazy' type=T of kotlin.Lazy origin=null
-              ARG <this>: GET_FIELD 'FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:spektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Spekt<auto.implementation.box.Base>> visibility:private [final,static] declared in auto.implementation.box.Base.Companion' type=kotlin.Lazy<dev.rnett.inspekt.Spekt<auto.implementation.box.Base>> origin=null
+              ARG <this>: GET_FIELD 'FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:inspektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>> visibility:private [final,static] declared in auto.implementation.box.Base.Companion' type=kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.Base>> origin=null
     CONSTRUCTOR visibility:public returnType:auto.implementation.box.Base [primary]
       BLOCK_BODY
         DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
@@ -988,15 +988,15 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
               receiver: GET_VAR '<this>: auto.implementation.box.Derived declared in auto.implementation.box.Derived.<get-openProp>' type=auto.implementation.box.Derived origin=null
     CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
       thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.Derived.Companion
-      FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:spektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>> visibility:private [final,static]
+      FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:inspektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>> visibility:private [final,static]
         EXPRESSION_BODY
           CALL 'public final fun lazy <T> (initializer: kotlin.Function0<T of kotlin.lazy>): kotlin.Lazy<T of kotlin.lazy> declared in kotlin' type=kotlin.Lazy<T of kotlin.lazy> origin=null
-            TYPE_ARG T: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>
-            ARG initializer: FUN_EXPR type=kotlin.Function0<dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>> origin=LAMBDA
-              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>
+            TYPE_ARG T: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>
+            ARG initializer: FUN_EXPR type=kotlin.Function0<dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>> origin=LAMBDA
+              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (): dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion.spektImplV1'
-                    CALL 'public abstract fun toSpekt (): dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.internal.SpektImplementation> declared in dev.rnett.inspekt.internal.SpektImplementation' type=dev.rnett.inspekt.Spekt<T of dev.rnett.inspekt.internal.SpektImplementation> origin=null
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion.inspektImplV1'
+                    CALL 'public abstract fun toSpekt (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.SpektImplementation> declared in dev.rnett.inspekt.internal.SpektImplementation' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.SpektImplementation> origin=null
                       ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1<out T of dev.rnett.inspekt.internal.SpektImplementationV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1?>, objectInstance: T of dev.rnett.inspekt.internal.SpektImplementationV1?, companionObject: dev.rnett.inspekt.internal.SpektImplementationV1<kotlin.Any>?) declared in dev.rnett.inspekt.internal.SpektImplementationV1' type=dev.rnett.inspekt.internal.SpektImplementationV1<T of dev.rnett.inspekt.internal.SpektImplementationV1> origin=null
                         TYPE_ARG (of class) T: <none>
                         ARG kClass: CLASS_REFERENCE 'CLASS CLASS name:Derived modality:FINAL visibility:public superTypes:[auto.implementation.box.Base]' type=kotlin.reflect.KClass<auto.implementation.box.Derived>
@@ -1062,11 +1062,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun abstractFun (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=auto.implementation.box.Derived origin=CAST typeOperand=auto.implementation.box.Derived
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1109,11 +1109,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun openFun (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=auto.implementation.box.Derived origin=CAST typeOperand=auto.implementation.box.Derived
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1156,11 +1156,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public final fun derivedFun (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=auto.implementation.box.Derived origin=CAST typeOperand=auto.implementation.box.Derived
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1203,11 +1203,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public final fun baseFun (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS CLASS name:Base modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1261,15 +1261,15 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.Derived' type=kotlin.Boolean origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                                         ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=1
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1312,11 +1312,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.Derived' type=kotlin.Int origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1359,11 +1359,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1431,11 +1431,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun <get-abstractProp> (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Derived origin=CAST typeOperand=auto.implementation.box.Derived
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1502,11 +1502,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun <get-openProp> (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Derived origin=CAST typeOperand=auto.implementation.box.Derived
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1573,11 +1573,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public final fun <get-baseProp> (): kotlin.String declared in auto.implementation.box.Derived' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Base origin=CAST typeOperand=auto.implementation.box.Base
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS CLASS name:Base modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1614,7 +1614,7 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                       CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.Derived' type=auto.implementation.box.Derived origin=null
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1623,23 +1623,23 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Derived
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                 TYPE_OP type=auto.implementation.box.Derived origin=CAST typeOperand=auto.implementation.box.Derived
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                 TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.Derived
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.Derived?> origin=LAMBDA
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Derived?
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                 TYPE_OP type=auto.implementation.box.Derived origin=SAFE_CAST typeOperand=auto.implementation.box.Derived
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG objectInstance: CONST Null type=kotlin.Nothing? value=null
                         ARG companionObject: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.SpektImplementationV1<out T of dev.rnett.inspekt.internal.SpektImplementationV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.SpektImplementationV1?>, objectInstance: T of dev.rnett.inspekt.internal.SpektImplementationV1?, companionObject: dev.rnett.inspekt.internal.SpektImplementationV1<kotlin.Any>?) declared in dev.rnett.inspekt.internal.SpektImplementationV1' type=dev.rnett.inspekt.internal.SpektImplementationV1<T of dev.rnett.inspekt.internal.SpektImplementationV1> origin=null
                           TYPE_ARG (of class) T: <none>
@@ -1679,9 +1679,9 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
                                     CONST String type=kotlin.String value="Derived"
                                     CONST String type=kotlin.String value="Companion"
-                                ARG name: CONST String type=kotlin.String value="spekt"
+                                ARG name: CONST String type=kotlin.String value="inspekt"
                                 ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
-                                ARG kotlin: FUNCTION_REFERENCE 'public final fun spekt (): dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
+                                ARG kotlin: FUNCTION_REFERENCE 'public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
                                 ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                                   TYPE_ARG T: kotlin.Annotation
                                   ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
@@ -1700,18 +1700,18 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                       ARG indexInKind: CONST Int type=kotlin.Int value=0
                                       ARG kind: CONST Int type=kotlin.Int value=0
                                 ARG returnType: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
-                                  TYPE_ARG T: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>
+                                  TYPE_ARG T: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>
                                 ARG isSuspend: CONST Boolean type=kotlin.Boolean value=false
                                 ARG isPrimaryCtor: CONST Boolean type=kotlin.Boolean value=false
                                 ARG invoker: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?> origin=LAMBDA
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
-                                        CALL 'public final fun spekt (): dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
+                                        CALL 'public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.Derived.Companion origin=CAST typeOperand=auto.implementation.box.Derived.Companion
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1766,15 +1766,15 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.Derived.Companion' type=kotlin.Boolean origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                           ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=1
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1818,11 +1818,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.Derived.Companion' type=kotlin.Int origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1866,11 +1866,11 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                         CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.Derived.Companion' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1885,23 +1885,23 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Derived.Companion
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived.Companion declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived.Companion declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                   TYPE_OP type=auto.implementation.box.Derived.Companion origin=CAST typeOperand=auto.implementation.box.Derived.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                   TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.Derived.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.Derived.Companion?> origin=LAMBDA
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Derived.Companion?
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived.Companion? declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Derived.Companion? declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>'
                                   TYPE_OP type=auto.implementation.box.Derived.Companion origin=SAFE_CAST typeOperand=auto.implementation.box.Derived.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.spektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.Derived.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG objectInstance: GET_OBJECT 'CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=auto.implementation.box.Derived.Companion
                           ARG companionObject: CONST Null type=kotlin.Nothing? value=null
       CONSTRUCTOR GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObjectCtor] visibility:private returnType:auto.implementation.box.Derived.Companion [primary]
@@ -1921,12 +1921,12 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
         VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
         overridden:
           public open fun toString (): kotlin.String declared in kotlin.Any
-      FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektMethod] name:spekt visibility:public modality:FINAL returnType:dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>
+      FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektMethod] name:inspekt visibility:public modality:FINAL returnType:dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>
         VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.implementation.box.Derived.Companion
         BLOCK_BODY
-          RETURN type=kotlin.Nothing from='public final fun spekt (): dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion'
+          RETURN type=kotlin.Nothing from='public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion'
             CALL 'public abstract fun <get-value> (): T of kotlin.Lazy declared in kotlin.Lazy' type=T of kotlin.Lazy origin=null
-              ARG <this>: GET_FIELD 'FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:spektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>> visibility:private [final,static] declared in auto.implementation.box.Derived.Companion' type=kotlin.Lazy<dev.rnett.inspekt.Spekt<auto.implementation.box.Derived>> origin=null
+              ARG <this>: GET_FIELD 'FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:inspektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>> visibility:private [final,static] declared in auto.implementation.box.Derived.Companion' type=kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived>> origin=null
     CONSTRUCTOR visibility:public returnType:auto.implementation.box.Derived [primary]
       BLOCK_BODY
         DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.Base'
@@ -1977,16 +1977,16 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
           public final fun <get-baseProp> (): kotlin.String declared in auto.implementation.box.Base
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:spekt type:dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> [val]
-        CALL 'public final fun spekt (): dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+      VAR name:spekt type:dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> [val]
+        CALL 'public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.Derived.Companion' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG <this>: GET_OBJECT 'CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=auto.implementation.box.Derived.Companion
       VAR name:instance type:auto.implementation.box.Derived [val]
         CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.Derived' type=auto.implementation.box.Derived origin=null
       VAR name:pAbstract type:dev.rnett.inspekt.Property [val]
         CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
           TYPE_ARG T: dev.rnett.inspekt.Property
-          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Spekt' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
               VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
@@ -2025,8 +2025,8 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
       VAR name:pOpen type:dev.rnett.inspekt.Property [val]
         CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
           TYPE_ARG T: dev.rnett.inspekt.Property
-          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Spekt' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
               VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
@@ -2065,8 +2065,8 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
       VAR name:pBase type:dev.rnett.inspekt.Property [val]
         CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
           TYPE_ARG T: dev.rnett.inspekt.Property
-          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Spekt' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
               VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
@@ -2105,8 +2105,8 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
       VAR name:fAbstract type:dev.rnett.inspekt.Function [val]
         CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Function origin=null
           TYPE_ARG T: dev.rnett.inspekt.Function
-          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Spekt' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Function, kotlin.Boolean> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
               VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Function
@@ -2145,8 +2145,8 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
       VAR name:fOpen type:dev.rnett.inspekt.Function [val]
         CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Function origin=null
           TYPE_ARG T: dev.rnett.inspekt.Function
-          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Spekt' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Function, kotlin.Boolean> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
               VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Function
@@ -2185,8 +2185,8 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
       VAR name:fBase type:dev.rnett.inspekt.Function [val]
         CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Function origin=null
           TYPE_ARG T: dev.rnett.inspekt.Function
-          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Spekt' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Function, kotlin.Boolean> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
               VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Function
@@ -2225,8 +2225,8 @@ FILE fqName:auto.implementation.box fileName:/Inheritance.kt
       VAR name:fDerived type:dev.rnett.inspekt.Function [val]
         CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Function origin=null
           TYPE_ARG T: dev.rnett.inspekt.Function
-          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Spekt' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Spekt<auto.implementation.box.Derived> origin=null
+          ARG <this>: CALL 'public final fun <get-functions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Derived> origin=null
           ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Function, kotlin.Boolean> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
               VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Function

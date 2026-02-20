@@ -20,7 +20,7 @@ public annotation class Inspekt()
  */
 @SpektCompilerPluginIntrinsic
 @ExportSymbol
-public fun <T : Any> inspekt(kClass: KClass<T>): Spekt<T> = throwIntrinsicException()
+public fun <T : Any> inspekt(kClass: KClass<T>): Inspektion<T> = throwIntrinsicException()
 
 /**
  * [function] must be a function reference literal.

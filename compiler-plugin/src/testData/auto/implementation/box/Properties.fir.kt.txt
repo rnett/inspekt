@@ -28,7 +28,7 @@ class TestProperties {
     }
 
   companion object Companion {
-    private /* static final field */ val spektImplV1: Lazy<Spekt<TestProperties>> = lazy<Spekt<TestProperties>>(initializer = local fun <anonymous>(): Spekt<TestProperties> {
+    private /* static final field */ val inspektImplV1: Lazy<Inspektion<TestProperties>> = lazy<Inspektion<TestProperties>>(initializer = local fun <anonymous>(): Inspektion<TestProperties> {
       return SpektImplementationV1</* null */>(kClass = TestProperties::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "equals", isAbstract = false, kotlin = TestProperties::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
       }
@@ -71,8 +71,8 @@ class TestProperties {
 , safeCast = local fun <anonymous>(it: Any): TestProperties? {
         return it as? TestProperties
       }
-, objectInstance = null, companionObject = SpektImplementationV1</* null */>(kClass = Companion::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties", "Companion"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties", "Companion"]), name = "spekt", isAbstract = false, kotlin = Companion::spekt, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Companion>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Spekt<TestProperties>>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        return args.v1Get(globalIndex = 0) as Companion.spekt()
+, objectInstance = null, companionObject = SpektImplementationV1</* null */>(kClass = Companion::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties", "Companion"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties", "Companion"]), name = "inspekt", isAbstract = false, kotlin = Companion::inspekt, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Companion>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Inspektion<TestProperties>>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Companion.inspekt()
       }
 , suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties", "Companion"]), name = "equals", isAbstract = false, kotlin = Companion::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
@@ -101,8 +101,8 @@ class TestProperties {
 
     }
 
-    fun spekt(): Spekt<TestProperties> {
-      return #spektImplV1.<get-value>()
+    fun inspekt(): Inspektion<TestProperties> {
+      return #inspektImplV1.<get-value>()
     }
 
   }
@@ -121,7 +121,7 @@ class TestProperties {
 }
 
 fun box(): String {
-  val spekt: Spekt<TestProperties> = Companion.spekt()
+  val spekt: Inspektion<TestProperties> = Companion.inspekt()
   val instance: TestProperties = TestProperties()
   val pReadOnly: ReadOnlyProperty = single<Property>(/* <this> = spekt.<get-properties>(), */ predicate = local fun <anonymous>(it: Property): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "readOnly")

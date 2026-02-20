@@ -15,7 +15,7 @@ FILE: ComplexParameters.kt
         }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/Complex>|
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Complex>|
 
             private constructor(): R|auto/implementation/box/Complex.Companion| {
                 super<R|kotlin/Any|>()
@@ -25,9 +25,9 @@ FILE: ComplexParameters.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Spekt<auto/implementation/box/Complex>| = Q|auto/implementation/box/Complex|.R|auto/implementation/box/Complex.Companion.spekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Complex>| = Q|auto/implementation/box/Complex|.R|auto/implementation/box/Complex.Companion.inspekt|()
         lval instance: R|auto/implementation/box/Complex| = R|auto/implementation/box/Complex.Complex|()
-        lval fExtension: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval fExtension: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Function.name|.R|dev/rnett/inspekt/MemberName.name|, String(extension))
         }
         )
@@ -40,7 +40,7 @@ FILE: ComplexParameters.kt
             )
         }
         ))
-        lval fMulti: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval fMulti: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Function.name|.R|dev/rnett/inspekt/MemberName.name|, String(multi))
         }
         )

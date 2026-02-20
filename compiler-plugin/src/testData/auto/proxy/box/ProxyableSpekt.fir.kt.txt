@@ -6,7 +6,7 @@ interface TestProxyable {
 }
 
 fun box(): String {
-  val proxyable: ProxyableSpekt<TestProxyable> = v1ProxyableSpektHelper</* null */>(spekt = SpektImplementationV1</* null */>(kClass = TestProxyable::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "test", isAbstract = true, kotlin = TestProxyable::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProxyable>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+  val proxyable: ProxyableInspektion<TestProxyable> = v1ProxyableSpektHelper</* null */>(inspektion = SpektImplementationV1</* null */>(kClass = TestProxyable::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "test", isAbstract = true, kotlin = TestProxyable::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProxyable>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
     return args.v1Get(globalIndex = 0) as TestProxyable.test()
   }
 , suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestProxyable"]), name = "equals", isAbstract = false, kotlin = TestProxyable::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
@@ -75,16 +75,16 @@ fun box(): String {
     }
   }
 )
-  assertEquals<String>(expected = "TestProxyable", actual = proxyable.<get-spekt>().<get-shortName>())
-  val proxy: TestProxyable = proxyable.proxy(handler = local fun SuperCall.<anonymous>(): Any? {
+  assertEquals<String>(expected = "TestProxyable", actual = proxyable.<get-inspektion>().<get-shortName>())
+  val proxy: TestProxyable = proxyable.createProxy(handler = local fun SuperCall.<anonymous>(): Any? {
     return 4
   }
  /*-> ProxyHandler */)
   assertTrue(actual = proxy is TestProxyable, message = "proxy is subtype of TestProxyable")
   assertEquals<Int>(expected = 4, actual = proxy.test(), message = "proxy method returns correct result call")
-  assertEquals<Int>(expected = 4, actual = proxyable.<get-spekt>().function(name = "test").invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+  assertEquals<Int>(expected = 4, actual = proxyable.<get-inspektion>().function(name = "test").invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
     $this$invoke.<set-dispatchReceiver>(value = proxy)
   }
-) as Int, message = "spekt called method on proxy returns correct result")
+) as Int, message = "inspektion called method on proxy returns correct result")
   return "OK"
 }

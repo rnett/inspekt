@@ -43,7 +43,7 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
             Symbols.inspekt.dev_rnett_inspekt_proxy_proxyFactory.asCallableId() ->
                 intrinsifyProxyFactory(expression)
 
-            Symbols.inspekt.dev_rnett_inspekt_proxy_proxyableSpekt.asCallableId() ->
+            Symbols.inspekt.dev_rnett_inspekt_proxy_proxyableInspektion.asCallableId() ->
                 intrinsifyProxyableSpekt(expression)
 
             else -> expression

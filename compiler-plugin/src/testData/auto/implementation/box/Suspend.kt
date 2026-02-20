@@ -4,7 +4,7 @@ class Test {
 }
 
 fun box(): String {
-    val spekt = assertSuccessful("Test.spekt()") { Test.spekt() }
+    val spekt = assertSuccessful("Test.inspekt()") { Test.inspekt() }
     val suspendFun = spekt.functions.single { it.name.name == "test" }
     assertEquals(true, suspendFun.isSuspend)
     

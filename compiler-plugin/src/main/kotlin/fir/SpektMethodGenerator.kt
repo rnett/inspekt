@@ -99,7 +99,7 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
     override fun getCallableNamesForClass(classSymbol: FirClassSymbol<*>, context: MemberGenerationContext): Set<Name> {
         if (classSymbol.isCompanion || classSymbol.classKind == ClassKind.OBJECT) {
             return buildSet {
-                add(GeneratedNames.spektMethod)
+                add(GeneratedNames.inspektMethod)
                 if (classSymbol.pluginKey == DeclarationKeys.SpektCompanionObject)
                     add(SpecialNames.INIT)
             }
@@ -121,13 +121,13 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
             else
                 context.owner.getContainingClassSymbol() as? FirRegularClassSymbol ?: return emptyList()
 
-        if (callableId.callableName == GeneratedNames.spektMethod) {
+        if (callableId.callableName == GeneratedNames.inspektMethod) {
             return listOf(
                 createMemberFunction(
                     context.owner,
                     DeclarationKeys.SpektMethod(annotatedClass.classId),
-                    GeneratedNames.spektMethod,
-                    Names.Spekt.asClassId().createConeType(session, arrayOf(annotatedClass.defaultType()))
+                    GeneratedNames.inspektMethod,
+                    Names.Inspektion.asClassId().createConeType(session, arrayOf(annotatedClass.defaultType()))
                 ) {
                     source = annotatedClass.source
                     visibility = annotatedClass.rawStatus.visibility

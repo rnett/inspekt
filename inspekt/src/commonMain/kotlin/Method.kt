@@ -37,6 +37,11 @@ public sealed class Method : Callable() {
         if (invoker == null) error("Method $this is abstract and cannot be invoked")
     }
 
+    /**
+     * Whether the method can be invoked. Almost always equal to `!isAbstract`.
+     */
+    public open val isCallable: Boolean get() = invoker != null
+
     public abstract val returnType: KType
 
     protected fun StringBuilder.appendMethodSignature(includeFullName: Boolean) {
@@ -66,12 +71,12 @@ public data class Constructor internal constructor(
     override val isAbstract: Boolean,
     override val parameters: Parameters,
     override val returnType: KType,
-    private val forClassRef: Lazy<Spekt<*>>,
+    private val forClassRef: Lazy<Inspektion<*>>,
     public val isPrimary: Boolean,
     override val invoker: ((ArgumentList) -> Any?)?
 ) : Method() {
     override val inheritedFrom: KClass<*>? = null
-    public val forClass: Spekt<*> by forClassRef
+    public val forClass: Inspektion<*> by forClassRef
     override val kind: Kind get() = Kind.CONSTRUCTOR
 
     public override fun toString(includeFullName: Boolean): String = buildString {
@@ -132,6 +137,9 @@ public data class Function internal constructor(
             inheritedFrom
         )
     }
+
+    override val isCallable: Boolean
+        get() = suspendInvoker != null || invoker != null
 
     override fun assertInvokable() {
         // super call checks that invoker is not null

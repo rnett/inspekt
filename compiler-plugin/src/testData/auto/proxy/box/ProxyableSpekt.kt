@@ -3,11 +3,11 @@ interface TestProxyable {
 }
 
 fun box(): String {
-    val proxyable = proxyableSpekt(TestProxyable::class)
+    val proxyable = proxyableInspektion(TestProxyable::class)
 
-    assertEquals("TestProxyable", proxyable.spekt.shortName)
+    assertEquals("TestProxyable", proxyable.inspektion.shortName)
 
-    val proxy = proxyable.proxy {
+    val proxy = proxyable.createProxy {
         4
     }
 
@@ -16,9 +16,9 @@ fun box(): String {
 
     assertEquals(4, proxy.test(), "proxy method returns correct result call")
 
-    assertEquals(4, proxyable.spekt.function("test").invoke {
+    assertEquals(4, proxyable.inspektion.function("test").invoke {
         dispatchReceiver = proxy
-    } as Int, "spekt called method on proxy returns correct result")
+    } as Int, "inspektion called method on proxy returns correct result")
 
     return "OK"
 }

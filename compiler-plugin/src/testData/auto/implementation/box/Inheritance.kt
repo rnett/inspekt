@@ -21,7 +21,7 @@ class Derived : Base() {
 }
 
 fun box(): String {
-    val spekt = Derived.spekt()
+    val spekt = Derived.inspekt()
     val instance = Derived()
     
     // Properties

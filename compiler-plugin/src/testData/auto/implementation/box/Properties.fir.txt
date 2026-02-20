@@ -33,7 +33,7 @@ FILE: Properties.kt
             }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/TestProperties>|
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestProperties>|
 
             private constructor(): R|auto/implementation/box/TestProperties.Companion| {
                 super<R|kotlin/Any|>()
@@ -43,9 +43,9 @@ FILE: Properties.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Spekt<auto/implementation/box/TestProperties>| = Q|auto/implementation/box/TestProperties|.R|auto/implementation/box/TestProperties.Companion.spekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestProperties>| = Q|auto/implementation/box/TestProperties|.R|auto/implementation/box/TestProperties.Companion.inspekt|()
         lval instance: R|auto/implementation/box/TestProperties| = R|auto/implementation/box/TestProperties.TestProperties|()
-        lval pReadOnly: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval pReadOnly: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(readOnly))
         }
         ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
@@ -56,7 +56,7 @@ FILE: Properties.kt
             )
         }
         ))
-        lval pMutable: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval pMutable: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(mutable))
         }
         ) as R|dev/rnett/inspekt/MutableProperty|)
@@ -83,7 +83,7 @@ FILE: Properties.kt
             )
         }
         ))
-        lval pWithGetter: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval pWithGetter: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(withGetter))
         }
         ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
@@ -94,7 +94,7 @@ FILE: Properties.kt
             )
         }
         ))
-        lval pWithSetter: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval pWithSetter: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(withSetter))
         }
         ) as R|dev/rnett/inspekt/MutableProperty|)
@@ -114,7 +114,7 @@ FILE: Properties.kt
             )
         }
         ))
-        lval pDelegated: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval pDelegated: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/MemberName.name|, String(delegated))
         }
         ) as R|dev/rnett/inspekt/ReadOnlyProperty|)

@@ -6,7 +6,7 @@ class TestDefaults(val a: Int = 1, val b: String = "default") {
 }
 
 fun box(): String {
-    val spekt = TestDefaults.spekt()
+    val spekt = TestDefaults.inspekt()
     
     // Test constructor defaults
     val constructor = spekt.primaryConstructor!!

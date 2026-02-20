@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.name.Name
 
 object Names {
     val InspektAnnotation = Symbols.inspekt.dev_rnett_inspekt_Inspekt
-    val Spekt = Symbols.inspekt.dev_rnett_inspekt_Spekt
+    val Inspektion = Symbols.inspekt.dev_rnett_inspekt_Inspektion
 
     val inspect = Symbols.inspekt.dev_rnett_inspekt_inspekt
 
@@ -88,6 +88,6 @@ object GeneratedNames {
 
     val proxyHandlerField = Name.identifier("proxyHandler")
 
-    val spektMethod = Name.identifier("spekt")
-    val spektImplFieldV1 = Name.identifier("spektImplV1")
+    val inspektMethod = Name.identifier("inspekt")
+    val inspektImplFieldV1 = Name.identifier("inspektImplV1")
 }

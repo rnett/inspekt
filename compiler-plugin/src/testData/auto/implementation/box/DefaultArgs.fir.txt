@@ -17,7 +17,7 @@ FILE: DefaultArgs.kt
         }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/TestDefaults>|
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestDefaults>|
 
             private constructor(): R|auto/implementation/box/TestDefaults.Companion| {
                 super<R|kotlin/Any|>()
@@ -27,8 +27,8 @@ FILE: DefaultArgs.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Spekt<auto/implementation/box/TestDefaults>| = Q|auto/implementation/box/TestDefaults|.R|auto/implementation/box/TestDefaults.Companion.spekt|()
-        lval constructor: R|dev/rnett/inspekt/Constructor| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.primaryConstructor: R|dev/rnett/inspekt/Constructor?|>|!!
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestDefaults>| = Q|auto/implementation/box/TestDefaults|.R|auto/implementation/box/TestDefaults.Companion.inspekt|()
+        lval constructor: R|dev/rnett/inspekt/Constructor| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.primaryConstructor: R|dev/rnett/inspekt/Constructor?|>|!!
         lval instance1: R|auto/implementation/box/TestDefaults| = (R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor all defaults), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
             ^ R|<local>/constructor|.R|dev/rnett/inspekt/Method.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
                 ^@invoke Unit
@@ -57,7 +57,7 @@ FILE: DefaultArgs.kt
         }
         ) as R|auto/implementation/box/TestDefaults|)
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(20-provided-3-fun-default), R|<local>/instance3|.R|auto/implementation/box/TestDefaults.test|())
-        lval testMethod: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Spekt.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+        lval testMethod: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Function.name|.R|dev/rnett/inspekt/MemberName.name|, String(test))
         }
         )

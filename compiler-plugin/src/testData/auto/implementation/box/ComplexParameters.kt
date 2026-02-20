@@ -6,7 +6,7 @@ class Complex {
 }
 
 fun box(): String {
-    val spekt = Complex.spekt()
+    val spekt = Complex.inspekt()
     val instance = Complex()
     
     val fExtension = spekt.functions.single { it.name.name == "extension" }

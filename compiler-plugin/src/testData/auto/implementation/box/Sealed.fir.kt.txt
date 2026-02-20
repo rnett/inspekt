@@ -55,7 +55,7 @@ sealed interface SealedInt {
   }
 
   companion object Companion {
-    private /* static final field */ val spektImplV1: Lazy<Spekt<SealedInt>> = lazy<Spekt<SealedInt>>(initializer = local fun <anonymous>(): Spekt<SealedInt> {
+    private /* static final field */ val inspektImplV1: Lazy<Inspektion<SealedInt>> = lazy<Inspektion<SealedInt>>(initializer = local fun <anonymous>(): Inspektion<SealedInt> {
       return SpektImplementationV1</* null */>(kClass = SealedInt::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt"]), name = "equals", isAbstract = false, kotlin = SealedInt::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
       }
@@ -148,8 +148,8 @@ sealed interface SealedInt {
 , safeCast = local fun <anonymous>(it: Any): SealedInt? {
         return it as? SealedInt
       }
-, objectInstance = null, companionObject = SpektImplementationV1</* null */>(kClass = Companion::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Companion"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Companion"]), name = "spekt", isAbstract = false, kotlin = Companion::spekt, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Companion>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Spekt<SealedInt>>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        return args.v1Get(globalIndex = 0) as Companion.spekt()
+, objectInstance = null, companionObject = SpektImplementationV1</* null */>(kClass = Companion::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Companion"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Companion"]), name = "inspekt", isAbstract = false, kotlin = Companion::inspekt, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Companion>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Inspektion<SealedInt>>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        return args.v1Get(globalIndex = 0) as Companion.inspekt()
       }
 , suspendInvoker = null, inheritedFrom = null), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt", "Companion"]), name = "equals", isAbstract = false, kotlin = Companion::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
@@ -178,8 +178,8 @@ sealed interface SealedInt {
 
     }
 
-    fun spekt(): Spekt<SealedInt> {
-      return #spektImplV1.<get-value>()
+    fun inspekt(): Inspektion<SealedInt> {
+      return #inspektImplV1.<get-value>()
     }
 
   }
@@ -215,5 +215,5 @@ data object Impl2 : SealedCls {
 }
 
 fun box(): String {
-  return Companion.spekt().toString(includeSubclasses = true)
+  return Companion.inspekt().toString(includeSubclasses = true)
 }

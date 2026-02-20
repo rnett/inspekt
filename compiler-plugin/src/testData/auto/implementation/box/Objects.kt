@@ -6,7 +6,7 @@ object TestObject {
 
 fun box(): String {
     // Object
-    val spektObj = TestObject.spekt()
+    val spektObj = TestObject.inspekt()
     assertEquals(TestObject, spektObj.objectInstance)
     
     val pObj = spektObj.properties.single { it.name.name == "prop" }

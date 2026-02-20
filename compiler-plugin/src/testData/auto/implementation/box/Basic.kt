@@ -11,5 +11,5 @@ class Test(val test1: String = "test") {
 }
 
 fun box(): String {
-    return Test.spekt().toString()
+    return Test.inspekt().toString()
 }

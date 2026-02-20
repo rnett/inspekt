@@ -69,7 +69,7 @@ import org.jetbrains.kotlin.ir.util.properties
 
 @OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
-    val Spekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_Spekt.asClassId())!!
+    val Spekt get() = context.referenceClass(Names.Inspektion.asClassId())!!
     val Spekt_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementation_toSpekt.asCallableId()).single()
     val ImplementationV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_SpektImplementationV1.asClassId())!!
 

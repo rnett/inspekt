@@ -7,5 +7,5 @@ sealed class SealedCls : SealedInt
 data object Impl2 : SealedCls()
 
 fun box(): String {
-    return SealedInt.spekt().toString(true)
+    return SealedInt.inspekt().toString(true)
 }

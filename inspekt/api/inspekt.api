@@ -86,7 +86,7 @@ public final class dev/rnett/inspekt/Constructor : dev/rnett/inspekt/Method {
 	public final fun component8 ()Z
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getAnnotations ()Ljava/util/List;
-	public final fun getForClass ()Ldev/rnett/inspekt/Spekt;
+	public final fun getForClass ()Ldev/rnett/inspekt/Inspektion;
 	public fun getInheritedFrom ()Lkotlin/reflect/KClass;
 	public fun getKind ()Ldev/rnett/inspekt/Method$Kind;
 	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
@@ -124,6 +124,7 @@ public final class dev/rnett/inspekt/Function : dev/rnett/inspekt/SimpleFunction
 	public final fun invokeSuspend (Ldev/rnett/inspekt/ArgumentList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun invokeSuspend (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun isAbstract ()Z
+	public fun isCallable ()Z
 	public final fun isSuspend ()Z
 	public fun toString (Z)Ljava/lang/String;
 }
@@ -132,9 +133,51 @@ public abstract interface annotation class dev/rnett/inspekt/Inspekt : java/lang
 }
 
 public final class dev/rnett/inspekt/InspektKt {
-	public static final fun inspekt (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/Spekt;
+	public static final fun inspekt (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/Inspektion;
 	public static final fun inspekt (Lkotlin/reflect/KFunction;)Ldev/rnett/inspekt/Function;
 	public static final fun inspekt (Lkotlin/reflect/KProperty;)Ldev/rnett/inspekt/Property;
+}
+
+public final class dev/rnett/inspekt/Inspektion : dev/rnett/inspekt/AnnotatedElement {
+	public final fun cast (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun component1 ()Lkotlin/reflect/KClass;
+	public final fun component10 ()Ljava/util/List;
+	public final fun component14 ()Ldev/rnett/inspekt/Inspektion;
+	public final fun component2 ()Ldev/rnett/inspekt/ClassName;
+	public final fun component3 ()Ljava/util/Set;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/lang/Object;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9 ()Z
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun function (Ljava/lang/String;)Ldev/rnett/inspekt/Function;
+	public fun getAnnotations ()Ljava/util/List;
+	public final fun getCompanionObject ()Ldev/rnett/inspekt/Inspektion;
+	public final fun getCompanionObjectInstance ()Ljava/lang/Object;
+	public final fun getConstructors ()Ljava/util/List;
+	public final fun getDeclaredFunctions ()Ljava/util/List;
+	public final fun getDeclaredProperties ()Ljava/util/List;
+	public final fun getFunctions ()Ljava/util/List;
+	public final fun getKotlin ()Lkotlin/reflect/KClass;
+	public final fun getName ()Ldev/rnett/inspekt/ClassName;
+	public final fun getObjectInstance ()Ljava/lang/Object;
+	public final fun getPrimaryConstructor ()Ldev/rnett/inspekt/Constructor;
+	public final fun getProperties ()Ljava/util/List;
+	public final fun getSealedSubclasses ()Ljava/util/List;
+	public final fun getShortName ()Ljava/lang/String;
+	public final fun getSuperclasses ()Ljava/util/Set;
+	public final fun getSupertypes ()Ljava/util/Set;
+	public fun hashCode ()I
+	public final fun isAbstract ()Z
+	public final fun isInstance (Ljava/lang/Object;)Z
+	public final fun isSubtypeOf (Lkotlin/reflect/KClass;)Z
+	public final fun safeCast (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun singleProperty (Ljava/lang/String;)Ldev/rnett/inspekt/Property;
+	public fun toString ()Ljava/lang/String;
+	public final fun toString (ZZ)Ljava/lang/String;
+	public static synthetic fun toString$default (Ldev/rnett/inspekt/Inspektion;ZZILjava/lang/Object;)Ljava/lang/String;
 }
 
 public abstract class dev/rnett/inspekt/MemberName : dev/rnett/inspekt/QualifiedName {
@@ -181,6 +224,7 @@ public abstract class dev/rnett/inspekt/Method : dev/rnett/inspekt/Callable {
 	public abstract fun getReturnType ()Lkotlin/reflect/KType;
 	public fun invoke (Ldev/rnett/inspekt/ArgumentList;)Ljava/lang/Object;
 	public final fun invoke (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public fun isCallable ()Z
 }
 
 public final class dev/rnett/inspekt/Method$Kind : java/lang/Enum {
@@ -436,48 +480,6 @@ public final class dev/rnett/inspekt/SpecialNames {
 	public final fun setter (Ljava/lang/String;)Ljava/lang/String;
 }
 
-public final class dev/rnett/inspekt/Spekt : dev/rnett/inspekt/AnnotatedElement {
-	public final fun cast (Ljava/lang/Object;)Ljava/lang/Object;
-	public final fun component1 ()Lkotlin/reflect/KClass;
-	public final fun component10 ()Ljava/util/List;
-	public final fun component14 ()Ldev/rnett/inspekt/Spekt;
-	public final fun component2 ()Ldev/rnett/inspekt/ClassName;
-	public final fun component3 ()Ljava/util/Set;
-	public final fun component4 ()Ljava/util/List;
-	public final fun component5 ()Ljava/lang/Object;
-	public final fun component6 ()Ljava/util/List;
-	public final fun component7 ()Ljava/util/List;
-	public final fun component8 ()Ljava/util/List;
-	public final fun component9 ()Z
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun function (Ljava/lang/String;)Ldev/rnett/inspekt/Function;
-	public fun getAnnotations ()Ljava/util/List;
-	public final fun getCompanionObject ()Ldev/rnett/inspekt/Spekt;
-	public final fun getCompanionObjectInstance ()Ljava/lang/Object;
-	public final fun getConstructors ()Ljava/util/List;
-	public final fun getDeclaredFunctions ()Ljava/util/List;
-	public final fun getDeclaredProperties ()Ljava/util/List;
-	public final fun getFunctions ()Ljava/util/List;
-	public final fun getKotlin ()Lkotlin/reflect/KClass;
-	public final fun getName ()Ldev/rnett/inspekt/ClassName;
-	public final fun getObjectInstance ()Ljava/lang/Object;
-	public final fun getPrimaryConstructor ()Ldev/rnett/inspekt/Constructor;
-	public final fun getProperties ()Ljava/util/List;
-	public final fun getSealedSubclasses ()Ljava/util/List;
-	public final fun getShortName ()Ljava/lang/String;
-	public final fun getSuperclasses ()Ljava/util/Set;
-	public final fun getSupertypes ()Ljava/util/Set;
-	public fun hashCode ()I
-	public final fun isAbstract ()Z
-	public final fun isInstance (Ljava/lang/Object;)Z
-	public final fun isSubtypeOf (Lkotlin/reflect/KClass;)Z
-	public final fun safeCast (Ljava/lang/Object;)Ljava/lang/Object;
-	public final fun singleProperty (Ljava/lang/String;)Ldev/rnett/inspekt/Property;
-	public fun toString ()Ljava/lang/String;
-	public final fun toString (ZZ)Ljava/lang/String;
-	public static synthetic fun toString$default (Ldev/rnett/inspekt/Spekt;ZZILjava/lang/Object;)Ljava/lang/String;
-}
-
 public abstract interface annotation class dev/rnett/inspekt/SpektCompilerPluginIntrinsic : java/lang/annotation/Annotation {
 }
 
@@ -492,12 +494,12 @@ public final class dev/rnett/inspekt/internal/ArgumentsProviderV1$DefaultImpls {
 }
 
 public abstract class dev/rnett/inspekt/internal/SpektImplementation {
-	public abstract fun toSpekt ()Ldev/rnett/inspekt/Spekt;
+	public abstract fun toSpekt ()Ldev/rnett/inspekt/Inspektion;
 }
 
 public final class dev/rnett/inspekt/internal/SpektImplementationV1 : dev/rnett/inspekt/internal/SpektImplementation {
 	public fun <init> (Lkotlin/reflect/KClass;Z[Ljava/lang/String;[Ljava/lang/String;[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/SpektImplementationV1$Function;[Ldev/rnett/inspekt/internal/SpektImplementationV1$Property;[Ldev/rnett/inspekt/internal/SpektImplementationV1$Function;[Ldev/rnett/inspekt/internal/SpektImplementationV1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ldev/rnett/inspekt/internal/SpektImplementationV1;)V
-	public fun toSpekt ()Ldev/rnett/inspekt/Spekt;
+	public fun toSpekt ()Ldev/rnett/inspekt/Inspektion;
 }
 
 public final class dev/rnett/inspekt/internal/SpektImplementationV1$Function {
@@ -528,16 +530,16 @@ public final class dev/rnett/inspekt/proxy/ProxyHandler$DefaultImpls {
 public final class dev/rnett/inspekt/proxy/ProxyKt {
 	public static final fun proxy (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
 	public static final fun proxyFactory (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;)Lkotlin/jvm/functions/Function1;
-	public static final fun proxyableSpekt (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/proxy/ProxyableSpekt;
+	public static final fun proxyableInspektion (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
 	public static final fun v1ProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/Function;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;)Ljava/lang/Object;
-	public static final fun v1ProxyableSpektHelper (Ldev/rnett/inspekt/Spekt;Lkotlin/jvm/functions/Function1;)Ldev/rnett/inspekt/proxy/ProxyableSpekt;
+	public static final fun v1ProxyableSpektHelper (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function1;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
 	public static final fun v1SuspendProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/Function;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
-public final class dev/rnett/inspekt/proxy/ProxyableSpekt {
-	public fun <init> (Ldev/rnett/inspekt/Spekt;Lkotlin/jvm/functions/Function1;)V
-	public final fun getSpekt ()Ldev/rnett/inspekt/Spekt;
-	public final fun proxy (Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
+public final class dev/rnett/inspekt/proxy/ProxyableInspektion {
+	public fun <init> (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function1;)V
+	public final fun createProxy (Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
+	public final fun getInspektion ()Ldev/rnett/inspekt/Inspektion;
 }
 
 public abstract class dev/rnett/inspekt/proxy/SuperCall {

@@ -17,7 +17,7 @@ FILE: Sealed.kt
         }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/SealedInt>|
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/SealedInt>|
 
             private constructor(): R|auto/implementation/box/SealedInt.Companion| {
                 super<R|kotlin/Any|>()
@@ -39,5 +39,5 @@ FILE: Sealed.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box Q|auto/implementation/box/SealedInt|.R|auto/implementation/box/SealedInt.Companion.spekt|().R|SubstitutionOverride<dev/rnett/inspekt/Spekt.toString: R|kotlin/String|>|(Boolean(true))
+        ^box Q|auto/implementation/box/SealedInt|.R|auto/implementation/box/SealedInt.Companion.inspekt|().R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.toString: R|kotlin/String|>|(Boolean(true))
     }

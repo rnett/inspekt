@@ -3,6 +3,7 @@
 package dev.rnett.inspekt.internal
 
 import dev.rnett.inspekt.ClassName
+import dev.rnett.inspekt.Inspektion
 import dev.rnett.inspekt.MemberName
 import dev.rnett.inspekt.MutableProperty
 import dev.rnett.inspekt.PackageName
@@ -11,7 +12,6 @@ import dev.rnett.inspekt.Parameters
 import dev.rnett.inspekt.PropertyGetter
 import dev.rnett.inspekt.PropertySetter
 import dev.rnett.inspekt.ReadOnlyProperty
-import dev.rnett.inspekt.Spekt
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
@@ -23,7 +23,7 @@ import kotlin.reflect.KType
 @ExportSymbol
 internal sealed class SpektImplementation<T : Any> {
     @ExportSymbol
-    abstract fun toSpekt(): Spekt<T>
+    abstract fun toSpekt(): Inspektion<T>
 }
 
 @PublishedApi
@@ -62,13 +62,13 @@ internal class SpektImplementationV1<T : Any>
 
     internal val name = ClassName(PackageName(packageNames.toList()), classNames.toList())
 
-    override fun toSpekt(): Spekt<T> {
-        lateinit var ref: Spekt<T>
+    override fun toSpekt(): Inspektion<T> {
+        lateinit var ref: Inspektion<T>
         val lazy = lazy(LazyThreadSafetyMode.NONE) { ref }
 
 
         @Suppress("UNCHECKED_CAST")
-        return Spekt(
+        return Inspektion(
             kClass as KClass<T>,
             name,
             supertypes.toSet(),
@@ -147,14 +147,14 @@ internal class SpektImplementationV1<T : Any>
             inheritedFrom
         )
 
-        internal fun toSpektCtor(spekt: Lazy<Spekt<*>>): dev.rnett.inspekt.Constructor = dev.rnett.inspekt.Constructor(
+        internal fun toSpektCtor(inspektion: Lazy<Inspektion<*>>): dev.rnett.inspekt.Constructor = dev.rnett.inspekt.Constructor(
             name as MemberName.Member,
             kotlin,
             annotations.toList(),
             isAbstract,
             Parameters(parameters.map { it.toSpekt() }),
             returnType,
-            spekt,
+            inspektion,
             isPrimaryCtor,
             invoker
         )

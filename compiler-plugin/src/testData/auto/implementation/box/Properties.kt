@@ -14,7 +14,7 @@ class TestProperties {
 }
 
 fun box(): String {
-    val spekt = TestProperties.spekt()
+    val spekt = TestProperties.inspekt()
     val instance = TestProperties()
     
     val pReadOnly = spekt.properties.single { it.name.name == "readOnly" } as ReadOnlyProperty

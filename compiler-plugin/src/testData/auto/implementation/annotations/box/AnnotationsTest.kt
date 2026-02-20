@@ -11,7 +11,7 @@ class Test {
 }
 
 fun box(): String {
-    val spekt = Test.spekt()
+    val spekt = Test.inspekt()
 
     assertEquals(TestAnnotation(1), spekt.annotation<TestAnnotation>(), "Test annotation should be present")
 

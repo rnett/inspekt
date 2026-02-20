@@ -29,11 +29,11 @@ FILE: Basic.kt
                     ^ this@R|auto/implementation/box/Test.Companion|.D|auto/implementation/box/Test.Companion.t|.R|kotlin/getValue|<R|kotlin/Int|>(this@R|auto/implementation/box/Test.Companion|, ::R|auto/implementation/box/Test.Companion.t|)
                 }
 
-            public final fun spekt(): R|dev/rnett/inspekt/Spekt<auto/implementation/box/Test>|
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>|
 
         }
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.spekt|().R|SubstitutionOverride<dev/rnett/inspekt/Spekt.toString: R|kotlin/String|>|()
+        ^box Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.inspekt|().R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.toString: R|kotlin/String|>|()
     }

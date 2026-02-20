@@ -7,7 +7,7 @@ import kotlin.reflect.KType
 //TODO type parameters, for everything
 
 @ExportSymbol
-public data class Spekt<T : Any> internal constructor(
+public data class Inspektion<T : Any> internal constructor(
     public val kotlin: KClass<T>,
     public val name: ClassName,
     public val supertypes: Set<KType>,
@@ -21,11 +21,11 @@ public data class Spekt<T : Any> internal constructor(
      * Attempting to call constructors will fail.
      */
     public val isAbstract: Boolean,
-    public val sealedSubclasses: List<Spekt<out T>>,
+    public val sealedSubclasses: List<Inspektion<out T>>,
     private val cast: (Any) -> T,
     private val isInstance: (Any) -> Boolean,
     private val safeCast: (Any) -> T?,
-    val companionObject: Spekt<Any>?,
+    val companionObject: Inspektion<Any>?,
 ) : AnnotatedElement {
 
     public val superclasses: Set<KClass<*>> = buildSet { supertypes.mapNotNullTo(this) { it.classifier as? KClass<*> } }
