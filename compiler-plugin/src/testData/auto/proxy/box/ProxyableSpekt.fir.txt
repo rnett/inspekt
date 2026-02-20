@@ -6,7 +6,7 @@ FILE: ProxyableSpekt.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval proxyable: R|dev/rnett/inspekt/proxy/ProxyableInspektion<auto/proxy/box/TestProxyable>| = R|dev/rnett/inspekt/proxy/proxyableInspektion|<R|auto/proxy/box/TestProxyable|>(<getClass>(Q|auto/proxy/box/TestProxyable|))
+        lval proxyable: R|dev/rnett/inspekt/proxy/ProxyableInspektion<auto/proxy/box/TestProxyable>| = R|dev/rnett/inspekt/proxy/inspektAndProxy|<R|auto/proxy/box/TestProxyable|>(<getClass>(Q|auto/proxy/box/TestProxyable|))
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(TestProxyable), R|<local>/proxyable|.R|SubstitutionOverride<dev/rnett/inspekt/proxy/ProxyableInspektion.inspektion: R|dev/rnett/inspekt/Inspektion<auto/proxy/box/TestProxyable>|>|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.shortName: R|kotlin/String|>|)
         lval proxy: R|auto/proxy/box/TestProxyable| = R|<local>/proxyable|.R|SubstitutionOverride<dev/rnett/inspekt/proxy/ProxyableInspektion.createProxy: R|auto/proxy/box/TestProxyable|>|(<L> = SAM(createProxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
             ^ Int(4)

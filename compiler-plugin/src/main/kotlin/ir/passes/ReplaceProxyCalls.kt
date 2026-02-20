@@ -43,7 +43,7 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
             Symbols.inspekt.dev_rnett_inspekt_proxy_proxyFactory.asCallableId() ->
                 intrinsifyProxyFactory(expression)
 
-            Symbols.inspekt.dev_rnett_inspekt_proxy_proxyableInspektion.asCallableId() ->
+            Symbols.inspekt.dev_rnett_inspekt_proxy_inspektAndProxy.asCallableId() ->
                 intrinsifyProxyableSpekt(expression)
 
             else -> expression
@@ -54,7 +54,7 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
     private val proxyableSpektHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyableSpektHelper.asCallableId()).single()
 
     private fun intrinsifyProxyableSpekt(expression: IrCall): IrExpression {
-        val baseInterface = checkIsInterface(expression.arguments[0] ?: error("proxyableSpekt first argument is required")) ?: error("proxyableSpekt first argument must be an interface")
+        val baseInterface = checkIsInterface(expression.arguments[0] ?: error("inspektAndProxy first argument is required")) ?: error("proxyableSpekt first argument must be an interface")
         return withBuilderForCurrentScope {
             irCall(proxyableSpektHelper).apply {
                 arguments[0] = generator.spektGenerator.createInspektion(baseInterface, expression.getCompilerMessageLocation(currentFile))

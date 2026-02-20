@@ -3,7 +3,7 @@ interface TestProxyable {
 }
 
 fun box(): String {
-    val proxyable = proxyableInspektion(TestProxyable::class)
+    val proxyable = inspektAndProxy(TestProxyable::class)
 
     assertEquals("TestProxyable", proxyable.inspektion.shortName)
 

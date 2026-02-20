@@ -20,7 +20,7 @@ public annotation class Inspekt()
  */
 @InspektCompilerPluginIntrinsic
 @ExportSymbol
-public fun <T : Any> inspekt(kClass: KClass<T>): Inspektion<T> = throwIntrinsicException()
+public fun <T : Any> inspekt(@ReferenceLiteral kClass: KClass<T>): Inspektion<T> = throwIntrinsicException()
 
 /**
  * [function] must be a function reference literal.
@@ -28,7 +28,7 @@ public fun <T : Any> inspekt(kClass: KClass<T>): Inspektion<T> = throwIntrinsicE
  */
 @InspektCompilerPluginIntrinsic
 @ExportSymbol
-public fun inspekt(function: KFunction<*>): Function = throwIntrinsicException()
+public fun inspekt(@ReferenceLiteral function: KFunction<*>): Function = throwIntrinsicException()
 
 /**
  * [property] must be a property reference literal.
@@ -36,4 +36,4 @@ public fun inspekt(function: KFunction<*>): Function = throwIntrinsicException()
  */
 @InspektCompilerPluginIntrinsic
 @ExportSymbol
-public fun inspekt(property: KProperty<*>): Property = throwIntrinsicException()
+public fun inspekt(@ReferenceLiteral property: KProperty<*>): Property = throwIntrinsicException()

@@ -6,7 +6,7 @@ import dev.rnett.kcp.development.registrar.BaseSpecCompilerPluginRegistrar
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.jetbrains.kotlin.config.CompilerConfiguration
 
-class SpektSpec() {
+class SpektSpec(val defaultWarnOn: Int = 5) {
 
 }
 

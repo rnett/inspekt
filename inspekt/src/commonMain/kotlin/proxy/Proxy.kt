@@ -6,13 +6,13 @@ import dev.rnett.inspekt.Function
 import dev.rnett.inspekt.InspektCompilerPluginIntrinsic
 import dev.rnett.inspekt.Inspektion
 import dev.rnett.inspekt.Method
-import dev.rnett.inspekt.MustBeReferenceLiteral
 import dev.rnett.inspekt.Parameter
 import dev.rnett.inspekt.Parameters
 import dev.rnett.inspekt.Property
 import dev.rnett.inspekt.PropertyAccessor
 import dev.rnett.inspekt.PropertyGetter
 import dev.rnett.inspekt.PropertySetter
+import dev.rnett.inspekt.ReferenceLiteral
 import dev.rnett.inspekt.throwIntrinsicException
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
@@ -130,8 +130,8 @@ internal suspend fun v1SuspendProxyHelper(
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
 public fun <T : Any> proxy(
-    @MustBeReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
-    @MustBeReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
+    @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
+    @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
     handler: ProxyHandler
 ): T = throwIntrinsicException()
 
@@ -141,8 +141,8 @@ public fun <T : Any> proxy(
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
 public fun <T : Any> proxyFactory(
-    @MustBeReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
-    @MustBeReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>
+    @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
+    @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>
 ): (ProxyHandler) -> T = throwIntrinsicException()
 
 public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, private val factory: (ProxyHandler) -> T) {
@@ -154,7 +154,7 @@ public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, 
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
-public fun <T : Any> proxyableInspektion(@MustBeReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>): ProxyableInspektion<T> = throwIntrinsicException()
+public fun <T : Any> inspektAndProxy(@ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>): ProxyableInspektion<T> = throwIntrinsicException()
 
 
 @Suppress("UNCHECKED_CAST", "unused")

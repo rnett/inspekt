@@ -472,6 +472,11 @@ public final class dev/rnett/inspekt/ReadOnlyProperty : dev/rnett/inspekt/Proper
 	public fun toString (Z)Ljava/lang/String;
 }
 
+public abstract interface annotation class dev/rnett/inspekt/ReferenceLiteral : java/lang/annotation/Annotation {
+	public abstract fun mustBeInterface ()Z
+	public abstract fun warnAboutDefaults ()Z
+}
+
 public abstract class dev/rnett/inspekt/SimpleFunction : dev/rnett/inspekt/Method {
 }
 
@@ -528,9 +533,9 @@ public final class dev/rnett/inspekt/proxy/ProxyHandler$DefaultImpls {
 }
 
 public final class dev/rnett/inspekt/proxy/ProxyKt {
+	public static final fun inspektAndProxy (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
 	public static final fun proxy (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
 	public static final fun proxyFactory (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;)Lkotlin/jvm/functions/Function1;
-	public static final fun proxyableInspektion (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
 	public static final fun v1ProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/Function;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;)Ljava/lang/Object;
 	public static final fun v1ProxyableSpektHelper (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function1;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
 	public static final fun v1SuspendProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/Function;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
