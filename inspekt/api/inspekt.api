@@ -132,6 +132,9 @@ public final class dev/rnett/inspekt/Function : dev/rnett/inspekt/SimpleFunction
 public abstract interface annotation class dev/rnett/inspekt/Inspekt : java/lang/annotation/Annotation {
 }
 
+public abstract interface annotation class dev/rnett/inspekt/InspektCompilerPluginIntrinsic : java/lang/annotation/Annotation {
+}
+
 public final class dev/rnett/inspekt/InspektKt {
 	public static final fun inspekt (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/Inspektion;
 	public static final fun inspekt (Lkotlin/reflect/KFunction;)Ldev/rnett/inspekt/Function;
@@ -478,9 +481,6 @@ public final class dev/rnett/inspekt/SpecialNames {
 	public static final field receiver Ljava/lang/String;
 	public final fun getter (Ljava/lang/String;)Ljava/lang/String;
 	public final fun setter (Ljava/lang/String;)Ljava/lang/String;
-}
-
-public abstract interface annotation class dev/rnett/inspekt/SpektCompilerPluginIntrinsic : java/lang/annotation/Annotation {
 }
 
 public abstract interface class dev/rnett/inspekt/internal/ArgumentsProviderV1 {

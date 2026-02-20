@@ -10,8 +10,8 @@ open annotation class dev.rnett.inspekt/Inspekt : kotlin/Annotation { // dev.rne
     constructor <init>() // dev.rnett.inspekt/Inspekt.<init>|<init>(){}[0]
 }
 
-open annotation class dev.rnett.inspekt/SpektCompilerPluginIntrinsic : kotlin/Annotation { // dev.rnett.inspekt/SpektCompilerPluginIntrinsic|null[0]
-    constructor <init>() // dev.rnett.inspekt/SpektCompilerPluginIntrinsic.<init>|<init>(){}[0]
+open annotation class dev.rnett.inspekt/InspektCompilerPluginIntrinsic : kotlin/Annotation { // dev.rnett.inspekt/InspektCompilerPluginIntrinsic|null[0]
+    constructor <init>() // dev.rnett.inspekt/InspektCompilerPluginIntrinsic.<init>|<init>(){}[0]
 }
 
 abstract fun interface dev.rnett.inspekt.proxy/ProxyHandler { // dev.rnett.inspekt.proxy/ProxyHandler|null[0]

@@ -3,6 +3,7 @@ package dev.rnett.inspekt.proxy
 import dev.rnett.inspekt.ArgumentList
 import dev.rnett.inspekt.ArgumentsBuilder
 import dev.rnett.inspekt.Function
+import dev.rnett.inspekt.InspektCompilerPluginIntrinsic
 import dev.rnett.inspekt.Inspektion
 import dev.rnett.inspekt.Method
 import dev.rnett.inspekt.Parameter
@@ -11,7 +12,6 @@ import dev.rnett.inspekt.Property
 import dev.rnett.inspekt.PropertyAccessor
 import dev.rnett.inspekt.PropertyGetter
 import dev.rnett.inspekt.PropertySetter
-import dev.rnett.inspekt.SpektCompilerPluginIntrinsic
 import dev.rnett.inspekt.throwIntrinsicException
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
@@ -123,14 +123,14 @@ internal suspend fun v1SuspendProxyHelper(
  * [toImplement] and each [additionalInterfaces] must be an interface.
  */
 @ExportSymbol
-@SpektCompilerPluginIntrinsic
+@InspektCompilerPluginIntrinsic
 public fun <T : Any> proxy(toImplement: KClass<T>, vararg additionalInterfaces: KClass<*>, handler: ProxyHandler): T = throwIntrinsicException()
 
 /**
  * [toImplement] and each [additionalInterfaces] must be an interface.
  */
 @ExportSymbol
-@SpektCompilerPluginIntrinsic
+@InspektCompilerPluginIntrinsic
 public fun <T : Any> proxyFactory(toImplement: KClass<T>, vararg additionalInterfaces: KClass<*>): (ProxyHandler) -> T = throwIntrinsicException()
 
 public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, private val factory: (ProxyHandler) -> T) {
@@ -141,7 +141,7 @@ public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, 
  * [toImplement] must be an interface.
  */
 @ExportSymbol
-@SpektCompilerPluginIntrinsic
+@InspektCompilerPluginIntrinsic
 public fun <T : Any> proxyableInspektion(toImplement: KClass<T>): ProxyableInspektion<T> = throwIntrinsicException()
 
 
