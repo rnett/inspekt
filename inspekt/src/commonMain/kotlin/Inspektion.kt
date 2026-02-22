@@ -171,13 +171,31 @@ public class Inspektion<T : Any> internal constructor(
      * If the function is static, [receiver] is ignored.
      * [receiver] must be non-null for non-static functions.
      *
-     * @throws FunctionInvocationException if the function cannot be invoked, [receiver] is null but the function is non-static, or the function is suspending.
+     * @throws FunctionInvocationException if the function cannot be invoked or the function is suspending.
      * @throws NoSuchElementException if no function with that name exists.
      * @throws IllegalArgumentException if more than one function with that name exist.
      * @see function
      * @see Function.invoke
      */
     public inline fun callFunction(receiver: T?, name: String, argumentsBuilder: ArgumentsBuilder = {}): Any? = function(name).invoke {
+        if (it.hasDispatch && receiver != null)
+            dispatchReceiver = receiver
+        argumentsBuilder(it)
+    }
+
+    /**
+     * Call the single function named [name] with [receiver] and [argumentsBuilder].
+     *
+     * If the function is static, [receiver] is ignored.
+     * [receiver] must be non-null for non-static functions.
+     *
+     * @throws FunctionInvocationException if the function cannot be invoked.
+     * @throws NoSuchElementException if no function with that name exists.
+     * @throws IllegalArgumentException if more than one function with that name exist.
+     * @see function
+     * @see Function.invokeSuspend
+     */
+    public suspend inline fun callSuspendFunction(receiver: T?, name: String, argumentsBuilder: ArgumentsBuilder = {}): Any? = function(name).invokeSuspend {
         if (it.hasDispatch && receiver != null)
             dispatchReceiver = receiver
         argumentsBuilder(it)
@@ -204,6 +222,7 @@ public class Inspektion<T : Any> internal constructor(
      * @see Function.invoke
      * @see primaryConstructor
      */
+    @Suppress("UNCHECKED_CAST")
     public inline fun callPrimaryConstructor(argumentsBuilder: ArgumentsBuilder = {}): T =
         (primaryConstructor ?: throw FunctionInvocationException(name, IllegalStateException("Class $name has no primary constructor"))).invoke(argumentsBuilder) as T
 
@@ -214,6 +233,7 @@ public class Inspektion<T : Any> internal constructor(
      * @see Function.invoke
      * @see primaryConstructor
      */
+    @Suppress("UNCHECKED_CAST")
     public inline operator fun invoke(argumentsBuilder: ArgumentsBuilder = {}): T = callPrimaryConstructor(argumentsBuilder)
 
     /**
