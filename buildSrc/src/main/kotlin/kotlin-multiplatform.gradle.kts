@@ -24,14 +24,37 @@ kotlin {
         wasmWasi() {
             nodejs()
         }
-        iosArm64()
-        iosX64()
-        mingwX64()
+
+        // Apple
         macosX64()
         macosArm64()
+        iosArm64()
+        iosX64()
+        iosSimulatorArm64()
+        watchosArm32()
+        watchosArm64()
+        watchosX64()
+        watchosSimulatorArm64()
+        watchosDeviceArm64()
+        tvosArm64()
+        tvosX64()
+        tvosSimulatorArm64()
+
+        // Linux
         linuxX64()
         linuxArm64()
+
+        // Windows
+        mingwX64()
+
+        // Android Native
+        androidNativeArm32()
+        androidNativeArm64()
+        androidNativeX86()
+        androidNativeX64()
     }
+
+    applyDefaultHierarchyTemplate()
 }
 
 dependencies {
