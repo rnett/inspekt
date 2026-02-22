@@ -10,13 +10,16 @@ compilerSupportPluginDevelopment {
 
 gradlePlugin {
     plugins {
-        create("SpektPlugin") {
+        create("InspektPlugin") {
             id = group.toString()
-            displayName = "Spekt Gradle Plugin"
-            description = "Spekt Gradle Plugin - a Kotlin Multiplatform logging facade"
-            implementationClass = "dev.rnett.inspekt.SpektPlugin"
+            displayName = "Inspekt Gradle Plugin"
+            description = "Inspekt Gradle Plugin - a Kotlin Multiplatform logging facade"
+            implementationClass = "dev.rnett.inspekt.InspektPlugin"
         }
     }
 }
 
-//TODO opt into the compiler plugin annotation
+buildConfig {
+    buildConfigField("COMPILER_PLUGIN_INTRINSIC_ANNOTATION", "dev.rnett.inspekt.InspektCompilerPluginIntrinsic")
+    buildConfigField("LIBRARY_ARTIFACT_ID", "inspekt")
+}

@@ -1,0 +1,17 @@
+public abstract class dev/rnett/inspekt/InspektExtension {
+	public fun <init> ()V
+	public abstract fun getAddInspektDependencies ()Lorg/gradle/api/provider/Property;
+	public abstract fun getWarnOnDefaultParameters ()Lorg/gradle/api/provider/Property;
+}
+
+public final class dev/rnett/inspekt/InspektPlugin : org/jetbrains/kotlin/gradle/plugin/KotlinCompilerPluginSupportPlugin {
+	public fun <init> (Lorg/gradle/api/provider/ProviderFactory;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public fun applyToCompilation (Lorg/jetbrains/kotlin/gradle/plugin/KotlinCompilation;)Lorg/gradle/api/provider/Provider;
+	public fun getCompilerPluginId ()Ljava/lang/String;
+	public fun getPluginArtifact ()Lorg/jetbrains/kotlin/gradle/plugin/SubpluginArtifact;
+	public fun getPluginArtifactForNative ()Lorg/jetbrains/kotlin/gradle/plugin/SubpluginArtifact;
+	public fun isApplicable (Lorg/jetbrains/kotlin/gradle/plugin/KotlinCompilation;)Z
+}
+

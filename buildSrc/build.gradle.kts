@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     api(plugin(libs.plugins.kotlin.multiplatform))
+    api(plugin(libs.plugins.kotlin.jvm))
     api(plugin(libs.plugins.kotlin.power.assert))
     api(plugin(libs.plugins.dokka))
     api(plugin(libs.plugins.publishing))

@@ -90,7 +90,7 @@ class LiteralsChecker(session: FirSession, val defaultWarnOn: Int) : FirAddition
         context(context: CheckerContext, reporter: DiagnosticReporter)
         private fun checkDefaults(symbol: FirFunctionSymbol<*>, location: KtSourceElement?, includeName: Boolean) {
             val numberOfDefaults = symbol.valueParameterSymbols.count { it.hasDefaultValue }
-            if (numberOfDefaults > defaultWarnOn) {
+            if (defaultWarnOn in 1..<numberOfDefaults) {
                 reporter.reportOn(location, Diagnostics.defaultWarningMarker(symbol.name.asString()), symbol.name.asString().takeIf { includeName }, numberOfDefaults, defaultWarnOn)
             }
         }
