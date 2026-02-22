@@ -3,6 +3,7 @@ plugins {
     id("kotlin-jvm")
     alias(libs.plugins.kcp.dev.compiler)
     alias(libs.plugins.symbol.export.import)
+    id("kotlin-publishing")
 }
 
 compilerPluginDevelopment {

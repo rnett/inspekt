@@ -20,7 +20,6 @@ import kotlin.reflect.KProperty
  * Calling this function on a class with functions that have a large number of default parameters can result in
  * inefficient invoke methods and significantly more binary size bloat.
  *
- * @see Inspekt
  * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  */
 @InspektCompilerPluginIntrinsic

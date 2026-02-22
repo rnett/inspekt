@@ -41,3 +41,7 @@ tasks.withType<KotlinNpmInstallTask>().configureEach {
 tasks.named<UpdateDaemonJvm>("updateDaemonJvm") {
     languageVersion = JavaLanguageVersion.of(24)
 }
+
+dokka {
+    moduleName = "Inspekt"
+}

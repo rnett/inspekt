@@ -10,6 +10,10 @@ import org.jetbrains.kotlin.gradle.plugin.SubpluginArtifact
 import org.jetbrains.kotlin.gradle.plugin.SubpluginOption
 import javax.inject.Inject
 
+/**
+ * The Inspekt Gradle plugin.
+ * See [InspektExtension].
+ */
 public class InspektPlugin @Inject constructor(
     private val providers: ProviderFactory
 ) : KotlinCompilerPluginSupportPlugin {
@@ -57,6 +61,9 @@ public class InspektPlugin @Inject constructor(
     }
 }
 
+/**
+ * Configuration for the Inspekt Gradle plugin.
+ */
 public abstract class InspektExtension {
     /**
      * If true (which is the default), the dependency on the `inspekt` runtime library will be automatically added to all source sets (as an `implementation` dependency).

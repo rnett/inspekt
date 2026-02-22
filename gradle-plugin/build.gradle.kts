@@ -2,6 +2,7 @@ plugins {
     id("kotlin-jvm")
     alias(libs.plugins.kcp.dev.gradle)
     id("java-gradle-plugin")
+    id("kotlin-publishing")
 }
 
 compilerSupportPluginDevelopment {
