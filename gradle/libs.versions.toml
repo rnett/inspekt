@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.3.10"
-ksp = "2.3.5"
+ksp = "2.3.6"
 kotlinx-serialization = "1.10.0"
 buildconfig = "6.0.7"
 shadow = "9.3.1"
