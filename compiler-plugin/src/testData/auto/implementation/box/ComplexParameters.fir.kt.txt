@@ -86,7 +86,7 @@ class Complex {
 fun box(): String {
   val spekt: Inspektion<Complex> = Companion.inspekt()
   val instance: Complex = Complex()
-  val fExtension: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val fExtension: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "extension")
   }
 )
@@ -99,7 +99,7 @@ fun box(): String {
 )
   }
 ))
-  val fMulti: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val fMulti: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "multi")
   }
 )

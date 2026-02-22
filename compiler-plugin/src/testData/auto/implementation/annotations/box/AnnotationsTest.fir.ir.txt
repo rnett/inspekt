@@ -827,16 +827,16 @@ FILE fqName:auto.implementation.annotations.box fileName:/AnnotationsTest.kt
           TYPE_ARG T: dev.rnett.inspekt.ExternalAnnotation
           ARG <this>: GET_VAR 'val prop: dev.rnett.inspekt.Property declared in auto.implementation.annotations.box.box' type=dev.rnett.inspekt.Property origin=null
         ARG message: CONST String type=kotlin.String value="External annotation should be present"
-      VAR name:test type:dev.rnett.inspekt.Function [val]
-        CALL 'public final fun single <T> (<this>: kotlin.collections.List<T of kotlin.collections.single>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Function origin=null
-          TYPE_ARG T: dev.rnett.inspekt.Function
-          ARG <this>: CALL 'public final fun <get-declaredFunctions> (): kotlin.collections.List<dev.rnett.inspekt.Function> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Function> origin=GET_PROPERTY
+      VAR name:test type:dev.rnett.inspekt.SimpleFunction [val]
+        CALL 'public final fun single <T> (<this>: kotlin.collections.List<T of kotlin.collections.single>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.SimpleFunction origin=null
+          TYPE_ARG T: dev.rnett.inspekt.SimpleFunction
+          ARG <this>: CALL 'public final fun <get-declaredFunctions> (): kotlin.collections.List<dev.rnett.inspekt.SimpleFunction> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.SimpleFunction> origin=GET_PROPERTY
             ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.annotations.box.Test> declared in auto.implementation.annotations.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.annotations.box.Test> origin=null
       VAR name:testA type:dev.rnett.inspekt.Parameter [val]
         CALL 'public final fun last <T> (<this>: kotlin.collections.List<T of kotlin.collections.last>): T of kotlin.collections.last declared in kotlin.collections' type=dev.rnett.inspekt.Parameter origin=null
           TYPE_ARG T: dev.rnett.inspekt.Parameter
-          ARG <this>: CALL 'public open fun <get-parameters> (): dev.rnett.inspekt.Parameters declared in dev.rnett.inspekt.Function' type=dev.rnett.inspekt.Parameters origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val test: dev.rnett.inspekt.Function declared in auto.implementation.annotations.box.box' type=dev.rnett.inspekt.Function origin=null
+          ARG <this>: CALL 'public open fun <get-parameters> (): dev.rnett.inspekt.Parameters declared in dev.rnett.inspekt.SimpleFunction' type=dev.rnett.inspekt.Parameters origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val test: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.annotations.box.box' type=dev.rnett.inspekt.SimpleFunction origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: auto.implementation.annotations.box.TestAnnotation?
         ARG expected: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int) declared in auto.implementation.annotations.box.TestAnnotation' type=auto.implementation.annotations.box.TestAnnotation origin=null

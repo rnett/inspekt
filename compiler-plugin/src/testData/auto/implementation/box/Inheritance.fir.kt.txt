@@ -257,7 +257,7 @@ fun box(): String {
   }
 ))
   assertEquals<KClass<out Any>?>(expected = Base::class, actual = pBase.<get-inheritedFrom>())
-  val fAbstract: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val fAbstract: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "abstractFun")
   }
 )
@@ -269,7 +269,7 @@ fun box(): String {
   }
 ))
   assertEquals<KClass<*>?>(expected = null, actual = fAbstract.<get-inheritedFrom>())
-  val fOpen: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val fOpen: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "openFun")
   }
 )
@@ -281,7 +281,7 @@ fun box(): String {
   }
 ))
   assertEquals<KClass<*>?>(expected = null, actual = fOpen.<get-inheritedFrom>())
-  val fBase: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val fBase: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "baseFun")
   }
 )
@@ -293,7 +293,7 @@ fun box(): String {
   }
 ))
   assertEquals<KClass<out Any>?>(expected = Base::class, actual = fBase.<get-inheritedFrom>())
-  val fDerived: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val fDerived: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "derivedFun")
   }
 )

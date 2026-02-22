@@ -153,7 +153,7 @@ fun box(): String {
 )
   }
 ))
-  val fObj: Function = single<Function>(/* <this> = spektObj.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val fObj: SimpleFunction = single<SimpleFunction>(/* <this> = spektObj.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "test")
   }
 )

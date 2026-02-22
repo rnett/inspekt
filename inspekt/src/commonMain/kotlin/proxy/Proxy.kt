@@ -4,128 +4,143 @@ import dev.rnett.inspekt.ArgumentList
 import dev.rnett.inspekt.ArgumentsBuilder
 import dev.rnett.inspekt.Function
 import dev.rnett.inspekt.InspektCompilerPluginIntrinsic
+import dev.rnett.inspekt.InspektNotIntrinsifiedException
 import dev.rnett.inspekt.Inspektion
-import dev.rnett.inspekt.Method
-import dev.rnett.inspekt.Parameter
+import dev.rnett.inspekt.InvocationFailureException
 import dev.rnett.inspekt.Parameters
 import dev.rnett.inspekt.Property
 import dev.rnett.inspekt.PropertyAccessor
 import dev.rnett.inspekt.PropertyGetter
 import dev.rnett.inspekt.PropertySetter
 import dev.rnett.inspekt.ReferenceLiteral
-import dev.rnett.inspekt.throwIntrinsicException
+import dev.rnett.inspekt.SimpleFunction
+import dev.rnett.inspekt.inspekt
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 
 public sealed class SuperCall {
-    public abstract val superMethod: Method
-    public val parameters: Parameters get() = superMethod.parameters
-    public abstract val args: List<Any?>
+    /**
+     * The function originally being called.
+     */
+    public abstract val superFun: Function
 
-    public fun arg(param: Parameter): Any? = args[param.globalIndex]
-    public fun arg(name: String): Any? = arg(parameters[name] ?: throw IllegalArgumentException("No argument for parameter named $name"))
-    public fun argOrNull(name: String): Any? = args[parameters[name]?.globalIndex ?: return null]
+    /**
+     * The parameters of the function originally being called.
+     */
+    public val parameters: Parameters get() = superFun.parameters
 
-    public val isSuperCallable: Boolean get() = !superMethod.isAbstract
-    public val isSuperAbstract: Boolean get() = superMethod.isAbstract
+    /**
+     * The arguments the function is being called with.
+     */
+    public abstract val args: ArgumentList
 
+    /**
+     * Whether [superFun] can be invoked.
+     */
+    public val isSuperCallable: Boolean get() = superFun.isCallable
+
+    /**
+     * Whether [superFun] is abstract.
+     */
+    public val isSuperAbstract: Boolean get() = superFun.isAbstract
+
+    /**
+     * Call [superFun] with the call's arguments.
+     */
     public fun callSuper(): Any? {
-        return superMethod.invoke(parameters.arguments(args))
+        return superFun.invoke(args)
     }
 
+    /**
+     * Call [superFun] with the call's arguments.
+     */
+    public suspend fun callSuperSuspend(): Any? {
+        return superFun.invokeSuspend(args)
+    }
+
+    /**
+     * Copy the call's arguments into this argument list.
+     */
     public fun ArgumentList.Builder.copyArgs() {
         setAll(args)
     }
 
-    public inline fun callSuper(builder: ArgumentsBuilder): Any? = superMethod.invoke(builder)
+    /**
+     * Call [superFun] with the given arguments.
+     */
+    public inline fun callSuper(builder: ArgumentsBuilder): Any? = superFun.invoke(builder)
 
     public sealed class PropertyAccess : SuperCall() {
         public abstract val superProperty: Property
-        public abstract override val superMethod: PropertyAccessor
-    }
-
-    public data class FunctionCall(val superFunction: Function, override val args: List<Any?>) : SuperCall() {
-        override val superMethod: Function get() = superFunction
+        public abstract override val superFun: PropertyAccessor
     }
 
     /**
-     * Note that [superGetter] and `property.getter` may not be the same, if the original getter was overridden by an intermediate superclass.
-     * [superGetter] is the method that the getter is overridden, while [superProperty] is the original property that is being overridden.
+     * A call to a simple function.
      */
-    public data class PropertyGet(override val superProperty: Property, override val superMethod: PropertyGetter, override val args: List<Any?>) : PropertyAccess() {
-        val superGetter: PropertyGetter get() = superMethod
+    public data class FunctionCall(val superFunction: SimpleFunction, override val args: ArgumentList) : SuperCall() {
+        override val superFun: SimpleFunction get() = superFunction
     }
 
     /**
-     * Note that [superSetter] and `property.setter` may not be the same, if the original setter was overridden (or added!) by an intermediate superclass.
-     * [superSetter] is the method that the setter is overridden, while [superProperty] is the original property that is being overridden (which may even be a `val`).
+     * A call to a property's getter.
+     *
+     * Note that [superGetter] and `superProperty.getter` may not be the same, if the original getter was overridden by an intermediate superclass.
+     * [superGetter] is the getter that the getter is overriding, while [superProperty] is the original property that is being overridden.
+     * **Any calls should go to [superGetter]**, which is set as [superFun].
      */
-    public data class PropertySet(override val superProperty: Property, override val superMethod: PropertySetter, override val args: List<Any?>) : PropertyAccess() {
-        val superSetter: PropertySetter get() = superMethod
+    public data class PropertyGet(override val superProperty: Property, override val superFun: PropertyGetter, override val args: ArgumentList) : PropertyAccess() {
+        val superGetter: PropertyGetter get() = superFun
     }
-}
-
-@ExportSymbol
-public fun interface ProxyHandler {
-    /**
-     * The [Method.invoke] method on `this.method`, `this.getter`, etc. will throw an error if the method is abstract (i.e. doesn't have a default), and will call the default otherwise.
-     */
-    public fun SuperCall.handle(): Any?
 
     /**
-     * The [Method.invoke] method on `this.method`, `this.getter`, etc. will throw an error if the method is abstract (i.e. doesn't have a default), and will call the default otherwise.
+     * A call to a property's setter.
+     *
+     * Note that [superSetter] and `superProperty.setter` may not be the same, if the original setter was defined or overridden by an intermediate superclass - [superProperty] may not even have a setter.
+     * [superSetter] is the setter that the setter is overriding, while [superProperty] is the original property that is being overridden.
+     * **Any calls should go to [superSetter]**, which is set as [superFun].
      */
-    public suspend fun SuperCall.handleSuspend(): Any? = handle()
-
-    context(superCall: SuperCall)
-    public operator fun List<Any?>.get(param: Parameter): Any? = this[param.globalIndex]
-}
-
-@Suppress("unused")
-@ExportSymbol
-@PublishedApi
-internal fun v1ProxyHelper(
-    @ExportSymbol handler: ProxyHandler,
-    @ExportSymbol originalMethod: Function,
-    @ExportSymbol originalProperty: Property?,
-    @ExportSymbol isSetter: Boolean,
-    @ExportSymbol args: Array<Any?>
-): Any? {
-    val argsList = args.asList()
-    val original = when {
-        originalProperty == null -> SuperCall.FunctionCall(originalMethod, argsList)
-        isSetter -> SuperCall.PropertySet(originalProperty, originalMethod.asSetter(originalProperty), argsList)
-        else -> SuperCall.PropertyGet(originalProperty, originalMethod.asGetter(originalProperty), argsList)
-    }
-    return handler.run {
-        original.handle()
-    }
-}
-
-// params must match v1ProxyHelper
-@Suppress("unused")
-@ExportSymbol
-@PublishedApi
-internal suspend fun v1SuspendProxyHelper(
-    handler: ProxyHandler,
-    originalMethod: Function,
-    originalProperty: Property?,
-    isSetter: Boolean,
-    args: Array<Any?>
-): Any? {
-    val argsList = args.asList()
-    val original = when {
-        originalProperty == null -> SuperCall.FunctionCall(originalMethod, argsList)
-        isSetter -> SuperCall.PropertySet(originalProperty, originalMethod.asSetter(originalProperty), argsList)
-        else -> SuperCall.PropertyGet(originalProperty, originalMethod.asGetter(originalProperty), argsList)
-    }
-    return handler.run {
-        original.handleSuspend()
+    public data class PropertySet(override val superProperty: Property, override val superFun: PropertySetter, override val args: ArgumentList) : PropertyAccess() {
+        val superSetter: PropertySetter get() = superFun
     }
 }
 
 /**
- * [toImplement] and each [additionalInterfaces] must be an interface.
+ * A handler for calls to Inspekt proxies. Will be called for all method or property accessors on the proxy object.
+ */
+@ExportSymbol
+public fun interface ProxyHandler {
+    /**
+     * Handle a call to this proxy.
+     *
+     * If you call super, make sure you check [SuperCall.isSuperCallable] first.
+     * Calls to abstract super methods will throw [InvocationFailureException].
+     */
+    public fun SuperCall.handle(): Any?
+
+    /**
+     * Handle a suspending call to this proxy. Defaults to calling [handle].
+     *
+     * If you call super, make sure you check [SuperCall.isSuperCallable] first.
+     * Calls to abstract super methods will throw [InvocationFailureException].
+     */
+    public suspend fun SuperCall.handleSuspend(): Any? = handle()
+}
+
+/**
+ * Create a proxy object that implements [T] and responds to **all** method or accessor calls using [handler].
+ * [toImplement] and each [additionalInterfaces] **must be a class reference literal of an interface**.
+ *
+ * The resulting object will implement [toImplement] and each [additionalInterfaces], and can be safely cast to types from [additionalInterfaces].
+ *
+ * A call to this method is transformed into an anonymous object instance by the compiler plugin.
+ * All the arguments are calculated at compilation time.
+ *
+ * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * This is based on the number of appearances of `proxy()` in your code, not how many times it is invoked.
+ * If you find yourself repeatedly creating proxies for the same class, consider using [proxyFactory], which has a constant binary overhead per factory invocation.
+ *
+ * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
@@ -133,34 +148,54 @@ public fun <T : Any> proxy(
     @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
     @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
     handler: ProxyHandler
-): T = throwIntrinsicException()
+): T = throw InspektNotIntrinsifiedException()
+
 
 /**
- * [toImplement] and each [additionalInterfaces] must be an interface.
+ * Create a proxy object factory, for proxies that implements [T] and responds to **all** method or accessor calls using the handler passed to the factory.
+ * [toImplement] and each [additionalInterfaces] **must be a class reference literal of an interface**.
+ *
+ * The resulting object will implement [toImplement] and each [additionalInterfaces], and can be safely cast to types from [additionalInterfaces].
+ *
+ * A call to this method is transformed into an anonymous object instance by the compiler plugin.
+ * All the arguments are calculated at compilation time.
+ *
+ * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * This is based on the number of appearances of `proxyFactory()` in your code, not how many times it is invoked.
+ * **Calling the factory does not add overhead**, only the `proxyFactory` call.
+ *
+ * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
+ * @see proxy
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
 public fun <T : Any> proxyFactory(
     @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
     @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>
-): (ProxyHandler) -> T = throwIntrinsicException()
+): (ProxyHandler) -> T = throw InspektNotIntrinsifiedException()
 
+/**
+ * An [Inspektion] of a class, and a method for creating proxies of it.
+ */
 public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, private val factory: (ProxyHandler) -> T) {
     public fun createProxy(handler: ProxyHandler): T = factory(handler)
 }
 
 /**
- * [toImplement] must be an interface.
+ * Create an [Inspektion] and a proxy object factory, for proxies that implements [T] and responds to **all** method or accessor calls using the handler passed to the factory.
+ * [toImplement] **must be a class reference literal of an interface**.
+ *
+ * A call to this method is transformed into an anonymous object instance by the compiler plugin.
+ * All the arguments are calculated at compilation time.
+ *
+ * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * This is based on the number of appearances of `inspektAndProxy()` in your code, not how many times it is invoked.
+ * **Calling the factory does not add overhead**, only the `inspektAndProxy` call.
+ *
+ * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
+ * @see inspekt
+ * @see proxyFactory
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
-public fun <T : Any> inspektAndProxy(@ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>): ProxyableInspektion<T> = throwIntrinsicException()
-
-
-@Suppress("UNCHECKED_CAST", "unused")
-@ExportSymbol
-@PublishedApi
-internal fun <T : Any> v1ProxyableSpektHelper(
-    inspektion: Inspektion<*>,
-    proxyFactory: (ProxyHandler) -> Any?
-): ProxyableInspektion<T> = ProxyableInspektion(inspektion as Inspektion<T>, proxyFactory as (ProxyHandler) -> T)
+public fun <T : Any> inspektAndProxy(@ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>): ProxyableInspektion<T> = throw InspektNotIntrinsifiedException()

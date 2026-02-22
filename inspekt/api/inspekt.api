@@ -2,16 +2,51 @@ public abstract interface class dev/rnett/inspekt/AnnotatedElement {
 	public abstract fun getAnnotations ()Ljava/util/List;
 }
 
-public final class dev/rnett/inspekt/ArgumentList : dev/rnett/inspekt/internal/ArgumentsProviderV1 {
+public final class dev/rnett/inspekt/ArgumentList : dev/rnett/inspekt/internal/ArgumentsProviderV1, java/util/List, kotlin/jvm/internal/markers/KMappedMarker {
+	public fun add (ILjava/lang/Object;)V
+	public fun add (Ljava/lang/Object;)Z
+	public fun addAll (ILjava/util/Collection;)Z
+	public fun addAll (Ljava/util/Collection;)Z
+	public fun clear ()V
+	public final fun component1 ()Ldev/rnett/inspekt/Parameters;
+	public fun contains (Ljava/lang/Object;)Z
+	public fun containsAll (Ljava/util/Collection;)Z
+	public final fun context (I)Ljava/lang/Object;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun get (I)Ljava/lang/Object;
+	public fun get (I)Ljava/lang/Object;
+	public final fun get (Ldev/rnett/inspekt/Parameter$Kind;I)Ljava/lang/Object;
+	public final fun get (Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
 	public final fun get (Ljava/lang/String;)Ljava/lang/Object;
+	public final fun getDispatchReceiver ()Ljava/lang/Object;
+	public final fun getExtensionReceiver ()Ljava/lang/Object;
+	public final fun getParameters ()Ldev/rnett/inspekt/Parameters;
+	public fun getSize ()I
 	public fun getV1DefaultableHasValueBitmask ()I
 	public fun hashCode ()I
+	public fun indexOf (Ljava/lang/Object;)I
 	public final fun isDefaulted (I)Z
+	public final fun isDefaulted (Ldev/rnett/inspekt/Parameter$Kind;I)Z
+	public final fun isDefaulted (Ldev/rnett/inspekt/Parameter;)Z
+	public fun isEmpty ()Z
+	public fun iterator ()Ljava/util/Iterator;
+	public fun lastIndexOf (Ljava/lang/Object;)I
+	public fun listIterator ()Ljava/util/ListIterator;
+	public fun listIterator (I)Ljava/util/ListIterator;
+	public fun remove (I)Ljava/lang/Object;
+	public fun remove (Ljava/lang/Object;)Z
+	public fun removeAll (Ljava/util/Collection;)Z
+	public fun replaceAll (Ljava/util/function/UnaryOperator;)V
+	public fun retainAll (Ljava/util/Collection;)Z
+	public fun set (ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun size ()I
+	public fun sort (Ljava/util/Comparator;)V
+	public fun subList (II)Ljava/util/List;
 	public fun throwInvalidBitmask ()Ljava/lang/Void;
+	public fun toArray ()[Ljava/lang/Object;
+	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
 	public fun toString ()Ljava/lang/String;
 	public fun v1Get (I)Ljava/lang/Object;
+	public final fun value (I)Ljava/lang/Object;
 }
 
 public final class dev/rnett/inspekt/ArgumentList$Builder {
@@ -27,13 +62,13 @@ public final class dev/rnett/inspekt/ArgumentList$Builder {
 	public final fun set (Ljava/lang/String;Ljava/lang/Object;)V
 	public final fun set ([Lkotlin/Pair;)V
 	public final fun setAll (Ldev/rnett/inspekt/Parameter$Kind;Ljava/lang/Iterable;I)V
-	public final fun setAll (Ldev/rnett/inspekt/Parameter$Kind;[Ljava/lang/Object;I)V
 	public final fun setAll (Ljava/lang/Iterable;I)V
-	public final fun setAll ([Ljava/lang/Object;I)V
 	public static synthetic fun setAll$default (Ldev/rnett/inspekt/ArgumentList$Builder;Ldev/rnett/inspekt/Parameter$Kind;Ljava/lang/Iterable;IILjava/lang/Object;)V
-	public static synthetic fun setAll$default (Ldev/rnett/inspekt/ArgumentList$Builder;Ldev/rnett/inspekt/Parameter$Kind;[Ljava/lang/Object;IILjava/lang/Object;)V
 	public static synthetic fun setAll$default (Ldev/rnett/inspekt/ArgumentList$Builder;Ljava/lang/Iterable;IILjava/lang/Object;)V
-	public static synthetic fun setAll$default (Ldev/rnett/inspekt/ArgumentList$Builder;[Ljava/lang/Object;IILjava/lang/Object;)V
+	public final fun setAllArray (Ldev/rnett/inspekt/Parameter$Kind;[Ljava/lang/Object;I)V
+	public final fun setAllArray ([Ljava/lang/Object;I)V
+	public static synthetic fun setAllArray$default (Ldev/rnett/inspekt/ArgumentList$Builder;Ldev/rnett/inspekt/Parameter$Kind;[Ljava/lang/Object;IILjava/lang/Object;)V
+	public static synthetic fun setAllArray$default (Ldev/rnett/inspekt/ArgumentList$Builder;[Ljava/lang/Object;IILjava/lang/Object;)V
 	public final fun setAllVararg (Ldev/rnett/inspekt/Parameter$Kind;[Ljava/lang/Object;I)V
 	public final fun setAllVararg ([Ljava/lang/Object;I)V
 	public static synthetic fun setAllVararg$default (Ldev/rnett/inspekt/ArgumentList$Builder;Ldev/rnett/inspekt/Parameter$Kind;[Ljava/lang/Object;IILjava/lang/Object;)V
@@ -49,7 +84,7 @@ public abstract class dev/rnett/inspekt/Callable : dev/rnett/inspekt/AnnotatedEl
 	protected final fun appendExtension (Ljava/lang/StringBuilder;)V
 	public abstract fun getInheritedFrom ()Lkotlin/reflect/KClass;
 	public abstract fun getKotlin ()Lkotlin/reflect/KCallable;
-	public abstract fun getName ()Ldev/rnett/inspekt/MemberName;
+	public abstract fun getName ()Ldev/rnett/inspekt/CallableName;
 	public abstract fun getParameters ()Ldev/rnett/inspekt/Parameters;
 	public final fun getShortName ()Ljava/lang/String;
 	public abstract fun isAbstract ()Z
@@ -57,6 +92,53 @@ public abstract class dev/rnett/inspekt/Callable : dev/rnett/inspekt/AnnotatedEl
 	public final fun isTopLevel ()Z
 	public final fun toString ()Ljava/lang/String;
 	public abstract fun toString (Z)Ljava/lang/String;
+}
+
+public abstract class dev/rnett/inspekt/CallableName : dev/rnett/inspekt/QualifiedName {
+	public abstract fun getName ()Ljava/lang/String;
+	public abstract fun getPackageName ()Ldev/rnett/inspekt/PackageName;
+	public fun getPropertyIfAccessor ()Ldev/rnett/inspekt/CallableName;
+	public final fun isPropertyAccessor ()Z
+	public final fun isPropertyGetter ()Z
+	public final fun isPropertySetter ()Z
+	public abstract fun sibling (Ljava/lang/String;)Ldev/rnett/inspekt/CallableName;
+}
+
+public final class dev/rnett/inspekt/CallableName$Member : dev/rnett/inspekt/CallableName {
+	public fun <init> (Ldev/rnett/inspekt/ClassName;Ljava/lang/String;)V
+	public fun asString ()Ljava/lang/String;
+	public final fun component1 ()Ldev/rnett/inspekt/ClassName;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ldev/rnett/inspekt/ClassName;Ljava/lang/String;)Ldev/rnett/inspekt/CallableName$Member;
+	public static synthetic fun copy$default (Ldev/rnett/inspekt/CallableName$Member;Ldev/rnett/inspekt/ClassName;Ljava/lang/String;ILjava/lang/Object;)Ldev/rnett/inspekt/CallableName$Member;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClassName ()Ldev/rnett/inspekt/ClassName;
+	public fun getName ()Ljava/lang/String;
+	public fun getPackageName ()Ldev/rnett/inspekt/PackageName;
+	public fun getPropertyIfAccessor ()Ldev/rnett/inspekt/CallableName$Member;
+	public synthetic fun getPropertyIfAccessor ()Ldev/rnett/inspekt/CallableName;
+	public fun hashCode ()I
+	public final fun isConstructor ()Z
+	public fun segments ()Ljava/util/List;
+	public fun sibling (Ljava/lang/String;)Ldev/rnett/inspekt/CallableName;
+}
+
+public final class dev/rnett/inspekt/CallableName$TopLevel : dev/rnett/inspekt/CallableName {
+	public fun <init> (Ldev/rnett/inspekt/PackageName;Ljava/lang/String;)V
+	public fun asString ()Ljava/lang/String;
+	public final fun component1 ()Ldev/rnett/inspekt/PackageName;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ldev/rnett/inspekt/PackageName;Ljava/lang/String;)Ldev/rnett/inspekt/CallableName$TopLevel;
+	public static synthetic fun copy$default (Ldev/rnett/inspekt/CallableName$TopLevel;Ldev/rnett/inspekt/PackageName;Ljava/lang/String;ILjava/lang/Object;)Ldev/rnett/inspekt/CallableName$TopLevel;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public fun getPackageName ()Ldev/rnett/inspekt/PackageName;
+	public fun getPropertyIfAccessor ()Ldev/rnett/inspekt/CallableName$TopLevel;
+	public synthetic fun getPropertyIfAccessor ()Ldev/rnett/inspekt/CallableName;
+	public fun hashCode ()I
+	public fun segments ()Ljava/util/List;
+	public fun sibling (Ljava/lang/String;)Ldev/rnett/inspekt/CallableName$TopLevel;
+	public synthetic fun sibling (Ljava/lang/String;)Ldev/rnett/inspekt/CallableName;
 }
 
 public final class dev/rnett/inspekt/ClassName : dev/rnett/inspekt/QualifiedName {
@@ -70,63 +152,48 @@ public final class dev/rnett/inspekt/ClassName : dev/rnett/inspekt/QualifiedName
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getClassNames ()Ljava/util/List;
 	public final fun getPackageName ()Ldev/rnett/inspekt/PackageName;
-	public final fun getShortName ()Ljava/lang/String;
+	public final fun getSimpleName ()Ljava/lang/String;
 	public fun hashCode ()I
-	public final fun member (Ljava/lang/String;)Ldev/rnett/inspekt/MemberName$Member;
+	public final fun member (Ljava/lang/String;)Ldev/rnett/inspekt/CallableName$Member;
 	public fun segments ()Ljava/util/List;
 }
 
-public final class dev/rnett/inspekt/Constructor : dev/rnett/inspekt/Method {
-	public final fun component1 ()Ldev/rnett/inspekt/MemberName$Member;
-	public final fun component2 ()Lkotlin/reflect/KFunction;
-	public final fun component3 ()Ljava/util/List;
-	public final fun component4 ()Z
-	public final fun component5 ()Ldev/rnett/inspekt/Parameters;
-	public final fun component6 ()Lkotlin/reflect/KType;
-	public final fun component8 ()Z
-	public fun equals (Ljava/lang/Object;)Z
+public final class dev/rnett/inspekt/Constructor : dev/rnett/inspekt/FunctionLike {
 	public fun getAnnotations ()Ljava/util/List;
 	public final fun getForClass ()Ldev/rnett/inspekt/Inspektion;
 	public fun getInheritedFrom ()Lkotlin/reflect/KClass;
-	public fun getKind ()Ldev/rnett/inspekt/Method$Kind;
 	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
 	public fun getKotlin ()Lkotlin/reflect/KFunction;
-	public fun getName ()Ldev/rnett/inspekt/MemberName$Member;
-	public synthetic fun getName ()Ldev/rnett/inspekt/MemberName;
+	public fun getName ()Ldev/rnett/inspekt/CallableName$Member;
+	public synthetic fun getName ()Ldev/rnett/inspekt/CallableName;
 	public fun getParameters ()Ldev/rnett/inspekt/Parameters;
 	public fun getReturnType ()Lkotlin/reflect/KType;
-	public fun hashCode ()I
 	public fun isAbstract ()Z
 	public final fun isPrimary ()Z
 	public fun toString (Z)Ljava/lang/String;
 }
 
-public final class dev/rnett/inspekt/Function : dev/rnett/inspekt/SimpleFunction {
-	public final fun component1 ()Ldev/rnett/inspekt/MemberName;
-	public final fun component10 ()Lkotlin/reflect/KClass;
-	public final fun component2 ()Lkotlin/reflect/KFunction;
-	public final fun component3 ()Ljava/util/List;
-	public final fun component4 ()Z
-	public final fun component5 ()Ldev/rnett/inspekt/Parameters;
-	public final fun component6 ()Lkotlin/reflect/KType;
-	public final fun component7 ()Z
-	public fun equals (Ljava/lang/Object;)Z
-	public fun getAnnotations ()Ljava/util/List;
-	public fun getInheritedFrom ()Lkotlin/reflect/KClass;
-	public fun getKind ()Ldev/rnett/inspekt/Method$Kind;
-	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
-	public fun getKotlin ()Lkotlin/reflect/KFunction;
-	public fun getName ()Ldev/rnett/inspekt/MemberName;
-	public fun getParameters ()Ldev/rnett/inspekt/Parameters;
-	public fun getReturnType ()Lkotlin/reflect/KType;
-	public fun hashCode ()I
+public abstract class dev/rnett/inspekt/Function : dev/rnett/inspekt/FunctionLike {
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public abstract class dev/rnett/inspekt/FunctionLike : dev/rnett/inspekt/Callable {
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected final fun appendMethodSignature (Ljava/lang/StringBuilder;Z)V
+	protected fun assertInvokable ()V
+	protected final fun getInvoker ()Lkotlin/jvm/functions/Function1;
+	public abstract fun getKotlin ()Lkotlin/reflect/KFunction;
+	public abstract fun getName ()Ldev/rnett/inspekt/CallableName;
+	public abstract fun getReturnType ()Lkotlin/reflect/KType;
+	protected final fun getSuspendInvoker ()Lkotlin/jvm/functions/Function2;
 	public fun invoke (Ldev/rnett/inspekt/ArgumentList;)Ljava/lang/Object;
+	public final fun invoke (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public final fun invokeSuspend (Ldev/rnett/inspekt/ArgumentList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun invokeSuspend (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun isAbstract ()Z
 	public fun isCallable ()Z
 	public final fun isSuspend ()Z
-	public fun toString (Z)Ljava/lang/String;
 }
 
 public abstract interface annotation class dev/rnett/inspekt/Inspekt : java/lang/annotation/Annotation {
@@ -137,8 +204,12 @@ public abstract interface annotation class dev/rnett/inspekt/InspektCompilerPlug
 
 public final class dev/rnett/inspekt/InspektKt {
 	public static final fun inspekt (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/Inspektion;
-	public static final fun inspekt (Lkotlin/reflect/KFunction;)Ldev/rnett/inspekt/Function;
+	public static final fun inspekt (Lkotlin/reflect/KFunction;)Ldev/rnett/inspekt/SimpleFunction;
 	public static final fun inspekt (Lkotlin/reflect/KProperty;)Ldev/rnett/inspekt/Property;
+}
+
+public final class dev/rnett/inspekt/InspektNotIntrinsifiedException : java/lang/UnsupportedOperationException {
+	public fun <init> ()V
 }
 
 public final class dev/rnett/inspekt/Inspektion : dev/rnett/inspekt/AnnotatedElement {
@@ -155,7 +226,7 @@ public final class dev/rnett/inspekt/Inspektion : dev/rnett/inspekt/AnnotatedEle
 	public final fun component8 ()Ljava/util/List;
 	public final fun component9 ()Z
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun function (Ljava/lang/String;)Ldev/rnett/inspekt/Function;
+	public final fun function (Ljava/lang/String;)Ldev/rnett/inspekt/SimpleFunction;
 	public fun getAnnotations ()Ljava/util/List;
 	public final fun getCompanionObject ()Ldev/rnett/inspekt/Inspektion;
 	public final fun getCompanionObjectInstance ()Ljava/lang/Object;
@@ -183,61 +254,12 @@ public final class dev/rnett/inspekt/Inspektion : dev/rnett/inspekt/AnnotatedEle
 	public static synthetic fun toString$default (Ldev/rnett/inspekt/Inspektion;ZZILjava/lang/Object;)Ljava/lang/String;
 }
 
-public abstract class dev/rnett/inspekt/MemberName : dev/rnett/inspekt/QualifiedName {
-	public abstract fun getName ()Ljava/lang/String;
-	public final fun sibling (Ljava/lang/String;)Ldev/rnett/inspekt/MemberName;
+public final class dev/rnett/inspekt/InvocationFailureException : java/lang/RuntimeException {
+	public fun <init> (Ldev/rnett/inspekt/QualifiedName;Ljava/lang/Throwable;)V
 }
 
-public final class dev/rnett/inspekt/MemberName$Member : dev/rnett/inspekt/MemberName {
-	public fun <init> (Ldev/rnett/inspekt/ClassName;Ljava/lang/String;)V
-	public fun asString ()Ljava/lang/String;
-	public final fun component1 ()Ldev/rnett/inspekt/ClassName;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ldev/rnett/inspekt/ClassName;Ljava/lang/String;)Ldev/rnett/inspekt/MemberName$Member;
-	public static synthetic fun copy$default (Ldev/rnett/inspekt/MemberName$Member;Ldev/rnett/inspekt/ClassName;Ljava/lang/String;ILjava/lang/Object;)Ldev/rnett/inspekt/MemberName$Member;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getClassName ()Ldev/rnett/inspekt/ClassName;
-	public fun getName ()Ljava/lang/String;
-	public fun hashCode ()I
-	public final fun isConstructor ()Z
-	public fun segments ()Ljava/util/List;
-}
-
-public final class dev/rnett/inspekt/MemberName$TopLevel : dev/rnett/inspekt/MemberName {
-	public fun <init> (Ldev/rnett/inspekt/PackageName;Ljava/lang/String;)V
-	public fun asString ()Ljava/lang/String;
-	public final fun component1 ()Ldev/rnett/inspekt/PackageName;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ldev/rnett/inspekt/PackageName;Ljava/lang/String;)Ldev/rnett/inspekt/MemberName$TopLevel;
-	public static synthetic fun copy$default (Ldev/rnett/inspekt/MemberName$TopLevel;Ldev/rnett/inspekt/PackageName;Ljava/lang/String;ILjava/lang/Object;)Ldev/rnett/inspekt/MemberName$TopLevel;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun getName ()Ljava/lang/String;
-	public final fun getPackageName ()Ldev/rnett/inspekt/PackageName;
-	public fun hashCode ()I
-	public fun segments ()Ljava/util/List;
-}
-
-public abstract class dev/rnett/inspekt/Method : dev/rnett/inspekt/Callable {
-	protected final fun appendMethodSignature (Ljava/lang/StringBuilder;Z)V
-	protected fun assertInvokable ()V
-	protected abstract fun getInvoker ()Lkotlin/jvm/functions/Function1;
-	public abstract fun getKind ()Ldev/rnett/inspekt/Method$Kind;
-	public abstract fun getKotlin ()Lkotlin/reflect/KFunction;
-	public abstract fun getName ()Ldev/rnett/inspekt/MemberName;
-	public abstract fun getReturnType ()Lkotlin/reflect/KType;
-	public fun invoke (Ldev/rnett/inspekt/ArgumentList;)Ljava/lang/Object;
-	public final fun invoke (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
-	public fun isCallable ()Z
-}
-
-public final class dev/rnett/inspekt/Method$Kind : java/lang/Enum {
-	public static final field CONSTRUCTOR Ldev/rnett/inspekt/Method$Kind;
-	public static final field GETTER Ldev/rnett/inspekt/Method$Kind;
-	public static final field NORMAL Ldev/rnett/inspekt/Method$Kind;
-	public static final field SETTER Ldev/rnett/inspekt/Method$Kind;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public static fun valueOf (Ljava/lang/String;)Ldev/rnett/inspekt/Method$Kind;
-	public static fun values ()[Ldev/rnett/inspekt/Method$Kind;
+public final class dev/rnett/inspekt/InvocationFailureExceptionKt {
+	public static final fun wrapInvocation (Ldev/rnett/inspekt/Callable;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 }
 
 public final class dev/rnett/inspekt/MutableProperty : dev/rnett/inspekt/Property {
@@ -249,7 +271,7 @@ public final class dev/rnett/inspekt/MutableProperty : dev/rnett/inspekt/Propert
 	public final fun component4 ()Lkotlin/reflect/KType;
 	public final fun component5 ()Ldev/rnett/inspekt/PropertyGetter;
 	public final fun component6 ()Ldev/rnett/inspekt/PropertySetter;
-	public final fun component7 ()Ldev/rnett/inspekt/MemberName;
+	public final fun component7 ()Ldev/rnett/inspekt/CallableName;
 	public final fun component8 ()Ldev/rnett/inspekt/Parameters;
 	public final fun component9 ()Ljava/util/List;
 	public fun equals (Ljava/lang/Object;)Z
@@ -261,7 +283,7 @@ public final class dev/rnett/inspekt/MutableProperty : dev/rnett/inspekt/Propert
 	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
 	public fun getKotlin ()Lkotlin/reflect/KMutableProperty1;
 	public synthetic fun getKotlin ()Lkotlin/reflect/KProperty1;
-	public fun getName ()Ldev/rnett/inspekt/MemberName;
+	public fun getName ()Ldev/rnett/inspekt/CallableName;
 	public fun getParameters ()Ldev/rnett/inspekt/Parameters;
 	public fun getSetter ()Ldev/rnett/inspekt/PropertySetter;
 	public fun getType ()Lkotlin/reflect/KType;
@@ -273,7 +295,7 @@ public final class dev/rnett/inspekt/MutableProperty : dev/rnett/inspekt/Propert
 }
 
 public final class dev/rnett/inspekt/NamesKt {
-	public static final fun MemberName (Ljava/util/List;Ljava/util/List;Ljava/lang/String;)Ldev/rnett/inspekt/MemberName;
+	public static final fun CallableName (Ljava/util/List;Ljava/util/List;Ljava/lang/String;)Ldev/rnett/inspekt/CallableName;
 }
 
 public final class dev/rnett/inspekt/PackageName : dev/rnett/inspekt/QualifiedName {
@@ -288,7 +310,7 @@ public final class dev/rnett/inspekt/PackageName : dev/rnett/inspekt/QualifiedNa
 	public final fun getPackageNames ()Ljava/util/List;
 	public fun hashCode ()I
 	public final fun isRoot ()Z
-	public final fun member (Ljava/lang/String;)Ldev/rnett/inspekt/MemberName$TopLevel;
+	public final fun member (Ljava/lang/String;)Ldev/rnett/inspekt/CallableName$TopLevel;
 	public fun segments ()Ljava/util/List;
 }
 
@@ -338,6 +360,7 @@ public final class dev/rnett/inspekt/Parameters : java/util/List, kotlin/jvm/int
 	public fun contains (Ldev/rnett/inspekt/Parameter;)Z
 	public final fun contains (Ljava/lang/Object;)Z
 	public fun containsAll (Ljava/util/Collection;)Z
+	public final fun context (I)Ldev/rnett/inspekt/Parameter;
 	public final fun count (Ldev/rnett/inspekt/Parameter$Kind;)I
 	public fun equals (Ljava/lang/Object;)Z
 	public fun get (I)Ldev/rnett/inspekt/Parameter;
@@ -374,11 +397,13 @@ public final class dev/rnett/inspekt/Parameters : java/util/List, kotlin/jvm/int
 	public fun toArray ()[Ljava/lang/Object;
 	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
 	public fun toString ()Ljava/lang/String;
+	public final fun value (I)Ldev/rnett/inspekt/Parameter;
 }
 
 public final class dev/rnett/inspekt/ParamsAndArgsKt {
 	public static final fun ArgumentList (Ldev/rnett/inspekt/Parameters;Ljava/util/List;)Ldev/rnett/inspekt/ArgumentList;
 	public static final fun ArgumentList (Ldev/rnett/inspekt/Parameters;Lkotlin/jvm/functions/Function2;)Ldev/rnett/inspekt/ArgumentList;
+	public static final fun buildArguments (Ldev/rnett/inspekt/Callable;Lkotlin/jvm/functions/Function2;)Ldev/rnett/inspekt/ArgumentList;
 }
 
 public abstract class dev/rnett/inspekt/Property : dev/rnett/inspekt/Callable {
@@ -393,47 +418,33 @@ public abstract class dev/rnett/inspekt/Property : dev/rnett/inspekt/Callable {
 	public abstract fun getType ()Lkotlin/reflect/KType;
 }
 
-public abstract class dev/rnett/inspekt/PropertyAccessor : dev/rnett/inspekt/SimpleFunction {
+public abstract class dev/rnett/inspekt/PropertyAccessor : dev/rnett/inspekt/Function {
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public abstract fun getProperty ()Ldev/rnett/inspekt/Property;
 }
 
 public final class dev/rnett/inspekt/PropertyGetter : dev/rnett/inspekt/PropertyAccessor {
-	public final fun component2 ()Lkotlin/reflect/KFunction;
-	public final fun component3 ()Ldev/rnett/inspekt/Parameters;
-	public final fun component4 ()Z
-	public final fun component5 ()Ljava/util/List;
-	public final fun component7 ()Lkotlin/reflect/KClass;
-	public fun equals (Ljava/lang/Object;)Z
 	public fun getAnnotations ()Ljava/util/List;
 	public fun getInheritedFrom ()Lkotlin/reflect/KClass;
-	public fun getKind ()Ldev/rnett/inspekt/Method$Kind;
 	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
 	public fun getKotlin ()Lkotlin/reflect/KFunction;
-	public fun getName ()Ldev/rnett/inspekt/MemberName;
+	public fun getName ()Ldev/rnett/inspekt/CallableName;
 	public fun getParameters ()Ldev/rnett/inspekt/Parameters;
-	public final fun getProperty ()Ldev/rnett/inspekt/Property;
+	public fun getProperty ()Ldev/rnett/inspekt/Property;
 	public fun getReturnType ()Lkotlin/reflect/KType;
-	public fun hashCode ()I
 	public fun isAbstract ()Z
 	public fun toString (Z)Ljava/lang/String;
 }
 
 public final class dev/rnett/inspekt/PropertySetter : dev/rnett/inspekt/PropertyAccessor {
-	public final fun component2 ()Lkotlin/reflect/KFunction;
-	public final fun component3 ()Ldev/rnett/inspekt/Parameters;
-	public final fun component4 ()Z
-	public final fun component5 ()Ljava/util/List;
-	public final fun component7 ()Lkotlin/reflect/KClass;
-	public fun equals (Ljava/lang/Object;)Z
 	public fun getAnnotations ()Ljava/util/List;
 	public fun getInheritedFrom ()Lkotlin/reflect/KClass;
-	public fun getKind ()Ldev/rnett/inspekt/Method$Kind;
 	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
 	public fun getKotlin ()Lkotlin/reflect/KFunction;
-	public fun getName ()Ldev/rnett/inspekt/MemberName;
+	public fun getName ()Ldev/rnett/inspekt/CallableName;
 	public fun getParameters ()Ldev/rnett/inspekt/Parameters;
-	public final fun getProperty ()Ldev/rnett/inspekt/Property;
+	public fun getProperty ()Ldev/rnett/inspekt/Property;
 	public fun getReturnType ()Lkotlin/reflect/KType;
-	public fun hashCode ()I
 	public fun isAbstract ()Z
 	public fun toString (Z)Ljava/lang/String;
 }
@@ -452,7 +463,7 @@ public final class dev/rnett/inspekt/ReadOnlyProperty : dev/rnett/inspekt/Proper
 	public final fun component3 ()Z
 	public final fun component4 ()Lkotlin/reflect/KType;
 	public final fun component5 ()Ldev/rnett/inspekt/PropertyGetter;
-	public final fun component6 ()Ldev/rnett/inspekt/MemberName;
+	public final fun component6 ()Ldev/rnett/inspekt/CallableName;
 	public final fun component7 ()Ldev/rnett/inspekt/Parameters;
 	public final fun component8 ()Ljava/util/List;
 	public final fun component9 ()Z
@@ -464,7 +475,7 @@ public final class dev/rnett/inspekt/ReadOnlyProperty : dev/rnett/inspekt/Proper
 	public fun getInheritedFrom ()Lkotlin/reflect/KClass;
 	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
 	public fun getKotlin ()Lkotlin/reflect/KProperty1;
-	public fun getName ()Ldev/rnett/inspekt/MemberName;
+	public fun getName ()Ldev/rnett/inspekt/CallableName;
 	public fun getParameters ()Ldev/rnett/inspekt/Parameters;
 	public fun getType ()Lkotlin/reflect/KType;
 	public fun hashCode ()I
@@ -477,7 +488,16 @@ public abstract interface annotation class dev/rnett/inspekt/ReferenceLiteral : 
 	public abstract fun warnAboutDefaults ()Z
 }
 
-public abstract class dev/rnett/inspekt/SimpleFunction : dev/rnett/inspekt/Method {
+public final class dev/rnett/inspekt/SimpleFunction : dev/rnett/inspekt/Function {
+	public fun getAnnotations ()Ljava/util/List;
+	public fun getInheritedFrom ()Lkotlin/reflect/KClass;
+	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
+	public fun getKotlin ()Lkotlin/reflect/KFunction;
+	public fun getName ()Ldev/rnett/inspekt/CallableName;
+	public fun getParameters ()Ldev/rnett/inspekt/Parameters;
+	public fun getReturnType ()Lkotlin/reflect/KType;
+	public fun isAbstract ()Z
+	public fun toString (Z)Ljava/lang/String;
 }
 
 public final class dev/rnett/inspekt/SpecialNames {
@@ -485,7 +505,13 @@ public final class dev/rnett/inspekt/SpecialNames {
 	public static final field constructor Ljava/lang/String;
 	public static final field receiver Ljava/lang/String;
 	public final fun getter (Ljava/lang/String;)Ljava/lang/String;
+	public final fun propertyForGetter (Ljava/lang/String;)Ljava/lang/String;
+	public final fun propertyForSetter (Ljava/lang/String;)Ljava/lang/String;
 	public final fun setter (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class dev/rnett/inspekt/UtilsKt {
+	public static final fun getClassOrNull (Lkotlin/reflect/KType;)Lkotlin/reflect/KClass;
 }
 
 public abstract interface class dev/rnett/inspekt/internal/ArgumentsProviderV1 {
@@ -509,7 +535,7 @@ public final class dev/rnett/inspekt/internal/InspektionResultV1 : dev/rnett/ins
 
 public final class dev/rnett/inspekt/internal/InspektionResultV1$Function {
 	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;ZLkotlin/reflect/KFunction;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/InspektionResultV1$Param;Lkotlin/reflect/KType;ZZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/reflect/KClass;)V
-	public final fun toModel ()Ldev/rnett/inspekt/Function;
+	public final fun toModel ()Ldev/rnett/inspekt/SimpleFunction;
 }
 
 public final class dev/rnett/inspekt/internal/InspektionResultV1$Param {
@@ -521,14 +547,18 @@ public final class dev/rnett/inspekt/internal/InspektionResultV1$Property {
 	public final fun toModel ()Ldev/rnett/inspekt/Property;
 }
 
+public final class dev/rnett/inspekt/internal/ProxyHelpersKt {
+	public static final fun v1ProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/SimpleFunction;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun v1ProxyableSpektHelper (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function1;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
+	public static final fun v1SuspendProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/SimpleFunction;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
 public abstract interface class dev/rnett/inspekt/proxy/ProxyHandler {
-	public fun get (Ldev/rnett/inspekt/proxy/SuperCall;Ljava/util/List;Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
 	public abstract fun handle (Ldev/rnett/inspekt/proxy/SuperCall;)Ljava/lang/Object;
 	public fun handleSuspend (Ldev/rnett/inspekt/proxy/SuperCall;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class dev/rnett/inspekt/proxy/ProxyHandler$DefaultImpls {
-	public static fun get (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/proxy/SuperCall;Ljava/util/List;Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
 	public static fun handleSuspend (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/proxy/SuperCall;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
@@ -536,9 +566,6 @@ public final class dev/rnett/inspekt/proxy/ProxyKt {
 	public static final fun inspektAndProxy (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
 	public static final fun proxy (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
 	public static final fun proxyFactory (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;)Lkotlin/jvm/functions/Function1;
-	public static final fun v1ProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/Function;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;)Ljava/lang/Object;
-	public static final fun v1ProxyableSpektHelper (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function1;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
-	public static final fun v1SuspendProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/Function;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class dev/rnett/inspekt/proxy/ProxyableInspektion {
@@ -548,69 +575,67 @@ public final class dev/rnett/inspekt/proxy/ProxyableInspektion {
 }
 
 public abstract class dev/rnett/inspekt/proxy/SuperCall {
-	public final fun arg (Ldev/rnett/inspekt/Parameter;)Ljava/lang/Object;
-	public final fun arg (Ljava/lang/String;)Ljava/lang/Object;
-	public final fun argOrNull (Ljava/lang/String;)Ljava/lang/Object;
 	public final fun callSuper ()Ljava/lang/Object;
 	public final fun callSuper (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public final fun callSuperSuspend (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun copyArgs (Ldev/rnett/inspekt/ArgumentList$Builder;)V
-	public abstract fun getArgs ()Ljava/util/List;
+	public abstract fun getArgs ()Ldev/rnett/inspekt/ArgumentList;
 	public final fun getParameters ()Ldev/rnett/inspekt/Parameters;
-	public abstract fun getSuperMethod ()Ldev/rnett/inspekt/Method;
+	public abstract fun getSuperFun ()Ldev/rnett/inspekt/Function;
 	public final fun isSuperAbstract ()Z
 	public final fun isSuperCallable ()Z
 }
 
 public final class dev/rnett/inspekt/proxy/SuperCall$FunctionCall : dev/rnett/inspekt/proxy/SuperCall {
-	public fun <init> (Ldev/rnett/inspekt/Function;Ljava/util/List;)V
-	public final fun component1 ()Ldev/rnett/inspekt/Function;
-	public final fun component2 ()Ljava/util/List;
-	public final fun copy (Ldev/rnett/inspekt/Function;Ljava/util/List;)Ldev/rnett/inspekt/proxy/SuperCall$FunctionCall;
-	public static synthetic fun copy$default (Ldev/rnett/inspekt/proxy/SuperCall$FunctionCall;Ldev/rnett/inspekt/Function;Ljava/util/List;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/SuperCall$FunctionCall;
+	public fun <init> (Ldev/rnett/inspekt/SimpleFunction;Ldev/rnett/inspekt/ArgumentList;)V
+	public final fun component1 ()Ldev/rnett/inspekt/SimpleFunction;
+	public final fun component2 ()Ldev/rnett/inspekt/ArgumentList;
+	public final fun copy (Ldev/rnett/inspekt/SimpleFunction;Ldev/rnett/inspekt/ArgumentList;)Ldev/rnett/inspekt/proxy/SuperCall$FunctionCall;
+	public static synthetic fun copy$default (Ldev/rnett/inspekt/proxy/SuperCall$FunctionCall;Ldev/rnett/inspekt/SimpleFunction;Ldev/rnett/inspekt/ArgumentList;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/SuperCall$FunctionCall;
 	public fun equals (Ljava/lang/Object;)Z
-	public fun getArgs ()Ljava/util/List;
-	public final fun getSuperFunction ()Ldev/rnett/inspekt/Function;
-	public fun getSuperMethod ()Ldev/rnett/inspekt/Function;
-	public synthetic fun getSuperMethod ()Ldev/rnett/inspekt/Method;
+	public fun getArgs ()Ldev/rnett/inspekt/ArgumentList;
+	public synthetic fun getSuperFun ()Ldev/rnett/inspekt/Function;
+	public fun getSuperFun ()Ldev/rnett/inspekt/SimpleFunction;
+	public final fun getSuperFunction ()Ldev/rnett/inspekt/SimpleFunction;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public abstract class dev/rnett/inspekt/proxy/SuperCall$PropertyAccess : dev/rnett/inspekt/proxy/SuperCall {
-	public abstract fun getSuperMethod ()Ldev/rnett/inspekt/PropertyAccessor;
+	public abstract fun getSuperFun ()Ldev/rnett/inspekt/PropertyAccessor;
 	public abstract fun getSuperProperty ()Ldev/rnett/inspekt/Property;
 }
 
 public final class dev/rnett/inspekt/proxy/SuperCall$PropertyGet : dev/rnett/inspekt/proxy/SuperCall$PropertyAccess {
-	public fun <init> (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertyGetter;Ljava/util/List;)V
+	public fun <init> (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertyGetter;Ldev/rnett/inspekt/ArgumentList;)V
 	public final fun component1 ()Ldev/rnett/inspekt/Property;
 	public final fun component2 ()Ldev/rnett/inspekt/PropertyGetter;
-	public final fun component3 ()Ljava/util/List;
-	public final fun copy (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertyGetter;Ljava/util/List;)Ldev/rnett/inspekt/proxy/SuperCall$PropertyGet;
-	public static synthetic fun copy$default (Ldev/rnett/inspekt/proxy/SuperCall$PropertyGet;Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertyGetter;Ljava/util/List;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/SuperCall$PropertyGet;
+	public final fun component3 ()Ldev/rnett/inspekt/ArgumentList;
+	public final fun copy (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertyGetter;Ldev/rnett/inspekt/ArgumentList;)Ldev/rnett/inspekt/proxy/SuperCall$PropertyGet;
+	public static synthetic fun copy$default (Ldev/rnett/inspekt/proxy/SuperCall$PropertyGet;Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertyGetter;Ldev/rnett/inspekt/ArgumentList;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/SuperCall$PropertyGet;
 	public fun equals (Ljava/lang/Object;)Z
-	public fun getArgs ()Ljava/util/List;
+	public fun getArgs ()Ldev/rnett/inspekt/ArgumentList;
+	public synthetic fun getSuperFun ()Ldev/rnett/inspekt/Function;
+	public synthetic fun getSuperFun ()Ldev/rnett/inspekt/PropertyAccessor;
+	public fun getSuperFun ()Ldev/rnett/inspekt/PropertyGetter;
 	public final fun getSuperGetter ()Ldev/rnett/inspekt/PropertyGetter;
-	public synthetic fun getSuperMethod ()Ldev/rnett/inspekt/Method;
-	public synthetic fun getSuperMethod ()Ldev/rnett/inspekt/PropertyAccessor;
-	public fun getSuperMethod ()Ldev/rnett/inspekt/PropertyGetter;
 	public fun getSuperProperty ()Ldev/rnett/inspekt/Property;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class dev/rnett/inspekt/proxy/SuperCall$PropertySet : dev/rnett/inspekt/proxy/SuperCall$PropertyAccess {
-	public fun <init> (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertySetter;Ljava/util/List;)V
+	public fun <init> (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertySetter;Ldev/rnett/inspekt/ArgumentList;)V
 	public final fun component1 ()Ldev/rnett/inspekt/Property;
 	public final fun component2 ()Ldev/rnett/inspekt/PropertySetter;
-	public final fun component3 ()Ljava/util/List;
-	public final fun copy (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertySetter;Ljava/util/List;)Ldev/rnett/inspekt/proxy/SuperCall$PropertySet;
-	public static synthetic fun copy$default (Ldev/rnett/inspekt/proxy/SuperCall$PropertySet;Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertySetter;Ljava/util/List;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/SuperCall$PropertySet;
+	public final fun component3 ()Ldev/rnett/inspekt/ArgumentList;
+	public final fun copy (Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertySetter;Ldev/rnett/inspekt/ArgumentList;)Ldev/rnett/inspekt/proxy/SuperCall$PropertySet;
+	public static synthetic fun copy$default (Ldev/rnett/inspekt/proxy/SuperCall$PropertySet;Ldev/rnett/inspekt/Property;Ldev/rnett/inspekt/PropertySetter;Ldev/rnett/inspekt/ArgumentList;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/SuperCall$PropertySet;
 	public fun equals (Ljava/lang/Object;)Z
-	public fun getArgs ()Ljava/util/List;
-	public synthetic fun getSuperMethod ()Ldev/rnett/inspekt/Method;
-	public synthetic fun getSuperMethod ()Ldev/rnett/inspekt/PropertyAccessor;
-	public fun getSuperMethod ()Ldev/rnett/inspekt/PropertySetter;
+	public fun getArgs ()Ldev/rnett/inspekt/ArgumentList;
+	public synthetic fun getSuperFun ()Ldev/rnett/inspekt/Function;
+	public synthetic fun getSuperFun ()Ldev/rnett/inspekt/PropertyAccessor;
+	public fun getSuperFun ()Ldev/rnett/inspekt/PropertySetter;
 	public fun getSuperProperty ()Ldev/rnett/inspekt/Property;
 	public final fun getSuperSetter ()Ldev/rnett/inspekt/PropertySetter;
 	public fun hashCode ()I

@@ -13,7 +13,7 @@ fun box(): String {
     var backing = "initial"
 
     val proxy = proxy(Sub::class) {
-        if (superMethod is dev.rnett.inspekt.PropertySetter) {
+        if (superFun is dev.rnett.inspekt.PropertySetter) {
             backing = args[1] as String
             null
         } else {

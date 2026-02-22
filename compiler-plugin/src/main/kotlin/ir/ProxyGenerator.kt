@@ -72,10 +72,10 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
     val spektGenerator = SpektGenerator(context)
     val ProxyHandler get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_proxy_ProxyHandler.asClassId())!!
 
-    val proxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyHelper.asCallableId()).single()
-    val suspendProxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_proxy_v1SuspendProxyHelper.asCallableId()).single()
+    val proxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper.asCallableId()).single()
+    val suspendProxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_v1SuspendProxyHelper.asCallableId()).single()
 
-    val FunctionSpekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_Function.asClassId())!!
+    val FunctionSpekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_SimpleFunction.asClassId())!!
 
     val PropertySpekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_Property.asClassId())!!
 

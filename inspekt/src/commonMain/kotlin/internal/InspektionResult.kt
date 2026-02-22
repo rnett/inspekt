@@ -2,9 +2,9 @@
 
 package dev.rnett.inspekt.internal
 
+import dev.rnett.inspekt.CallableName
 import dev.rnett.inspekt.ClassName
 import dev.rnett.inspekt.Inspektion
-import dev.rnett.inspekt.MemberName
 import dev.rnett.inspekt.MutableProperty
 import dev.rnett.inspekt.PackageName
 import dev.rnett.inspekt.Parameter
@@ -110,11 +110,11 @@ internal class InspektionResultV1<T : Any>
         @param:ExportSymbol private val suspendInvoker: (suspend (ArgumentsProviderV1) -> Any?)?,
         @param:ExportSymbol private val inheritedFrom: KClass<*>?,
     ) {
-        private val name = MemberName(packageNames.toList(), classNames?.toList(), name)
+        private val name = CallableName(packageNames.toList(), classNames?.toList(), name)
 
         @ExportSymbol
         @PublishedApi
-        internal fun toModel(): dev.rnett.inspekt.Function = dev.rnett.inspekt.Function(
+        internal fun toModel(): dev.rnett.inspekt.SimpleFunction = dev.rnett.inspekt.SimpleFunction(
             name,
             kotlin,
             annotations.toList(),
@@ -148,7 +148,7 @@ internal class InspektionResultV1<T : Any>
         )
 
         internal fun toModelCtor(cls: Lazy<Inspektion<*>>): dev.rnett.inspekt.Constructor = dev.rnett.inspekt.Constructor(
-            name as MemberName.Member,
+            name as CallableName.Member,
             kotlin,
             annotations.toList(),
             isAbstract,
@@ -210,7 +210,7 @@ internal class InspektionResultV1<T : Any>
         @param:ExportSymbol private val setter: Function?,
         @param:ExportSymbol private val inheritedFrom: KClass<*>?
     ) {
-        private val name = MemberName(packageNames.toList(), classNames?.toList(), name)
+        private val name = CallableName(packageNames.toList(), classNames?.toList(), name)
 
         @ExportSymbol
         @PublishedApi

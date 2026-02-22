@@ -1138,8 +1138,8 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
                 BLOCK_BODY
                   RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.MemberName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.MemberName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.MemberName origin=GET_PROPERTY
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
                           ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="readOnly"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
@@ -1174,8 +1174,8 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
                 BLOCK_BODY
                   RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.MemberName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.MemberName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.MemberName origin=GET_PROPERTY
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
                           ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="mutable"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
@@ -1257,8 +1257,8 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
                 BLOCK_BODY
                   RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.MemberName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.MemberName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.MemberName origin=GET_PROPERTY
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
                           ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="withGetter"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
@@ -1293,8 +1293,8 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
                 BLOCK_BODY
                   RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.MemberName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.MemberName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.MemberName origin=GET_PROPERTY
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
                           ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="withSetter"
       TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
@@ -1356,8 +1356,8 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
                 BLOCK_BODY
                   RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.MemberName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.MemberName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.MemberName origin=GET_PROPERTY
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public abstract fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
                           ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="delegated"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null

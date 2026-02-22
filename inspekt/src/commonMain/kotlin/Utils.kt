@@ -17,3 +17,8 @@ internal val KClass<*>.friendlyName get() = toString().replace(" (Kotlin reflect
 @ExportSymbol
 @PublishedApi
 internal annotation class ReferenceLiteral(@property:ExportSymbol val mustBeInterface: Boolean = false, @property:ExportSymbol val warnAboutDefaults: Boolean = true)
+
+/**
+ * Gets the base class of the type, if it exists.
+ */
+public val KType.classOrNull: KClass<*>? get() = this.classifier as? KClass<*>

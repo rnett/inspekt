@@ -81,7 +81,7 @@ fun box(): String {
     return Companion.inspekt()
   }
 )
-  val suspendFun: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val suspendFun: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "test")
   }
 )
@@ -90,7 +90,7 @@ fun box(): String {
   runTest(testBody = local suspend fun TestScope.<anonymous>() {
     assertEquals<Any?>(expected = 5, actual = assertSuccessful<Any?>(message = "suspend function invokeSuspend", block = local fun <anonymous>(): Any? {
       return suspendFun.invokeSuspend(arguments = local fun Builder.<anonymous>(it: Parameters) {
-        $this$invokeSuspend.set(index = 0, value = test)
+        $this$invokeSuspend.set(globalIndex = 0, value = test)
       }
 )
     }

@@ -132,7 +132,7 @@ fun box(): String {
   }
 ) as TestDefaults
   assertEquals<String>(expected = "20-provided-3-fun-default", actual = instance3.test())
-  val testMethod: Function = single<Function>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: Function): Boolean {
+  val testMethod: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
     return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "test")
   }
 )

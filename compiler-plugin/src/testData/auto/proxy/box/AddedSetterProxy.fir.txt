@@ -16,8 +16,8 @@ FILE: AddedSetterProxy.kt
         lvar backing: R|kotlin/String| = String(initial)
         lval proxy: R|auto/proxy/box/Sub| = R|dev/rnett/inspekt/proxy/proxy|<R|auto/proxy/box/Sub|>(<getClass>(Q|auto/proxy/box/Sub|), <L> = SAM(proxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
             ^ when () {
-                (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.superMethod| is R|dev/rnett/inspekt/PropertySetter|) ->  {
-                    R|<local>/backing| = (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.args|.R|SubstitutionOverride<kotlin/collections/List.get: R|kotlin/Any?|>|(Int(1)) as R|kotlin/String|)
+                (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.superFun| is R|dev/rnett/inspekt/PropertySetter|) ->  {
+                    R|<local>/backing| = (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.args|.R|dev/rnett/inspekt/ArgumentList.get|(Int(1)) as R|kotlin/String|)
                     Null(null)
                 }
                 else ->  {

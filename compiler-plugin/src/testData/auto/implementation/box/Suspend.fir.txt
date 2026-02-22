@@ -25,15 +25,15 @@ FILE: Suspend.kt
             ^ Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.inspekt|()
         }
         )
-        lval suspendFun: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Function|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Function.name|.R|dev/rnett/inspekt/MemberName.name|, String(test))
+        lval suspendFun: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(test))
         }
         )
-        R|kotlin/test/assertEquals|<R|kotlin/Boolean|>(Boolean(true), R|<local>/suspendFun|.R|dev/rnett/inspekt/Function.isSuspend|)
+        R|kotlin/test/assertEquals|<R|kotlin/Boolean|>(Boolean(true), R|<local>/suspendFun|.R|dev/rnett/inspekt/FunctionLike.isSuspend|)
         lval test: R|auto/implementation/box/Test| = R|auto/implementation/box/Test.Test|()
         R|kotlinx/coroutines/test/runTest|(<L> = runTest@fun R|kotlinx/coroutines/test/TestScope|.<anonymous>(): R|kotlin/Unit| <inline=NoInline>  {
             R|kotlin/test/assertEquals|<R|kotlin/Any?|>(Int(5), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(suspend function invokeSuspend), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-                ^ R|<local>/suspendFun|.R|dev/rnett/inspekt/Function.invokeSuspend|(<L> = invokeSuspend@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                ^ R|<local>/suspendFun|.R|dev/rnett/inspekt/FunctionLike.invokeSuspend|(<L> = invokeSuspend@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
                     this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.set|(Int(0), R|<local>/test|)
                     Unit
                 }

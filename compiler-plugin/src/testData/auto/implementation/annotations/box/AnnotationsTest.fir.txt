@@ -38,8 +38,8 @@ FILE: AnnotationsTest.kt
         lval prop: R|dev/rnett/inspekt/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>()
         R|kotlin/test/assertEquals|<R|auto/implementation/annotations/box/TestAnnotation?|>(R|auto/implementation/annotations/box/TestAnnotation.TestAnnotation|(Int(2)), R|<local>/prop|.R|dev/rnett/inspekt/annotation|<R|auto/implementation/annotations/box/TestAnnotation|>(), String(Property annotation should be present))
         R|kotlin/test/assertEquals|<R|dev/rnett/inspekt/ExternalAnnotation?|>(R|dev/rnett/inspekt/ExternalAnnotation.ExternalAnnotation|(String(test), <getClass>(Q|kotlin/collections/List|)), R|<local>/prop|.R|dev/rnett/inspekt/annotation|<R|dev/rnett/inspekt/ExternalAnnotation|>(), String(External annotation should be present))
-        lval test: R|dev/rnett/inspekt/Function| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.declaredFunctions: R|kotlin/collections/List<dev/rnett/inspekt/Function>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Function|>()
-        lval testA: R|dev/rnett/inspekt/Parameter| = R|<local>/test|.R|dev/rnett/inspekt/Function.parameters|.R|kotlin/collections/last|<R|dev/rnett/inspekt/Parameter|>()
+        lval test: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.declaredFunctions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>()
+        lval testA: R|dev/rnett/inspekt/Parameter| = R|<local>/test|.R|dev/rnett/inspekt/SimpleFunction.parameters|.R|kotlin/collections/last|<R|dev/rnett/inspekt/Parameter|>()
         R|kotlin/test/assertEquals|<R|auto/implementation/annotations/box/TestAnnotation?|>(R|auto/implementation/annotations/box/TestAnnotation.TestAnnotation|(Int(3)), R|<local>/testA|.R|dev/rnett/inspekt/annotation|<R|auto/implementation/annotations/box/TestAnnotation|>(), String(Parameter annotation should be present))
         ^box String(OK)
     }

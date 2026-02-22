@@ -16,24 +16,58 @@ import kotlin.reflect.KProperty
 public annotation class Inspekt()
 
 /**
- * [kClass] must be a class reference literal.
+ * Creates an [Inspektion] for [kClass], which must be a class reference literal.
+ *
+ * The returned value is created when the method is called, without any caching -
+ * a call to this method is transformed into a [Inspektion] constructor call by the compiler plugin.
+ * All the arguments are calculated at compilation time.
+ *
+ * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * This is based on the number of appearances of `inspekt()` in your code, not how many times it is invoked.
+ *
+ * Calling this function on a class with functions that have a large number of default parameters can result in
+ * inefficient invoke methods and significantly more binary size bloat.
+ *
+ * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  */
 @InspektCompilerPluginIntrinsic
 @ExportSymbol
-public fun <T : Any> inspekt(@ReferenceLiteral kClass: KClass<T>): Inspektion<T> = throwIntrinsicException()
+public fun <T : Any> inspekt(@ReferenceLiteral kClass: KClass<T>): Inspektion<T> = throw InspektNotIntrinsifiedException()
 
 /**
- * [function] must be a function reference literal.
+ * Creates an [SimpleFunction] for [function], which must be a function reference literal.
  * Instance function references (e.g. `foo::bar`) and class function references (e.g. `Foo::bar`) are handled the same - as class function references.
+ *
+ * The returned value is created when the method is called, without any caching -
+ * a call to this method is transformed into a [SimpleFunction] constructor call by the compiler plugin.
+ * All the arguments are calculated at compilation time.
+ *
+ * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * This is based on the number of appearances of `inspekt()` in your code, not how many times it is invoked.
+ *
+ * Calling this function on a function that has a large number of default parameters can result in
+ * inefficient invoke methods and significantly more binary size bloat.
+ *
+ * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  */
 @InspektCompilerPluginIntrinsic
 @ExportSymbol
-public fun inspekt(@ReferenceLiteral function: KFunction<*>): Function = throwIntrinsicException()
+public fun inspekt(@ReferenceLiteral function: KFunction<*>): SimpleFunction = throw InspektNotIntrinsifiedException()
+
 
 /**
- * [property] must be a property reference literal.
+ * Creates an [Property] for [property], which must be a property reference literal.
  * Instance property references (e.g. `foo::bar`) and class property references (e.g. `Foo::bar`) are handled the same - as class property references.
+ *
+ * The returned value is created when the method is called, without any caching -
+ * a call to this method is transformed into a [Property] constructor call by the compiler plugin.
+ * All the arguments are calculated at compilation time.
+ *
+ * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * This is based on the number of appearances of `inspekt()` in your code, not how many times it is invoked.
+ *
+ * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  */
 @InspektCompilerPluginIntrinsic
 @ExportSymbol
-public fun inspekt(@ReferenceLiteral property: KProperty<*>): Property = throwIntrinsicException()
+public fun inspekt(@ReferenceLiteral property: KProperty<*>): Property = throw InspektNotIntrinsifiedException()

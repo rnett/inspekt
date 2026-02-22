@@ -64,13 +64,13 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                           WHEN type=kotlin.String? origin=IF
                             BRANCH
                               if: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=dev.rnett.inspekt.PropertySetter
-                                CALL 'public abstract fun <get-superMethod> (): dev.rnett.inspekt.Method declared in dev.rnett.inspekt.proxy.SuperCall' type=dev.rnett.inspekt.Method origin=GET_PROPERTY
+                                CALL 'public abstract fun <get-superFun> (): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.proxy.SuperCall' type=dev.rnett.inspekt.Function origin=GET_PROPERTY
                                   ARG <this>: GET_VAR '$this$proxy: dev.rnett.inspekt.proxy.SuperCall declared in auto.proxy.box.box.<no name provided>.proxyHandler.<anonymous>' type=dev.rnett.inspekt.proxy.SuperCall origin=IMPLICIT_ARGUMENT
                               then: BLOCK type=kotlin.Nothing? origin=null
                                 SET_VAR 'var backing: kotlin.String declared in auto.proxy.box.box' type=kotlin.Unit origin=EQ
                                   TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                    CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=kotlin.Any? origin=GET_ARRAY_ELEMENT
-                                      ARG <this>: CALL 'public abstract fun <get-args> (): kotlin.collections.List<kotlin.Any?> declared in dev.rnett.inspekt.proxy.SuperCall' type=kotlin.collections.List<kotlin.Any?> origin=GET_PROPERTY
+                                    CALL 'public open fun get (index: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.ArgumentList' type=kotlin.Any? origin=GET_ARRAY_ELEMENT
+                                      ARG <this>: CALL 'public abstract fun <get-args> (): dev.rnett.inspekt.ArgumentList declared in dev.rnett.inspekt.proxy.SuperCall' type=dev.rnett.inspekt.ArgumentList origin=GET_PROPERTY
                                         ARG <this>: GET_VAR '$this$proxy: dev.rnett.inspekt.proxy.SuperCall declared in auto.proxy.box.box.<no name provided>.proxyHandler.<anonymous>' type=dev.rnett.inspekt.proxy.SuperCall origin=IMPLICIT_ARGUMENT
                                       ARG index: CONST Int type=kotlin.Int value=1
                                 CONST Null type=kotlin.Nothing? value=null
@@ -201,9 +201,9 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                       ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                       ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_1_get-prop type:dev.rnett.inspekt.Function visibility:private [final]
+            FIELD name:proxyMethod_1_get-prop type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
               EXPRESSION_BODY
-                CALL 'internal final fun toModel (): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.Function origin=null
+                CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
@@ -247,9 +247,9 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                             CONST Null type=kotlin.Nothing? value=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_1_set-prop type:dev.rnett.inspekt.Function visibility:private [final]
+            FIELD name:proxyMethod_1_set-prop type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
               EXPRESSION_BODY
-                CALL 'internal final fun toModel (): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.Function origin=null
+                CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
@@ -304,9 +304,9 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                             CONST Null type=kotlin.Nothing? value=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_2_equals type:dev.rnett.inspekt.Function visibility:private [final]
+            FIELD name:proxyMethod_2_equals type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
               EXPRESSION_BODY
-                CALL 'internal final fun toModel (): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.Function origin=null
+                CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
@@ -367,9 +367,9 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                                   ARG globalIndex: CONST Int type=kotlin.Int value=1
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_3_hashCode type:dev.rnett.inspekt.Function visibility:private [final]
+            FIELD name:proxyMethod_3_hashCode type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
               EXPRESSION_BODY
-                CALL 'internal final fun toModel (): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.Function origin=null
+                CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
@@ -415,9 +415,9 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_4_toString type:dev.rnett.inspekt.Function visibility:private [final]
+            FIELD name:proxyMethod_4_toString type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
               EXPRESSION_BODY
-                CALL 'internal final fun toModel (): dev.rnett.inspekt.Function declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.Function origin=null
+                CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
@@ -475,10 +475,10 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                 public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.proxy.box.box.<no name provided>'
-                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.Function, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.proxy' type=kotlin.Any? origin=null
+                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
                     ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
                       receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.equals' type=auto.proxy.box.box.<no name provided> origin=null
-                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_2_equals type:dev.rnett.inspekt.Function visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.Function origin=null
+                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_2_equals type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
                       receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.equals' type=auto.proxy.box.box.<no name provided> origin=null
                     ARG originalProperty: CONST Null type=kotlin.Nothing? value=null
                     ARG isSetter: CONST Boolean type=kotlin.Boolean value=false
@@ -494,10 +494,10 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                 public open fun hashCode (): kotlin.Int declared in kotlin.Any
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in auto.proxy.box.box.<no name provided>'
-                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.Function, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.proxy' type=kotlin.Any? origin=null
+                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
                     ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
                       receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.hashCode' type=auto.proxy.box.box.<no name provided> origin=null
-                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_3_hashCode type:dev.rnett.inspekt.Function visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.Function origin=null
+                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_3_hashCode type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
                       receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.hashCode' type=auto.proxy.box.box.<no name provided> origin=null
                     ARG originalProperty: CONST Null type=kotlin.Nothing? value=null
                     ARG isSetter: CONST Boolean type=kotlin.Boolean value=false
@@ -512,10 +512,10 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                 public open fun toString (): kotlin.String declared in kotlin.Any
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='public final fun toString (): kotlin.String declared in auto.proxy.box.box.<no name provided>'
-                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.Function, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.proxy' type=kotlin.Any? origin=null
+                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
                     ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
                       receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.toString' type=auto.proxy.box.box.<no name provided> origin=null
-                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_4_toString type:dev.rnett.inspekt.Function visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.Function origin=null
+                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_4_toString type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
                       receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.toString' type=auto.proxy.box.box.<no name provided> origin=null
                     ARG originalProperty: CONST Null type=kotlin.Nothing? value=null
                     ARG isSetter: CONST Boolean type=kotlin.Boolean value=false
@@ -533,10 +533,10 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                   public abstract fun <get-prop> (): kotlin.String declared in auto.proxy.box.Sub
                 BLOCK_BODY
                   RETURN type=kotlin.Nothing from='public final fun <get-prop> (): kotlin.String declared in auto.proxy.box.box.<no name provided>'
-                    CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.Function, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.proxy' type=kotlin.Any? origin=null
+                    CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
                       ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
                         receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.<get-prop>' type=auto.proxy.box.box.<no name provided> origin=null
-                      ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_1_get-prop type:dev.rnett.inspekt.Function visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.Function origin=null
+                      ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_1_get-prop type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
                         receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.<get-prop>' type=auto.proxy.box.box.<no name provided> origin=null
                       ARG originalProperty: GET_FIELD 'FIELD name:proxyMethod_1_prop type:dev.rnett.inspekt.Property visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.Property origin=null
                         receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.<get-prop>' type=auto.proxy.box.box.<no name provided> origin=null
@@ -553,10 +553,10 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                   public abstract fun <set-prop> (<set-?>: kotlin.String): kotlin.Unit declared in auto.proxy.box.Sub
                 BLOCK_BODY
                   RETURN type=kotlin.Nothing from='public final fun <set-prop> (<set-?>: kotlin.String): kotlin.Unit declared in auto.proxy.box.box.<no name provided>'
-                    CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.Function, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.proxy' type=kotlin.Any? origin=null
+                    CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
                       ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
                         receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.<set-prop>' type=auto.proxy.box.box.<no name provided> origin=null
-                      ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_1_set-prop type:dev.rnett.inspekt.Function visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.Function origin=null
+                      ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_1_set-prop type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
                         receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.<set-prop>' type=auto.proxy.box.box.<no name provided> origin=null
                       ARG originalProperty: GET_FIELD 'FIELD name:proxyMethod_1_prop type:dev.rnett.inspekt.Property visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.Property origin=null
                         receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.<set-prop>' type=auto.proxy.box.box.<no name provided> origin=null

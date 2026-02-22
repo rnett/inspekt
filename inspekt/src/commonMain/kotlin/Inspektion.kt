@@ -6,6 +6,9 @@ import kotlin.reflect.KType
 
 //TODO type parameters, for everything
 
+/**
+ * The result of inspekting a class.
+ */
 @ExportSymbol
 public data class Inspektion<T : Any> internal constructor(
     public val kotlin: KClass<T>,
@@ -13,7 +16,7 @@ public data class Inspektion<T : Any> internal constructor(
     public val supertypes: Set<KType>,
     override val annotations: List<Annotation>,
     public val objectInstance: T?,
-    public val functions: List<Function>,
+    public val functions: List<SimpleFunction>,
     public val properties: List<Property>,
     public val constructors: List<Constructor>,
     /**
@@ -35,17 +38,17 @@ public data class Inspektion<T : Any> internal constructor(
     public fun isInstance(value: Any): Boolean = isInstance.invoke(value)
     public fun safeCast(value: Any): T? = safeCast.invoke(value)
 
-    public val shortName: String get() = name.shortName
+    public val shortName: String get() = name.simpleName
 
     public val primaryConstructor: Constructor? get() = constructors.find { it.isPrimary }
 
     public val companionObjectInstance: Any? get() = companionObject?.objectInstance
 
-    public val declaredFunctions: List<Function> get() = functions.filter { it.isDeclared }
+    public val declaredFunctions: List<SimpleFunction> get() = functions.filter { it.isDeclared }
     public val declaredProperties: List<Property> get() = properties.filter { it.isDeclared }
 
     public fun singleProperty(name: String): Property = properties.single { it.shortName == name }
-    public fun function(name: String): Function = functions.single { it.shortName == name }
+    public fun function(name: String): SimpleFunction = functions.single { it.shortName == name }
 
     override fun toString(): String = toString(false)
 

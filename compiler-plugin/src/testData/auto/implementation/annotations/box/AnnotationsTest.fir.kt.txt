@@ -110,7 +110,7 @@ fun box(): String {
   val prop: Property = single<Property>(/* <this> = spekt.<get-properties>() */)
   assertEquals<TestAnnotation?>(expected = TestAnnotation(a = 2), actual = annotation<TestAnnotation>(/* <this> = prop */), message = "Property annotation should be present")
   assertEquals<ExternalAnnotation?>(expected = ExternalAnnotation(name = "test", type = List<*>::class), actual = annotation<ExternalAnnotation>(/* <this> = prop */), message = "External annotation should be present")
-  val test: Function = single<Function>(/* <this> = spekt.<get-declaredFunctions>() */)
+  val test: SimpleFunction = single<SimpleFunction>(/* <this> = spekt.<get-declaredFunctions>() */)
   val testA: Parameter = last<Parameter>(/* <this> = test.<get-parameters>() */)
   assertEquals<TestAnnotation?>(expected = TestAnnotation(a = 3), actual = annotation<TestAnnotation>(/* <this> = testA */), message = "Parameter annotation should be present")
   return "OK"

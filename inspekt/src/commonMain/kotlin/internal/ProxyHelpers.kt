@@ -1,0 +1,61 @@
+package dev.rnett.inspekt.internal
+
+import dev.rnett.inspekt.ArgumentList
+import dev.rnett.inspekt.Inspektion
+import dev.rnett.inspekt.Property
+import dev.rnett.inspekt.SimpleFunction
+import dev.rnett.inspekt.proxy.ProxyHandler
+import dev.rnett.inspekt.proxy.ProxyableInspektion
+import dev.rnett.inspekt.proxy.SuperCall
+import dev.rnett.symbolexport.ExportSymbol
+
+@Suppress("unused")
+@ExportSymbol
+@PublishedApi
+internal fun v1ProxyHelper(
+    @ExportSymbol handler: ProxyHandler,
+    @ExportSymbol originalMethod: SimpleFunction,
+    @ExportSymbol originalProperty: Property?,
+    @ExportSymbol isSetter: Boolean,
+    @ExportSymbol args: Array<Any?>
+): Any? {
+    val argsList = ArgumentList(originalMethod.parameters, args.asList())
+    val original = when {
+        originalProperty == null -> SuperCall.FunctionCall(originalMethod, argsList)
+        isSetter -> SuperCall.PropertySet(originalProperty, originalMethod.asSetter(originalProperty), argsList)
+        else -> SuperCall.PropertyGet(originalProperty, originalMethod.asGetter(originalProperty), argsList)
+    }
+    return handler.run {
+        original.handle()
+    }
+}
+
+// params must match v1ProxyHelper
+@Suppress("unused")
+@ExportSymbol
+@PublishedApi
+internal suspend fun v1SuspendProxyHelper(
+    handler: ProxyHandler,
+    originalMethod: SimpleFunction,
+    originalProperty: Property?,
+    isSetter: Boolean,
+    args: Array<Any?>
+): Any? {
+    val argsList = ArgumentList(originalMethod.parameters, args.asList())
+    val original = when {
+        originalProperty == null -> SuperCall.FunctionCall(originalMethod, argsList)
+        isSetter -> SuperCall.PropertySet(originalProperty, originalMethod.asSetter(originalProperty), argsList)
+        else -> SuperCall.PropertyGet(originalProperty, originalMethod.asGetter(originalProperty), argsList)
+    }
+    return handler.run {
+        original.handleSuspend()
+    }
+}
+
+@Suppress("UNCHECKED_CAST", "unused")
+@ExportSymbol
+@PublishedApi
+internal fun <T : Any> v1ProxyableSpektHelper(
+    inspektion: Inspektion<*>,
+    proxyFactory: (ProxyHandler) -> Any?
+): ProxyableInspektion<T> = ProxyableInspektion(inspektion as Inspektion<T>, proxyFactory as (ProxyHandler) -> T)

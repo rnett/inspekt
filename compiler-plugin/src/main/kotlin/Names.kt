@@ -70,11 +70,11 @@ object Names {
         }
 
         object ProxyHelper {
-            val handler = Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyHelper_handler
-            val originalMethod = Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyHelper_originalMethod
-            val originalProperty = Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyHelper_originalProperty
-            val args = Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyHelper_args
-            val isSetter = Symbols.inspekt.dev_rnett_inspekt_proxy_v1ProxyHelper_isSetter
+            val handler = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_handler
+            val originalMethod = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_originalMethod
+            val originalProperty = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_originalProperty
+            val args = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_args
+            val isSetter = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_isSetter
         }
     }
 
