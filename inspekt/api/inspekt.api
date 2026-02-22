@@ -578,10 +578,10 @@ public final class dev/rnett/inspekt/proxy/ProxyHandler$DefaultImpls {
 public final class dev/rnett/inspekt/proxy/ProxyKt {
 	public static final fun inspektAndProxy (Lkotlin/reflect/KClass;Ljava/lang/String;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
 	public static synthetic fun inspektAndProxy$default (Lkotlin/reflect/KClass;Ljava/lang/String;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
-	public static final fun proxy (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
-	public static synthetic fun proxy$default (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;Ldev/rnett/inspekt/proxy/ProxyHandler;ILjava/lang/Object;)Ljava/lang/Object;
-	public static final fun proxyFactory (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlin/jvm/functions/Function1;
-	public static synthetic fun proxyFactory$default (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;ILjava/lang/Object;)Lkotlin/jvm/functions/Function1;
+	public static final fun proxy (Lkotlin/reflect/KClass;Ljava/lang/String;Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
+	public static synthetic fun proxy$default (Lkotlin/reflect/KClass;Ljava/lang/String;Ldev/rnett/inspekt/proxy/ProxyHandler;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun proxyFactory (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlin/jvm/functions/Function1;
+	public static synthetic fun proxyFactory$default (Lkotlin/reflect/KClass;Ljava/lang/String;ILjava/lang/Object;)Lkotlin/jvm/functions/Function1;
 }
 
 public final class dev/rnett/inspekt/proxy/ProxyableInspektion {

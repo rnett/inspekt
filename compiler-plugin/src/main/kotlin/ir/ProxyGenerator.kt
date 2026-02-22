@@ -13,7 +13,6 @@ import dev.rnett.symbolexport.symbol.compiler.asClassId
 import dev.rnett.symbolexport.symbol.compiler.set
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageLocation
-import org.jetbrains.kotlin.cli.common.messages.CompilerMessageSeverity
 import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
 import org.jetbrains.kotlin.descriptors.Modality
@@ -99,12 +98,7 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
 
                 //TODO better way of checking for conflicts
                 if (checkForConflictingMethods(cls, superinterfaces)) {
-                    this@ProxyGenerator.context.messageCollector.report(
-                        CompilerMessageSeverity.ERROR,
-                        "Conflicting methods found in superinterfaces",
-                        reportLocation
-                    )
-                    return irNull()
+                    error("Conflicting methods found in superinterfaces. This should have been caught in the frontend.")
                 }
 
                 cls.apply {

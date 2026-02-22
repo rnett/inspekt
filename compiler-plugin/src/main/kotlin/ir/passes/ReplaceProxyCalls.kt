@@ -11,7 +11,6 @@ import dev.rnett.symbolexport.symbol.compiler.get
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageLocation
-import org.jetbrains.kotlin.cli.common.messages.CompilerMessageSeverity
 import org.jetbrains.kotlin.ir.builders.IrBuilderWithScope
 import org.jetbrains.kotlin.ir.builders.declarations.addValueParameter
 import org.jetbrains.kotlin.ir.builders.irBlockBody
@@ -25,7 +24,6 @@ import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.expressions.IrClassReference
 import org.jetbrains.kotlin.ir.expressions.IrConst
 import org.jetbrains.kotlin.ir.expressions.IrExpression
-import org.jetbrains.kotlin.ir.expressions.IrVararg
 import org.jetbrains.kotlin.ir.expressions.IrVarargElement
 import org.jetbrains.kotlin.ir.expressions.impl.IrFunctionExpressionImpl
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
@@ -58,20 +56,20 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
 
     private val proxyableSpektHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyableSpektHelper.asCallableId()).single()
 
-    private fun getProxyName(expression: IrCall): String {
+    private fun getProxyName(expression: IrCall, baseInterface: IrClass): String {
         val baseName = run {
             val nameArg = expression.symbol.owner.parameters.find { it.name == Name.identifier("name") }?.let { expression.arguments[it] as? IrConst? }?.let { it.value as? String? }
             if (nameArg != null) {
-                return@run "$nameArg.Inspekt_Proxy"
+                return@run $$"$$nameArg$Inspekt_Proxy"
             }
             val symbol = this.allScopes.asReversed().firstNotNullOfOrNull { it.irElement as? IrDeclaration }?.symbol
             val sig = (symbol?.signature ?: symbol?.privateSignature)?.asPublic()
 
             if (sig != null) {
-                return@run sig.let { it.packageFqName + "." + it.declarationFqName } + ".Inspekt_Proxy"
+                return@run sig.let { it.packageFqName + "." + it.declarationFqName } + $$"$Inspekt_Proxy"
             }
 
-            "Inspekt_Proxy"
+            return@run baseInterface.name.asString() + $$"$Inspekt_Proxy"
         }
         var index = 1
         var name = baseName
@@ -85,55 +83,33 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
 
     private fun intrinsifyProxyableSpekt(expression: IrCall): IrExpression {
         val baseInterface =
-            checkIsInterface(expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_inspektAndProxy_toImplement] ?: error("inspektAndProxy first argument is required")) ?: error("proxyableSpekt first argument must be an interface")
+            checkIsInterface(expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_inspektAndProxy_toImplement] ?: error("inspektAndProxy first argument is required"))
         return withBuilderForCurrentScope {
             irCall(proxyableSpektHelper).apply {
                 arguments[0] = generator.spektGenerator.createInspektion(baseInterface, expression.getCompilerMessageLocation(currentFile))
-                arguments[1] = createProxyFactory(getProxyName(expression), listOf(baseInterface), expression.getCompilerMessageLocation(currentFile))
+                arguments[1] = createProxyFactory(getProxyName(expression, baseInterface), listOf(baseInterface), expression.getCompilerMessageLocation(currentFile))
             }
 
         }
     }
 
     private fun intrinsifyProxyFactory(expression: IrCall): IrExpression {
-        val baseInterface = checkIsInterface(expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_proxyFactory_toImplement] ?: error("proxyFactory first argument is required"))
-        val otherInterfacesArg = expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_proxyFactory_additionalInterfaces]
-        val otherInterfaces = if (otherInterfacesArg is IrVararg) {
-            otherInterfacesArg.elements.mapNotNull { checkIsInterface(it) }
-        } else emptyList()
-
-        val allInterfaces = listOfNotNull(baseInterface) + otherInterfaces
-
+        val baseInterface =
+            checkIsInterface(expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_proxyFactory_toImplement] ?: error("proxyFactory first argument is required"))
         return withBuilderForCurrentScope {
-            createProxyFactory(getProxyName(expression), allInterfaces, expression.getCompilerMessageLocation(currentFile))
+            createProxyFactory(getProxyName(expression, baseInterface), listOf(baseInterface), expression.getCompilerMessageLocation(currentFile))
         }
     }
 
     private fun intrinsifyProxy(expression: IrCall): IrExpression {
         val baseInterface = checkIsInterface(expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_proxy_toImplement] ?: error("proxy toImplement argument is required"))
-        val otherInterfacesArg = expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_proxy_additionalInterfaces]
         val handler = expression.arguments[Symbols.inspekt.dev_rnett_inspekt_proxy_proxy_handler] ?: error("proxy handler argument is required")
-
-        val otherInterfaces = if (otherInterfacesArg is IrVararg) {
-            otherInterfacesArg.elements.mapNotNull { checkIsInterface(it) }
-        } else emptyList()
-
-        val allInterfaces = listOfNotNull(baseInterface) + otherInterfaces
-
-        if (allInterfaces.isEmpty()) {
-            context.messageCollector.report(
-                CompilerMessageSeverity.ERROR,
-                "Proxy call must have at least one interface",
-                expression.getCompilerMessageLocation(currentFile)
-            )
-            return expression
-        }
 
         return withBuilderForCurrentScope {
             generator.generateProxy(
                 handler,
-                getProxyName(expression),
-                allInterfaces,
+                getProxyName(expression, baseInterface),
+                listOf(baseInterface),
                 expression.getCompilerMessageLocation(currentFile)
             )
         }
@@ -164,35 +140,18 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
         }
     }
 
-    private fun checkIsInterface(expression: IrVarargElement): IrClass? {
+    private fun checkIsInterface(expression: IrVarargElement): IrClass {
         if (expression is IrClassReference) {
             val cls = expression.symbol.owner as? IrClass
-            if (cls == null) {
-                context.messageCollector.report(
-                    CompilerMessageSeverity.ERROR,
-                    "Invalid argument in proxy call - must be a class reference literal",
-                    expression.getCompilerMessageLocation(currentFile)
-                )
-                return null
-            }
+                ?: error("Invalid argument in proxy call - must be a class reference literal. This should have been caught in the frontend.")
 
             if (!cls.isInterface) {
-                context.messageCollector.report(
-                    CompilerMessageSeverity.ERROR,
-                    "Invalid argument in proxy call - must be an interface",
-                    expression.getCompilerMessageLocation(currentFile)
-                )
-                return null
+                error("Invalid argument in proxy call - must be an interface. This should have been caught in the frontend.")
             }
 
             return cls
         } else {
-            context.messageCollector.report(
-                CompilerMessageSeverity.ERROR,
-                "Invalid argument in proxy call - must be a class reference literal",
-                expression.getCompilerMessageLocation(currentFile)
-            )
-            return null
+            error("Invalid argument in proxy call - must be a class reference literal. This should have been caught in the frontend.")
         }
     }
 }

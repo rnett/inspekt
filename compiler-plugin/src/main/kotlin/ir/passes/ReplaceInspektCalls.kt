@@ -7,7 +7,6 @@ import dev.rnett.kcp.development.utils.ir.IrFullTransformerWithContext
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.getCompilerMessageLocation
-import org.jetbrains.kotlin.cli.common.messages.CompilerMessageSeverity
 import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.expressions.IrClassReference
 import org.jetbrains.kotlin.ir.expressions.IrExpression
@@ -38,12 +37,7 @@ class ReplaceInspektCalls(context: IrPluginContext) : IrFullTransformerWithConte
             is IrPropertyReference -> intrinsifyProperty(arg)
             is IrFunctionReference -> intrinsifyFunction(arg)
             else -> {
-                context.messageCollector.report(
-                    CompilerMessageSeverity.ERROR,
-                    "Unsupported argument type for inspekt call: ${arg::class.simpleName}. Must be a class, property, or function reference.",
-                    arg.getCompilerMessageLocation(currentFile)
-                )
-                expression
+                error("Unsupported argument type for inspekt call: ${arg::class.simpleName}. Must be a class, property, or function reference. This should have been caught in the frontend.")
             }
         }
     }
@@ -66,14 +60,7 @@ class ReplaceInspektCalls(context: IrPluginContext) : IrFullTransformerWithConte
 
     private fun intrinsifyClass(arg: IrClassReference): IrExpression? {
         val cls = arg.symbol as? IrClassSymbol
-        if (cls == null) {
-            context.messageCollector.report(
-                CompilerMessageSeverity.ERROR,
-                "Unsupported argument type for inspekt call: ${arg::class.simpleName}. Must be a class, property, or function reference.",
-                arg.getCompilerMessageLocation(currentFile)
-            )
-            return null
-        }
+            ?: error("Unsupported argument type for inspekt call: ${arg::class.simpleName}. Must be a class, property, or function reference. This should have been caught in the frontend.")
 
         return withBuilderForCurrentScope {
             generator.createInspektion(cls.owner, arg.getCompilerMessageLocation(currentFile))

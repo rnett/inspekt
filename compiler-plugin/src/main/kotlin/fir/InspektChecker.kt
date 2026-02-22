@@ -31,7 +31,7 @@ import org.jetbrains.kotlin.fir.symbols.SymbolInternals
 import org.jetbrains.kotlin.fir.symbols.impl.FirCallableSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirFunctionSymbol
 
-class LiteralsChecker(session: FirSession, val defaultWarnOn: Int) : FirAdditionalCheckersExtension(session) {
+class InspektChecker(session: FirSession, val defaultWarnOn: Int) : FirAdditionalCheckersExtension(session) {
     override val expressionCheckers: ExpressionCheckers = object : ExpressionCheckers() {
         override val functionCallCheckers: Set<FirFunctionCallChecker> = setOf(ParameterChecker())
     }
@@ -65,15 +65,13 @@ class LiteralsChecker(session: FirSession, val defaultWarnOn: Int) : FirAddition
                             return@forEach
                         }
 
-                        if (warnOnDefaults) {
-                            if (callable != null && callable is FirFunctionSymbol<*>) {
-                                checkDefaults(callable, arg.source, true)
-                            }
+                        if (callable != null && callable is FirFunctionSymbol<*>) {
+                            checkDefaults(callable, arg.source, true, warnOnDefaults)
+                        }
 
-                            cls?.fir?.declarations?.forEach {
-                                if (it is FirFunction) {
-                                    checkDefaults(it.symbol, arg.source, false)
-                                }
+                        cls?.fir?.declarations?.forEach {
+                            if (it is FirFunction) {
+                                checkDefaults(it.symbol, arg.source, false, warnOnDefaults)
                             }
                         }
                     }
@@ -88,9 +86,11 @@ class LiteralsChecker(session: FirSession, val defaultWarnOn: Int) : FirAddition
         }
 
         context(context: CheckerContext, reporter: DiagnosticReporter)
-        private fun checkDefaults(symbol: FirFunctionSymbol<*>, location: KtSourceElement?, includeName: Boolean) {
+        private fun checkDefaults(symbol: FirFunctionSymbol<*>, location: KtSourceElement?, includeName: Boolean, warnOnDefaults: Boolean) {
             val numberOfDefaults = symbol.valueParameterSymbols.count { it.hasDefaultValue }
-            if (defaultWarnOn in 1..<numberOfDefaults) {
+            if (numberOfDefaults > 32) {
+                reporter.reportOn(location, Diagnostics.defaultErrorMarker(symbol.name.asString()), symbol.name.asString().takeIf { includeName }, numberOfDefaults)
+            } else if (warnOnDefaults && defaultWarnOn in 1..<numberOfDefaults) {
                 reporter.reportOn(location, Diagnostics.defaultWarningMarker(symbol.name.asString()), symbol.name.asString().takeIf { includeName }, numberOfDefaults, defaultWarnOn)
             }
         }

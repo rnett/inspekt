@@ -12,7 +12,6 @@ import dev.rnett.symbolexport.symbol.compiler.set
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.lower.irCatch
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageLocation
-import org.jetbrains.kotlin.cli.common.messages.CompilerMessageSeverity
 import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.descriptors.Modality
 import org.jetbrains.kotlin.ir.backend.js.utils.realOverrideTarget
@@ -214,12 +213,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     context(context: GenerationContext)
     private fun IrBuilderWithScope.createFunctionObject(function: IrFunction): IrExpression {
         if (function.parameters.count { it.hasDefaultValue() } > 32) {
-            this@SpektGenerator.context.messageCollector.report(
-                CompilerMessageSeverity.ERROR,
-                "Can not generate inspektion for function ${function.callableId.asSingleFqName().asString()} with more than 32 default args.",
-                context.reportLocation
-            )
-            return irNull()
+            error("Can not generate inspektion for function ${function.callableId.asSingleFqName().asString()} with more than 32 default args. This should have been caught in the frontend.")
         }
         val packageNames = function.callableId.packageName.pathSegments().map { it.asString() }
         val classNames = function.callableId.className?.pathSegments()?.map { it.asString() }

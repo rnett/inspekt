@@ -130,9 +130,8 @@ public fun interface ProxyHandler {
 
 /**
  * Create a proxy object that implements [T] and responds to **all** method or accessor calls using [handler].
- * [toImplement] and each [additionalInterfaces] **must be a class reference literal of an interface**.
- *
- * The resulting object will implement [toImplement] and each [additionalInterfaces], and can be safely cast to types from [additionalInterfaces].
+ * [toImplement] **must be a class reference literal of an interface**.
+ * The resulting object will implement [toImplement].
  *
  * A call to this method is transformed into an anonymous object instance by the compiler plugin.
  * All the arguments are calculated at compilation time.
@@ -149,7 +148,6 @@ public fun interface ProxyHandler {
 @InspektCompilerPluginIntrinsic
 public fun <T : Any> proxy(
     @ExportSymbol @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
-    @ExportSymbol @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
     @StringLiteral name: String? = null,
     @ExportSymbol handler: ProxyHandler
 ): T = throw InspektNotIntrinsifiedException()
@@ -157,9 +155,8 @@ public fun <T : Any> proxy(
 
 /**
  * Create a proxy object factory, for proxies that implements [T] and responds to **all** method or accessor calls using the handler passed to the factory.
- * [toImplement] and each [additionalInterfaces] **must be a class reference literal of an interface**.
- *
- * The resulting object will implement [toImplement] and each [additionalInterfaces], and can be safely cast to types from [additionalInterfaces].
+ * [toImplement] **must be a class reference literal of an interface**.
+ * The resulting object will implement [toImplement].
  *
  * A call to this method is transformed into an anonymous object instance by the compiler plugin.
  * All the arguments are calculated at compilation time.
@@ -176,7 +173,6 @@ public fun <T : Any> proxy(
 @InspektCompilerPluginIntrinsic
 public fun <T : Any> proxyFactory(
     @ExportSymbol @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
-    @ExportSymbol @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
     @StringLiteral name: String? = null,
 ): (ProxyHandler) -> T = throw InspektNotIntrinsifiedException()
 

@@ -8,14 +8,14 @@ interface TestFactory {
 fun box(): String {
   val factory: Function1<ProxyHandler, TestFactory> = local fun <anonymous>(handler: ProxyHandler): TestFactory {
     return { // BLOCK
-      local class Inspekt_Proxy : TestFactory {
+      local class TestFactory$Inspekt_Proxy : TestFactory {
         internal /* final field */ val proxyHandler: ProxyHandler = handler
         private /* final field */ val $$proxyMethod_1_test: Any = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestFactory"]), name = "test", isAbstract = true, kotlin = TestFactory::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestFactory>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
           return null
         }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
         private /* final field */ val $$proxyMethod_2_equals: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-          val tmp_0: Inspekt_Proxy = args.v1Get(globalIndex = 0) as Inspekt_Proxy
+          val tmp_0: TestFactory$Inspekt_Proxy = args.v1Get(globalIndex = 0) as TestFactory$Inspekt_Proxy
           val tmp_1: Any? = args.v1Get(globalIndex = 1) as Any?
           return try super<Any>.equals(other = tmp_1)
           catch (tmp2: Throwable)args.throwWrappedException(e = tmp_2)
@@ -23,14 +23,14 @@ fun box(): String {
         }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
         private /* final field */ val $$proxyMethod_3_hashCode: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-          val tmp_3: Inspekt_Proxy = args.v1Get(globalIndex = 0) as Inspekt_Proxy
+          val tmp_3: TestFactory$Inspekt_Proxy = args.v1Get(globalIndex = 0) as TestFactory$Inspekt_Proxy
           return try super<Any>.hashCode()
           catch (tmp1: Throwable)args.throwWrappedException(e = tmp_4)
 
         }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
         private /* final field */ val $$proxyMethod_4_toString: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-          val tmp_5: Inspekt_Proxy = args.v1Get(globalIndex = 0) as Inspekt_Proxy
+          val tmp_5: TestFactory$Inspekt_Proxy = args.v1Get(globalIndex = 0) as TestFactory$Inspekt_Proxy
           return try super<Any>.toString()
           catch (tmp1: Throwable)args.throwWrappedException(e = tmp_6)
 
@@ -60,7 +60,7 @@ fun box(): String {
 
       }
 
-      Inspekt_Proxy()
+      TestFactory$Inspekt_Proxy()
     }
   }
 

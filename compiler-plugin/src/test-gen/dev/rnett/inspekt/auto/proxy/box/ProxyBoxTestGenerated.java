@@ -67,12 +67,6 @@ public class ProxyBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
-  @TestMetadata("MultiInheritanceProxy.kt")
-  public void testMultiInheritanceProxy() {
-    runTest("src/testData/auto/proxy/box/MultiInheritanceProxy.kt");
-  }
-
-  @Test
   @TestMetadata("ProxyFactory.kt")
   public void testProxyFactory() {
     runTest("src/testData/auto/proxy/box/ProxyFactory.kt");

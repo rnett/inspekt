@@ -16,20 +16,20 @@ interface Intermediate : Base {
 
 fun box(): String {
   val proxy: Intermediate = { // BLOCK
-    local class Inspekt_Proxy : Intermediate {
+    local class Intermediate$Inspekt_Proxy : Intermediate {
       internal /* final field */ val proxyHandler: ProxyHandler = local fun SuperCall.<anonymous>(): Any? {
         return $this$proxy.callSuper() as String
       }
  /*-> ProxyHandler */
       private /* final field */ val $$proxyMethod_1_test: Any = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "test", isAbstract = false, kotlin = Intermediate::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        val tmp_0: Inspekt_Proxy = args.v1Get(globalIndex = 0) as Inspekt_Proxy
+        val tmp_0: Intermediate$Inspekt_Proxy = args.v1Get(globalIndex = 0) as Intermediate$Inspekt_Proxy
         return try super<Intermediate>.test()
         catch (tmp1: Throwable)args.throwWrappedException(e = tmp_1)
 
       }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
       private /* final field */ val $$proxyMethod_2_equals: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        val tmp_2: Inspekt_Proxy = args.v1Get(globalIndex = 0) as Inspekt_Proxy
+        val tmp_2: Intermediate$Inspekt_Proxy = args.v1Get(globalIndex = 0) as Intermediate$Inspekt_Proxy
         val tmp_3: Any? = args.v1Get(globalIndex = 1) as Any?
         return try super<Any>.equals(other = tmp_3)
         catch (tmp2: Throwable)args.throwWrappedException(e = tmp_4)
@@ -37,14 +37,14 @@ fun box(): String {
       }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
       private /* final field */ val $$proxyMethod_3_hashCode: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        val tmp_5: Inspekt_Proxy = args.v1Get(globalIndex = 0) as Inspekt_Proxy
+        val tmp_5: Intermediate$Inspekt_Proxy = args.v1Get(globalIndex = 0) as Intermediate$Inspekt_Proxy
         return try super<Any>.hashCode()
         catch (tmp1: Throwable)args.throwWrappedException(e = tmp_6)
 
       }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
       private /* final field */ val $$proxyMethod_4_toString: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-        val tmp_7: Inspekt_Proxy = args.v1Get(globalIndex = 0) as Inspekt_Proxy
+        val tmp_7: Intermediate$Inspekt_Proxy = args.v1Get(globalIndex = 0) as Intermediate$Inspekt_Proxy
         return try super<Any>.toString()
         catch (tmp1: Throwable)args.throwWrappedException(e = tmp_8)
 
@@ -74,7 +74,7 @@ fun box(): String {
 
     }
 
-    Inspekt_Proxy()
+    Intermediate$Inspekt_Proxy()
   }
   assertEquals<String>(expected = "Intermediate", actual = proxy.test(), message = "Intermediate.test()")
   return "OK"
