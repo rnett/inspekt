@@ -15,6 +15,13 @@ jobs:
       run_all_platforms: true
     secrets: inherit
 
+  publishDocs:
+    needs: ci
+    name: Publish docs
+    uses: ./.github/workflows/docs.yaml
+    permissions:
+      contents: write
+
   release:
     needs: ci
     name: Release to Maven Central and tag
