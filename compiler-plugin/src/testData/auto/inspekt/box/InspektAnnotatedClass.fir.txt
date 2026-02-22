@@ -1,0 +1,32 @@
+FILE: InspektAnnotatedClass.kt
+    package auto.inspekt.box
+
+    @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
+        public constructor(test1: R|kotlin/String| = String(test)): R|auto/inspekt/box/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val test1: R|kotlin/String| = R|<local>/test1|
+            public get(): R|kotlin/String|
+
+        public final fun test(): R|kotlin/Int| {
+            ^test Int(5)
+        }
+
+        public final val test2: R|kotlin/Int| = Int(6)
+            public get(): R|kotlin/Int|
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/inspekt/box/Test>|
+
+            private constructor(): R|auto/inspekt/box/Test.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        R|kotlin/test/assertTrue|(==(R|dev/rnett/inspekt/inspekt|<R|auto/inspekt/box/Test|>(<getClass>(Q|auto/inspekt/box/Test|)), Q|auto/inspekt/box/Test|.R|auto/inspekt/box/Test.Companion.inspekt|()))
+        ^box String(OK)
+    }

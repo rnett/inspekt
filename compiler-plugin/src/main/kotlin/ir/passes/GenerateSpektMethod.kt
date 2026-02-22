@@ -83,7 +83,7 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
                             returnType = generator.Inspektion.typeWith(target.defaultType)
                             body = withBuilder {
                                 irBlockBody {
-                                    +irReturn(generator.createInspektion(target, target.getCompilerMessageLocation(target.file)))
+                                    +irReturn(generator.createInspektion(target, target.getCompilerMessageLocation(target.file), useExisting = false))
                                 }
                             }
                         }

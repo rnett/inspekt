@@ -1,5 +1,6 @@
 package dev.rnett.inspekt.ir
 
+import dev.rnett.inspekt.GeneratedNames
 import dev.rnett.inspekt.Names
 import dev.rnett.inspekt.Symbols
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
@@ -92,12 +93,41 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     )
 
     context(builder: IrBuilderWithScope)
-    fun createInspektion(declaration: IrClass, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null): IrExpression = with(builder) {
+    fun createInspektion(declaration: IrClass, reportLocation: CompilerMessageLocation?, makeSuperFor: IrClass? = null, useExisting: Boolean = true): IrExpression = with(builder) {
+        if (useExisting) {
+            val existing = findExistingInspektionMethod(declaration)
+
+            if (existing != null) {
+                return irCall(existing.second).apply {
+                    existing.second.dispatchReceiverParameter?.let { dispatchReceiver ->
+                        arguments[dispatchReceiver] = irGetObject(existing.first.symbol)
+                    }
+                }
+            }
+        }
+
         context(GenerationContext(makeSuperFor, reportLocation)) {
             return irCall(Spekt_toSpekt).apply {
                 this.arguments[0] = createInspektionImplementation(declaration)
             }
         }
+    }
+
+    private fun findExistingInspektionMethod(declaration: IrClass): Pair<IrClass, IrFunction>? {
+        val toSearch = declaration.takeIf { it.kind == ClassKind.OBJECT } ?: declaration.companionObject() ?: return null
+
+        val candidates = toSearch.functions.filter {
+            it.name == GeneratedNames.inspektMethod || it.name == GeneratedNames.inspektCompanionMethod
+        }.toList()
+
+        if (candidates.isEmpty()) return null
+
+        val soughtType = Inspektion.typeWith(declaration.defaultType)
+
+        return candidates.firstOrNull {
+            val hasDispatchOrNothing = if (it.dispatchReceiverParameter == null) it.parameters.size == 0 else it.parameters.size == 1
+            hasDispatchOrNothing && it.typeParameters.isEmpty() && it.returnType == soughtType
+        }?.let { toSearch to it }
     }
 
     context(builder: IrBuilderWithScope)
