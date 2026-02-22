@@ -1,4 +1,3 @@
-- Set up publishing secrets
 - Set up GH pages
 - Test run 0.0.1 release
 - Documentation
