@@ -17,7 +17,7 @@ FILE: AddedSetterProxy.kt
         lval proxy: R|auto/proxy/box/Sub| = R|dev/rnett/inspekt/proxy/proxy|<R|auto/proxy/box/Sub|>(<getClass>(Q|auto/proxy/box/Sub|), <L> = SAM(proxy@fun R|dev/rnett/inspekt/proxy/SuperCall|.<anonymous>(): R|kotlin/Any?| <inline=NoInline>  {
             ^ when () {
                 (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.superFun| is R|dev/rnett/inspekt/model/PropertySetter|) ->  {
-                    R|<local>/backing| = (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.args|.R|dev/rnett/inspekt/model/ArgumentList.get|(Int(1)) as R|kotlin/String|)
+                    R|<local>/backing| = (this@R|special/anonymous|.R|dev/rnett/inspekt/proxy/SuperCall.args|.R|dev/rnett/inspekt/model/arguments/ArgumentList.get|(Int(1)) as R|kotlin/String|)
                     Null(null)
                 }
                 else ->  {

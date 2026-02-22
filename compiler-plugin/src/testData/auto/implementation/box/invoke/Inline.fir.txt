@@ -18,8 +18,8 @@ FILE: Inline.kt
     public final fun box(): R|kotlin/String| {
         lval cls: R|dev/rnett/inspekt/model/Inspektion<auto/implementation/box/invoke/Test>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/Test|>(<getClass>(Q|auto/implementation/box/invoke/Test|))
         lval inst: R|auto/implementation/box/invoke/Test| = R|auto/implementation/box/invoke/Test.Test|()
-        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(5), (R|<local>/cls|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-            this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|auto/implementation/box/invoke/Test.Test|()
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(5), (R|<local>/cls|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = R|auto/implementation/box/invoke/Test.Test|()
         }
         ) as R|kotlin/Int|), String(inline invocation))
         R|kotlin/test/assertFalse|(R|<local>/cls|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(testReified)).R|dev/rnett/inspekt/model/FunctionLike.isCallable|)

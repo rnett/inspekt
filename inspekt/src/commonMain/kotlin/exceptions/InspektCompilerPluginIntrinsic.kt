@@ -1,4 +1,4 @@
-package dev.rnett.inspekt
+package dev.rnett.inspekt.exceptions
 
 /**
  * Marks declarations that must be replaced by the Inspekt compiler plugin.

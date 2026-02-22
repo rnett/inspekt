@@ -21,6 +21,6 @@ gradlePlugin {
 }
 
 buildConfig {
-    buildConfigField("COMPILER_PLUGIN_INTRINSIC_ANNOTATION", "dev.rnett.inspekt.InspektCompilerPluginIntrinsic")
+    buildConfigField("COMPILER_PLUGIN_INTRINSIC_ANNOTATION", "dev.rnett.inspekt.exceptions.InspektCompilerPluginIntrinsic")
     buildConfigField("LIBRARY_ARTIFACT_ID", "inspekt")
 }

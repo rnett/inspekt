@@ -35,8 +35,8 @@ class InspektChecker(session: FirSession, val defaultWarnOn: Int) : FirAdditiona
     override val expressionCheckers: ExpressionCheckers = object : ExpressionCheckers() {
         override val functionCallCheckers: Set<FirFunctionCallChecker> = setOf(ParameterChecker())
     }
-    private val ReferenceLiteral = Symbols.inspekt.dev_rnett_inspekt_ReferenceLiteral.asClassId()
-    private val StringLiteral = Symbols.inspekt.dev_rnett_inspekt_StringLiteral.asClassId()
+    private val ReferenceLiteral = Symbols.inspekt.dev_rnett_inspekt_utils_ReferenceLiteral.asClassId()
+    private val StringLiteral = Symbols.inspekt.dev_rnett_inspekt_utils_StringLiteral.asClassId()
 
     inner class ParameterChecker : FirFunctionCallChecker(MppCheckerKind.Common) {
 
@@ -50,8 +50,8 @@ class InspektChecker(session: FirSession, val defaultWarnOn: Int) : FirAdditiona
 
                 if (parameter.hasAnnotation(ReferenceLiteral, session)) {
                     val annotation = parameter.getAnnotationByClassId(ReferenceLiteral, session)!!
-                    val mustBeInterface = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_ReferenceLiteral_mustBeInterface.name(), session) ?: false
-                    val warnOnDefaults = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_ReferenceLiteral_warnAboutDefaults.name(), session) ?: true
+                    val mustBeInterface = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_utils_ReferenceLiteral_mustBeInterface.name(), session) ?: false
+                    val warnOnDefaults = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_utils_ReferenceLiteral_warnAboutDefaults.name(), session) ?: true
 
                     argument.unwrapAndFlattenArgument(flattenArrays = true).forEach { arg ->
                         val cls = arg.extractClassFromArgument(session)

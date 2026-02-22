@@ -1,13 +1,9 @@
 package dev.rnett.inspekt.proxy
 
-import dev.rnett.inspekt.FunctionInvocationException
-import dev.rnett.inspekt.InspektCompilerPluginIntrinsic
-import dev.rnett.inspekt.InspektNotIntrinsifiedException
-import dev.rnett.inspekt.ReferenceLiteral
-import dev.rnett.inspekt.StringLiteral
+import dev.rnett.inspekt.exceptions.FunctionInvocationException
+import dev.rnett.inspekt.exceptions.InspektCompilerPluginIntrinsic
+import dev.rnett.inspekt.exceptions.InspektNotIntrinsifiedException
 import dev.rnett.inspekt.inspekt
-import dev.rnett.inspekt.model.ArgumentList
-import dev.rnett.inspekt.model.ArgumentsBuilder
 import dev.rnett.inspekt.model.Function
 import dev.rnett.inspekt.model.Inspektion
 import dev.rnett.inspekt.model.Parameters
@@ -16,9 +12,17 @@ import dev.rnett.inspekt.model.PropertyAccessor
 import dev.rnett.inspekt.model.PropertyGetter
 import dev.rnett.inspekt.model.PropertySetter
 import dev.rnett.inspekt.model.SimpleFunction
+import dev.rnett.inspekt.model.arguments.ArgumentList
+import dev.rnett.inspekt.model.arguments.ArgumentsBuilder
+import dev.rnett.inspekt.utils.ReferenceLiteral
+import dev.rnett.inspekt.utils.StringLiteral
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 
+/**
+ * The function call being handled by the proxy.
+ * Includes both the original function ([superFun]) and the call's [args].
+ */
 public sealed class SuperCall {
     /**
      * The function originally being called.
@@ -46,6 +50,13 @@ public sealed class SuperCall {
     public val isSuperAbstract: Boolean get() = superFun.isAbstract
 
     /**
+     * Whether [superFun] (and thus this call) is suspending.
+     *
+     * @see ProxyHandler.handleSuspend
+     */
+    public val isSuspending: Boolean get() = superFun.isSuspend
+
+    /**
      * Call [superFun] with the call's arguments.
      */
     public fun callSuper(): Any? {
@@ -70,6 +81,11 @@ public sealed class SuperCall {
      * Call [superFun] with the given arguments.
      */
     public inline fun callSuper(builder: ArgumentsBuilder): Any? = superFun.invoke(builder)
+
+    /**
+     * Call [superFun] with the given arguments.
+     */
+    public suspend inline fun callSuperSuspend(builder: ArgumentsBuilder): Any? = superFun.invokeSuspend(builder)
 
     public sealed class PropertyAccess : SuperCall() {
         public abstract val superProperty: Property
@@ -108,13 +124,16 @@ public sealed class SuperCall {
 
 /**
  * A handler for calls to Inspekt proxies. Will be called for all method or property accessors on the proxy object.
+ *
+ * Any calls to functions, or access of properties, will result in a call to [handle], or [handleSuspend] for suspending functions.
+ * By default, [handleSuspend] simply calls [handle].
  */
 @ExportSymbol
 public fun interface ProxyHandler {
     /**
      * Handle a call to this proxy.
      *
-     * If you call super, make sure you check [SuperCall.isSuperCallable] first.
+     * If you call super, make sure you check [SuperCall.isSuperCallable] and [SuperCall.isSuspending] first.
      * Calls to abstract super methods will throw [FunctionInvocationException].
      */
     public fun SuperCall.handle(): Any?
@@ -136,7 +155,7 @@ public fun interface ProxyHandler {
  * A call to this method is transformed into an anonymous object instance by the compiler plugin.
  * All the arguments are calculated at compilation time.
  *
- * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * Because of this, uses of this function can potentially add a significant amount of binary size.
  * This is based on the number of appearances of `proxy()` in your code, not how many times it is invoked.
  * If you find yourself repeatedly creating proxies for the same class, consider using [proxyFactory], which has a constant binary overhead per factory invocation.
  *
@@ -161,7 +180,7 @@ public fun <T : Any> proxy(
  * A call to this method is transformed into an anonymous object instance by the compiler plugin.
  * All the arguments are calculated at compilation time.
  *
- * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * Because of this, uses of this function can potentially add a significant amount of binary size.
  * This is based on the number of appearances of `proxyFactory()` in your code, not how many times it is invoked.
  * **Calling the factory does not add overhead**, only the `proxyFactory` call.
  *
@@ -190,7 +209,7 @@ public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, 
  * A call to this method is transformed into an anonymous object instance by the compiler plugin.
  * All the arguments are calculated at compilation time.
  *
- * Because of this, calls of this function can potentially add a significant amount of binary size.
+ * Because of this, uses of this function can potentially add a significant amount of binary size.
  * This is based on the number of appearances of `inspektAndProxy()` in your code, not how many times it is invoked.
  * **Calling the factory does not add overhead**, only the `inspektAndProxy` call.
  *

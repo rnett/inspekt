@@ -21,7 +21,7 @@ FILE: DefaultArgs.kt
         lval spekt: R|dev/rnett/inspekt/model/Inspektion<auto/implementation/box/invoke/TestDefaults>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/TestDefaults|>(<getClass>(Q|auto/implementation/box/invoke/TestDefaults|))
         lval constructor: R|dev/rnett/inspekt/model/Constructor| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.primaryConstructor: R|dev/rnett/inspekt/model/Constructor?|>|!!
         lval instance1: R|auto/implementation/box/invoke/TestDefaults| = (R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor all defaults), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/constructor|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            ^ R|<local>/constructor|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
                 ^@invoke Unit
             }
             )
@@ -29,8 +29,8 @@ FILE: DefaultArgs.kt
         ) as R|auto/implementation/box/invoke/TestDefaults|)
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(1-default-3-fun-default), R|<local>/instance1|.R|auto/implementation/box/invoke/TestDefaults.test|())
         lval instance2: R|auto/implementation/box/invoke/TestDefaults| = (R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor override a), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/constructor|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.set|(String(a), Int(10))
+            ^ R|<local>/constructor|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.set|(String(a), Int(10))
                 Unit
             }
             )
@@ -38,10 +38,10 @@ FILE: DefaultArgs.kt
         ) as R|auto/implementation/box/invoke/TestDefaults|)
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(10-default-3-fun-default), R|<local>/instance2|.R|auto/implementation/box/invoke/TestDefaults.test|())
         lval instance3: R|auto/implementation/box/invoke/TestDefaults| = (R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor override a & b), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/constructor|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.set|(String(a), Int(20))
+            ^ R|<local>/constructor|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.set|(String(a), Int(20))
                 Unit
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.set|(String(b), String(provided))
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.set|(String(b), String(provided))
                 Unit
             }
             )
@@ -49,31 +49,31 @@ FILE: DefaultArgs.kt
         ) as R|auto/implementation/box/invoke/TestDefaults|)
         R|kotlin/test/assertEquals|<R|kotlin/String|>(String(20-provided-3-fun-default), R|<local>/instance3|.R|auto/implementation/box/invoke/TestDefaults.test|())
         lval testMethod: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(test))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/name/CallableName.name|, String(test))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(20-provided-3-fun-default), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(method defaults with only dispatch receiver), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/testMethod|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
+            ^ R|<local>/testMethod|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
             }
             )
         }
         ))
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(20-provided-100-fun-default), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(method override c), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/testMethod|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.set|(String(c), Int(100))
+            ^ R|<local>/testMethod|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.set|(String(c), Int(100))
                 Unit
             }
             )
         }
         ))
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(20-provided-100-manual), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(method override c & d), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/testMethod|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.set|(String(c), Int(100))
+            ^ R|<local>/testMethod|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance3|
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.set|(String(c), Int(100))
                 Unit
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.set|(String(d), String(manual))
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.set|(String(d), String(manual))
                 Unit
             }
             )

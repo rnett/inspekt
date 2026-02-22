@@ -2,20 +2,20 @@
 
 package dev.rnett.inspekt.internal
 
-import dev.rnett.inspekt.UnderlyingFunExceptionWrapper
-import dev.rnett.inspekt.UnderlyingFunInvocationWrapper
-import dev.rnett.inspekt.model.CallableName
-import dev.rnett.inspekt.model.ClassName
+import dev.rnett.inspekt.exceptions.UnderlyingFunExceptionWrapper
+import dev.rnett.inspekt.exceptions.UnderlyingFunInvocationWrapper
 import dev.rnett.inspekt.model.Constructor
 import dev.rnett.inspekt.model.Inspektion
 import dev.rnett.inspekt.model.MutableProperty
-import dev.rnett.inspekt.model.PackageName
 import dev.rnett.inspekt.model.Parameter
 import dev.rnett.inspekt.model.Parameters
 import dev.rnett.inspekt.model.PropertyGetter
 import dev.rnett.inspekt.model.PropertySetter
 import dev.rnett.inspekt.model.ReadOnlyProperty
 import dev.rnett.inspekt.model.SimpleFunction
+import dev.rnett.inspekt.model.name.CallableName
+import dev.rnett.inspekt.model.name.ClassName
+import dev.rnett.inspekt.model.name.PackageName
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction

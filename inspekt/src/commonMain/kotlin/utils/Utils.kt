@@ -1,4 +1,4 @@
-package dev.rnett.inspekt
+package dev.rnett.inspekt.utils
 
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass

@@ -1,10 +1,10 @@
 package dev.rnett.inspekt.internal
 
-import dev.rnett.inspekt.ProxyInvocationException
-import dev.rnett.inspekt.model.ArgumentList
+import dev.rnett.inspekt.exceptions.ProxyInvocationException
 import dev.rnett.inspekt.model.Inspektion
 import dev.rnett.inspekt.model.Property
 import dev.rnett.inspekt.model.SimpleFunction
+import dev.rnett.inspekt.model.arguments.ArgumentList
 import dev.rnett.inspekt.proxy.ProxyHandler
 import dev.rnett.inspekt.proxy.ProxyableInspektion
 import dev.rnett.inspekt.proxy.SuperCall

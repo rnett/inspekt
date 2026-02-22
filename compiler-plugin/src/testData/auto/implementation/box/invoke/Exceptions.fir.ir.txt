@@ -396,7 +396,7 @@ FILE fqName:auto.implementation.box.invoke fileName:/Exceptions.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                  CALL 'public final fun invoke (receiver: T of dev.rnett.inspekt.model.Inspektion?, name: kotlin.String, argumentsBuilder: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.Any? origin=null
+                  CALL 'public final fun invoke (receiver: T of dev.rnett.inspekt.model.Inspektion?, name: kotlin.String, argumentsBuilder: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.arguments.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.Any? origin=null
                     ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> declared in auto.implementation.box.invoke.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> origin=VARIABLE_AS_FUNCTION
                     ARG receiver: CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.invoke.Test' type=auto.implementation.box.invoke.Test origin=null
                     ARG name: CONST String type=kotlin.String value="test"
@@ -418,21 +418,21 @@ FILE fqName:auto.implementation.box.invoke fileName:/Exceptions.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                  CALL 'public final fun invoke (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.Any? origin=null
+                  CALL 'public final fun invoke (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.arguments.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.Any? origin=null
                     ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.model.Inspektion' type=dev.rnett.inspekt.model.SimpleFunction origin=null
                       ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> declared in auto.implementation.box.invoke.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> origin=null
                       ARG name: CONST String type=kotlin.String value="test"
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.arguments.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$invoke index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$invoke index:0 type:dev.rnett.inspekt.model.arguments.ArgumentList.Builder
                         VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=null
-                            ARG <this>: GET_VAR '$this$invoke: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.invoke.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.inspekt.model.arguments.ArgumentList.Builder' type=kotlin.Unit origin=null
+                            ARG <this>: GET_VAR '$this$invoke: dev.rnett.inspekt.model.arguments.ArgumentList.Builder declared in auto.implementation.box.invoke.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.arguments.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG values: VARARG type=kotlin.Array<out kotlin.Any?> varargElementType=kotlin.Any?
                               CONST Int type=kotlin.Int value=1
       CALL 'public final fun assertTrue (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-        ARG actual: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=dev.rnett.inspekt.FunctionInvocationException
+        ARG actual: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
           GET_VAR 'val e2: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
         ARG message: STRING_CONCATENATION type=kotlin.String
           CONST String type=kotlin.String value="Expected FunctionInvocationException, got "
@@ -444,20 +444,20 @@ FILE fqName:auto.implementation.box.invoke fileName:/Exceptions.kt
           ARG <this>: GET_VAR 'val e2: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
       CALL 'public final fun assertTrue (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         ARG actual: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=java.lang.IndexOutOfBoundsException
-          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
-            ARG <this>: TYPE_OP type=dev.rnett.inspekt.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.FunctionInvocationException
+          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.exceptions.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
+            ARG <this>: TYPE_OP type=dev.rnett.inspekt.exceptions.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
               GET_VAR 'val e2: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
         ARG message: STRING_CONCATENATION type=kotlin.String
           CONST String type=kotlin.String value="Expected IndexOutOfBoundsException, got "
-          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
-            ARG <this>: TYPE_OP type=dev.rnett.inspekt.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.FunctionInvocationException
+          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.exceptions.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
+            ARG <this>: TYPE_OP type=dev.rnett.inspekt.exceptions.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
               GET_VAR 'val e2: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String?
         ARG expected: CONST String type=kotlin.String value="Parameter index out of bounds: 0, number of parameters of kind VALUE is 0"
         ARG actual: CALL 'public open fun <get-message> (): kotlin.String? declared in kotlin.Throwable' type=kotlin.String? origin=GET_PROPERTY
-          ARG <this>: CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
-            ARG <this>: TYPE_OP type=dev.rnett.inspekt.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.FunctionInvocationException
+          ARG <this>: CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.exceptions.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
+            ARG <this>: TYPE_OP type=dev.rnett.inspekt.exceptions.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
               GET_VAR 'val e2: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
       VAR name:e3 type:kotlin.Throwable [val]
         CALL 'public final fun assertFailsWith <T> (message: kotlin.String?, block: kotlin.Function0<kotlin.Any?>): T of kotlin.test.assertFailsWith declared in kotlin.test' type=kotlin.Throwable origin=null
@@ -466,19 +466,19 @@ FILE fqName:auto.implementation.box.invoke fileName:/Exceptions.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                  CALL 'public final fun invoke (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.Any? origin=null
+                  CALL 'public final fun invoke (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.arguments.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.Any? origin=null
                     ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.model.Inspektion' type=dev.rnett.inspekt.model.SimpleFunction origin=null
                       ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> declared in auto.implementation.box.invoke.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> origin=null
                       ARG name: CONST String type=kotlin.String value="test"
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.arguments.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$invoke index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$invoke index:0 type:dev.rnett.inspekt.model.arguments.ArgumentList.Builder
                         VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$invoke: dev.rnett.inspekt.model.ArgumentList.Builder, it: dev.rnett.inspekt.model.Parameters): kotlin.Unit declared in auto.implementation.box.invoke.box.<anonymous>'
+                          RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$invoke: dev.rnett.inspekt.model.arguments.ArgumentList.Builder, it: dev.rnett.inspekt.model.Parameters): kotlin.Unit declared in auto.implementation.box.invoke.box.<anonymous>'
                             GET_OBJECT 'CLASS IR_EXTERNAL_DECLARATION_STUB OBJECT name:Unit modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.Unit
       CALL 'public final fun assertTrue (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-        ARG actual: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=dev.rnett.inspekt.FunctionInvocationException
+        ARG actual: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
           GET_VAR 'val e3: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
         ARG message: STRING_CONCATENATION type=kotlin.String
           CONST String type=kotlin.String value="Expected FunctionInvocationException, got "
@@ -490,20 +490,20 @@ FILE fqName:auto.implementation.box.invoke fileName:/Exceptions.kt
           ARG <this>: GET_VAR 'val e3: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
       CALL 'public final fun assertTrue (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         ARG actual: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=java.lang.IllegalArgumentException
-          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
-            ARG <this>: TYPE_OP type=dev.rnett.inspekt.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.FunctionInvocationException
+          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.exceptions.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
+            ARG <this>: TYPE_OP type=dev.rnett.inspekt.exceptions.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
               GET_VAR 'val e3: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
         ARG message: STRING_CONCATENATION type=kotlin.String
           CONST String type=kotlin.String value="Expected IllegalArgumentException, got "
-          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
-            ARG <this>: TYPE_OP type=dev.rnett.inspekt.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.FunctionInvocationException
+          CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.exceptions.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
+            ARG <this>: TYPE_OP type=dev.rnett.inspekt.exceptions.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
               GET_VAR 'val e3: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String?
         ARG expected: CONST String type=kotlin.String value="Argument for the dispatch receiver was null. This is not allowed."
         ARG actual: CALL 'public open fun <get-message> (): kotlin.String? declared in kotlin.Throwable' type=kotlin.String? origin=GET_PROPERTY
-          ARG <this>: CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
-            ARG <this>: TYPE_OP type=dev.rnett.inspekt.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.FunctionInvocationException
+          ARG <this>: CALL 'public open fun <get-cause> (): kotlin.Throwable declared in dev.rnett.inspekt.exceptions.FunctionInvocationException' type=kotlin.Throwable origin=GET_PROPERTY
+            ARG <this>: TYPE_OP type=dev.rnett.inspekt.exceptions.FunctionInvocationException origin=IMPLICIT_CAST typeOperand=dev.rnett.inspekt.exceptions.FunctionInvocationException
               GET_VAR 'val e3: kotlin.Throwable declared in auto.implementation.box.invoke.box' type=kotlin.Throwable origin=null
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.implementation.box.invoke'
         CONST String type=kotlin.String value="OK"

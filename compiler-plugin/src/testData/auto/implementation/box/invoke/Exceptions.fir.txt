@@ -23,26 +23,26 @@ FILE: Exceptions.kt
         R|kotlin/test/assertTrue|((R|<local>/e| is R|{kotlin/IllegalStateException=} java/lang/IllegalStateException|), <strcat>(String(Expected IllegalStateException, got ), R|<local>/e|))
         R|kotlin/test/assertEquals|<R|kotlin/String?|>(R|<local>/e|.R|kotlin/Throwable.message|, String(Test!))
         lval e2: R|kotlin/Throwable| = R|kotlin/test/assertFailsWith|<R|kotlin/Throwable|>(<L> = assertFailsWith@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.value|(vararg(Int(1)))
+            ^ R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.value|(vararg(Int(1)))
             }
             )
         }
         )
-        R|kotlin/test/assertTrue|((R|<local>/e2| is R|dev/rnett/inspekt/FunctionInvocationException|), <strcat>(String(Expected FunctionInvocationException, got ), R|<local>/e2|))
+        R|kotlin/test/assertTrue|((R|<local>/e2| is R|dev/rnett/inspekt/exceptions/FunctionInvocationException|), <strcat>(String(Expected FunctionInvocationException, got ), R|<local>/e2|))
         R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(Failed to invoke function auto.implementation.box.invoke.Test.test), R|<local>/e2|.R|kotlin/Throwable.message|)
-        R|kotlin/test/assertTrue|((R|<local>/e2|.R|dev/rnett/inspekt/FunctionInvocationException.cause| is R|{kotlin/IndexOutOfBoundsException=} java/lang/IndexOutOfBoundsException|), <strcat>(String(Expected IndexOutOfBoundsException, got ), R|<local>/e2|.R|dev/rnett/inspekt/FunctionInvocationException.cause|))
-        R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(Parameter index out of bounds: 0, number of parameters of kind VALUE is 0), R|<local>/e2|.R|dev/rnett/inspekt/FunctionInvocationException.cause|.R|kotlin/Throwable.message|)
+        R|kotlin/test/assertTrue|((R|<local>/e2|.R|dev/rnett/inspekt/exceptions/FunctionInvocationException.cause| is R|{kotlin/IndexOutOfBoundsException=} java/lang/IndexOutOfBoundsException|), <strcat>(String(Expected IndexOutOfBoundsException, got ), R|<local>/e2|.R|dev/rnett/inspekt/exceptions/FunctionInvocationException.cause|))
+        R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(Parameter index out of bounds: 0, number of parameters of kind VALUE is 0), R|<local>/e2|.R|dev/rnett/inspekt/exceptions/FunctionInvocationException.cause|.R|kotlin/Throwable.message|)
         lval e3: R|kotlin/Throwable| = R|kotlin/test/assertFailsWith|<R|kotlin/Throwable|>(<L> = assertFailsWith@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            ^ R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
                 ^@invoke Unit
             }
             )
         }
         )
-        R|kotlin/test/assertTrue|((R|<local>/e3| is R|dev/rnett/inspekt/FunctionInvocationException|), <strcat>(String(Expected FunctionInvocationException, got ), R|<local>/e3|))
+        R|kotlin/test/assertTrue|((R|<local>/e3| is R|dev/rnett/inspekt/exceptions/FunctionInvocationException|), <strcat>(String(Expected FunctionInvocationException, got ), R|<local>/e3|))
         R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(Failed to invoke function auto.implementation.box.invoke.Test.test), R|<local>/e3|.R|kotlin/Throwable.message|)
-        R|kotlin/test/assertTrue|((R|<local>/e3|.R|dev/rnett/inspekt/FunctionInvocationException.cause| is R|{kotlin/IllegalArgumentException=} java/lang/IllegalArgumentException|), <strcat>(String(Expected IllegalArgumentException, got ), R|<local>/e3|.R|dev/rnett/inspekt/FunctionInvocationException.cause|))
-        R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(Argument for the dispatch receiver was null. This is not allowed.), R|<local>/e3|.R|dev/rnett/inspekt/FunctionInvocationException.cause|.R|kotlin/Throwable.message|)
+        R|kotlin/test/assertTrue|((R|<local>/e3|.R|dev/rnett/inspekt/exceptions/FunctionInvocationException.cause| is R|{kotlin/IllegalArgumentException=} java/lang/IllegalArgumentException|), <strcat>(String(Expected IllegalArgumentException, got ), R|<local>/e3|.R|dev/rnett/inspekt/exceptions/FunctionInvocationException.cause|))
+        R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(Argument for the dispatch receiver was null. This is not allowed.), R|<local>/e3|.R|dev/rnett/inspekt/exceptions/FunctionInvocationException.cause|.R|kotlin/Throwable.message|)
         ^box String(OK)
     }

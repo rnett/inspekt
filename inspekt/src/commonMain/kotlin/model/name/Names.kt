@@ -1,4 +1,4 @@
-package dev.rnett.inspekt.model
+package dev.rnett.inspekt.model.name
 
 import kotlin.js.JsName
 

@@ -69,8 +69,8 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                               then: BLOCK type=kotlin.Nothing? origin=null
                                 SET_VAR 'var backing: kotlin.String declared in auto.proxy.box.box' type=kotlin.Unit origin=EQ
                                   TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                    CALL 'public open fun get (index: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.model.ArgumentList' type=kotlin.Any? origin=GET_ARRAY_ELEMENT
-                                      ARG <this>: CALL 'public abstract fun <get-args> (): dev.rnett.inspekt.model.ArgumentList declared in dev.rnett.inspekt.proxy.SuperCall' type=dev.rnett.inspekt.model.ArgumentList origin=GET_PROPERTY
+                                    CALL 'public open fun get (index: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.model.arguments.ArgumentList' type=kotlin.Any? origin=GET_ARRAY_ELEMENT
+                                      ARG <this>: CALL 'public abstract fun <get-args> (): dev.rnett.inspekt.model.arguments.ArgumentList declared in dev.rnett.inspekt.proxy.SuperCall' type=dev.rnett.inspekt.model.arguments.ArgumentList origin=GET_PROPERTY
                                         ARG <this>: GET_VAR '$this$proxy: dev.rnett.inspekt.proxy.SuperCall declared in auto.proxy.box.box.Sub$Inspekt_Proxy.proxyHandler.<anonymous>' type=dev.rnett.inspekt.proxy.SuperCall origin=IMPLICIT_ARGUMENT
                                       ARG index: CONST Int type=kotlin.Int value=1
                                 CONST Null type=kotlin.Nothing? value=null

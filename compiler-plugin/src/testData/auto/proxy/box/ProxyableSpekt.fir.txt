@@ -14,8 +14,8 @@ FILE: ProxyableSpekt.kt
         ))
         @R|kotlin/Suppress|(names = vararg(String(USELESS_IS_CHECK))) R|kotlin/test/assertTrue|((R|<local>/proxy| is R|auto/proxy/box/TestProxyable|), String(proxy is subtype of TestProxyable))
         R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), R|<local>/proxy|.R|auto/proxy/box/TestProxyable.test|(), String(proxy method returns correct result call))
-        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), (R|<local>/proxyable|.R|SubstitutionOverride<dev/rnett/inspekt/proxy/ProxyableInspektion.inspektion: R|dev/rnett/inspekt/model/Inspektion<auto/proxy/box/TestProxyable>|>|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-            this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/proxy|
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), (R|<local>/proxyable|.R|SubstitutionOverride<dev/rnett/inspekt/proxy/ProxyableInspektion.inspektion: R|dev/rnett/inspekt/model/Inspektion<auto/proxy/box/TestProxyable>|>|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = R|<local>/proxy|
         }
         ) as R|kotlin/Int|), String(inspektion called method on proxy returns correct result))
         ^box String(OK)

@@ -1,5 +1,6 @@
 package dev.rnett.inspekt.model
 
+import dev.rnett.inspekt.model.name.CallableName
 import kotlin.reflect.KCallable
 import kotlin.reflect.KClass
 

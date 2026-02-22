@@ -18,23 +18,23 @@ FILE: Objects.kt
         lval spektObj: R|dev/rnett/inspekt/model/Inspektion<auto/implementation/box/TestObject>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/TestObject|>(<getClass>(Q|auto/implementation/box/TestObject|))
         R|kotlin/test/assertEquals|<R|auto/implementation/box/TestObject?|>(Q|auto/implementation/box/TestObject|, R|<local>/spektObj|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.objectInstance: R|auto/implementation/box/TestObject?|>|)
         lval pObj: R|dev/rnett/inspekt/model/Property| = R|<local>/spektObj|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/model/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/Property.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(prop))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/Property.name|.R|dev/rnett/inspekt/model/name/CallableName.name|, String(prop))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(obj_prop), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(prop get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pObj|.R|dev/rnett/inspekt/model/Property.get|(<L> = get@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = Q|auto/implementation/box/TestObject|
+            ^ R|<local>/pObj|.R|dev/rnett/inspekt/model/Property.get|(<L> = get@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = Q|auto/implementation/box/TestObject|
             }
             )
         }
         ))
         lval fObj: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spektObj|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(test))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/name/CallableName.name|, String(test))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(obj_fun), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(test invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/fObj|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = Q|auto/implementation/box/TestObject|
+            ^ R|<local>/fObj|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = Q|auto/implementation/box/TestObject|
             }
             )
         }
