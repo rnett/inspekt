@@ -8,7 +8,6 @@ import dev.rnett.symbolexport.symbol.compiler.asClassId
 import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.declarations.DirectDeclarationsAccess
-import org.jetbrains.kotlin.fir.declarations.hasAnnotation
 import org.jetbrains.kotlin.fir.declarations.utils.isCompanion
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationGenerationExtension
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationPredicateRegistrar
@@ -57,6 +56,9 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
             return emptySet()
         }
 
+        if (classSymbol.classKind == ClassKind.OBJECT)
+            return emptySet()
+
         val existingCompanion = context.declaredScope!!.getClassifierNames().asSequence()
             .flatMap { context.declaredScope!!.getClassifiers(it) }
             .filterIsInstance<FirClassLikeSymbol<*>>()
@@ -97,17 +99,22 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
 
     @OptIn(DirectDeclarationsAccess::class, SymbolInternals::class)
     override fun getCallableNamesForClass(classSymbol: FirClassSymbol<*>, context: MemberGenerationContext): Set<Name> {
-        if (classSymbol.isCompanion || classSymbol.classKind == ClassKind.OBJECT) {
+        if (classSymbol.isCompanion) {
             return buildSet {
-                add(GeneratedNames.inspektMethod)
+                if (session.predicateBasedProvider.matches(Predicates.SPEKT_PREDICATE, classSymbol))
+                    add(GeneratedNames.inspektCompanionMethod)
+                val owner = classSymbol.getContainingClassSymbol()!!
+                if (session.predicateBasedProvider.matches(Predicates.SPEKT_PREDICATE, owner))
+                    add(GeneratedNames.inspektMethod)
                 if (classSymbol.pluginKey == DeclarationKeys.SpektCompanionObject)
                     add(SpecialNames.INIT)
             }
+        } else if (classSymbol.classKind == ClassKind.OBJECT) {
+            if (session.predicateBasedProvider.matches(Predicates.SPEKT_PREDICATE, classSymbol))
+                return setOf(GeneratedNames.inspektMethod)
         }
         return emptySet()
     }
-
-    //TODO handle scenarios where both the class and companion are annotated
 
     override fun generateFunctions(
         callableId: CallableId,
@@ -115,18 +122,22 @@ class SpektMethodGenerator(session: FirSession) : FirDeclarationGenerationExtens
     ): List<FirNamedFunctionSymbol> {
         context ?: return emptyList()
 
-        val annotatedClass =
-            if (context.owner.hasAnnotation(Names.InspektAnnotation.asClassId(), session))
+        val annotatedClass = if (callableId.callableName == GeneratedNames.inspektCompanionMethod) {
+            context.owner
+        } else {
+            if (context.owner.isCompanion) {
+                context.owner.getContainingClassSymbol() as? FirRegularClassSymbol
+            } else {
                 context.owner
-            else
-                context.owner.getContainingClassSymbol() as? FirRegularClassSymbol ?: return emptyList()
+            }
+        } ?: return emptyList()
 
-        if (callableId.callableName == GeneratedNames.inspektMethod) {
+        if (callableId.callableName == GeneratedNames.inspektMethod || callableId.callableName == GeneratedNames.inspektCompanionMethod) {
             return listOf(
                 createMemberFunction(
                     context.owner,
                     DeclarationKeys.SpektMethod(annotatedClass.classId),
-                    GeneratedNames.inspektMethod,
+                    callableId.callableName,
                     Names.Inspektion.asClassId().createConeType(session, arrayOf(annotatedClass.defaultType()))
                 ) {
                     source = annotatedClass.source

@@ -3,7 +3,7 @@ package auto.implementation.box.invoke
 @Inspekt
 class Complex {
   companion object Companion {
-    private /* static final field */ val inspektImplV1: Lazy<Inspektion<Complex>> = lazy<Inspektion<Complex>>(initializer = local fun <anonymous>(): Inspektion<Complex> {
+    private /* static final field */ val $$inspektImplV1$Companion: Lazy<Inspektion<Complex>> = lazy<Inspektion<Complex>>(initializer = local fun <anonymous>(): Inspektion<Complex> {
       return InspektionResultV1</* null */>(kClass = Complex::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Complex"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Complex"]), name = "extension", isAbstract = false, kotlin = Complex::extension, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Complex>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 2), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 2, indexInKind = 0, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Complex.extension(/* <this> = args.v1Get(globalIndex = 1) as String, */ other = args.v1Get(globalIndex = 2) as Int)
       }
@@ -62,7 +62,7 @@ class Complex {
     }
 
     fun inspekt(): Inspektion<Complex> {
-      return #inspektImplV1.<get-value>()
+      return #$$inspektImplV1$Companion.<get-value>()
     }
 
   }

@@ -10,19 +10,19 @@ fun box(): String {
     return { // BLOCK
       local class Inspekt_Proxy : TestFactory {
         internal /* final field */ val proxyHandler: ProxyHandler = handler
-        private /* final field */ val proxyMethod_1_test: Any = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestFactory"]), name = "test", isAbstract = true, kotlin = TestFactory::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestFactory>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        private /* final field */ val $$proxyMethod_1_test: Any = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["TestFactory"]), name = "test", isAbstract = true, kotlin = TestFactory::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestFactory>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
           return null
         }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
-        private /* final field */ val proxyMethod_2_equals: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        private /* final field */ val $$proxyMethod_2_equals: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
           return super<Any>.equals(other = args.v1Get(globalIndex = 1) as Any?)
         }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
-        private /* final field */ val proxyMethod_3_hashCode: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        private /* final field */ val $$proxyMethod_3_hashCode: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
           return super<Any>.hashCode()
         }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
-        private /* final field */ val proxyMethod_4_toString: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+        private /* final field */ val $$proxyMethod_4_toString: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
           return super<Any>.toString()
         }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
@@ -33,19 +33,19 @@ fun box(): String {
         }
 
         override operator fun equals(other: Any?): Boolean {
-          return v1ProxyHelper(functionName = "equals", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_2_equals, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>, other]))
+          return v1ProxyHelper(functionName = "equals", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#$$proxyMethod_2_equals, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>, other]))
         }
 
         override fun hashCode(): Int {
-          return v1ProxyHelper(functionName = "hashCode", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_3_hashCode, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+          return v1ProxyHelper(functionName = "hashCode", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#$$proxyMethod_3_hashCode, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
         }
 
         override fun test(): Int {
-          return v1ProxyHelper(functionName = "test", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_1_test, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+          return v1ProxyHelper(functionName = "test", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#$$proxyMethod_1_test, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
         }
 
         override fun toString(): String {
-          return v1ProxyHelper(functionName = "toString", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_4_toString, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+          return v1ProxyHelper(functionName = "toString", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#$$proxyMethod_4_toString, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
         }
 
       }

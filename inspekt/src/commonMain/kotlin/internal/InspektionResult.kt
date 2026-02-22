@@ -223,7 +223,7 @@ internal class InspektionResultV1<T : Any>
             lateinit var ref: dev.rnett.inspekt.Property
             val lazy = lazy(LazyThreadSafetyMode.NONE) { ref }
             val getter = getter.toPropertyGetterModel(lazy)
-            //TODO make sure there is always a setter for vars with backing fields
+
             return if (isMutable) {
                 MutableProperty(
                     kotlin as KMutableProperty1<*, *>,

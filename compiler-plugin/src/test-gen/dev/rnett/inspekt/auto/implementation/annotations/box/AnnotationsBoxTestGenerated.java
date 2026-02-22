@@ -35,10 +35,4 @@ public class AnnotationsBoxTestGenerated extends AbstractLeveledBoxTest {
   public void testAllFilesPresentInBox() {
     KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("src/testData/auto/implementation/annotations/box"), Pattern.compile("^(.+)\\.kt$"), null, true);
   }
-
-  @Test
-  @TestMetadata("AnnotationsTest.kt")
-  public void testAnnotationsTest() {
-    runTest("src/testData/auto/implementation/annotations/box/AnnotationsTest.kt");
-  }
 }

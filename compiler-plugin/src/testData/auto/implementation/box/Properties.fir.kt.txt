@@ -28,7 +28,7 @@ class TestProperties {
     }
 
   companion object Companion {
-    private /* static final field */ val inspektImplV1: Lazy<Inspektion<TestProperties>> = lazy<Inspektion<TestProperties>>(initializer = local fun <anonymous>(): Inspektion<TestProperties> {
+    private /* static final field */ val $$inspektImplV1$Companion: Lazy<Inspektion<TestProperties>> = lazy<Inspektion<TestProperties>>(initializer = local fun <anonymous>(): Inspektion<TestProperties> {
       return InspektionResultV1</* null */>(kClass = TestProperties::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "equals", isAbstract = false, kotlin = TestProperties::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
       }
@@ -102,7 +102,7 @@ class TestProperties {
     }
 
     fun inspekt(): Inspektion<TestProperties> {
-      return #inspektImplV1.<get-value>()
+      return #$$inspektImplV1$Companion.<get-value>()
     }
 
   }

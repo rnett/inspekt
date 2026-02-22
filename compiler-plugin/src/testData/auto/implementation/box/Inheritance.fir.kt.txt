@@ -11,7 +11,7 @@ abstract class Base {
     get
 
   companion object Companion {
-    private /* static final field */ val inspektImplV1: Lazy<Inspektion<Base>> = lazy<Inspektion<Base>>(initializer = local fun <anonymous>(): Inspektion<Base> {
+    private /* static final field */ val $$inspektImplV1$Companion: Lazy<Inspektion<Base>> = lazy<Inspektion<Base>>(initializer = local fun <anonymous>(): Inspektion<Base> {
       return InspektionResultV1</* null */>(kClass = Base::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Base"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Base"]), name = "abstractFun", isAbstract = true, kotlin = Base::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Base.abstractFun()
       }
@@ -82,7 +82,7 @@ abstract class Base {
     }
 
     fun inspekt(): Inspektion<Base> {
-      return #inspektImplV1.<get-value>()
+      return #$$inspektImplV1$Companion.<get-value>()
     }
 
   }
@@ -119,7 +119,7 @@ class Derived : Base {
     override get
 
   companion object Companion {
-    private /* static final field */ val inspektImplV1: Lazy<Inspektion<Derived>> = lazy<Inspektion<Derived>>(initializer = local fun <anonymous>(): Inspektion<Derived> {
+    private /* static final field */ val $$inspektImplV1$Companion: Lazy<Inspektion<Derived>> = lazy<Inspektion<Derived>>(initializer = local fun <anonymous>(): Inspektion<Derived> {
       return InspektionResultV1</* null */>(kClass = Derived::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), supertypes = arrayOf<KType>(elements = [typeOf<Base>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "abstractFun", isAbstract = false, kotlin = Derived::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Derived.abstractFun()
       }
@@ -193,7 +193,7 @@ class Derived : Base {
     }
 
     fun inspekt(): Inspektion<Derived> {
-      return #inspektImplV1.<get-value>()
+      return #$$inspektImplV1$Companion.<get-value>()
     }
 
   }

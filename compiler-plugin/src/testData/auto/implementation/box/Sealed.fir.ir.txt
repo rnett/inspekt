@@ -118,14 +118,14 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
               CONST String type=kotlin.String value=")"
     CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
       thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.SealedInt.Companion
-      FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:inspektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>> visibility:private [final,static]
+      FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:$$inspektImplV1$Companion type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>> visibility:private [final,static]
         EXPRESSION_BODY
           CALL 'public final fun lazy <T> (initializer: kotlin.Function0<T of kotlin.lazy>): kotlin.Lazy<T of kotlin.lazy> declared in kotlin' type=kotlin.Lazy<T of kotlin.lazy> origin=null
             TYPE_ARG T: dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>
             ARG initializer: FUN_EXPR type=kotlin.Function0<dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (): dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt> declared in auto.implementation.box.SealedInt.Companion.inspektImplV1'
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (): dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt> declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion'
                     CALL 'public abstract fun toModel (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
                       ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
                         TYPE_ARG (of class) T: <none>
@@ -203,15 +203,15 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.SealedInt' type=kotlin.Boolean origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                                         ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=1
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -257,11 +257,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.SealedInt' type=kotlin.Int origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -307,11 +307,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                   VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.SealedInt' type=kotlin.String origin=null
                                         ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                           CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                            ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                               ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -402,15 +402,15 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.SealedCls' type=kotlin.Boolean origin=null
                                               ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                               ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=1
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -456,11 +456,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.SealedCls' type=kotlin.Int origin=null
                                               ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -506,11 +506,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.SealedCls' type=kotlin.String origin=null
                                               ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -551,7 +551,7 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CONSTRUCTOR_CALL 'protected constructor <init> () declared in auto.implementation.box.SealedCls' type=auto.implementation.box.SealedCls origin=null
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -625,11 +625,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                               VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                               BLOCK_BODY
-                                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                                   CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.Impl2' type=kotlin.String origin=null
                                                     ARG <this>: TYPE_OP type=auto.implementation.box.Impl2 origin=CAST typeOperand=auto.implementation.box.Impl2
                                                       CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                         ARG globalIndex: CONST Int type=kotlin.Int value=0
                                           ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                           ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -675,11 +675,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                               VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                               BLOCK_BODY
-                                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                                   CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.Impl2' type=kotlin.Int origin=null
                                                     ARG <this>: TYPE_OP type=auto.implementation.box.Impl2 origin=CAST typeOperand=auto.implementation.box.Impl2
                                                       CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                         ARG globalIndex: CONST Int type=kotlin.Int value=0
                                           ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                           ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -736,15 +736,15 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                               VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                               BLOCK_BODY
-                                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                                   CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.Impl2' type=kotlin.Boolean origin=null
                                                     ARG <this>: TYPE_OP type=auto.implementation.box.Impl2 origin=CAST typeOperand=auto.implementation.box.Impl2
                                                       CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                         ARG globalIndex: CONST Int type=kotlin.Int value=0
                                                     ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                                       CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                        ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                         ARG globalIndex: CONST Int type=kotlin.Int value=1
                                           ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                           ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -762,23 +762,23 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Impl2
                                         VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Impl2 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Impl2 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             TYPE_OP type=auto.implementation.box.Impl2 origin=CAST typeOperand=auto.implementation.box.Impl2
-                                              GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                              GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                                     ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                                         VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.Impl2
-                                              GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                              GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                                     ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.Impl2?> origin=LAMBDA
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.Impl2?
                                         VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Impl2? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.Impl2? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             TYPE_OP type=auto.implementation.box.Impl2 origin=SAFE_CAST typeOperand=auto.implementation.box.Impl2
-                                              GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                              GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                                     ARG objectInstance: GET_OBJECT 'CLASS OBJECT name:Impl2 modality:FINAL visibility:public [data] superTypes:[auto.implementation.box.SealedCls]' type=auto.implementation.box.Impl2
                                     ARG companionObject: CONST Null type=kotlin.Nothing? value=null
                                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -788,23 +788,23 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedCls
                                   VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedCls declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedCls declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       TYPE_OP type=auto.implementation.box.SealedCls origin=CAST typeOperand=auto.implementation.box.SealedCls
-                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                               ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                                   VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.SealedCls
-                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                               ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.SealedCls?> origin=LAMBDA
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedCls?
                                   VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedCls? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedCls? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       TYPE_OP type=auto.implementation.box.SealedCls origin=SAFE_CAST typeOperand=auto.implementation.box.SealedCls
-                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                               ARG objectInstance: CONST Null type=kotlin.Nothing? value=null
                               ARG companionObject: CONST Null type=kotlin.Nothing? value=null
                               ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -876,11 +876,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CALL 'public final fun component1 (): kotlin.Int declared in auto.implementation.box.SealedInt.Impl1' type=kotlin.Int origin=null
                                               ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -940,35 +940,35 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                         BLOCK_BODY
                                           VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:kotlin.Int [val]
                                             CALL 'public abstract fun <get-v1DefaultableHasValueBitmask> (): kotlin.Int declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Int origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             WHEN type=auto.implementation.box.SealedInt.Impl1 origin=null
                                               BRANCH
                                                 if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                                  ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                                  ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Int origin=null
                                                   ARG arg1: CONST Int type=kotlin.Int value=0
                                                 then: CALL 'public final fun copy (test: kotlin.Int): auto.implementation.box.SealedInt.Impl1 declared in auto.implementation.box.SealedInt.Impl1' type=auto.implementation.box.SealedInt.Impl1 origin=null
                                                   ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
                                                     CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                      ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                      ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                       ARG globalIndex: CONST Int type=kotlin.Int value=0
                                               BRANCH
                                                 if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                                  ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Int origin=null
+                                                  ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Int origin=null
                                                   ARG arg1: CONST Int type=kotlin.Int value=1
                                                 then: CALL 'public final fun copy (test: kotlin.Int): auto.implementation.box.SealedInt.Impl1 declared in auto.implementation.box.SealedInt.Impl1' type=auto.implementation.box.SealedInt.Impl1 origin=null
                                                   ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
                                                     CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                      ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                      ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                       ARG globalIndex: CONST Int type=kotlin.Int value=0
                                                   ARG test: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
                                                     CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                      ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                      ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                       ARG globalIndex: CONST Int type=kotlin.Int value=1
                                               BRANCH
                                                 if: CONST Boolean type=kotlin.Boolean value=true
                                                 then: CALL 'public open fun throwInvalidBitmask (): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -1014,11 +1014,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.SealedInt.Impl1' type=kotlin.String origin=null
                                               ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1065,11 +1065,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.SealedInt.Impl1' type=kotlin.Int origin=null
                                               ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1127,15 +1127,15 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.SealedInt.Impl1' type=kotlin.Boolean origin=null
                                               ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                               ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=1
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1208,11 +1208,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                         FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                           VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                           BLOCK_BODY
-                                            RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                            RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                               CALL 'public final fun <get-test> (): kotlin.Int declared in auto.implementation.box.SealedInt.Impl1' type=kotlin.Int origin=null
                                                 ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
                                                   CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                     ARG globalIndex: CONST Int type=kotlin.Int value=0
                                       ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                       ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1264,11 +1264,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                         BLOCK_BODY
-                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                             CONSTRUCTOR_CALL 'public constructor <init> (test: kotlin.Int) declared in auto.implementation.box.SealedInt.Impl1' type=auto.implementation.box.SealedInt.Impl1 origin=null
                                               ARG test: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
                                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1280,23 +1280,23 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedInt.Impl1
                                   VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Impl1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Impl1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=CAST typeOperand=auto.implementation.box.SealedInt.Impl1
-                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                               ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                                   VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.SealedInt.Impl1
-                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                               ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.SealedInt.Impl1?> origin=LAMBDA
                                 FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedInt.Impl1?
                                   VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                                   BLOCK_BODY
-                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Impl1? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Impl1? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                       TYPE_OP type=auto.implementation.box.SealedInt.Impl1 origin=SAFE_CAST typeOperand=auto.implementation.box.SealedInt.Impl1
-                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                        GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                               ARG objectInstance: CONST Null type=kotlin.Nothing? value=null
                               ARG companionObject: CONST Null type=kotlin.Nothing? value=null
                               ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -1306,23 +1306,23 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedInt
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                 TYPE_OP type=auto.implementation.box.SealedInt origin=CAST typeOperand=auto.implementation.box.SealedInt
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                 TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.SealedInt
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.SealedInt?> origin=LAMBDA
                           FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedInt?
                             VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                             BLOCK_BODY
-                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                              RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                 TYPE_OP type=auto.implementation.box.SealedInt origin=SAFE_CAST typeOperand=auto.implementation.box.SealedInt
-                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                  GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                         ARG objectInstance: CONST Null type=kotlin.Nothing? value=null
                         ARG companionObject: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
                           TYPE_ARG (of class) T: <none>
@@ -1390,11 +1390,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                         CALL 'public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt> declared in auto.implementation.box.SealedInt.Companion' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt> origin=null
                                           ARG <this>: TYPE_OP type=auto.implementation.box.SealedInt.Companion origin=CAST typeOperand=auto.implementation.box.SealedInt.Companion
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
@@ -1452,15 +1452,15 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                         CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion' type=kotlin.Boolean origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                           ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=1
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1507,11 +1507,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                         CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.SealedInt.Companion' type=kotlin.Int origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1558,11 +1558,11 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                                   FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                                     VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                                     BLOCK_BODY
-                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                      RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                         CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.SealedInt.Companion' type=kotlin.String origin=null
                                           ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
                                             CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                               ARG globalIndex: CONST Int type=kotlin.Int value=0
                                 ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                                 ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
@@ -1580,23 +1580,23 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedInt.Companion
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Companion declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Companion declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                   TYPE_OP type=auto.implementation.box.SealedInt.Companion origin=CAST typeOperand=auto.implementation.box.SealedInt.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                   TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.SealedInt.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.SealedInt.Companion?> origin=LAMBDA
                             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.SealedInt.Companion?
                               VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
                               BLOCK_BODY
-                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Companion? declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>'
+                                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.SealedInt.Companion? declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>'
                                   TYPE_OP type=auto.implementation.box.SealedInt.Companion origin=SAFE_CAST typeOperand=auto.implementation.box.SealedInt.Companion
-                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.inspektImplV1.<anonymous>.<anonymous>' type=kotlin.Any origin=null
+                                    GET_VAR 'it: kotlin.Any declared in auto.implementation.box.SealedInt.Companion.$$inspektImplV1$Companion.<anonymous>.<anonymous>' type=kotlin.Any origin=null
                           ARG objectInstance: GET_OBJECT 'CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektCompanionObject] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=auto.implementation.box.SealedInt.Companion
                           ARG companionObject: CONST Null type=kotlin.Nothing? value=null
                           ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -1627,7 +1627,7 @@ FILE fqName:auto.implementation.box fileName:/Sealed.kt
         BLOCK_BODY
           RETURN type=kotlin.Nothing from='public final fun inspekt (): dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt> declared in auto.implementation.box.SealedInt.Companion'
             CALL 'public abstract fun <get-value> (): T of kotlin.Lazy declared in kotlin.Lazy' type=T of kotlin.Lazy origin=null
-              ARG <this>: GET_FIELD 'FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:inspektImplV1 type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>> visibility:private [final,static] declared in auto.implementation.box.SealedInt.Companion' type=kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>> origin=null
+              ARG <this>: GET_FIELD 'FIELD GENERATED[dev.rnett.inspekt.DeclarationKeys.SpektImplementationFieldV1] name:$$inspektImplV1$Companion type:kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>> visibility:private [final,static] declared in auto.implementation.box.SealedInt.Companion' type=kotlin.Lazy<dev.rnett.inspekt.Inspektion<auto.implementation.box.SealedInt>> origin=null
     FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
       VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
       VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?

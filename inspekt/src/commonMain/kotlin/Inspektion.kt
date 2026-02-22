@@ -60,6 +60,10 @@ public class Inspektion<T : Any> internal constructor(
         constructors.forEach { append("    ").appendLine(it.toString(false)) }
         functions.forEach { append("    ").appendLine(it.toString(false)) }
         properties.forEach { append("    ").appendLine(it.toString(false)) }
+        if (companionObject != null) {
+            appendLine()
+            appendLine("    companion object")
+        }
         append("}")
 
         if (includeSubclasses && sealedSubclasses.isNotEmpty()) {

@@ -38,6 +38,12 @@ public class ImplementationBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
+  @TestMetadata("AnnotationsTest.kt")
+  public void testAnnotationsTest() {
+    runTest("src/testData/auto/implementation/box/AnnotationsTest.kt");
+  }
+
+  @Test
   @TestMetadata("Basic.kt")
   public void testBasic() {
     runTest("src/testData/auto/implementation/box/Basic.kt");

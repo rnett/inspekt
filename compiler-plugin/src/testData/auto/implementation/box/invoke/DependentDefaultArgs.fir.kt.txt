@@ -11,7 +11,7 @@ class TestDefaults {
     get
 
   companion object Companion {
-    private /* static final field */ val inspektImplV1: Lazy<Inspektion<TestDefaults>> = lazy<Inspektion<TestDefaults>>(initializer = local fun <anonymous>(): Inspektion<TestDefaults> {
+    private /* static final field */ val $$inspektImplV1$Companion: Lazy<Inspektion<TestDefaults>> = lazy<Inspektion<TestDefaults>>(initializer = local fun <anonymous>(): Inspektion<TestDefaults> {
       return InspektionResultV1</* null */>(kClass = TestDefaults::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["TestDefaults"]), name = "test", isAbstract = false, kotlin = TestDefaults::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestDefaults>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "c", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3), Param(name = "d", annotations = arrayOf<Annotation>(elements = []), hasDefault = true, type = typeOf<String>(), globalIndex = 2, indexInKind = 1, kind = 3)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         val tmp_0: Int = args.<get-v1DefaultableHasValueBitmask>()
         return when {
@@ -87,7 +87,7 @@ class TestDefaults {
     }
 
     fun inspekt(): Inspektion<TestDefaults> {
-      return #inspektImplV1.<get-value>()
+      return #$$inspektImplV1$Companion.<get-value>()
     }
 
   }

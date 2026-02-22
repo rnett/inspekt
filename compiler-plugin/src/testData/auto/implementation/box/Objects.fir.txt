@@ -15,15 +15,6 @@ FILE: Objects.kt
 
         public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestObject>|
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestObject>|
-
-            private constructor(): R|auto/implementation/box/TestObject.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
     public final fun box(): R|kotlin/String| {
         lval spektObj: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestObject>| = Q|auto/implementation/box/TestObject|.R|auto/implementation/box/TestObject.inspekt|()

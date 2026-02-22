@@ -80,6 +80,7 @@ object Names {
             val args = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_args
             val isSetter = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_isSetter
         }
+
         object TypeParameterCtor {
             val name = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_name
             val index = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_index
@@ -95,11 +96,12 @@ object Names {
 
 object GeneratedNames {
     fun proxyMethodField(name: String, index: Int): Name {
-        return Name.identifier("proxyMethod_${index}_${name}")
+        return Name.identifier($$$"$$proxyMethod_$$${index}_$$${name}")
     }
 
     val proxyHandlerField = Name.identifier("proxyHandler")
 
     val inspektMethod = Name.identifier("inspekt")
-    val inspektImplFieldV1 = Name.identifier("inspektImplV1")
+    val inspektCompanionMethod = Name.identifier("inspektCompanion")
+    fun inspektImplFieldV1(name: String) = Name.identifier($$$"$$inspektImplV1$$$$name")
 }

@@ -1,1 +1,2 @@
+- Make inspekt(Foo::class) use generated `inspekt()` method if there is one.
 - Code reflection (i.e. bodies)? Can't access bodies

@@ -41,32 +41,34 @@ class GenerateSpektMethod(context: IrPluginContext) : IrFullProcessor(context) {
     private val lazyValue get() = context.referenceProperties(CallableId(FqName("kotlin"), FqName("Lazy"), Name.identifier("value"))).single()
 
     override fun visitClass(declaration: IrClass) {
-        val spektMethod = declaration.functions.find { it.pluginKey is DeclarationKeys.SpektMethod }
-        if (spektMethod != null) {
-            val key = spektMethod.pluginKey as DeclarationKeys.SpektMethod
+        declaration.functions
+            .filter { it.pluginKey is DeclarationKeys.SpektMethod }
+            .toList()
+            .forEach { spektMethod ->
+                val key = spektMethod.pluginKey as DeclarationKeys.SpektMethod
 
-            val declarationClass = context.referenceClass(key.declaration)!!.owner
+                val declarationClass = context.referenceClass(key.declaration)!!.owner
 
-            val field = createLazyField(declarationClass)
+                val field = createLazyField(declarationClass, declaration.name.asString())
 
-            declaration.addChild(field)
+                declaration.addChild(field)
 
-            spektMethod.apply {
-                spektMethod.body = withBuilder {
-                    irBlockBody {
-                        +irReturn(irCall(lazyValue.owner.getter!!.symbol).apply {
-                            arguments[0] = irGetField(null, field)
-                        })
+                spektMethod.apply {
+                    spektMethod.body = withBuilder {
+                        irBlockBody {
+                            +irReturn(irCall(lazyValue.owner.getter!!.symbol).apply {
+                                arguments[0] = irGetField(null, field)
+                            })
+                        }
                     }
                 }
             }
-        }
         super.visitClass(declaration)
     }
 
-    private fun createLazyField(target: IrClass): IrField {
+    private fun createLazyField(target: IrClass, name: String): IrField {
         return factory.buildField {
-            name = GeneratedNames.inspektImplFieldV1
+            this.name = GeneratedNames.inspektImplFieldV1(name)
             visibility = DescriptorVisibilities.PRIVATE
             origin = DeclarationKeys.SpektImplementationFieldV1.toIrOrigin()
             type = lazyClass.typeWith(generator.Inspektion.typeWith(target.defaultType))

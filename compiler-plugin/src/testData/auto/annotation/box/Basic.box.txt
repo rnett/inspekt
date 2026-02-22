@@ -1,4 +1,4 @@
-class auto.implementation.box.Test : java.lang.Object {
+class auto.annotation.box.Test : java.lang.Object {
     <init>(test1: java.lang.String = ...)
     fun test(): int
     fun equals(other: java.lang.Object?): boolean @ class java.lang.Object

@@ -55,7 +55,7 @@ sealed interface SealedInt {
   }
 
   companion object Companion {
-    private /* static final field */ val inspektImplV1: Lazy<Inspektion<SealedInt>> = lazy<Inspektion<SealedInt>>(initializer = local fun <anonymous>(): Inspektion<SealedInt> {
+    private /* static final field */ val $$inspektImplV1$Companion: Lazy<Inspektion<SealedInt>> = lazy<Inspektion<SealedInt>>(initializer = local fun <anonymous>(): Inspektion<SealedInt> {
       return InspektionResultV1</* null */>(kClass = SealedInt::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = [Inspekt]), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["SealedInt"]), name = "equals", isAbstract = false, kotlin = SealedInt::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
       }
@@ -179,7 +179,7 @@ sealed interface SealedInt {
     }
 
     fun inspekt(): Inspektion<SealedInt> {
-      return #inspektImplV1.<get-value>()
+      return #$$inspektImplV1$Companion.<get-value>()
     }
 
   }
