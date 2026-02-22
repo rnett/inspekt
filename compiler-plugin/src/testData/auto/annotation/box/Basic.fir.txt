@@ -1,0 +1,39 @@
+FILE: Basic.kt
+    package auto.annotation.box
+
+    @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
+        public constructor(test1: R|kotlin/String| = String(test)): R|auto/annotation/box/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val test1: R|kotlin/String| = R|<local>/test1|
+            public get(): R|kotlin/String|
+
+        public final fun test(): R|kotlin/Int| {
+            ^test Int(5)
+        }
+
+        public final val test2: R|kotlin/Int| = Int(6)
+            public get(): R|kotlin/Int|
+
+        public final companion object Companion : R|kotlin/Any| {
+            private constructor(): R|auto/annotation/box/Test.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val t: R|kotlin/Int|by R|kotlin/lazy|<R|kotlin/Int|>(<L> = lazy@fun <anonymous>(): R|kotlin/Int| <inline=NoInline>  {
+                ^ Int(5)
+            }
+            )
+                public get(): R|kotlin/Int| {
+                    ^ this@R|auto/annotation/box/Test.Companion|.D|auto/annotation/box/Test.Companion.t|.R|kotlin/getValue|<R|kotlin/Int|>(this@R|auto/annotation/box/Test.Companion|, ::R|auto/annotation/box/Test.Companion.t|)
+                }
+
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/annotation/box/Test>|
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        ^box Q|auto/annotation/box/Test|.R|auto/annotation/box/Test.Companion.inspekt|().R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.toString: R|kotlin/String|>|()
+    }

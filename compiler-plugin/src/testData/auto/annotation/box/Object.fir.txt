@@ -1,0 +1,21 @@
+FILE: Object.kt
+    package auto.annotation.box
+
+    @R|dev/rnett/inspekt/Inspekt|() public final object Test : R|kotlin/Any| {
+        private constructor(): R|auto/annotation/box/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final fun test(): R|kotlin/Int| {
+            ^test Int(5)
+        }
+
+        public final val test2: R|kotlin/Int| = Int(6)
+            public get(): R|kotlin/Int|
+
+        public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/annotation/box/Test>|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        ^box Q|auto/annotation/box/Test|.R|auto/annotation/box/Test.inspekt|().R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.toString: R|kotlin/String|>|()
+    }
