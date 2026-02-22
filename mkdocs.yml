@@ -58,3 +58,4 @@ markdown_extensions:
 
 nav:
   - 'Introduction': index.md
+  - 'API ↗': api/index.html
