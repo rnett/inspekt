@@ -23,6 +23,10 @@ open annotation class dev.rnett.inspekt/ReferenceLiteral : kotlin/Annotation { /
         final fun <get-warnAboutDefaults>(): kotlin/Boolean // dev.rnett.inspekt/ReferenceLiteral.warnAboutDefaults.<get-warnAboutDefaults>|<get-warnAboutDefaults>(){}[0]
 }
 
+open annotation class dev.rnett.inspekt/StringLiteral : kotlin/Annotation { // dev.rnett.inspekt/StringLiteral|null[0]
+    constructor <init>() // dev.rnett.inspekt/StringLiteral.<init>|<init>(){}[0]
+}
+
 abstract fun interface dev.rnett.inspekt.proxy/ProxyHandler { // dev.rnett.inspekt.proxy/ProxyHandler|null[0]
     abstract fun (dev.rnett.inspekt.proxy/SuperCall).handle(): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.handle|handle@dev.rnett.inspekt.proxy.SuperCall(){}[0]
     open suspend fun (dev.rnett.inspekt.proxy/SuperCall).handleSuspend(): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.handleSuspend|handleSuspend@dev.rnett.inspekt.proxy.SuperCall(){}[0]
@@ -249,12 +253,15 @@ final class dev.rnett.inspekt/Constructor : dev.rnett.inspekt/FunctionLike { // 
     final fun toString(kotlin/Boolean): kotlin/String // dev.rnett.inspekt/Constructor.toString|toString(kotlin.Boolean){}[0]
 }
 
-final class dev.rnett.inspekt/InspektNotIntrinsifiedException : kotlin/UnsupportedOperationException { // dev.rnett.inspekt/InspektNotIntrinsifiedException|null[0]
-    constructor <init>() // dev.rnett.inspekt/InspektNotIntrinsifiedException.<init>|<init>(){}[0]
+final class dev.rnett.inspekt/FunctionInvocationException : kotlin/RuntimeException { // dev.rnett.inspekt/FunctionInvocationException|null[0]
+    constructor <init>(dev.rnett.inspekt/QualifiedName, kotlin/Throwable) // dev.rnett.inspekt/FunctionInvocationException.<init>|<init>(dev.rnett.inspekt.QualifiedName;kotlin.Throwable){}[0]
+
+    final val name // dev.rnett.inspekt/FunctionInvocationException.name|{}name[0]
+        final fun <get-name>(): dev.rnett.inspekt/QualifiedName // dev.rnett.inspekt/FunctionInvocationException.name.<get-name>|<get-name>(){}[0]
 }
 
-final class dev.rnett.inspekt/InvocationFailureException : kotlin/RuntimeException { // dev.rnett.inspekt/InvocationFailureException|null[0]
-    constructor <init>(dev.rnett.inspekt/QualifiedName, kotlin/Throwable) // dev.rnett.inspekt/InvocationFailureException.<init>|<init>(dev.rnett.inspekt.QualifiedName;kotlin.Throwable){}[0]
+final class dev.rnett.inspekt/InspektNotIntrinsifiedException : kotlin/UnsupportedOperationException { // dev.rnett.inspekt/InspektNotIntrinsifiedException|null[0]
+    constructor <init>() // dev.rnett.inspekt/InspektNotIntrinsifiedException.<init>|<init>(){}[0]
 }
 
 final class dev.rnett.inspekt/MutableProperty : dev.rnett.inspekt/Property { // dev.rnett.inspekt/MutableProperty|null[0]
@@ -441,6 +448,17 @@ final class dev.rnett.inspekt/PropertySetter : dev.rnett.inspekt/PropertyAccesso
         final fun <get-returnType>(): kotlin.reflect/KType // dev.rnett.inspekt/PropertySetter.returnType.<get-returnType>|<get-returnType>(){}[0]
 
     final fun toString(kotlin/Boolean): kotlin/String // dev.rnett.inspekt/PropertySetter.toString|toString(kotlin.Boolean){}[0]
+}
+
+final class dev.rnett.inspekt/ProxyInvocationException : kotlin/RuntimeException { // dev.rnett.inspekt/ProxyInvocationException|null[0]
+    constructor <init>(kotlin/String, dev.rnett.inspekt.proxy/ProxyHandler, kotlin/Any, kotlin/Throwable) // dev.rnett.inspekt/ProxyInvocationException.<init>|<init>(kotlin.String;dev.rnett.inspekt.proxy.ProxyHandler;kotlin.Any;kotlin.Throwable){}[0]
+
+    final val name // dev.rnett.inspekt/ProxyInvocationException.name|{}name[0]
+        final fun <get-name>(): kotlin/String // dev.rnett.inspekt/ProxyInvocationException.name.<get-name>|<get-name>(){}[0]
+    final val proxyHandler // dev.rnett.inspekt/ProxyInvocationException.proxyHandler|{}proxyHandler[0]
+        final fun <get-proxyHandler>(): dev.rnett.inspekt.proxy/ProxyHandler // dev.rnett.inspekt/ProxyInvocationException.proxyHandler.<get-proxyHandler>|<get-proxyHandler>(){}[0]
+    final val proxyInstance // dev.rnett.inspekt/ProxyInvocationException.proxyInstance|{}proxyInstance[0]
+        final fun <get-proxyInstance>(): kotlin/Any // dev.rnett.inspekt/ProxyInvocationException.proxyInstance.<get-proxyInstance>|<get-proxyInstance>(){}[0]
 }
 
 final class dev.rnett.inspekt/ReadOnlyProperty : dev.rnett.inspekt/Property { // dev.rnett.inspekt/ReadOnlyProperty|null[0]
@@ -739,11 +757,11 @@ final val dev.rnett.inspekt/classOrNull // dev.rnett.inspekt/classOrNull|@kotlin
     final fun (kotlin.reflect/KType).<get-classOrNull>(): kotlin.reflect/KClass<*>? // dev.rnett.inspekt/classOrNull.<get-classOrNull>|<get-classOrNull>@kotlin.reflect.KType(){}[0]
 
 final fun <#A: kotlin/Any> dev.rnett.inspekt.internal/v1ProxyableSpektHelper(dev.rnett.inspekt/Inspektion<*>, kotlin/Function1<dev.rnett.inspekt.proxy/ProxyHandler, kotlin/Any?>): dev.rnett.inspekt.proxy/ProxyableInspektion<#A> // dev.rnett.inspekt.internal/v1ProxyableSpektHelper|v1ProxyableSpektHelper(dev.rnett.inspekt.Inspektion<*>;kotlin.Function1<dev.rnett.inspekt.proxy.ProxyHandler,kotlin.Any?>){0§<kotlin.Any>}[0]
-final fun <#A: kotlin/Any> dev.rnett.inspekt.proxy/inspektAndProxy(kotlin.reflect/KClass<#A>): dev.rnett.inspekt.proxy/ProxyableInspektion<#A> // dev.rnett.inspekt.proxy/inspektAndProxy|inspektAndProxy(kotlin.reflect.KClass<0:0>){0§<kotlin.Any>}[0]
-final fun <#A: kotlin/Any> dev.rnett.inspekt.proxy/proxy(kotlin.reflect/KClass<#A>, kotlin/Array<out kotlin.reflect/KClass<*>>..., dev.rnett.inspekt.proxy/ProxyHandler): #A // dev.rnett.inspekt.proxy/proxy|proxy(kotlin.reflect.KClass<0:0>;kotlin.Array<out|kotlin.reflect.KClass<*>>...;dev.rnett.inspekt.proxy.ProxyHandler){0§<kotlin.Any>}[0]
-final fun <#A: kotlin/Any> dev.rnett.inspekt.proxy/proxyFactory(kotlin.reflect/KClass<#A>, kotlin/Array<out kotlin.reflect/KClass<*>>...): kotlin/Function1<dev.rnett.inspekt.proxy/ProxyHandler, #A> // dev.rnett.inspekt.proxy/proxyFactory|proxyFactory(kotlin.reflect.KClass<0:0>;kotlin.Array<out|kotlin.reflect.KClass<*>>...){0§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any> dev.rnett.inspekt.proxy/inspektAndProxy(kotlin.reflect/KClass<#A>, kotlin/String? = ...): dev.rnett.inspekt.proxy/ProxyableInspektion<#A> // dev.rnett.inspekt.proxy/inspektAndProxy|inspektAndProxy(kotlin.reflect.KClass<0:0>;kotlin.String?){0§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any> dev.rnett.inspekt.proxy/proxy(kotlin.reflect/KClass<#A>, kotlin/Array<out kotlin.reflect/KClass<*>>..., kotlin/String? = ..., dev.rnett.inspekt.proxy/ProxyHandler): #A // dev.rnett.inspekt.proxy/proxy|proxy(kotlin.reflect.KClass<0:0>;kotlin.Array<out|kotlin.reflect.KClass<*>>...;kotlin.String?;dev.rnett.inspekt.proxy.ProxyHandler){0§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any> dev.rnett.inspekt.proxy/proxyFactory(kotlin.reflect/KClass<#A>, kotlin/Array<out kotlin.reflect/KClass<*>>..., kotlin/String? = ...): kotlin/Function1<dev.rnett.inspekt.proxy/ProxyHandler, #A> // dev.rnett.inspekt.proxy/proxyFactory|proxyFactory(kotlin.reflect.KClass<0:0>;kotlin.Array<out|kotlin.reflect.KClass<*>>...;kotlin.String?){0§<kotlin.Any>}[0]
 final fun <#A: kotlin/Any> dev.rnett.inspekt/inspekt(kotlin.reflect/KClass<#A>): dev.rnett.inspekt/Inspektion<#A> // dev.rnett.inspekt/inspekt|inspekt(kotlin.reflect.KClass<0:0>){0§<kotlin.Any>}[0]
-final fun dev.rnett.inspekt.internal/v1ProxyHelper(dev.rnett.inspekt.proxy/ProxyHandler, dev.rnett.inspekt/SimpleFunction, dev.rnett.inspekt/Property?, kotlin/Boolean, kotlin/Array<kotlin/Any?>): kotlin/Any? // dev.rnett.inspekt.internal/v1ProxyHelper|v1ProxyHelper(dev.rnett.inspekt.proxy.ProxyHandler;dev.rnett.inspekt.SimpleFunction;dev.rnett.inspekt.Property?;kotlin.Boolean;kotlin.Array<kotlin.Any?>){}[0]
+final fun dev.rnett.inspekt.internal/v1ProxyHelper(kotlin/String, kotlin/Any, dev.rnett.inspekt.proxy/ProxyHandler, kotlin/Any, kotlin/Any?, kotlin/Boolean, kotlin/Array<kotlin/Any?>): kotlin/Any? // dev.rnett.inspekt.internal/v1ProxyHelper|v1ProxyHelper(kotlin.String;kotlin.Any;dev.rnett.inspekt.proxy.ProxyHandler;kotlin.Any;kotlin.Any?;kotlin.Boolean;kotlin.Array<kotlin.Any?>){}[0]
 final fun dev.rnett.inspekt/ArgumentList(dev.rnett.inspekt/Parameters, kotlin.collections/List<kotlin/Any?>): dev.rnett.inspekt/ArgumentList // dev.rnett.inspekt/ArgumentList|ArgumentList(dev.rnett.inspekt.Parameters;kotlin.collections.List<kotlin.Any?>){}[0]
 final fun dev.rnett.inspekt/CallableName(kotlin.collections/List<kotlin/String>, kotlin.collections/List<kotlin/String>?, kotlin/String): dev.rnett.inspekt/CallableName // dev.rnett.inspekt/CallableName|CallableName(kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.String>?;kotlin.String){}[0]
 final fun dev.rnett.inspekt/inspekt(kotlin.reflect/KFunction<*>): dev.rnett.inspekt/SimpleFunction // dev.rnett.inspekt/inspekt|inspekt(kotlin.reflect.KFunction<*>){}[0]
@@ -753,4 +771,4 @@ final inline fun <#A: kotlin/Any?> (dev.rnett.inspekt/Callable).dev.rnett.inspek
 final inline fun <#A: reified kotlin/Any?> (dev.rnett.inspekt/AnnotatedElement).dev.rnett.inspekt/annotation(): #A? // dev.rnett.inspekt/annotation|annotation@dev.rnett.inspekt.AnnotatedElement(){0§<kotlin.Any?>}[0]
 final inline fun <#A: reified kotlin/Any?> (dev.rnett.inspekt/AnnotatedElement).dev.rnett.inspekt/annotations(): kotlin.collections/List<#A> // dev.rnett.inspekt/annotations|annotations@dev.rnett.inspekt.AnnotatedElement(){0§<kotlin.Any?>}[0]
 final inline fun dev.rnett.inspekt/ArgumentList(dev.rnett.inspekt/Parameters, kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit>): dev.rnett.inspekt/ArgumentList // dev.rnett.inspekt/ArgumentList|ArgumentList(dev.rnett.inspekt.Parameters;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
-final suspend fun dev.rnett.inspekt.internal/v1SuspendProxyHelper(dev.rnett.inspekt.proxy/ProxyHandler, dev.rnett.inspekt/SimpleFunction, dev.rnett.inspekt/Property?, kotlin/Boolean, kotlin/Array<kotlin/Any?>): kotlin/Any? // dev.rnett.inspekt.internal/v1SuspendProxyHelper|v1SuspendProxyHelper(dev.rnett.inspekt.proxy.ProxyHandler;dev.rnett.inspekt.SimpleFunction;dev.rnett.inspekt.Property?;kotlin.Boolean;kotlin.Array<kotlin.Any?>){}[0]
+final suspend fun dev.rnett.inspekt.internal/v1SuspendProxyHelper(kotlin/String, kotlin/Any, dev.rnett.inspekt.proxy/ProxyHandler, kotlin/Any, kotlin/Any?, kotlin/Boolean, kotlin/Array<kotlin/Any?>): kotlin/Any? // dev.rnett.inspekt.internal/v1SuspendProxyHelper|v1SuspendProxyHelper(kotlin.String;kotlin.Any;dev.rnett.inspekt.proxy.ProxyHandler;kotlin.Any;kotlin.Any?;kotlin.Boolean;kotlin.Array<kotlin.Any?>){}[0]

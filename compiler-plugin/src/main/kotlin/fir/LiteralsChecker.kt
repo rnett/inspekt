@@ -15,6 +15,7 @@ import org.jetbrains.kotlin.fir.analysis.checkers.extractClassFromArgument
 import org.jetbrains.kotlin.fir.analysis.extensions.FirAdditionalCheckersExtension
 import org.jetbrains.kotlin.fir.declarations.DirectDeclarationsAccess
 import org.jetbrains.kotlin.fir.declarations.FirFunction
+import org.jetbrains.kotlin.fir.declarations.evaluateAs
 import org.jetbrains.kotlin.fir.declarations.getAnnotationByClassId
 import org.jetbrains.kotlin.fir.declarations.getBooleanArgument
 import org.jetbrains.kotlin.fir.declarations.hasAnnotation
@@ -22,6 +23,7 @@ import org.jetbrains.kotlin.fir.declarations.utils.isInterface
 import org.jetbrains.kotlin.fir.expressions.FirCallableReferenceAccess
 import org.jetbrains.kotlin.fir.expressions.FirExpression
 import org.jetbrains.kotlin.fir.expressions.FirFunctionCall
+import org.jetbrains.kotlin.fir.expressions.FirLiteralExpression
 import org.jetbrains.kotlin.fir.expressions.resolvedArgumentMapping
 import org.jetbrains.kotlin.fir.expressions.toResolvedCallableSymbol
 import org.jetbrains.kotlin.fir.expressions.unwrapAndFlattenArgument
@@ -34,6 +36,7 @@ class LiteralsChecker(session: FirSession, val defaultWarnOn: Int) : FirAddition
         override val functionCallCheckers: Set<FirFunctionCallChecker> = setOf(ParameterChecker())
     }
     private val ReferenceLiteral = Symbols.inspekt.dev_rnett_inspekt_ReferenceLiteral.asClassId()
+    private val StringLiteral = Symbols.inspekt.dev_rnett_inspekt_StringLiteral.asClassId()
 
     inner class ParameterChecker : FirFunctionCallChecker(MppCheckerKind.Common) {
 
@@ -43,12 +46,12 @@ class LiteralsChecker(session: FirSession, val defaultWarnOn: Int) : FirAddition
             val function = expression.toResolvedCallableSymbol(session) as? FirFunctionSymbol ?: return
 
             function.valueParameterSymbols.forEach { parameter ->
+                val argument = expression.resolvedArgumentMapping?.entries?.find { it.value.symbol == parameter }?.key ?: return@forEach
+
                 if (parameter.hasAnnotation(ReferenceLiteral, session)) {
                     val annotation = parameter.getAnnotationByClassId(ReferenceLiteral, session)!!
                     val mustBeInterface = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_ReferenceLiteral_mustBeInterface.name(), session) ?: false
                     val warnOnDefaults = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_ReferenceLiteral_warnAboutDefaults.name(), session) ?: true
-
-                    val argument = expression.resolvedArgumentMapping?.entries?.find { it.value.symbol == parameter }?.key ?: return@forEach
 
                     argument.unwrapAndFlattenArgument(flattenArrays = true).forEach { arg ->
                         val cls = arg.extractClassFromArgument(session)
@@ -73,6 +76,12 @@ class LiteralsChecker(session: FirSession, val defaultWarnOn: Int) : FirAddition
                                 }
                             }
                         }
+                    }
+                }
+
+                if (parameter.hasAnnotation(StringLiteral, session)) {
+                    if (argument.evaluateAs<FirLiteralExpression>(session)?.value as? String == null) {
+                        reporter.reportOn(argument.source, Diagnostics.INSPEKT_MUST_BE_STRING_LITERAL)
                     }
                 }
             }

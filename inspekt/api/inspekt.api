@@ -173,9 +173,18 @@ public final class dev/rnett/inspekt/Constructor : dev/rnett/inspekt/FunctionLik
 	public fun toString (Z)Ljava/lang/String;
 }
 
+public final class dev/rnett/inspekt/ExceptionsKt {
+	public static final fun wrapInvocation (Ldev/rnett/inspekt/Callable;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+}
+
 public abstract class dev/rnett/inspekt/Function : dev/rnett/inspekt/FunctionLike {
 	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class dev/rnett/inspekt/FunctionInvocationException : java/lang/RuntimeException {
+	public fun <init> (Ldev/rnett/inspekt/QualifiedName;Ljava/lang/Throwable;)V
+	public final fun getName ()Ldev/rnett/inspekt/QualifiedName;
 }
 
 public abstract class dev/rnett/inspekt/FunctionLike : dev/rnett/inspekt/Callable {
@@ -252,14 +261,6 @@ public final class dev/rnett/inspekt/Inspektion : dev/rnett/inspekt/AnnotatedEle
 	public fun toString ()Ljava/lang/String;
 	public final fun toString (ZZ)Ljava/lang/String;
 	public static synthetic fun toString$default (Ldev/rnett/inspekt/Inspektion;ZZILjava/lang/Object;)Ljava/lang/String;
-}
-
-public final class dev/rnett/inspekt/InvocationFailureException : java/lang/RuntimeException {
-	public fun <init> (Ldev/rnett/inspekt/QualifiedName;Ljava/lang/Throwable;)V
-}
-
-public final class dev/rnett/inspekt/InvocationFailureExceptionKt {
-	public static final fun wrapInvocation (Ldev/rnett/inspekt/Callable;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 }
 
 public final class dev/rnett/inspekt/MutableProperty : dev/rnett/inspekt/Property {
@@ -449,6 +450,13 @@ public final class dev/rnett/inspekt/PropertySetter : dev/rnett/inspekt/Property
 	public fun toString (Z)Ljava/lang/String;
 }
 
+public final class dev/rnett/inspekt/ProxyInvocationException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/String;Ldev/rnett/inspekt/proxy/ProxyHandler;Ljava/lang/Object;Ljava/lang/Throwable;)V
+	public final fun getName ()Ljava/lang/String;
+	public final fun getProxyHandler ()Ldev/rnett/inspekt/proxy/ProxyHandler;
+	public final fun getProxyInstance ()Ljava/lang/Object;
+}
+
 public abstract class dev/rnett/inspekt/QualifiedName {
 	public fun <init> ()V
 	public fun asString ()Ljava/lang/String;
@@ -510,6 +518,9 @@ public final class dev/rnett/inspekt/SpecialNames {
 	public final fun setter (Ljava/lang/String;)Ljava/lang/String;
 }
 
+public abstract interface annotation class dev/rnett/inspekt/StringLiteral : java/lang/annotation/Annotation {
+}
+
 public final class dev/rnett/inspekt/UtilsKt {
 	public static final fun getClassOrNull (Lkotlin/reflect/KType;)Lkotlin/reflect/KClass;
 }
@@ -548,9 +559,9 @@ public final class dev/rnett/inspekt/internal/InspektionResultV1$Property {
 }
 
 public final class dev/rnett/inspekt/internal/ProxyHelpersKt {
-	public static final fun v1ProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/SimpleFunction;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun v1ProxyHelper (Ljava/lang/String;Ljava/lang/Object;Ldev/rnett/inspekt/proxy/ProxyHandler;Ljava/lang/Object;Ljava/lang/Object;Z[Ljava/lang/Object;)Ljava/lang/Object;
 	public static final fun v1ProxyableSpektHelper (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function1;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
-	public static final fun v1SuspendProxyHelper (Ldev/rnett/inspekt/proxy/ProxyHandler;Ldev/rnett/inspekt/SimpleFunction;Ldev/rnett/inspekt/Property;Z[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun v1SuspendProxyHelper (Ljava/lang/String;Ljava/lang/Object;Ldev/rnett/inspekt/proxy/ProxyHandler;Ljava/lang/Object;Ljava/lang/Object;Z[Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public abstract interface class dev/rnett/inspekt/proxy/ProxyHandler {
@@ -563,9 +574,12 @@ public final class dev/rnett/inspekt/proxy/ProxyHandler$DefaultImpls {
 }
 
 public final class dev/rnett/inspekt/proxy/ProxyKt {
-	public static final fun inspektAndProxy (Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
-	public static final fun proxy (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
-	public static final fun proxyFactory (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;)Lkotlin/jvm/functions/Function1;
+	public static final fun inspektAndProxy (Lkotlin/reflect/KClass;Ljava/lang/String;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
+	public static synthetic fun inspektAndProxy$default (Lkotlin/reflect/KClass;Ljava/lang/String;ILjava/lang/Object;)Ldev/rnett/inspekt/proxy/ProxyableInspektion;
+	public static final fun proxy (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;Ldev/rnett/inspekt/proxy/ProxyHandler;)Ljava/lang/Object;
+	public static synthetic fun proxy$default (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;Ldev/rnett/inspekt/proxy/ProxyHandler;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun proxyFactory (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlin/jvm/functions/Function1;
+	public static synthetic fun proxyFactory$default (Lkotlin/reflect/KClass;[Lkotlin/reflect/KClass;Ljava/lang/String;ILjava/lang/Object;)Lkotlin/jvm/functions/Function1;
 }
 
 public final class dev/rnett/inspekt/proxy/ProxyableInspektion {

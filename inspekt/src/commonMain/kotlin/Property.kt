@@ -1,6 +1,5 @@
 package dev.rnett.inspekt
 
-import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty1
@@ -9,7 +8,6 @@ import kotlin.reflect.KType
 /**
  * The result of inspekting a property.
  */
-@ExportSymbol
 public sealed class Property : Callable() {
     abstract override val kotlin: KProperty1<*, *>
 
@@ -59,14 +57,14 @@ public sealed class Property : Callable() {
     /**
      * Get the value of a property by calling its getter.
      *
-     * @throws InvocationFailureException if invocation fails
+     * @throws FunctionInvocationException if invocation fails
      */
     public fun get(arguments: ArgumentsBuilder): Any? = getter.invoke(arguments)
 
     /**
      * Gets the value of a property by calling its getter.
      *
-     * @throws InvocationFailureException if invocation fails
+     * @throws FunctionInvocationException if invocation fails
      */
     public fun get(arguments: ArgumentList): Any? = getter.invoke(arguments)
 }
@@ -111,14 +109,14 @@ public data class MutableProperty internal constructor(
     /**
      * Set the value of a property by calling its setter.
      *
-     * @throws InvocationFailureException if invocation fails
+     * @throws FunctionInvocationException if invocation fails
      */
     public fun set(arguments: ArgumentsBuilder): Any? = setter.invoke(arguments)
 
     /**
      * Set the value of a property by calling its setter.
      *
-     * @throws InvocationFailureException if invocation fails
+     * @throws FunctionInvocationException if invocation fails
      */
     public fun set(arguments: ArgumentList): Any? = setter.invoke(arguments)
 

@@ -17,6 +17,7 @@ object Diagnostics : KtDiagnosticsContainer() {
     const val DEFAULT_WARNING_PREFIX = "INSPEKT_DEFAULT_WARNING_"
     val INSPEKT_MUST_BE_REFERENCE_LITERAL by error0<KtDeclaration>()
     val INSPEKT_MUST_BE_INTERFACE by error0<KtDeclaration>()
+    val INSPEKT_MUST_BE_STRING_LITERAL by error0<KtDeclaration>()
 
     fun defaultWarningMarker(name: String?): KtDiagnosticFactory3<String?, Int, Int> {
         return KtDiagnosticFactory3(
@@ -51,6 +52,10 @@ object Diagnostics : KtDiagnosticsContainer() {
             it.put(
                 INSPEKT_MUST_BE_INTERFACE,
                 "Argument must be a class reference to an interface."
+            )
+            it.put(
+                INSPEKT_MUST_BE_STRING_LITERAL,
+                "Argument must be a String literal."
             )
         }
     }

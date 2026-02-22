@@ -16,24 +16,24 @@ interface Intermediate : Base {
 
 fun box(): String {
   val proxy: Intermediate = { // BLOCK
-    local class <no name provided> : Intermediate {
+    local class Inspekt_Proxy : Intermediate {
       internal /* final field */ val proxyHandler: ProxyHandler = local fun SuperCall.<anonymous>(): Any? {
         return $this$proxy.callSuper() as String
       }
  /*-> ProxyHandler */
-      private /* final field */ val proxyMethod_1_test: SimpleFunction = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "test", isAbstract = false, kotlin = Intermediate::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      private /* final field */ val proxyMethod_1_test: Any = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "test", isAbstract = false, kotlin = Intermediate::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Intermediate>.test()
       }
 , suspendInvoker = null, inheritedFrom = null).toModel()
-      private /* final field */ val proxyMethod_2_equals: SimpleFunction = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      private /* final field */ val proxyMethod_2_equals: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Any>.equals(other = args.v1Get(globalIndex = 1) as Any?)
       }
 , suspendInvoker = null, inheritedFrom = null).toModel()
-      private /* final field */ val proxyMethod_3_hashCode: SimpleFunction = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      private /* final field */ val proxyMethod_3_hashCode: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Any>.hashCode()
       }
 , suspendInvoker = null, inheritedFrom = null).toModel()
-      private /* final field */ val proxyMethod_4_toString: SimpleFunction = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      private /* final field */ val proxyMethod_4_toString: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Any>.toString()
       }
 , suspendInvoker = null, inheritedFrom = null).toModel()
@@ -44,24 +44,24 @@ fun box(): String {
       }
 
       override operator fun equals(other: Any?): Boolean {
-        return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_2_equals, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>, other]))
+        return v1ProxyHelper(functionName = "equals", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_2_equals, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>, other]))
       }
 
       override fun hashCode(): Int {
-        return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_3_hashCode, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+        return v1ProxyHelper(functionName = "hashCode", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_3_hashCode, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
       }
 
       override fun test(): String {
-        return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_1_test, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+        return v1ProxyHelper(functionName = "test", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_1_test, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
       }
 
       override fun toString(): String {
-        return v1ProxyHelper(handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_4_toString, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
+        return v1ProxyHelper(functionName = "toString", proxyInstance = <this>, handler = <this>.#proxyHandler, originalMethod = <this>.#proxyMethod_4_toString, originalProperty = null, isSetter = false, args = arrayOf<Any?>(elements = [<this>]))
       }
 
     }
 
-    <no name provided>()
+    Inspekt_Proxy()
   }
   assertEquals<String>(expected = "Intermediate", actual = proxy.test(), message = "Intermediate.test()")
   return "OK"

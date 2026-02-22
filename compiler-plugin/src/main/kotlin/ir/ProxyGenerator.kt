@@ -30,6 +30,7 @@ import org.jetbrains.kotlin.ir.builders.irGet
 import org.jetbrains.kotlin.ir.builders.irGetField
 import org.jetbrains.kotlin.ir.builders.irNull
 import org.jetbrains.kotlin.ir.builders.irReturn
+import org.jetbrains.kotlin.ir.builders.irString
 import org.jetbrains.kotlin.ir.builders.parent
 import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrDeclarationWithName
@@ -45,7 +46,6 @@ import org.jetbrains.kotlin.ir.expressions.IrExpression
 import org.jetbrains.kotlin.ir.expressions.IrStatementOrigin
 import org.jetbrains.kotlin.ir.symbols.IrFunctionSymbol
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
-import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.IrTypeSystemContextImpl
 import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.util.addFakeOverrides
@@ -63,6 +63,7 @@ import org.jetbrains.kotlin.ir.util.patchDeclarationParents
 import org.jetbrains.kotlin.ir.util.primaryConstructor
 import org.jetbrains.kotlin.ir.util.setDeclarationsParent
 import org.jetbrains.kotlin.ir.util.simpleFunctions
+import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.name.SpecialNames
 import org.jetbrains.kotlin.name.StandardClassIds
 
@@ -75,17 +76,13 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
     val proxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper.asCallableId()).single()
     val suspendProxyHelper get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_v1SuspendProxyHelper.asCallableId()).single()
 
-    val FunctionSpekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_SimpleFunction.asClassId())!!
-
-    val PropertySpekt get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_Property.asClassId())!!
-
     context(builder: IrBuilderWithScope)
-    fun generateProxy(handler: IrExpression, superinterfaces: List<IrClass>, reportLocation: CompilerMessageLocation?): IrExpression = context(reportLocation) {
+    fun generateProxy(handler: IrExpression, name: String?, superinterfaces: List<IrClass>, reportLocation: CompilerMessageLocation?): IrExpression = context(reportLocation) {
         with(builder) {
             return irBlock(origin = IrStatementOrigin.OBJECT_LITERAL) {
                 val cls = factory.buildClass {
                     kind = ClassKind.CLASS
-                    name = SpecialNames.NO_NAME_PROVIDED
+                    this.name = name?.let { Name.identifier(it) } ?: SpecialNames.NO_NAME_PROVIDED
                     origin = DeclarationKeys.ProxyObject.toIrOrigin()
                     modality = Modality.FINAL
                     visibility = DescriptorVisibilities.LOCAL
@@ -117,7 +114,7 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
 
                     val handlerField = addField {
                         type = ProxyHandler.defaultType
-                        name = GeneratedNames.proxyHandlerField
+                        this.name = GeneratedNames.proxyHandlerField
                         isFinal = true
                         visibility = DescriptorVisibilities.INTERNAL
                     }.apply field@{
@@ -149,7 +146,7 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
     private fun addProxyBody(function: IrSimpleFunction, handlerField: IrField, index: Int) {
         val original = function.updateDeclaration()
 
-        val originalField = createSpektField(function, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionInspektion(original, reportLocation, cls) }
+        val originalField = createSpektField(function, index) { spektGenerator.createFunctionInspektion(original, reportLocation, cls) }
 
         function.body = function.withBuilder {
             irBlockBody {
@@ -163,12 +160,12 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
     private fun addProxyBody(property: IrProperty, handlerField: IrField, index: Int) {
         val overriddenProperty = property.updateDeclaration()
 
-        val originalPropertyField = createSpektField(property, index, PropertySpekt.defaultType) { spektGenerator.createPropertyInspektion(overriddenProperty, reportLocation, cls) }
+        val originalPropertyField = createSpektField(property, index) { spektGenerator.createPropertyInspektion(overriddenProperty, reportLocation, cls) }
 
         property.getter?.apply {
             val overriddenGetter = updateDeclaration()
 
-            val originalGetterField = createSpektField(overriddenGetter, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionInspektion(overriddenGetter, reportLocation, cls) }
+            val originalGetterField = createSpektField(overriddenGetter, index) { spektGenerator.createFunctionInspektion(overriddenGetter, reportLocation, cls) }
 
             body = withBuilder {
                 irBlockBody {
@@ -188,7 +185,7 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
         property.setter?.apply {
             val overriddenSetter = updateDeclaration()
 
-            val originalSetterField = createSpektField(overriddenSetter, index, FunctionSpekt.defaultType) { spektGenerator.createFunctionInspektion(overriddenSetter, reportLocation, cls) }
+            val originalSetterField = createSpektField(overriddenSetter, index) { spektGenerator.createFunctionInspektion(overriddenSetter, reportLocation, cls) }
 
             body = withBuilder {
                 irBlockBody {
@@ -223,11 +220,11 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
     }
 
     context(cls: IrClass)
-    private inline fun createSpektField(original: IrDeclarationWithName, index: Int, type: IrType, spekt: IrBuilderWithScope.() -> IrExpression): IrField {
+    private inline fun createSpektField(original: IrDeclarationWithName, index: Int, spekt: IrBuilderWithScope.() -> IrExpression): IrField {
         return cls.addField {
             name = GeneratedNames.proxyMethodField(original.name.asStringStripSpecialMarkers(), index)
             isFinal = true
-            this.type = type
+            type = builtIns.anyType
             visibility = DescriptorVisibilities.PRIVATE
         }.apply {
             initializer = withBuilder {
@@ -250,6 +247,8 @@ class ProxyGenerator(override val context: IrPluginContext) : WithIrContext {
         return irCall(if (function.isSuspend) suspendProxyHelper else proxyHelper).apply {
             with(Names.Impl.ProxyHelper) {
                 arguments[this.handler] = handler
+                arguments[this.proxyInstance] = irGet(function.dispatchReceiverParameter!!)
+                arguments[this.functionName] = irString(function.name.asString())
                 arguments[this.originalMethod] = originalMethod
                 arguments[this.originalProperty] = originalProperty ?: irNull()
                 arguments[this.isSetter] = irBoolean(isSetter)

@@ -25,9 +25,9 @@ FILE fqName:auto.proxy.box fileName:/ProxyWithDefault.kt
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
       VAR name:proxy type:auto.proxy.box.Test [val]
-        BLOCK type=auto.proxy.box.box.<no name provided> origin=OBJECT_LITERAL
-          CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObject] CLASS name:<no name provided> modality:FINAL visibility:local superTypes:[auto.proxy.box.Test; kotlin.Any]
-            thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.proxy.box.box.<no name provided>
+        BLOCK type=auto.proxy.box.box.Inspekt_Proxy origin=OBJECT_LITERAL
+          CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObject] CLASS name:Inspekt_Proxy modality:FINAL visibility:local superTypes:[auto.proxy.box.Test; kotlin.Any]
+            thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.proxy.box.box.Inspekt_Proxy
             FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final]
               EXPRESSION_BODY
                 TYPE_OP type=dev.rnett.inspekt.proxy.ProxyHandler origin=SAM_CONVERSION typeOperand=dev.rnett.inspekt.proxy.ProxyHandler
@@ -35,13 +35,13 @@ FILE fqName:auto.proxy.box fileName:/ProxyWithDefault.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:ExtensionReceiver name:$this$proxy index:0 type:dev.rnett.inspekt.proxy.SuperCall
                       BLOCK_BODY
-                        RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$proxy: dev.rnett.inspekt.proxy.SuperCall): kotlin.Any? declared in auto.proxy.box.box.<no name provided>.proxyHandler'
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> ($this$proxy: dev.rnett.inspekt.proxy.SuperCall): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.proxyHandler'
                           CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=PLUS
                             ARG <this>: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
                               CALL 'public final fun callSuper (): kotlin.Any? declared in dev.rnett.inspekt.proxy.SuperCall' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR '$this$proxy: dev.rnett.inspekt.proxy.SuperCall declared in auto.proxy.box.box.<no name provided>.proxyHandler.<anonymous>' type=dev.rnett.inspekt.proxy.SuperCall origin=IMPLICIT_ARGUMENT
+                                ARG <this>: GET_VAR '$this$proxy: dev.rnett.inspekt.proxy.SuperCall declared in auto.proxy.box.box.Inspekt_Proxy.proxyHandler.<anonymous>' type=dev.rnett.inspekt.proxy.SuperCall origin=IMPLICIT_ARGUMENT
                             ARG other: CONST Int type=kotlin.Int value=2
-            FIELD name:proxyMethod_1_test type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
+            FIELD name:proxyMethod_1_test type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
@@ -94,19 +94,19 @@ FILE fqName:auto.proxy.box fileName:/ProxyWithDefault.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
-                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.<no name provided>.proxyMethod_1_test'
+                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_1_test'
                             CALL 'public open fun test (a: kotlin.Int): kotlin.Int declared in auto.proxy.box.Test' superQualifier='CLASS INTERFACE name:Test modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.Int origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.<no name provided> origin=CAST typeOperand=auto.proxy.box.box.<no name provided>
+                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.<no name provided>.proxyMethod_1_test.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_1_test.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG a: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.<no name provided>.proxyMethod_1_test.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_1_test.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                   ARG globalIndex: CONST Int type=kotlin.Int value=1
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_2_equals type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
+            FIELD name:proxyMethod_2_equals type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
@@ -157,19 +157,19 @@ FILE fqName:auto.proxy.box fileName:/ProxyWithDefault.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
-                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.<no name provided>.proxyMethod_2_equals'
+                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_2_equals'
                             CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.Boolean origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.<no name provided> origin=CAST typeOperand=auto.proxy.box.box.<no name provided>
+                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.<no name provided>.proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                               ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.<no name provided>.proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                   ARG globalIndex: CONST Int type=kotlin.Int value=1
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_3_hashCode type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
+            FIELD name:proxyMethod_3_hashCode type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
@@ -209,15 +209,15 @@ FILE fqName:auto.proxy.box fileName:/ProxyWithDefault.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
-                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.<no name provided>.proxyMethod_3_hashCode'
+                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_3_hashCode'
                             CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.Int origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.<no name provided> origin=CAST typeOperand=auto.proxy.box.box.<no name provided>
+                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.<no name provided>.proxyMethod_3_hashCode.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_3_hashCode.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            FIELD name:proxyMethod_4_toString type:dev.rnett.inspekt.SimpleFunction visibility:private [final]
+            FIELD name:proxyMethod_4_toString type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.SimpleFunction origin=null
                   ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
@@ -257,94 +257,102 @@ FILE fqName:auto.proxy.box fileName:/ProxyWithDefault.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
-                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.<no name provided>.proxyMethod_4_toString'
+                          RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_4_toString'
                             CALL 'public open fun toString (): kotlin.String declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.String origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.<no name provided> origin=CAST typeOperand=auto.proxy.box.box.<no name provided>
+                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
                                 CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.<no name provided>.proxyMethod_4_toString.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.proxyMethod_4_toString.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
                                   ARG globalIndex: CONST Int type=kotlin.Int value=0
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
-            CONSTRUCTOR GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObject] visibility:public returnType:auto.proxy.box.box.<no name provided> [primary]
+            CONSTRUCTOR GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObject] visibility:public returnType:auto.proxy.box.box.Inspekt_Proxy [primary]
               BLOCK_BODY
                 DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
-                INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObject] CLASS name:<no name provided> modality:FINAL visibility:local superTypes:[auto.proxy.box.Test; kotlin.Any]' type=kotlin.Unit
+                INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObject] CLASS name:Inspekt_Proxy modality:FINAL visibility:local superTypes:[auto.proxy.box.Test; kotlin.Any]' type=kotlin.Unit
             FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObjectOverride] name:equals visibility:public modality:FINAL returnType:kotlin.Boolean [operator]
-              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.<no name provided>
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.Inspekt_Proxy
               VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
               overridden:
                 public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.proxy.box.Test
                 public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
               BLOCK_BODY
-                RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.proxy.box.box.<no name provided>'
-                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
-                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.equals' type=auto.proxy.box.box.<no name provided> origin=null
-                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_2_equals type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.equals' type=auto.proxy.box.box.<no name provided> origin=null
+                RETURN type=kotlin.Nothing from='public final fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.proxy.box.box.Inspekt_Proxy'
+                  CALL 'internal final fun v1ProxyHelper (functionName: kotlin.String, proxyInstance: kotlin.Any, handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: kotlin.Any, originalProperty: kotlin.Any?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
+                    ARG functionName: CONST String type=kotlin.String value="equals"
+                    ARG proxyInstance: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.equals' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.equals' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_2_equals type:kotlin.Any visibility:private [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=kotlin.Any origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.equals' type=auto.proxy.box.box.Inspekt_Proxy origin=null
                     ARG originalProperty: CONST Null type=kotlin.Nothing? value=null
                     ARG isSetter: CONST Boolean type=kotlin.Boolean value=false
                     ARG args: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Any?
                       ARG elements: VARARG type=kotlin.Array<kotlin.Any?> varargElementType=kotlin.Any?
-                        GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.equals' type=auto.proxy.box.box.<no name provided> origin=null
-                        GET_VAR 'other: kotlin.Any? declared in auto.proxy.box.box.<no name provided>.equals' type=kotlin.Any? origin=null
+                        GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.equals' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                        GET_VAR 'other: kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.equals' type=kotlin.Any? origin=null
             FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObjectOverride] name:hashCode visibility:public modality:FINAL returnType:kotlin.Int
-              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.<no name provided>
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.Inspekt_Proxy
               overridden:
                 public open fun hashCode (): kotlin.Int declared in auto.proxy.box.Test
                 public open fun hashCode (): kotlin.Int declared in kotlin.Any
               BLOCK_BODY
-                RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in auto.proxy.box.box.<no name provided>'
-                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
-                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.hashCode' type=auto.proxy.box.box.<no name provided> origin=null
-                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_3_hashCode type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.hashCode' type=auto.proxy.box.box.<no name provided> origin=null
+                RETURN type=kotlin.Nothing from='public final fun hashCode (): kotlin.Int declared in auto.proxy.box.box.Inspekt_Proxy'
+                  CALL 'internal final fun v1ProxyHelper (functionName: kotlin.String, proxyInstance: kotlin.Any, handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: kotlin.Any, originalProperty: kotlin.Any?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
+                    ARG functionName: CONST String type=kotlin.String value="hashCode"
+                    ARG proxyInstance: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.hashCode' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.hashCode' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_3_hashCode type:kotlin.Any visibility:private [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=kotlin.Any origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.hashCode' type=auto.proxy.box.box.Inspekt_Proxy origin=null
                     ARG originalProperty: CONST Null type=kotlin.Nothing? value=null
                     ARG isSetter: CONST Boolean type=kotlin.Boolean value=false
                     ARG args: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Any?
                       ARG elements: VARARG type=kotlin.Array<kotlin.Any?> varargElementType=kotlin.Any?
-                        GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.hashCode' type=auto.proxy.box.box.<no name provided> origin=null
+                        GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.hashCode' type=auto.proxy.box.box.Inspekt_Proxy origin=null
             FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObjectOverride] name:test visibility:public modality:FINAL returnType:kotlin.Int
-              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.<no name provided>
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.Inspekt_Proxy
               VALUE_PARAMETER kind:Regular name:a index:1 type:kotlin.Int
               overridden:
                 public open fun test (a: kotlin.Int): kotlin.Int declared in auto.proxy.box.Test
               BLOCK_BODY
-                RETURN type=kotlin.Nothing from='public final fun test (a: kotlin.Int): kotlin.Int declared in auto.proxy.box.box.<no name provided>'
-                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
-                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.test' type=auto.proxy.box.box.<no name provided> origin=null
-                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_1_test type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.test' type=auto.proxy.box.box.<no name provided> origin=null
+                RETURN type=kotlin.Nothing from='public final fun test (a: kotlin.Int): kotlin.Int declared in auto.proxy.box.box.Inspekt_Proxy'
+                  CALL 'internal final fun v1ProxyHelper (functionName: kotlin.String, proxyInstance: kotlin.Any, handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: kotlin.Any, originalProperty: kotlin.Any?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
+                    ARG functionName: CONST String type=kotlin.String value="test"
+                    ARG proxyInstance: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.test' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.test' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_1_test type:kotlin.Any visibility:private [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=kotlin.Any origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.test' type=auto.proxy.box.box.Inspekt_Proxy origin=null
                     ARG originalProperty: CONST Null type=kotlin.Nothing? value=null
                     ARG isSetter: CONST Boolean type=kotlin.Boolean value=false
                     ARG args: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Any?
                       ARG elements: VARARG type=kotlin.Array<kotlin.Any?> varargElementType=kotlin.Any?
-                        GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.test' type=auto.proxy.box.box.<no name provided> origin=null
-                        GET_VAR 'a: kotlin.Int declared in auto.proxy.box.box.<no name provided>.test' type=kotlin.Int origin=null
+                        GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.test' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                        GET_VAR 'a: kotlin.Int declared in auto.proxy.box.box.Inspekt_Proxy.test' type=kotlin.Int origin=null
             FUN GENERATED[dev.rnett.inspekt.DeclarationKeys.ProxyObjectOverride] name:toString visibility:public modality:FINAL returnType:kotlin.String
-              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.<no name provided>
+              VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:auto.proxy.box.box.Inspekt_Proxy
               overridden:
                 public open fun toString (): kotlin.String declared in auto.proxy.box.Test
                 public open fun toString (): kotlin.String declared in kotlin.Any
               BLOCK_BODY
-                RETURN type=kotlin.Nothing from='public final fun toString (): kotlin.String declared in auto.proxy.box.box.<no name provided>'
-                  CALL 'internal final fun v1ProxyHelper (handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: dev.rnett.inspekt.SimpleFunction, originalProperty: dev.rnett.inspekt.Property?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
-                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.toString' type=auto.proxy.box.box.<no name provided> origin=null
-                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_4_toString type:dev.rnett.inspekt.SimpleFunction visibility:private [final] declared in auto.proxy.box.box.<no name provided>' type=dev.rnett.inspekt.SimpleFunction origin=null
-                      receiver: GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.toString' type=auto.proxy.box.box.<no name provided> origin=null
+                RETURN type=kotlin.Nothing from='public final fun toString (): kotlin.String declared in auto.proxy.box.box.Inspekt_Proxy'
+                  CALL 'internal final fun v1ProxyHelper (functionName: kotlin.String, proxyInstance: kotlin.Any, handler: dev.rnett.inspekt.proxy.ProxyHandler, originalMethod: kotlin.Any, originalProperty: kotlin.Any?, isSetter: kotlin.Boolean, args: kotlin.Array<kotlin.Any?>): kotlin.Any? declared in dev.rnett.inspekt.internal' type=kotlin.Any? origin=null
+                    ARG functionName: CONST String type=kotlin.String value="toString"
+                    ARG proxyInstance: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.toString' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG handler: GET_FIELD 'FIELD name:proxyHandler type:dev.rnett.inspekt.proxy.ProxyHandler visibility:internal [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=dev.rnett.inspekt.proxy.ProxyHandler origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.toString' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                    ARG originalMethod: GET_FIELD 'FIELD name:proxyMethod_4_toString type:kotlin.Any visibility:private [final] declared in auto.proxy.box.box.Inspekt_Proxy' type=kotlin.Any origin=null
+                      receiver: GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.toString' type=auto.proxy.box.box.Inspekt_Proxy origin=null
                     ARG originalProperty: CONST Null type=kotlin.Nothing? value=null
                     ARG isSetter: CONST Boolean type=kotlin.Boolean value=false
                     ARG args: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Any?
                       ARG elements: VARARG type=kotlin.Array<kotlin.Any?> varargElementType=kotlin.Any?
-                        GET_VAR '<this>: auto.proxy.box.box.<no name provided> declared in auto.proxy.box.box.<no name provided>.toString' type=auto.proxy.box.box.<no name provided> origin=null
-          CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.proxy.box.box.<no name provided>' type=auto.proxy.box.box.<no name provided> origin=OBJECT_LITERAL
+                        GET_VAR '<this>: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.toString' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+          CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.proxy.box.box.Inspekt_Proxy' type=auto.proxy.box.box.Inspekt_Proxy origin=OBJECT_LITERAL
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Int
         ARG expected: CONST Int type=kotlin.Int value=9

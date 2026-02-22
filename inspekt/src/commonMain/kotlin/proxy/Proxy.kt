@@ -3,10 +3,10 @@ package dev.rnett.inspekt.proxy
 import dev.rnett.inspekt.ArgumentList
 import dev.rnett.inspekt.ArgumentsBuilder
 import dev.rnett.inspekt.Function
+import dev.rnett.inspekt.FunctionInvocationException
 import dev.rnett.inspekt.InspektCompilerPluginIntrinsic
 import dev.rnett.inspekt.InspektNotIntrinsifiedException
 import dev.rnett.inspekt.Inspektion
-import dev.rnett.inspekt.InvocationFailureException
 import dev.rnett.inspekt.Parameters
 import dev.rnett.inspekt.Property
 import dev.rnett.inspekt.PropertyAccessor
@@ -14,6 +14,7 @@ import dev.rnett.inspekt.PropertyGetter
 import dev.rnett.inspekt.PropertySetter
 import dev.rnett.inspekt.ReferenceLiteral
 import dev.rnett.inspekt.SimpleFunction
+import dev.rnett.inspekt.StringLiteral
 import dev.rnett.inspekt.inspekt
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
@@ -114,7 +115,7 @@ public fun interface ProxyHandler {
      * Handle a call to this proxy.
      *
      * If you call super, make sure you check [SuperCall.isSuperCallable] first.
-     * Calls to abstract super methods will throw [InvocationFailureException].
+     * Calls to abstract super methods will throw [FunctionInvocationException].
      */
     public fun SuperCall.handle(): Any?
 
@@ -122,7 +123,7 @@ public fun interface ProxyHandler {
      * Handle a suspending call to this proxy. Defaults to calling [handle].
      *
      * If you call super, make sure you check [SuperCall.isSuperCallable] first.
-     * Calls to abstract super methods will throw [InvocationFailureException].
+     * Calls to abstract super methods will throw [FunctionInvocationException].
      */
     public suspend fun SuperCall.handleSuspend(): Any? = handle()
 }
@@ -140,14 +141,17 @@ public fun interface ProxyHandler {
  * This is based on the number of appearances of `proxy()` in your code, not how many times it is invoked.
  * If you find yourself repeatedly creating proxies for the same class, consider using [proxyFactory], which has a constant binary overhead per factory invocation.
  *
+ * @param name the name to use for the proxy class. Must be a constant value.
+ *
  * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
 public fun <T : Any> proxy(
-    @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
-    @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
-    handler: ProxyHandler
+    @ExportSymbol @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
+    @ExportSymbol @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
+    @StringLiteral name: String? = null,
+    @ExportSymbol handler: ProxyHandler
 ): T = throw InspektNotIntrinsifiedException()
 
 
@@ -164,14 +168,16 @@ public fun <T : Any> proxy(
  * This is based on the number of appearances of `proxyFactory()` in your code, not how many times it is invoked.
  * **Calling the factory does not add overhead**, only the `proxyFactory` call.
  *
+ * @param name the name to use for the proxy class. Must be a constant value.
  * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  * @see proxy
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
 public fun <T : Any> proxyFactory(
-    @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
-    @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>
+    @ExportSymbol @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>,
+    @ExportSymbol @ReferenceLiteral(mustBeInterface = true) vararg additionalInterfaces: KClass<*>,
+    @StringLiteral name: String? = null,
 ): (ProxyHandler) -> T = throw InspektNotIntrinsifiedException()
 
 /**
@@ -192,10 +198,11 @@ public class ProxyableInspektion<T : Any>(public val inspektion: Inspektion<T>, 
  * This is based on the number of appearances of `inspektAndProxy()` in your code, not how many times it is invoked.
  * **Calling the factory does not add overhead**, only the `inspektAndProxy` call.
  *
+ * @param name the name to use for the proxy class. Must be a constant value.
  * @throws InspektNotIntrinsifiedException if it was not intrinsified by the Inspekt compiler plugin.
  * @see inspekt
  * @see proxyFactory
  */
 @ExportSymbol
 @InspektCompilerPluginIntrinsic
-public fun <T : Any> inspektAndProxy(@ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>): ProxyableInspektion<T> = throw InspektNotIntrinsifiedException()
+public fun <T : Any> inspektAndProxy(@ExportSymbol @ReferenceLiteral(mustBeInterface = true) toImplement: KClass<T>, @StringLiteral name: String? = null): ProxyableInspektion<T> = throw InspektNotIntrinsifiedException()

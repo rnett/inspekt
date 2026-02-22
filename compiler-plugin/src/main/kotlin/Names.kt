@@ -70,6 +70,8 @@ object Names {
         }
 
         object ProxyHelper {
+            val proxyInstance = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_proxyInstance
+            val functionName = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_functionName
             val handler = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_handler
             val originalMethod = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_originalMethod
             val originalProperty = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_originalProperty
