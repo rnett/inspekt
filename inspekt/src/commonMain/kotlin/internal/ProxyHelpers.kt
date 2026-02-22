@@ -33,7 +33,11 @@ internal fun v1ProxyHelper(
         throw ProxyInvocationException(functionName, handler, proxyInstance, IllegalArgumentException("Internal error: original property was not of Property? type", e))
     }
 
-    val argsList = ArgumentList(originalMethod.parameters, args.asList())
+    val argsList = try {
+        ArgumentList(originalMethod.parameters, args.asList())
+    } catch (e: Throwable) {
+        throw ProxyInvocationException(functionName, handler, proxyInstance, e)
+    }
     val original = when {
         originalProperty == null -> SuperCall.FunctionCall(originalMethod, argsList)
         isSetter -> SuperCall.PropertySet(originalProperty, originalMethod.asSetter(originalProperty), argsList)
@@ -68,7 +72,11 @@ internal suspend fun v1SuspendProxyHelper(
         throw ProxyInvocationException(functionName, handler, proxyInstance, IllegalArgumentException("Internal error: original property was not of Property? type", e))
     }
 
-    val argsList = ArgumentList(originalMethod.parameters, args.asList())
+    val argsList = try {
+        ArgumentList(originalMethod.parameters, args.asList())
+    } catch (e: Throwable) {
+        throw ProxyInvocationException(functionName, handler, proxyInstance, e)
+    }
     val original = when {
         originalProperty == null -> SuperCall.FunctionCall(originalMethod, argsList)
         isSetter -> SuperCall.PropertySet(originalProperty, originalMethod.asSetter(originalProperty), argsList)
