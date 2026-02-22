@@ -17,8 +17,8 @@ import kotlin.reflect.KType
  */
 public data class Parameters internal constructor(private val parameters: List<Parameter>) : List<Parameter> by parameters {
 
-    private val hasDispatch: Boolean
-    private inline val hasExtension: Boolean get() = extensionIndex != null
+    val hasDispatch: Boolean
+    val hasExtension: Boolean get() = extensionIndex != null
     private val extensionIndex: Int?
     private val numContext: Int
     private inline val contextStart: Int get() = if (hasDispatch) 1 else 0
@@ -243,32 +243,38 @@ public data class Parameter internal constructor(
     /**
      * The kind of a parameter.
      */
-    public enum class Kind {
+    public enum class Kind(public val humanName: String) {
         /**
          * A dispatch receiver parameter.
          * For member functions, it is the `this` from the enclosing class.
          * Top-level functions do not have dispatch receivers.
          */
-        DISPATCH,
+        DISPATCH("Dispatch receiver"),
 
         /**
          * A context parameter, declared with `context(parameter: Type, ...)`
          */
-        CONTEXT,
+        CONTEXT("Context parameter"),
 
         /**
          * An extension parameter, declared with `fun Type.foo(...)`.
          */
-        EXTENSION,
+        EXTENSION("Extension receiver"),
 
         /**
          * A value parameter, declared with `fun foo(parameter: Type, ...)`
          */
-        VALUE
+        VALUE("Value parameter")
     }
 
     override fun toString(): String = buildString {
-        append(name)
+        if (kind == Kind.DISPATCH) {
+            append("this@dispatch")
+        } else if (kind == Kind.EXTENSION) {
+            append("this@extension")
+        } else {
+            append(name)
+        }
         append(": ")
         append(type.friendlyName)
         if (hasDefault) append(" = ...")
@@ -301,8 +307,12 @@ public data class Parameter internal constructor(
      * @see possiblyAcceptsValue
      */
     public fun checkValue(value: Any?) {
-        if (value == null && !type.isMarkedNullable)
+        if (value == null && !type.isMarkedNullable) {
+            if (this.kind == Kind.DISPATCH) {
+                throw IllegalArgumentException("Argument for the dispatch receiver was null. This is not allowed.")
+            }
             throw IllegalArgumentException("Argument for parameter $this was null, but the parameter is not nullable")
+        }
 
         if (value != null) {
             val kClass = type.classifier as? KClass<*>
@@ -417,8 +427,13 @@ public data class ArgumentList internal constructor(
 
     init {
         parameters.forEach {
-            if (!it.hasDefault && isDefaulted(it.globalIndex))
-                throw IllegalArgumentException("Parameter [${it.kind}] ${it.name}: ${it.type} with index ${it.globalIndex} has no default value and is not provided")
+            if (!it.hasDefault && isDefaulted(it.globalIndex)) {
+                when (it.kind) {
+                    Parameter.Kind.DISPATCH -> throw IllegalArgumentException("Argument for the dispatch receiver not set.")
+                    Parameter.Kind.EXTENSION -> throw IllegalArgumentException("Argument for the extension receiver not set.")
+                    else -> throw IllegalArgumentException("${it.kind.humanName} ${it.name}: ${it.type} with index ${it.globalIndex} has no default value and is not provided")
+                }
+            }
 
             if (!isDefaulted(it.globalIndex)) {
                 val arg = arguments[it.globalIndex]

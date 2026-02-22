@@ -13,6 +13,7 @@ public class FunctionInvocationException(
     cause: Throwable
 ) : RuntimeException("Failed to invoke function $name", cause)
 
+//TODO don't wrap exceptions thrown by the actual function
 @PublishedApi
 internal inline fun <R> Callable.wrapInvocation(block: () -> R): R {
     contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
@@ -33,5 +34,4 @@ public class ProxyInvocationException(
     public val proxyHandler: ProxyHandler,
     public val proxyInstance: Any,
     cause: Throwable
-) :
-    RuntimeException("Failed to invoke function $name on proxy $proxyInstance with proxy handler $proxyHandler", cause)
+) : RuntimeException("Failed to invoke function $name on proxy $proxyInstance with proxy handler $proxyHandler", cause)

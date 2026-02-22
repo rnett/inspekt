@@ -219,9 +219,15 @@ public final class dev/rnett/inspekt/InspektNotIntrinsifiedException : java/lang
 }
 
 public final class dev/rnett/inspekt/Inspektion : dev/rnett/inspekt/AnnotatedElement {
+	public final fun callFunction (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public static synthetic fun callFunction$default (Ldev/rnett/inspekt/Inspektion;Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun callPrimaryConstructor (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public static synthetic fun callPrimaryConstructor$default (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun cast (Ljava/lang/Object;)Ljava/lang/Object;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun function (Ljava/lang/String;)Ldev/rnett/inspekt/SimpleFunction;
+	public final fun get (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public static synthetic fun get$default (Ldev/rnett/inspekt/Inspektion;Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
 	public fun getAnnotations ()Ljava/util/List;
 	public final fun getCompanionObject ()Ldev/rnett/inspekt/Inspektion;
 	public final fun getCompanionObjectInstance ()Ljava/lang/Object;
@@ -234,17 +240,29 @@ public final class dev/rnett/inspekt/Inspektion : dev/rnett/inspekt/AnnotatedEle
 	public final fun getObjectInstance ()Ljava/lang/Object;
 	public final fun getPrimaryConstructor ()Ldev/rnett/inspekt/Constructor;
 	public final fun getProperties ()Ljava/util/List;
+	public final fun getProperty (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public static synthetic fun getProperty$default (Ldev/rnett/inspekt/Inspektion;Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun getSealedSubclasses ()Ljava/util/List;
 	public final fun getShortName ()Ljava/lang/String;
 	public final fun getSuperclasses ()Ljava/util/Set;
 	public final fun getSupertypes ()Ljava/util/Set;
 	public final fun getTypeParameters ()Ljava/util/List;
 	public fun hashCode ()I
+	public final fun invoke (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public final fun invoke (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public static synthetic fun invoke$default (Ldev/rnett/inspekt/Inspektion;Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun invoke$default (Ldev/rnett/inspekt/Inspektion;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun isAbstract ()Z
 	public final fun isInstance (Ljava/lang/Object;)Z
 	public final fun isSubtypeOf (Lkotlin/reflect/KClass;)Z
 	public final fun property (Ljava/lang/String;)Ldev/rnett/inspekt/Property;
 	public final fun safeCast (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun set (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
+	public final fun set (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)V
+	public final fun setProperty (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V
+	public final fun setProperty (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)V
+	public static synthetic fun setProperty$default (Ldev/rnett/inspekt/Inspektion;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)V
+	public static synthetic fun setProperty$default (Ldev/rnett/inspekt/Inspektion;Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)V
 	public fun toString ()Ljava/lang/String;
 	public final fun toString (ZZ)Ljava/lang/String;
 	public static synthetic fun toString$default (Ldev/rnett/inspekt/Inspektion;ZZILjava/lang/Object;)Ljava/lang/String;
@@ -308,6 +326,7 @@ public final class dev/rnett/inspekt/Parameter$Kind : java/lang/Enum {
 	public static final field EXTENSION Ldev/rnett/inspekt/Parameter$Kind;
 	public static final field VALUE Ldev/rnett/inspekt/Parameter$Kind;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getHumanName ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Ldev/rnett/inspekt/Parameter$Kind;
 	public static fun values ()[Ldev/rnett/inspekt/Parameter$Kind;
 }
@@ -336,6 +355,8 @@ public final class dev/rnett/inspekt/Parameters : java/util/List, kotlin/jvm/int
 	public final fun getContext ()Ljava/util/List;
 	public final fun getDispatch ()Ldev/rnett/inspekt/Parameter;
 	public final fun getExtension ()Ldev/rnett/inspekt/Parameter;
+	public final fun getHasDispatch ()Z
+	public final fun getHasExtension ()Z
 	public fun getSize ()I
 	public final fun getValue ()Ljava/util/List;
 	public final fun globalIndex (Ldev/rnett/inspekt/Parameter$Kind;I)I

@@ -145,8 +145,18 @@ final class <#A: kotlin/Any> dev.rnett.inspekt/Inspektion : dev.rnett.inspekt/An
     final fun isSubtypeOf(kotlin.reflect/KClass<*>): kotlin/Boolean // dev.rnett.inspekt/Inspektion.isSubtypeOf|isSubtypeOf(kotlin.reflect.KClass<*>){}[0]
     final fun property(kotlin/String): dev.rnett.inspekt/Property // dev.rnett.inspekt/Inspektion.property|property(kotlin.String){}[0]
     final fun safeCast(kotlin/Any): #A? // dev.rnett.inspekt/Inspektion.safeCast|safeCast(kotlin.Any){}[0]
+    final fun set(#A?, kotlin/String, kotlin/Any?) // dev.rnett.inspekt/Inspektion.set|set(1:0?;kotlin.String;kotlin.Any?){}[0]
+    final fun set(#A?, kotlin/String, kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit>) // dev.rnett.inspekt/Inspektion.set|set(1:0?;kotlin.String;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
     final fun toString(): kotlin/String // dev.rnett.inspekt/Inspektion.toString|toString(){}[0]
     final fun toString(kotlin/Boolean, kotlin/Boolean = ...): kotlin/String // dev.rnett.inspekt/Inspektion.toString|toString(kotlin.Boolean;kotlin.Boolean){}[0]
+    final inline fun callFunction(#A?, kotlin/String, kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...): kotlin/Any? // dev.rnett.inspekt/Inspektion.callFunction|callFunction(1:0?;kotlin.String;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun callPrimaryConstructor(kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...): #A // dev.rnett.inspekt/Inspektion.callPrimaryConstructor|callPrimaryConstructor(kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun get(#A?, kotlin/String, crossinline kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...): kotlin/Any? // dev.rnett.inspekt/Inspektion.get|get(1:0?;kotlin.String;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun getProperty(#A?, kotlin/String, crossinline kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...): kotlin/Any? // dev.rnett.inspekt/Inspektion.getProperty|getProperty(1:0?;kotlin.String;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun invoke(#A?, kotlin/String, kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...): kotlin/Any? // dev.rnett.inspekt/Inspektion.invoke|invoke(1:0?;kotlin.String;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun invoke(kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...): #A // dev.rnett.inspekt/Inspektion.invoke|invoke(kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun setProperty(#A?, kotlin/String, crossinline kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...) // dev.rnett.inspekt/Inspektion.setProperty|setProperty(1:0?;kotlin.String;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
+    final inline fun setProperty(#A?, kotlin/String, kotlin/Any?, crossinline kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit> = ...) // dev.rnett.inspekt/Inspektion.setProperty|setProperty(1:0?;kotlin.String;kotlin.Any?;kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
 }
 
 final class dev.rnett.inspekt/ArgumentList : dev.rnett.inspekt.internal/ArgumentsProviderV1, kotlin.collections/List<kotlin/Any?> { // dev.rnett.inspekt/ArgumentList|null[0]
@@ -329,6 +339,8 @@ final class dev.rnett.inspekt/Parameter : dev.rnett.inspekt/AnnotatedElement { /
 
         final val entries // dev.rnett.inspekt/Parameter.Kind.entries|#static{}entries[0]
             final fun <get-entries>(): kotlin.enums/EnumEntries<dev.rnett.inspekt/Parameter.Kind> // dev.rnett.inspekt/Parameter.Kind.entries.<get-entries>|<get-entries>#static(){}[0]
+        final val humanName // dev.rnett.inspekt/Parameter.Kind.humanName|{}humanName[0]
+            final fun <get-humanName>(): kotlin/String // dev.rnett.inspekt/Parameter.Kind.humanName.<get-humanName>|<get-humanName>(){}[0]
 
         final fun valueOf(kotlin/String): dev.rnett.inspekt/Parameter.Kind // dev.rnett.inspekt/Parameter.Kind.valueOf|valueOf#static(kotlin.String){}[0]
         final fun values(): kotlin/Array<dev.rnett.inspekt/Parameter.Kind> // dev.rnett.inspekt/Parameter.Kind.values|values#static(){}[0]
@@ -342,6 +354,10 @@ final class dev.rnett.inspekt/Parameters : kotlin.collections/List<dev.rnett.ins
         final fun <get-dispatch>(): dev.rnett.inspekt/Parameter? // dev.rnett.inspekt/Parameters.dispatch.<get-dispatch>|<get-dispatch>(){}[0]
     final val extension // dev.rnett.inspekt/Parameters.extension|{}extension[0]
         final fun <get-extension>(): dev.rnett.inspekt/Parameter? // dev.rnett.inspekt/Parameters.extension.<get-extension>|<get-extension>(){}[0]
+    final val hasDispatch // dev.rnett.inspekt/Parameters.hasDispatch|{}hasDispatch[0]
+        final fun <get-hasDispatch>(): kotlin/Boolean // dev.rnett.inspekt/Parameters.hasDispatch.<get-hasDispatch>|<get-hasDispatch>(){}[0]
+    final val hasExtension // dev.rnett.inspekt/Parameters.hasExtension|{}hasExtension[0]
+        final fun <get-hasExtension>(): kotlin/Boolean // dev.rnett.inspekt/Parameters.hasExtension.<get-hasExtension>|<get-hasExtension>(){}[0]
     final val size // dev.rnett.inspekt/Parameters.size|{}size[0]
         final fun <get-size>(): kotlin/Int // dev.rnett.inspekt/Parameters.size.<get-size>|<get-size>(){}[0]
     final val value // dev.rnett.inspekt/Parameters.value|{}value[0]
