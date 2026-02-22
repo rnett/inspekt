@@ -1,5 +1,7 @@
-package dev.rnett.inspekt
+package dev.rnett.inspekt.model
 
+import dev.rnett.inspekt.friendlyName
+import dev.rnett.inspekt.wrapInvocation
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import kotlin.reflect.KClass
@@ -34,7 +36,7 @@ public sealed class FunctionLike(
      * Invoke the referenced function with the given parameters.
      * Will error if the underlying function is `suspend`.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public inline operator fun invoke(arguments: ArgumentsBuilder): Any? {
         contract { callsInPlace(arguments, InvocationKind.EXACTLY_ONCE) }
@@ -45,7 +47,7 @@ public sealed class FunctionLike(
      * Invoke the referenced function with the given parameters.
      * Will error if the underlying function is `suspend`.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public operator fun invoke(arguments: ArgumentList): Any? = wrapInvocation {
         if (isSuspend) throw IllegalArgumentException("Can only invoke suspend function via invokeSuspend")
@@ -57,7 +59,7 @@ public sealed class FunctionLike(
      * Invoke the referenced `suspend` function with the given parameters.
      * If the function is not suspend, this will still invoke it without an error.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public suspend inline fun invokeSuspend(arguments: ArgumentsBuilder): Any? {
         contract { callsInPlace(arguments, InvocationKind.EXACTLY_ONCE) }
@@ -68,7 +70,7 @@ public sealed class FunctionLike(
      * Invoke the referenced `suspend` function with the given parameters.
      * If the function is not suspend, this will still invoke it without an error.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public suspend fun invokeSuspend(arguments: ArgumentList): Any? = wrapInvocation {
         assertInvokable()

@@ -2,18 +2,20 @@
 
 package dev.rnett.inspekt.internal
 
-import dev.rnett.inspekt.CallableName
-import dev.rnett.inspekt.ClassName
-import dev.rnett.inspekt.Inspektion
-import dev.rnett.inspekt.MutableProperty
-import dev.rnett.inspekt.PackageName
-import dev.rnett.inspekt.Parameter
-import dev.rnett.inspekt.Parameters
-import dev.rnett.inspekt.PropertyGetter
-import dev.rnett.inspekt.PropertySetter
-import dev.rnett.inspekt.ReadOnlyProperty
 import dev.rnett.inspekt.UnderlyingFunExceptionWrapper
 import dev.rnett.inspekt.UnderlyingFunInvocationWrapper
+import dev.rnett.inspekt.model.CallableName
+import dev.rnett.inspekt.model.ClassName
+import dev.rnett.inspekt.model.Constructor
+import dev.rnett.inspekt.model.Inspektion
+import dev.rnett.inspekt.model.MutableProperty
+import dev.rnett.inspekt.model.PackageName
+import dev.rnett.inspekt.model.Parameter
+import dev.rnett.inspekt.model.Parameters
+import dev.rnett.inspekt.model.PropertyGetter
+import dev.rnett.inspekt.model.PropertySetter
+import dev.rnett.inspekt.model.ReadOnlyProperty
+import dev.rnett.inspekt.model.SimpleFunction
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
@@ -125,7 +127,7 @@ internal class InspektionResultV1<T : Any>
 
         @ExportSymbol
         @PublishedApi
-        internal fun toModel(): dev.rnett.inspekt.SimpleFunction = dev.rnett.inspekt.SimpleFunction(
+        internal fun toModel(): SimpleFunction = SimpleFunction(
             name,
             kotlin,
             annotations.toList(),
@@ -139,7 +141,7 @@ internal class InspektionResultV1<T : Any>
             suspendInvoker
         )
 
-        internal fun toPropertyGetterModel(prop: Lazy<dev.rnett.inspekt.Property>): PropertyGetter = PropertyGetter(
+        internal fun toPropertyGetterModel(prop: Lazy<dev.rnett.inspekt.model.Property>): PropertyGetter = PropertyGetter(
             prop,
             kotlin,
             Parameters(parameters.map { it.toModel() }),
@@ -150,7 +152,7 @@ internal class InspektionResultV1<T : Any>
             returnType,
         )
 
-        internal fun toPropertySetterModel(prop: Lazy<dev.rnett.inspekt.Property>): PropertySetter = PropertySetter(
+        internal fun toPropertySetterModel(prop: Lazy<dev.rnett.inspekt.model.Property>): PropertySetter = PropertySetter(
             prop,
             kotlin,
             Parameters(parameters.map { it.toModel() }),
@@ -160,7 +162,7 @@ internal class InspektionResultV1<T : Any>
             inheritedFrom
         )
 
-        internal fun toModelCtor(cls: Lazy<Inspektion<*>>): dev.rnett.inspekt.Constructor = dev.rnett.inspekt.Constructor(
+        internal fun toModelCtor(cls: Lazy<Inspektion<*>>): Constructor = Constructor(
             name as CallableName.Member,
             kotlin,
             annotations.toList(),
@@ -227,8 +229,8 @@ internal class InspektionResultV1<T : Any>
 
         @ExportSymbol
         @PublishedApi
-        internal fun toModel(): dev.rnett.inspekt.Property {
-            lateinit var ref: dev.rnett.inspekt.Property
+        internal fun toModel(): dev.rnett.inspekt.model.Property {
+            lateinit var ref: dev.rnett.inspekt.model.Property
             val lazy = lazy(LazyThreadSafetyMode.NONE) { ref }
             val getter = getter.toPropertyGetterModel(lazy)
 
@@ -278,14 +280,14 @@ internal class InspektionResultV1<T : Any>
         @param:ExportSymbol val upperBounds: Array<KType>,
         @param:ExportSymbol val annotations: Array<Annotation>
     ) {
-        fun toModel(): dev.rnett.inspekt.TypeParameter {
+        fun toModel(): dev.rnett.inspekt.model.TypeParameter {
             val variance = when (variance) {
-                0 -> dev.rnett.inspekt.TypeParameter.Variance.INVARIANT
-                1 -> dev.rnett.inspekt.TypeParameter.Variance.IN
-                2 -> dev.rnett.inspekt.TypeParameter.Variance.OUT
+                0 -> dev.rnett.inspekt.model.TypeParameter.Variance.INVARIANT
+                1 -> dev.rnett.inspekt.model.TypeParameter.Variance.IN
+                2 -> dev.rnett.inspekt.model.TypeParameter.Variance.OUT
                 else -> error("Unexpected variance index: $variance")
             }
-            return dev.rnett.inspekt.TypeParameter(
+            return dev.rnett.inspekt.model.TypeParameter(
                 name,
                 index,
                 variance,

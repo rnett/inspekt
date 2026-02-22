@@ -34,8 +34,8 @@ FILE fqName:auto.implementation.box.typeparams fileName:/FunctionTypeParameters.
           GET_VAR 'r: T of auto.implementation.box.typeparams.FunctionTypeParams.nonRefied declared in auto.implementation.box.typeparams.FunctionTypeParams.nonRefied' type=T of auto.implementation.box.typeparams.FunctionTypeParams.nonRefied origin=null
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:inspektion type:dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> [val]
-        CALL 'public abstract fun toModel (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
+      VAR name:inspektion type:dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> [val]
+        CALL 'public abstract fun toModel (): dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
           ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
             TYPE_ARG (of class) T: <none>
             ARG kClass: CLASS_REFERENCE 'CLASS CLASS name:FunctionTypeParams modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.typeparams.FunctionTypeParams>
@@ -490,83 +490,83 @@ FILE fqName:auto.implementation.box.typeparams fileName:/FunctionTypeParameters.
               TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
               ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
       TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
-        CALL 'public final fun apply <T> (<this>: T of kotlin.apply, block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.apply, kotlin.Unit>): T of kotlin.apply declared in kotlin' type=dev.rnett.inspekt.SimpleFunction origin=null
-          TYPE_ARG T: dev.rnett.inspekt.SimpleFunction
-          ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.Inspektion' type=dev.rnett.inspekt.SimpleFunction origin=null
-            ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> origin=null
+        CALL 'public final fun apply <T> (<this>: T of kotlin.apply, block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.apply, kotlin.Unit>): T of kotlin.apply declared in kotlin' type=dev.rnett.inspekt.model.SimpleFunction origin=null
+          TYPE_ARG T: dev.rnett.inspekt.model.SimpleFunction
+          ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.model.Inspektion' type=dev.rnett.inspekt.model.SimpleFunction origin=null
+            ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> origin=null
             ARG name: CONST String type=kotlin.String value="nonRefied"
-          ARG block: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<dev.rnett.inspekt.SimpleFunction, kotlin.Unit> origin=LAMBDA
+          ARG block: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<dev.rnett.inspekt.model.SimpleFunction, kotlin.Unit> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-              VALUE_PARAMETER kind:ExtensionReceiver name:$this$apply index:0 type:dev.rnett.inspekt.SimpleFunction
+              VALUE_PARAMETER kind:ExtensionReceiver name:$this$apply index:0 type:dev.rnett.inspekt.model.SimpleFunction
               BLOCK_BODY
                 CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
                   TYPE_ARG T: kotlin.String
                   ARG expected: CONST String type=kotlin.String value="T"
-                  ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
-                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                  ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                       ARG index: CONST Int type=kotlin.Int value=0
                 CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
                   TYPE_ARG T: kotlin.Int
                   ARG expected: CONST Int type=kotlin.Int value=0
-                  ARG actual: CALL 'public final fun <get-index> (): kotlin.Int declared in dev.rnett.inspekt.TypeParameter' type=kotlin.Int origin=GET_PROPERTY
-                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                  ARG actual: CALL 'public final fun <get-index> (): kotlin.Int declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.Int origin=GET_PROPERTY
+                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                       ARG index: CONST Int type=kotlin.Int value=0
                 CALL 'public final fun assertFalse (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-                  ARG actual: CALL 'public final fun <get-isReified> (): kotlin.Boolean declared in dev.rnett.inspekt.TypeParameter' type=kotlin.Boolean origin=GET_PROPERTY
-                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                  ARG actual: CALL 'public final fun <get-isReified> (): kotlin.Boolean declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.Boolean origin=GET_PROPERTY
+                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                       ARG index: CONST Int type=kotlin.Int value=0
       TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
-        CALL 'public final fun apply <T> (<this>: T of kotlin.apply, block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.apply, kotlin.Unit>): T of kotlin.apply declared in kotlin' type=dev.rnett.inspekt.SimpleFunction origin=null
-          TYPE_ARG T: dev.rnett.inspekt.SimpleFunction
-          ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.SimpleFunction declared in dev.rnett.inspekt.Inspektion' type=dev.rnett.inspekt.SimpleFunction origin=null
-            ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> origin=null
+        CALL 'public final fun apply <T> (<this>: T of kotlin.apply, block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.apply, kotlin.Unit>): T of kotlin.apply declared in kotlin' type=dev.rnett.inspekt.model.SimpleFunction origin=null
+          TYPE_ARG T: dev.rnett.inspekt.model.SimpleFunction
+          ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.model.Inspektion' type=dev.rnett.inspekt.model.SimpleFunction origin=null
+            ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.FunctionTypeParams> origin=null
             ARG name: CONST String type=kotlin.String value="genericFunction"
-          ARG block: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<dev.rnett.inspekt.SimpleFunction, kotlin.Unit> origin=LAMBDA
+          ARG block: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function1<dev.rnett.inspekt.model.SimpleFunction, kotlin.Unit> origin=LAMBDA
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-              VALUE_PARAMETER kind:ExtensionReceiver name:$this$apply index:0 type:dev.rnett.inspekt.SimpleFunction
+              VALUE_PARAMETER kind:ExtensionReceiver name:$this$apply index:0 type:dev.rnett.inspekt.model.SimpleFunction
               BLOCK_BODY
                 CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
                   TYPE_ARG T: kotlin.Int
                   ARG expected: CONST Int type=kotlin.Int value=1
                   ARG actual: CALL 'public abstract fun <get-size> (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=GET_PROPERTY
-                    ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                      ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                    ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                      ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                 CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
                   TYPE_ARG T: kotlin.String
                   ARG expected: CONST String type=kotlin.String value="R"
-                  ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
-                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                  ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                       ARG index: CONST Int type=kotlin.Int value=0
                 CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
                   TYPE_ARG T: kotlin.Int
                   ARG expected: CONST Int type=kotlin.Int value=0
-                  ARG actual: CALL 'public final fun <get-index> (): kotlin.Int declared in dev.rnett.inspekt.TypeParameter' type=kotlin.Int origin=GET_PROPERTY
-                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                  ARG actual: CALL 'public final fun <get-index> (): kotlin.Int declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.Int origin=GET_PROPERTY
+                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                       ARG index: CONST Int type=kotlin.Int value=0
                 CALL 'public final fun assertTrue (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-                  ARG actual: CALL 'public final fun <get-isReified> (): kotlin.Boolean declared in dev.rnett.inspekt.TypeParameter' type=kotlin.Boolean origin=GET_PROPERTY
-                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                  ARG actual: CALL 'public final fun <get-isReified> (): kotlin.Boolean declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.Boolean origin=GET_PROPERTY
+                    ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                      ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                        ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                       ARG index: CONST Int type=kotlin.Int value=0
                 CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
                   TYPE_ARG T: kotlin.Int
                   ARG expected: CONST Int type=kotlin.Int value=1
                   ARG actual: CALL 'public abstract fun <get-size> (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=GET_PROPERTY
-                    ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
-                      ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                        ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                          ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                    ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
+                      ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                        ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                          ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                         ARG index: CONST Int type=kotlin.Int value=0
                 CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
                   TYPE_ARG T: kotlin.String?
@@ -576,10 +576,10 @@ FILE fqName:auto.implementation.box.typeparams fileName:/FunctionTypeParameters.
                       TYPE_OP type=kotlin.reflect.KClass<*>? origin=SAFE_CAST typeOperand=kotlin.reflect.KClass<*>
                         CALL 'public abstract fun <get-classifier> (): kotlin.reflect.KClassifier? declared in kotlin.reflect.KType' type=kotlin.reflect.KClassifier? origin=GET_PROPERTY
                           ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=kotlin.reflect.KType origin=GET_ARRAY_ELEMENT
-                            ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
-                              ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-                                ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-                                  ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.SimpleFunction origin=IMPLICIT_ARGUMENT
+                            ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
+                              ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+                                ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+                                  ARG <this>: GET_VAR '$this$apply: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.model.SimpleFunction origin=IMPLICIT_ARGUMENT
                                 ARG index: CONST Int type=kotlin.Int value=0
                             ARG index: CONST Int type=kotlin.Int value=0
                     WHEN type=kotlin.String? origin=null

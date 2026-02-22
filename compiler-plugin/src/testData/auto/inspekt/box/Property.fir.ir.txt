@@ -51,8 +51,8 @@ FILE fqName:auto.inspekt.box fileName:/Property.kt
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.inspekt.box'
-        CALL 'public final fun toString (): kotlin.String declared in dev.rnett.inspekt.Property' type=kotlin.String origin=null
-          ARG <this>: CALL 'internal final fun toModel (): dev.rnett.inspekt.Property declared in dev.rnett.inspekt.internal.InspektionResultV1.Property' type=dev.rnett.inspekt.Property origin=null
+        CALL 'public final fun toString (): kotlin.String declared in dev.rnett.inspekt.model.Property' type=kotlin.String origin=null
+          ARG <this>: CALL 'internal final fun toModel (): dev.rnett.inspekt.model.Property declared in dev.rnett.inspekt.internal.InspektionResultV1.Property' type=dev.rnett.inspekt.model.Property origin=null
             ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, isMutable: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.inspekt.internal.InspektionResultV1.Function, setter: dev.rnett.inspekt.internal.InspektionResultV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Property' type=dev.rnett.inspekt.internal.InspektionResultV1.Property origin=null
               ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                 TYPE_ARG T: kotlin.String

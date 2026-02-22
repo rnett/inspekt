@@ -1,21 +1,21 @@
 package dev.rnett.inspekt.proxy
 
-import dev.rnett.inspekt.ArgumentList
-import dev.rnett.inspekt.ArgumentsBuilder
-import dev.rnett.inspekt.Function
 import dev.rnett.inspekt.FunctionInvocationException
 import dev.rnett.inspekt.InspektCompilerPluginIntrinsic
 import dev.rnett.inspekt.InspektNotIntrinsifiedException
-import dev.rnett.inspekt.Inspektion
-import dev.rnett.inspekt.Parameters
-import dev.rnett.inspekt.Property
-import dev.rnett.inspekt.PropertyAccessor
-import dev.rnett.inspekt.PropertyGetter
-import dev.rnett.inspekt.PropertySetter
 import dev.rnett.inspekt.ReferenceLiteral
-import dev.rnett.inspekt.SimpleFunction
 import dev.rnett.inspekt.StringLiteral
 import dev.rnett.inspekt.inspekt
+import dev.rnett.inspekt.model.ArgumentList
+import dev.rnett.inspekt.model.ArgumentsBuilder
+import dev.rnett.inspekt.model.Function
+import dev.rnett.inspekt.model.Inspektion
+import dev.rnett.inspekt.model.Parameters
+import dev.rnett.inspekt.model.Property
+import dev.rnett.inspekt.model.PropertyAccessor
+import dev.rnett.inspekt.model.PropertyGetter
+import dev.rnett.inspekt.model.PropertySetter
+import dev.rnett.inspekt.model.SimpleFunction
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 

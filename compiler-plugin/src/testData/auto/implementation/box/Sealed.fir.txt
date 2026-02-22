@@ -30,5 +30,5 @@ FILE: Sealed.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/SealedInt|>(<getClass>(Q|auto/implementation/box/SealedInt|)).R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.toString: R|kotlin/String|>|(Boolean(true))
+        ^box R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/SealedInt|>(<getClass>(Q|auto/implementation/box/SealedInt|)).R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.toString: R|kotlin/String|>|(Boolean(true))
     }

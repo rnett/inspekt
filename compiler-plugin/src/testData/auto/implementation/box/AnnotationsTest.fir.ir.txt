@@ -77,8 +77,8 @@ FILE fqName:auto.implementation.box fileName:/AnnotationsTest.kt
           CONST String type=kotlin.String value=""
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:spekt type:dev.rnett.inspekt.Inspektion<auto.implementation.box.Test> [val]
-        CALL 'public abstract fun toModel (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
+      VAR name:spekt type:dev.rnett.inspekt.model.Inspektion<auto.implementation.box.Test> [val]
+        CALL 'public abstract fun toModel (): dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
           ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
             TYPE_ARG (of class) T: <none>
             ARG kClass: CLASS_REFERENCE 'CLASS CLASS name:Test modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.Test>
@@ -557,49 +557,49 @@ FILE fqName:auto.implementation.box fileName:/AnnotationsTest.kt
         TYPE_ARG T: auto.implementation.box.TestAnnotation?
         ARG expected: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int) declared in auto.implementation.box.TestAnnotation' type=auto.implementation.box.TestAnnotation origin=null
           ARG a: CONST Int type=kotlin.Int value=1
-        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.AnnotatedElement): T of dev.rnett.inspekt.annotation? declared in dev.rnett.inspekt' type=auto.implementation.box.TestAnnotation? origin=null
+        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.model.AnnotatedElement): T of dev.rnett.inspekt.model.annotation? declared in dev.rnett.inspekt.model' type=auto.implementation.box.TestAnnotation? origin=null
           TYPE_ARG T: auto.implementation.box.TestAnnotation
-          ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Test> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Test> origin=null
+          ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.Test> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.Test> origin=null
         ARG message: CONST String type=kotlin.String value="Test annotation should be present"
-      VAR name:prop type:dev.rnett.inspekt.Property [val]
-        CALL 'public final fun single <T> (<this>: kotlin.collections.List<T of kotlin.collections.single>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
-          TYPE_ARG T: dev.rnett.inspekt.Property
-          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Test> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Test> origin=null
+      VAR name:prop type:dev.rnett.inspekt.model.Property [val]
+        CALL 'public final fun single <T> (<this>: kotlin.collections.List<T of kotlin.collections.single>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.model.Property origin=null
+          TYPE_ARG T: dev.rnett.inspekt.model.Property
+          ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.model.Property> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.Property> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.Test> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.Test> origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: auto.implementation.box.TestAnnotation?
         ARG expected: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int) declared in auto.implementation.box.TestAnnotation' type=auto.implementation.box.TestAnnotation origin=null
           ARG a: CONST Int type=kotlin.Int value=2
-        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.AnnotatedElement): T of dev.rnett.inspekt.annotation? declared in dev.rnett.inspekt' type=auto.implementation.box.TestAnnotation? origin=null
+        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.model.AnnotatedElement): T of dev.rnett.inspekt.model.annotation? declared in dev.rnett.inspekt.model' type=auto.implementation.box.TestAnnotation? origin=null
           TYPE_ARG T: auto.implementation.box.TestAnnotation
-          ARG <this>: GET_VAR 'val prop: dev.rnett.inspekt.Property declared in auto.implementation.box.box' type=dev.rnett.inspekt.Property origin=null
+          ARG <this>: GET_VAR 'val prop: dev.rnett.inspekt.model.Property declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Property origin=null
         ARG message: CONST String type=kotlin.String value="Property annotation should be present"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: dev.rnett.inspekt.ExternalAnnotation?
         ARG expected: CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, type: kotlin.reflect.KClass<*>) declared in dev.rnett.inspekt.ExternalAnnotation' type=dev.rnett.inspekt.ExternalAnnotation origin=null
           ARG name: CONST String type=kotlin.String value="test"
           ARG type: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB INTERFACE name:List modality:ABSTRACT visibility:public superTypes:[kotlin.collections.Collection<E of kotlin.collections.List>]' type=kotlin.reflect.KClass<kotlin.collections.List<*>>
-        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.AnnotatedElement): T of dev.rnett.inspekt.annotation? declared in dev.rnett.inspekt' type=dev.rnett.inspekt.ExternalAnnotation? origin=null
+        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.model.AnnotatedElement): T of dev.rnett.inspekt.model.annotation? declared in dev.rnett.inspekt.model' type=dev.rnett.inspekt.ExternalAnnotation? origin=null
           TYPE_ARG T: dev.rnett.inspekt.ExternalAnnotation
-          ARG <this>: GET_VAR 'val prop: dev.rnett.inspekt.Property declared in auto.implementation.box.box' type=dev.rnett.inspekt.Property origin=null
+          ARG <this>: GET_VAR 'val prop: dev.rnett.inspekt.model.Property declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Property origin=null
         ARG message: CONST String type=kotlin.String value="External annotation should be present"
-      VAR name:test type:dev.rnett.inspekt.SimpleFunction [val]
-        CALL 'public final fun single <T> (<this>: kotlin.collections.List<T of kotlin.collections.single>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.SimpleFunction origin=null
-          TYPE_ARG T: dev.rnett.inspekt.SimpleFunction
-          ARG <this>: CALL 'public final fun <get-declaredFunctions> (): kotlin.collections.List<dev.rnett.inspekt.SimpleFunction> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.SimpleFunction> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.Test> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.Test> origin=null
-      VAR name:testA type:dev.rnett.inspekt.Parameter [val]
-        CALL 'public final fun last <T> (<this>: kotlin.collections.List<T of kotlin.collections.last>): T of kotlin.collections.last declared in kotlin.collections' type=dev.rnett.inspekt.Parameter origin=null
-          TYPE_ARG T: dev.rnett.inspekt.Parameter
-          ARG <this>: CALL 'public final fun <get-parameters> (): dev.rnett.inspekt.Parameters declared in dev.rnett.inspekt.SimpleFunction' type=dev.rnett.inspekt.Parameters origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val test: dev.rnett.inspekt.SimpleFunction declared in auto.implementation.box.box' type=dev.rnett.inspekt.SimpleFunction origin=null
+      VAR name:test type:dev.rnett.inspekt.model.SimpleFunction [val]
+        CALL 'public final fun single <T> (<this>: kotlin.collections.List<T of kotlin.collections.single>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.model.SimpleFunction origin=null
+          TYPE_ARG T: dev.rnett.inspekt.model.SimpleFunction
+          ARG <this>: CALL 'public final fun <get-declaredFunctions> (): kotlin.collections.List<dev.rnett.inspekt.model.SimpleFunction> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.SimpleFunction> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.Test> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.Test> origin=null
+      VAR name:testA type:dev.rnett.inspekt.model.Parameter [val]
+        CALL 'public final fun last <T> (<this>: kotlin.collections.List<T of kotlin.collections.last>): T of kotlin.collections.last declared in kotlin.collections' type=dev.rnett.inspekt.model.Parameter origin=null
+          TYPE_ARG T: dev.rnett.inspekt.model.Parameter
+          ARG <this>: CALL 'public final fun <get-parameters> (): dev.rnett.inspekt.model.Parameters declared in dev.rnett.inspekt.model.SimpleFunction' type=dev.rnett.inspekt.model.Parameters origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val test: dev.rnett.inspekt.model.SimpleFunction declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.SimpleFunction origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: auto.implementation.box.TestAnnotation?
         ARG expected: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int) declared in auto.implementation.box.TestAnnotation' type=auto.implementation.box.TestAnnotation origin=null
           ARG a: CONST Int type=kotlin.Int value=3
-        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.AnnotatedElement): T of dev.rnett.inspekt.annotation? declared in dev.rnett.inspekt' type=auto.implementation.box.TestAnnotation? origin=null
+        ARG actual: CALL 'public final fun annotation <T> (<this>: dev.rnett.inspekt.model.AnnotatedElement): T of dev.rnett.inspekt.model.annotation? declared in dev.rnett.inspekt.model' type=auto.implementation.box.TestAnnotation? origin=null
           TYPE_ARG T: auto.implementation.box.TestAnnotation
-          ARG <this>: GET_VAR 'val testA: dev.rnett.inspekt.Parameter declared in auto.implementation.box.box' type=dev.rnett.inspekt.Parameter origin=null
+          ARG <this>: GET_VAR 'val testA: dev.rnett.inspekt.model.Parameter declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Parameter origin=null
         ARG message: CONST String type=kotlin.String value="Parameter annotation should be present"
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.implementation.box'
         CONST String type=kotlin.String value="OK"

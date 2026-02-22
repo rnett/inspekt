@@ -1,5 +1,3 @@
-import dev.rnett.inspekt.proxy.proxy
-
 interface Base {
     var prop: String
         get() = "BaseGetter"

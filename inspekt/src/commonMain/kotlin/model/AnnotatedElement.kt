@@ -1,4 +1,4 @@
-package dev.rnett.inspekt
+package dev.rnett.inspekt.model
 
 /**
  * An element which has annotations.

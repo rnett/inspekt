@@ -19,8 +19,8 @@ FILE fqName:auto.implementation.box.typeparams fileName:/TypeParameterVariance.k
         public open fun toString (): kotlin.String declared in kotlin.Any
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:inspektion type:dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> [val]
-        CALL 'public abstract fun toModel (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
+      VAR name:inspektion type:dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> [val]
+        CALL 'public abstract fun toModel (): dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
           ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
             TYPE_ARG (of class) T: <none>
             ARG kClass: CLASS_REFERENCE 'CLASS INTERFACE name:VarianceTest modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>>
@@ -322,55 +322,55 @@ FILE fqName:auto.implementation.box.typeparams fileName:/TypeParameterVariance.k
                   ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                     TYPE_ARG T: kotlin.Annotation
                     ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
-      VAR name:typeParams type:kotlin.collections.List<dev.rnett.inspekt.TypeParameter> [val]
-        CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-          ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> origin=null
+      VAR name:typeParams type:kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> [val]
+        CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+          ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Int
         ARG expected: CONST Int type=kotlin.Int value=3
         ARG actual: CALL 'public abstract fun <get-size> (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=GET_PROPERTY
-          ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+          ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
         ARG expected: CONST String type=kotlin.String value="I"
-        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
-          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=null
             ARG index: CONST Int type=kotlin.Int value=0
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-        TYPE_ARG T: dev.rnett.inspekt.TypeParameter.Variance
-        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:IN' type=dev.rnett.inspekt.TypeParameter.Variance
-        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.TypeParameter.Variance declared in dev.rnett.inspekt.TypeParameter' type=dev.rnett.inspekt.TypeParameter.Variance origin=GET_PROPERTY
-          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+        TYPE_ARG T: dev.rnett.inspekt.model.TypeParameter.Variance
+        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:IN' type=dev.rnett.inspekt.model.TypeParameter.Variance
+        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.model.TypeParameter.Variance declared in dev.rnett.inspekt.model.TypeParameter' type=dev.rnett.inspekt.model.TypeParameter.Variance origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=null
             ARG index: CONST Int type=kotlin.Int value=0
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
         ARG expected: CONST String type=kotlin.String value="O"
-        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
-          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=null
             ARG index: CONST Int type=kotlin.Int value=1
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-        TYPE_ARG T: dev.rnett.inspekt.TypeParameter.Variance
-        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:OUT' type=dev.rnett.inspekt.TypeParameter.Variance
-        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.TypeParameter.Variance declared in dev.rnett.inspekt.TypeParameter' type=dev.rnett.inspekt.TypeParameter.Variance origin=GET_PROPERTY
-          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+        TYPE_ARG T: dev.rnett.inspekt.model.TypeParameter.Variance
+        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:OUT' type=dev.rnett.inspekt.model.TypeParameter.Variance
+        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.model.TypeParameter.Variance declared in dev.rnett.inspekt.model.TypeParameter' type=dev.rnett.inspekt.model.TypeParameter.Variance origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=null
             ARG index: CONST Int type=kotlin.Int value=1
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
         ARG expected: CONST String type=kotlin.String value="INVARIANT"
-        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
-          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=null
             ARG index: CONST Int type=kotlin.Int value=2
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-        TYPE_ARG T: dev.rnett.inspekt.TypeParameter.Variance
-        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:INVARIANT' type=dev.rnett.inspekt.TypeParameter.Variance
-        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.TypeParameter.Variance declared in dev.rnett.inspekt.TypeParameter' type=dev.rnett.inspekt.TypeParameter.Variance origin=GET_PROPERTY
-          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+        TYPE_ARG T: dev.rnett.inspekt.model.TypeParameter.Variance
+        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:INVARIANT' type=dev.rnett.inspekt.model.TypeParameter.Variance
+        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.model.TypeParameter.Variance declared in dev.rnett.inspekt.model.TypeParameter' type=dev.rnett.inspekt.model.TypeParameter.Variance origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=null
             ARG index: CONST Int type=kotlin.Int value=2
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.implementation.box.typeparams'
         CONST String type=kotlin.String value="OK"

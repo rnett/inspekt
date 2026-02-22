@@ -4,11 +4,11 @@ FILE: TypeParameterUpperBounds.kt
     public abstract interface MultiBound<T : R|kotlin/Any|, R|kotlin/Comparable<T>|> : R|kotlin/Any| {
     }
     public final fun box(): R|kotlin/String| {
-        lval inspektion: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/typeparams/MultiBound<*>>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/typeparams/MultiBound<*>|>(<getClass>(Q|auto/implementation/box/typeparams/MultiBound|))
-        lval typeParam: R|dev/rnett/inspekt/TypeParameter| = R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.typeParameters: R|kotlin/collections/List<dev/rnett/inspekt/TypeParameter>|>|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0))
-        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(T), R|<local>/typeParam|.R|dev/rnett/inspekt/TypeParameter.name|)
-        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(2), R|<local>/typeParam|.R|dev/rnett/inspekt/TypeParameter.erasedUpperBounds|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|)
-        lval boundClassNames: R|kotlin/collections/Set<kotlin/String?>| = R|<local>/typeParam|.R|dev/rnett/inspekt/TypeParameter.erasedUpperBounds|.R|kotlin/collections/map|<R|kotlin/reflect/KType|, R|kotlin/String?|>(<L> = map@fun <anonymous>(it: R|kotlin/reflect/KType|): R|kotlin/String?| <inline=Inline, kind=UNKNOWN>  {
+        lval inspektion: R|dev/rnett/inspekt/model/Inspektion<auto/implementation/box/typeparams/MultiBound<*>>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/typeparams/MultiBound<*>|>(<getClass>(Q|auto/implementation/box/typeparams/MultiBound|))
+        lval typeParam: R|dev/rnett/inspekt/model/TypeParameter| = R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.typeParameters: R|kotlin/collections/List<dev/rnett/inspekt/model/TypeParameter>|>|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/model/TypeParameter|>|(Int(0))
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(T), R|<local>/typeParam|.R|dev/rnett/inspekt/model/TypeParameter.name|)
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(2), R|<local>/typeParam|.R|dev/rnett/inspekt/model/TypeParameter.erasedUpperBounds|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|)
+        lval boundClassNames: R|kotlin/collections/Set<kotlin/String?>| = R|<local>/typeParam|.R|dev/rnett/inspekt/model/TypeParameter.erasedUpperBounds|.R|kotlin/collections/map|<R|kotlin/reflect/KType|, R|kotlin/String?|>(<L> = map@fun <anonymous>(it: R|kotlin/reflect/KType|): R|kotlin/String?| <inline=Inline, kind=UNKNOWN>  {
             ^ (R|<local>/it|.R|kotlin/reflect/KType.classifier| as? R|kotlin/reflect/KClass<*>|)?.{ $subj$.R|SubstitutionOverride<kotlin/reflect/KClass.simpleName: R|kotlin/String?|>| }
         }
         ).R|kotlin/collections/toSet|<R|kotlin/String?|>()

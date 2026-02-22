@@ -1,5 +1,7 @@
-package dev.rnett.inspekt
+package dev.rnett.inspekt.model
 
+import dev.rnett.inspekt.FunctionInvocationException
+import dev.rnett.inspekt.friendlyName
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
@@ -171,7 +173,7 @@ public class Inspektion<T : Any> internal constructor(
      * If the function is static, [receiver] is ignored.
      * [receiver] must be non-null for non-static functions.
      *
-     * @throws FunctionInvocationException if the function cannot be invoked or the function is suspending.
+     * @throws dev.rnett.inspekt.FunctionInvocationException if the function cannot be invoked or the function is suspending.
      * @throws NoSuchElementException if no function with that name exists.
      * @throws IllegalArgumentException if more than one function with that name exist.
      * @see function
@@ -189,7 +191,7 @@ public class Inspektion<T : Any> internal constructor(
      * If the function is static, [receiver] is ignored.
      * [receiver] must be non-null for non-static functions.
      *
-     * @throws FunctionInvocationException if the function cannot be invoked.
+     * @throws dev.rnett.inspekt.FunctionInvocationException if the function cannot be invoked.
      * @throws NoSuchElementException if no function with that name exists.
      * @throws IllegalArgumentException if more than one function with that name exist.
      * @see function
@@ -207,7 +209,7 @@ public class Inspektion<T : Any> internal constructor(
      * If the function is static, [receiver] is ignored.
      * [receiver] must be non-null for non-static functions, or be set in [argumentsBuilder].
      *
-     * @throws FunctionInvocationException if the function cannot be invoked or is suspending.
+     * @throws dev.rnett.inspekt.FunctionInvocationException if the function cannot be invoked or is suspending.
      * @throws NoSuchElementException if no function with that name exists.
      * @throws IllegalArgumentException if more than one function with that name exist.
      * @see function
@@ -218,7 +220,7 @@ public class Inspektion<T : Any> internal constructor(
     /**
      * Calls the primary constructor of this class with [argumentsBuilder].
      *
-     * @throws FunctionInvocationException if the class has no primary constructor or it cannot be invoked.
+     * @throws dev.rnett.inspekt.FunctionInvocationException if the class has no primary constructor or it cannot be invoked.
      * @see Function.invoke
      * @see primaryConstructor
      */

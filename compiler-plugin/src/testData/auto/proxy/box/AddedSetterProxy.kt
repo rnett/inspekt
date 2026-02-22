@@ -1,5 +1,3 @@
-import dev.rnett.inspekt.proxy.proxy
-
 interface Base {
     val prop: String
 }
@@ -13,7 +11,7 @@ fun box(): String {
     var backing = "initial"
 
     val proxy = proxy(Sub::class) {
-        if (superFun is dev.rnett.inspekt.PropertySetter) {
+        if (superFun is dev.rnett.inspekt.model.PropertySetter) {
             backing = args[1] as String
             null
         } else {

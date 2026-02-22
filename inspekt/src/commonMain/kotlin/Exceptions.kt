@@ -1,5 +1,8 @@
 package dev.rnett.inspekt
 
+import dev.rnett.inspekt.model.Callable
+import dev.rnett.inspekt.model.CallableName
+import dev.rnett.inspekt.model.QualifiedName
 import dev.rnett.inspekt.proxy.ProxyHandler
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract

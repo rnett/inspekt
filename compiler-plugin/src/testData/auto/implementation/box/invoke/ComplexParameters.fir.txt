@@ -16,29 +16,29 @@ FILE: ComplexParameters.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Complex>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/Complex|>(<getClass>(Q|auto/implementation/box/invoke/Complex|))
+        lval spekt: R|dev/rnett/inspekt/model/Inspektion<auto/implementation/box/invoke/Complex>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/Complex|>(<getClass>(Q|auto/implementation/box/invoke/Complex|))
         lval instance: R|auto/implementation/box/invoke/Complex| = R|auto/implementation/box/invoke/Complex.Complex|()
-        lval fExtension: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(extension))
+        lval fExtension: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(extension))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(test-123), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(extension function invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/fExtension|.R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.extensionReceiver| = String(test)
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.value|(vararg(Int(123)))
+            ^ R|<local>/fExtension|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.extensionReceiver| = String(test)
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.value|(vararg(Int(123)))
             }
             )
         }
         ))
-        lval fMulti: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(multi))
+        lval fMulti: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(multi))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(1-two-3.0), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(multi parameter function invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/fMulti|.R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.value|(vararg(Int(1), String(two), Double(3.0)))
+            ^ R|<local>/fMulti|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.value|(vararg(Int(1), String(two), Double(3.0)))
             }
             )
         }

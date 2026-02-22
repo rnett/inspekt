@@ -6,6 +6,7 @@ object TestGenerator : BaseTestGenerator() {
     override val imports: Set<String> = setOf(
         "kotlin.test.*",
         "dev.rnett.inspekt.*",
+        "dev.rnett.inspekt.model.*",
         "dev.rnett.inspekt.proxy.*",
         "kotlinx.coroutines.*",
         "kotlinx.coroutines.test.*",

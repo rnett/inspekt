@@ -1,5 +1,6 @@
-package dev.rnett.inspekt
+package dev.rnett.inspekt.model
 
+import dev.rnett.inspekt.friendlyName
 import dev.rnett.inspekt.internal.ArgumentsProviderV1
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract

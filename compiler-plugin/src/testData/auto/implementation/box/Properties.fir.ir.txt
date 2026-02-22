@@ -102,8 +102,8 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
               ARG other: CONST String type=kotlin.String value="_got"
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:spekt type:dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> [val]
-        CALL 'public abstract fun toModel (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
+      VAR name:spekt type:dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> [val]
+        CALL 'public abstract fun toModel (): dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
           ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
             TYPE_ARG (of class) T: <none>
             ARG kClass: CLASS_REFERENCE 'CLASS CLASS name:TestProperties modality:FINAL visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.TestProperties>
@@ -954,21 +954,21 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
               ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
       VAR name:instance type:auto.implementation.box.TestProperties [val]
         CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.TestProperties' type=auto.implementation.box.TestProperties origin=null
-      VAR name:pReadOnly type:dev.rnett.inspekt.ReadOnlyProperty [val]
-        TYPE_OP type=dev.rnett.inspekt.ReadOnlyProperty origin=CAST typeOperand=dev.rnett.inspekt.ReadOnlyProperty
-          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
-            TYPE_ARG T: dev.rnett.inspekt.Property
-            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> origin=null
-            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
+      VAR name:pReadOnly type:dev.rnett.inspekt.model.ReadOnlyProperty [val]
+        TYPE_OP type=dev.rnett.inspekt.model.ReadOnlyProperty origin=CAST typeOperand=dev.rnett.inspekt.model.ReadOnlyProperty
+          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.model.Property origin=null
+            TYPE_ARG T: dev.rnett.inspekt.model.Property
+            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.model.Property> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.Property> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> origin=null
+            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.model.Property, kotlin.Boolean> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
-                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
+                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.model.Property
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.model.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
-                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.model.CallableName declared in dev.rnett.inspekt.model.Property' type=dev.rnett.inspekt.model.CallableName origin=GET_PROPERTY
+                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.model.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.model.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="readOnly"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Any?
@@ -980,31 +980,31 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.ReadOnlyProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pReadOnly: dev.rnett.inspekt.ReadOnlyProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.ReadOnlyProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.ReadOnlyProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pReadOnly: dev.rnett.inspekt.model.ReadOnlyProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.ReadOnlyProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-      VAR name:pMutable type:dev.rnett.inspekt.MutableProperty [val]
-        TYPE_OP type=dev.rnett.inspekt.MutableProperty origin=CAST typeOperand=dev.rnett.inspekt.MutableProperty
-          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
-            TYPE_ARG T: dev.rnett.inspekt.Property
-            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> origin=null
-            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
+      VAR name:pMutable type:dev.rnett.inspekt.model.MutableProperty [val]
+        TYPE_OP type=dev.rnett.inspekt.model.MutableProperty origin=CAST typeOperand=dev.rnett.inspekt.model.MutableProperty
+          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.model.Property origin=null
+            TYPE_ARG T: dev.rnett.inspekt.model.Property
+            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.model.Property> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.Property> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> origin=null
+            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.model.Property, kotlin.Boolean> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
-                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
+                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.model.Property
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.model.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
-                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.model.CallableName declared in dev.rnett.inspekt.model.Property' type=dev.rnett.inspekt.model.CallableName origin=GET_PROPERTY
+                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.model.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.model.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="mutable"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Any?
@@ -1016,15 +1016,15 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.MutableProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pMutable: dev.rnett.inspekt.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.MutableProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.MutableProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pMutable: dev.rnett.inspekt.model.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.MutableProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
       TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
         CALL 'public final fun assertSuccessful <T> (message: kotlin.String, block: kotlin.Function0<T of dev.rnett.inspekt.assertSuccessful>): T of dev.rnett.inspekt.assertSuccessful declared in dev.rnett.inspekt' type=kotlin.Any? origin=null
@@ -1034,18 +1034,18 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun set (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.MutableProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pMutable: dev.rnett.inspekt.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.MutableProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun set (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.MutableProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pMutable: dev.rnett.inspekt.model.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.MutableProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$set index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$set index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=null
-                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=null
+                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG values: VARARG type=kotlin.Array<out kotlin.Any?> varargElementType=kotlin.Any?
                               CONST String type=kotlin.String value="changed"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
@@ -1063,31 +1063,31 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.MutableProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pMutable: dev.rnett.inspekt.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.MutableProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.MutableProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pMutable: dev.rnett.inspekt.model.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.MutableProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-      VAR name:pWithGetter type:dev.rnett.inspekt.ReadOnlyProperty [val]
-        TYPE_OP type=dev.rnett.inspekt.ReadOnlyProperty origin=CAST typeOperand=dev.rnett.inspekt.ReadOnlyProperty
-          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
-            TYPE_ARG T: dev.rnett.inspekt.Property
-            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> origin=null
-            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
+      VAR name:pWithGetter type:dev.rnett.inspekt.model.ReadOnlyProperty [val]
+        TYPE_OP type=dev.rnett.inspekt.model.ReadOnlyProperty origin=CAST typeOperand=dev.rnett.inspekt.model.ReadOnlyProperty
+          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.model.Property origin=null
+            TYPE_ARG T: dev.rnett.inspekt.model.Property
+            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.model.Property> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.Property> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> origin=null
+            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.model.Property, kotlin.Boolean> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
-                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
+                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.model.Property
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.model.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
-                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.model.CallableName declared in dev.rnett.inspekt.model.Property' type=dev.rnett.inspekt.model.CallableName origin=GET_PROPERTY
+                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.model.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.model.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="withGetter"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Any?
@@ -1099,31 +1099,31 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.ReadOnlyProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pWithGetter: dev.rnett.inspekt.ReadOnlyProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.ReadOnlyProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.ReadOnlyProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pWithGetter: dev.rnett.inspekt.model.ReadOnlyProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.ReadOnlyProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-      VAR name:pWithSetter type:dev.rnett.inspekt.MutableProperty [val]
-        TYPE_OP type=dev.rnett.inspekt.MutableProperty origin=CAST typeOperand=dev.rnett.inspekt.MutableProperty
-          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
-            TYPE_ARG T: dev.rnett.inspekt.Property
-            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> origin=null
-            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
+      VAR name:pWithSetter type:dev.rnett.inspekt.model.MutableProperty [val]
+        TYPE_OP type=dev.rnett.inspekt.model.MutableProperty origin=CAST typeOperand=dev.rnett.inspekt.model.MutableProperty
+          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.model.Property origin=null
+            TYPE_ARG T: dev.rnett.inspekt.model.Property
+            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.model.Property> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.Property> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> origin=null
+            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.model.Property, kotlin.Boolean> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
-                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
+                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.model.Property
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.model.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
-                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.model.CallableName declared in dev.rnett.inspekt.model.Property' type=dev.rnett.inspekt.model.CallableName origin=GET_PROPERTY
+                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.model.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.model.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="withSetter"
       TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
         CALL 'public final fun assertSuccessful <T> (message: kotlin.String, block: kotlin.Function0<T of dev.rnett.inspekt.assertSuccessful>): T of dev.rnett.inspekt.assertSuccessful declared in dev.rnett.inspekt' type=kotlin.Any? origin=null
@@ -1133,18 +1133,18 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun set (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.MutableProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pWithSetter: dev.rnett.inspekt.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.MutableProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun set (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.MutableProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pWithSetter: dev.rnett.inspekt.model.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.MutableProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$set index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$set index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=null
-                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun value (vararg values: kotlin.Any?, offset: kotlin.Int): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=null
+                            ARG <this>: GET_VAR '$this$set: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG values: VARARG type=kotlin.Array<out kotlin.Any?> varargElementType=kotlin.Any?
                               CONST String type=kotlin.String value="new"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
@@ -1162,31 +1162,31 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.MutableProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pWithSetter: dev.rnett.inspekt.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.MutableProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.MutableProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pWithSetter: dev.rnett.inspekt.model.MutableProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.MutableProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
-      VAR name:pDelegated type:dev.rnett.inspekt.ReadOnlyProperty [val]
-        TYPE_OP type=dev.rnett.inspekt.ReadOnlyProperty origin=CAST typeOperand=dev.rnett.inspekt.ReadOnlyProperty
-          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.Property origin=null
-            TYPE_ARG T: dev.rnett.inspekt.Property
-            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.Property> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.Property> origin=GET_PROPERTY
-              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.TestProperties> origin=null
-            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.Property, kotlin.Boolean> origin=LAMBDA
+      VAR name:pDelegated type:dev.rnett.inspekt.model.ReadOnlyProperty [val]
+        TYPE_OP type=dev.rnett.inspekt.model.ReadOnlyProperty origin=CAST typeOperand=dev.rnett.inspekt.model.ReadOnlyProperty
+          CALL 'public final fun single <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.single>, predicate: kotlin.Function1<T of kotlin.collections.single, kotlin.Boolean>): T of kotlin.collections.single declared in kotlin.collections' type=dev.rnett.inspekt.model.Property origin=null
+            TYPE_ARG T: dev.rnett.inspekt.model.Property
+            ARG <this>: CALL 'public final fun <get-properties> (): kotlin.collections.List<dev.rnett.inspekt.model.Property> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.Property> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val spekt: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.TestProperties> origin=null
+            ARG predicate: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.model.Property, kotlin.Boolean> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
-                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.Property
+                VALUE_PARAMETER kind:Regular name:it index:0 type:dev.rnett.inspekt.model.Property
                 BLOCK_BODY
-                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.Property): kotlin.Boolean declared in auto.implementation.box.box'
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: dev.rnett.inspekt.model.Property): kotlin.Boolean declared in auto.implementation.box.box'
                     CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.CallableName' type=kotlin.String origin=GET_PROPERTY
-                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.CallableName declared in dev.rnett.inspekt.Property' type=dev.rnett.inspekt.CallableName origin=GET_PROPERTY
-                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.Property origin=null
+                      ARG arg0: CALL 'public abstract fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.CallableName' type=kotlin.String origin=GET_PROPERTY
+                        ARG <this>: CALL 'public open fun <get-name> (): dev.rnett.inspekt.model.CallableName declared in dev.rnett.inspekt.model.Property' type=dev.rnett.inspekt.model.CallableName origin=GET_PROPERTY
+                          ARG <this>: GET_VAR 'it: dev.rnett.inspekt.model.Property declared in auto.implementation.box.box.<anonymous>' type=dev.rnett.inspekt.model.Property origin=null
                       ARG arg1: CONST String type=kotlin.String value="delegated"
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Any?
@@ -1198,15 +1198,15 @@ FILE fqName:auto.implementation.box fileName:/Properties.kt
             FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
               BLOCK_BODY
                 RETURN type=kotlin.Nothing from='local final fun <anonymous> (): kotlin.Any? declared in auto.implementation.box.box'
-                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.ReadOnlyProperty' type=kotlin.Any? origin=null
-                    ARG <this>: GET_VAR 'val pDelegated: dev.rnett.inspekt.ReadOnlyProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.ReadOnlyProperty origin=null
-                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder, dev.rnett.inspekt.Parameters, kotlin.Unit> origin=LAMBDA
+                  CALL 'public final fun get (arguments: @[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit>): kotlin.Any? declared in dev.rnett.inspekt.model.ReadOnlyProperty' type=kotlin.Any? origin=null
+                    ARG <this>: GET_VAR 'val pDelegated: dev.rnett.inspekt.model.ReadOnlyProperty declared in auto.implementation.box.box' type=dev.rnett.inspekt.model.ReadOnlyProperty origin=null
+                    ARG arguments: FUN_EXPR type=@[ExtensionFunctionType] kotlin.Function2<dev.rnett.inspekt.model.ArgumentList.Builder, dev.rnett.inspekt.model.Parameters, kotlin.Unit> origin=LAMBDA
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Unit
-                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.ArgumentList.Builder
-                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.Parameters
+                        VALUE_PARAMETER kind:ExtensionReceiver name:$this$get index:0 type:dev.rnett.inspekt.model.ArgumentList.Builder
+                        VALUE_PARAMETER kind:Regular name:it index:1 type:dev.rnett.inspekt.model.Parameters
                         BLOCK_BODY
-                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.ArgumentList.Builder' type=kotlin.Unit origin=EQ
-                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
+                          CALL 'public final fun <set-dispatchReceiver> (value: kotlin.Any?): kotlin.Unit declared in dev.rnett.inspekt.model.ArgumentList.Builder' type=kotlin.Unit origin=EQ
+                            ARG <this>: GET_VAR '$this$get: dev.rnett.inspekt.model.ArgumentList.Builder declared in auto.implementation.box.box.<anonymous>.<anonymous>' type=dev.rnett.inspekt.model.ArgumentList.Builder origin=IMPLICIT_ARGUMENT
                             ARG value: GET_VAR 'val instance: auto.implementation.box.TestProperties declared in auto.implementation.box.box' type=auto.implementation.box.TestProperties origin=null
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.implementation.box'
         CONST String type=kotlin.String value="OK"

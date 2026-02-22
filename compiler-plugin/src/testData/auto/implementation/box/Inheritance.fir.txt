@@ -51,91 +51,91 @@ FILE: Inheritance.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Derived>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/Derived|>(<getClass>(Q|auto/implementation/box/Derived|))
+        lval spekt: R|dev/rnett/inspekt/model/Inspektion<auto/implementation/box/Derived>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/Derived|>(<getClass>(Q|auto/implementation/box/Derived|))
         lval instance: R|auto/implementation/box/Derived| = R|auto/implementation/box/Derived.Derived|()
-        lval pAbstract: R|dev/rnett/inspekt/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(abstractProp))
+        lval pAbstract: R|dev/rnett/inspekt/model/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/model/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/Property.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(abstractProp))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_abstract), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(abstractProp get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pAbstract|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+            ^ R|<local>/pAbstract|.R|dev/rnett/inspekt/model/Property.get|(<L> = get@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/pAbstract|.R|dev/rnett/inspekt/Callable.inheritedFrom|)
-        lval pOpen: R|dev/rnett/inspekt/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(openProp))
+        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/pAbstract|.R|dev/rnett/inspekt/model/Callable.inheritedFrom|)
+        lval pOpen: R|dev/rnett/inspekt/model/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/model/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/Property.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(openProp))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_open), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(openProp get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pOpen|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+            ^ R|<local>/pOpen|.R|dev/rnett/inspekt/model/Property.get|(<L> = get@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/pOpen|.R|dev/rnett/inspekt/Callable.inheritedFrom|)
-        lval pBase: R|dev/rnett/inspekt/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(baseProp))
+        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/pOpen|.R|dev/rnett/inspekt/model/Callable.inheritedFrom|)
+        lval pBase: R|dev/rnett/inspekt/model/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/model/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/Property.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(baseProp))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(base), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(baseProp get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/pBase|.R|dev/rnett/inspekt/Property.get|(<L> = get@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+            ^ R|<local>/pBase|.R|dev/rnett/inspekt/model/Property.get|(<L> = get@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=NoInline>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<out kotlin/Any>?|>(<getClass>(Q|auto/implementation/box/Base|), R|<local>/pBase|.R|dev/rnett/inspekt/Callable.inheritedFrom|)
-        lval fAbstract: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(abstractFun))
+        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<out kotlin/Any>?|>(<getClass>(Q|auto/implementation/box/Base|), R|<local>/pBase|.R|dev/rnett/inspekt/model/Callable.inheritedFrom|)
+        lval fAbstract: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(abstractFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_abstract_fun), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(abstractFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/fAbstract|.R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+            ^ R|<local>/fAbstract|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fAbstract|.R|dev/rnett/inspekt/Callable.inheritedFrom|)
-        lval fOpen: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(openFun))
+        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fAbstract|.R|dev/rnett/inspekt/model/Callable.inheritedFrom|)
+        lval fOpen: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(openFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_open_fun), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(openFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/fOpen|.R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+            ^ R|<local>/fOpen|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fOpen|.R|dev/rnett/inspekt/Callable.inheritedFrom|)
-        lval fBase: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(baseFun))
+        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fOpen|.R|dev/rnett/inspekt/model/Callable.inheritedFrom|)
+        lval fBase: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(baseFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(base_fun), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(baseFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/fBase|.R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+            ^ R|<local>/fBase|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<out kotlin/Any>?|>(<getClass>(Q|auto/implementation/box/Base|), R|<local>/fBase|.R|dev/rnett/inspekt/Callable.inheritedFrom|)
-        lval fDerived: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(derivedFun))
+        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<out kotlin/Any>?|>(<getClass>(Q|auto/implementation/box/Base|), R|<local>/fBase|.R|dev/rnett/inspekt/model/Callable.inheritedFrom|)
+        lval fDerived: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/CallableName.name|, String(derivedFun))
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(derived_fun), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(derivedFun invoke), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
-            ^ R|<local>/fDerived|.R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
-                this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
+            ^ R|<local>/fDerived|.R|dev/rnett/inspekt/model/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/model/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/model/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+                this@R|special/anonymous|.R|dev/rnett/inspekt/model/ArgumentList.Builder.dispatchReceiver| = R|<local>/instance|
             }
             )
         }
         ))
-        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fDerived|.R|dev/rnett/inspekt/Callable.inheritedFrom|)
+        R|kotlin/test/assertEquals|<R|kotlin/reflect/KClass<*>?|>(Null(null), R|<local>/fDerived|.R|dev/rnett/inspekt/model/Callable.inheritedFrom|)
         ^box String(OK)
     }

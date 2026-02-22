@@ -1,5 +1,6 @@
-package dev.rnett.inspekt
+package dev.rnett.inspekt.model
 
+import dev.rnett.inspekt.friendlyName
 import kotlin.reflect.KClass
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty1
@@ -60,14 +61,14 @@ public sealed class Property(
     /**
      * Get the value of a property by calling its getter.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public fun get(arguments: ArgumentsBuilder): Any? = getter.invoke(arguments)
 
     /**
      * Gets the value of a property by calling its getter.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public fun get(arguments: ArgumentList): Any? = getter.invoke(arguments)
 }
@@ -112,14 +113,14 @@ public class MutableProperty internal constructor(
     /**
      * Set the value of a property by calling its setter.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public fun set(arguments: ArgumentsBuilder): Any? = setter.invoke(arguments)
 
     /**
      * Set the value of a property by calling its setter.
      *
-     * @throws FunctionInvocationException if invocation fails
+     * @throws dev.rnett.inspekt.FunctionInvocationException if invocation fails
      */
     public fun set(arguments: ArgumentList): Any? = setter.invoke(arguments)
 

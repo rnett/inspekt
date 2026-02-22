@@ -18,5 +18,5 @@ FILE: Class.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box R|dev/rnett/inspekt/inspekt|<R|auto/inspekt/box/Test|>(<getClass>(Q|auto/inspekt/box/Test|)).R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.toString: R|kotlin/String|>|()
+        ^box R|dev/rnett/inspekt/inspekt|<R|auto/inspekt/box/Test|>(<getClass>(Q|auto/inspekt/box/Test|)).R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.toString: R|kotlin/String|>|()
     }

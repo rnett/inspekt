@@ -17,8 +17,8 @@ FILE fqName:auto.implementation.box.typeparams fileName:/TypeParameterUpperBound
         public open fun toString (): kotlin.String declared in kotlin.Any
   FUN name:box visibility:public modality:FINAL returnType:kotlin.String
     BLOCK_BODY
-      VAR name:inspektion type:dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.MultiBound<*>> [val]
-        CALL 'public abstract fun toModel (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
+      VAR name:inspektion type:dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.MultiBound<*>> [val]
+        CALL 'public abstract fun toModel (): dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.model.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
           ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
             TYPE_ARG (of class) T: <none>
             ARG kClass: CLASS_REFERENCE 'CLASS INTERFACE name:MultiBound modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.typeparams.MultiBound<T of auto.implementation.box.typeparams.MultiBound>>
@@ -290,30 +290,30 @@ FILE fqName:auto.implementation.box.typeparams fileName:/TypeParameterUpperBound
                   ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                     TYPE_ARG T: kotlin.Annotation
                     ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
-      VAR name:typeParam type:dev.rnett.inspekt.TypeParameter [val]
-        CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
-          ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.MultiBound<*>> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.MultiBound<*>> origin=null
+      VAR name:typeParam type:dev.rnett.inspekt.model.TypeParameter [val]
+        CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.model.TypeParameter origin=GET_ARRAY_ELEMENT
+          ARG <this>: CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> declared in dev.rnett.inspekt.model.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.model.TypeParameter> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.MultiBound<*>> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.typeparams.MultiBound<*>> origin=null
           ARG index: CONST Int type=kotlin.Int value=0
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.String
         ARG expected: CONST String type=kotlin.String value="T"
-        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
-          ARG <this>: GET_VAR 'val typeParam: dev.rnett.inspekt.TypeParameter declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.TypeParameter origin=null
+        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: GET_VAR 'val typeParam: dev.rnett.inspekt.model.TypeParameter declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.model.TypeParameter origin=null
       CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
         TYPE_ARG T: kotlin.Int
         ARG expected: CONST Int type=kotlin.Int value=2
         ARG actual: CALL 'public abstract fun <get-size> (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=GET_PROPERTY
-          ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
-            ARG <this>: GET_VAR 'val typeParam: dev.rnett.inspekt.TypeParameter declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.TypeParameter origin=null
+          ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
+            ARG <this>: GET_VAR 'val typeParam: dev.rnett.inspekt.model.TypeParameter declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.model.TypeParameter origin=null
       VAR name:boundClassNames type:kotlin.collections.Set<kotlin.String?> [val]
         CALL 'public final fun toSet <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.toSet>): kotlin.collections.Set<T of kotlin.collections.toSet> declared in kotlin.collections' type=kotlin.collections.Set<kotlin.String?> origin=null
           TYPE_ARG T: kotlin.String?
           ARG <this>: CALL 'public final fun map <T, R> (<this>: kotlin.collections.Iterable<T of kotlin.collections.map>, transform: kotlin.Function1<T of kotlin.collections.map, R of kotlin.collections.map>): kotlin.collections.List<R of kotlin.collections.map> declared in kotlin.collections' type=kotlin.collections.List<kotlin.String?> origin=null
             TYPE_ARG T: kotlin.reflect.KType
             TYPE_ARG R: kotlin.String?
-            ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
-              ARG <this>: GET_VAR 'val typeParam: dev.rnett.inspekt.TypeParameter declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.TypeParameter origin=null
+            ARG <this>: CALL 'public final fun <get-erasedUpperBounds> (): kotlin.collections.List<kotlin.reflect.KType> declared in dev.rnett.inspekt.model.TypeParameter' type=kotlin.collections.List<kotlin.reflect.KType> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val typeParam: dev.rnett.inspekt.model.TypeParameter declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.model.TypeParameter origin=null
             ARG transform: FUN_EXPR type=kotlin.Function1<kotlin.reflect.KType, kotlin.String?> origin=LAMBDA
               FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.String?
                 VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.reflect.KType
