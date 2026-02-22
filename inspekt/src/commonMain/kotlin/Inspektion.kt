@@ -10,7 +10,7 @@ import kotlin.reflect.KType
  * The result of inspekting a class.
  */
 @ExportSymbol
-public data class Inspektion<T : Any> internal constructor(
+public class Inspektion<T : Any> internal constructor(
     public val kotlin: KClass<T>,
     public val name: ClassName,
     public val supertypes: Set<KType>,
@@ -28,7 +28,7 @@ public data class Inspektion<T : Any> internal constructor(
     private val cast: (Any) -> T,
     private val isInstance: (Any) -> Boolean,
     private val safeCast: (Any) -> T?,
-    val companionObject: Inspektion<Any>?,
+    public val companionObject: Inspektion<Any>?,
 ) : AnnotatedElement {
 
     public val superclasses: Set<KClass<*>> = buildSet { supertypes.mapNotNullTo(this) { it.classifier as? KClass<*> } }
@@ -73,4 +73,11 @@ public data class Inspektion<T : Any> internal constructor(
         }
     }.trim()
 
+    override fun equals(other: Any?): Boolean {
+        if (other !is Inspektion<*>) return false
+        if (this.name != other.name) return false
+        return this.kotlin == other.kotlin
+    }
+
+    override fun hashCode(): Int = kotlin.hashCode()
 }

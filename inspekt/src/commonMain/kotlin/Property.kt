@@ -8,28 +8,31 @@ import kotlin.reflect.KType
 /**
  * The result of inspekting a property.
  */
-public sealed class Property : Callable() {
-    abstract override val kotlin: KProperty1<*, *>
-
+public sealed class Property(
+    parameters: Parameters,
+    isAbstract: Boolean,
+    inheritedFrom: KClass<*>?,
+    annotations: List<Annotation>,
     /**
      * Whether the property has a backing field.
      */
-    public abstract val hasBackingField: Boolean
-
+    public val hasBackingField: Boolean,
     /**
      * Whether the property has a delegate.
      */
-    public abstract val hasDelegate: Boolean
-
+    public val hasDelegate: Boolean,
     /**
      * The type of the property.
      */
-    public abstract val type: KType
-
+    public val type: KType,
     /**
      * The property's getter.
      */
-    public abstract val getter: PropertyGetter
+    public val getter: PropertyGetter,
+    override val name: CallableName
+) : Callable(parameters, isAbstract, inheritedFrom, annotations) {
+    abstract override val kotlin: KProperty1<*, *>
+
 
     /**
      * The property's setter, if it has one.
@@ -51,7 +54,7 @@ public sealed class Property : Callable() {
         append(type.friendlyName)
 
         if (inheritedFrom != null)
-            append(" @ ${inheritedFrom!!.friendlyName}")
+            append(" @ ${inheritedFrom.friendlyName}")
     }
 
     /**
@@ -72,18 +75,18 @@ public sealed class Property : Callable() {
 /**
  * The result of inspekting a `val` property.
  */
-public data class ReadOnlyProperty internal constructor(
+public class ReadOnlyProperty internal constructor(
     override val kotlin: KProperty1<*, *>,
-    override val hasBackingField: Boolean,
-    override val hasDelegate: Boolean,
-    override val type: KType,
-    override val getter: PropertyGetter,
-    override val name: CallableName,
-    override val parameters: Parameters,
-    override val annotations: List<Annotation>,
-    override val isAbstract: Boolean,
-    override val inheritedFrom: KClass<*>?,
-) : Property() {
+    hasBackingField: Boolean,
+    hasDelegate: Boolean,
+    type: KType,
+    getter: PropertyGetter,
+    name: CallableName,
+    parameters: Parameters,
+    annotations: List<Annotation>,
+    isAbstract: Boolean,
+    inheritedFrom: KClass<*>?,
+) : Property(parameters, isAbstract, inheritedFrom, annotations, hasBackingField, hasDelegate, type, getter, name) {
 
     override fun toString(includeFullName: Boolean): String = buildString {
         appendPropertySignature("val", includeFullName)
@@ -93,19 +96,19 @@ public data class ReadOnlyProperty internal constructor(
 /**
  * The result of inspekting a `var` property.
  */
-public data class MutableProperty internal constructor(
+public class MutableProperty internal constructor(
     override val kotlin: KMutableProperty1<*, *>,
-    override val hasBackingField: Boolean,
-    override val hasDelegate: Boolean,
-    override val type: KType,
-    override val getter: PropertyGetter,
+    hasBackingField: Boolean,
+    hasDelegate: Boolean,
+    type: KType,
+    getter: PropertyGetter,
     override val setter: PropertySetter,
-    override val name: CallableName,
-    override val parameters: Parameters,
-    override val annotations: List<Annotation>,
-    override val isAbstract: Boolean,
-    override val inheritedFrom: KClass<*>?
-) : Property() {
+    name: CallableName,
+    parameters: Parameters,
+    annotations: List<Annotation>,
+    isAbstract: Boolean,
+    inheritedFrom: KClass<*>?
+) : Property(parameters, isAbstract, inheritedFrom, annotations, hasBackingField, hasDelegate, type, getter, name) {
     /**
      * Set the value of a property by calling its setter.
      *

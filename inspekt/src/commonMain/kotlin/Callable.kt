@@ -6,7 +6,22 @@ import kotlin.reflect.KClass
 /**
  * The result of inspekting a function-like or property declaration.
  */
-public sealed class Callable : AnnotatedElement {
+public sealed class Callable(
+    /**
+     * The parameters of the declaration.
+     */
+    public val parameters: Parameters,
+    /**
+     * Whether the declaration is abstract.
+     */
+    public val isAbstract: Boolean,
+
+    /**
+     * If the declaration is inherited from a superclass (**not** overridden), the superclass it is inherited from.
+     */
+    public val inheritedFrom: KClass<*>?,
+    public final override val annotations: List<Annotation>
+) : AnnotatedElement {
     /**
      * A reference to the Kotlin declaration this represents.
      */
@@ -21,21 +36,6 @@ public sealed class Callable : AnnotatedElement {
      * The short name of the declaration.
      */
     public val shortName: String get() = name.name
-
-    /**
-     * The parameters of the declaration.
-     */
-    public abstract val parameters: Parameters
-
-    /**
-     * Whether the declaration is abstract.
-     */
-    public abstract val isAbstract: Boolean
-
-    /**
-     * If the declaration is inherited from a superclass (**not** overridden), the superclass it is inherited from.
-     */
-    public abstract val inheritedFrom: KClass<*>?
 
     /**
      * Whether the declaration is declared in its owning class. False if it is inherited.
@@ -66,5 +66,17 @@ public sealed class Callable : AnnotatedElement {
             append(extension.type)
             append(".")
         }
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other !is Callable) return false
+        if (this::class != other::class) return false
+        if (this.name != other.name) return false
+        if (this.kotlin != other.kotlin) return false
+        return parameters == other.parameters
+    }
+
+    override fun hashCode(): Int {
+        return kotlin.hashCode() * 31 + name.hashCode() * 37 + parameters.hashCode()
     }
 }

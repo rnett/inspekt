@@ -121,10 +121,10 @@ internal class InspektionResultV1<T : Any>
             isAbstract,
             Parameters(parameters.map { it.toModel() }),
             returnType,
+            inheritedFrom,
             isSuspend,
             invoker,
-            suspendInvoker,
-            inheritedFrom
+            suspendInvoker
         )
 
         internal fun toPropertyGetterModel(prop: Lazy<dev.rnett.inspekt.Property>): PropertyGetter = PropertyGetter(
@@ -134,7 +134,8 @@ internal class InspektionResultV1<T : Any>
             isAbstract,
             annotations.toList(),
             invoker,
-            inheritedFrom
+            inheritedFrom,
+            returnType,
         )
 
         internal fun toPropertySetterModel(prop: Lazy<dev.rnett.inspekt.Property>): PropertySetter = PropertySetter(

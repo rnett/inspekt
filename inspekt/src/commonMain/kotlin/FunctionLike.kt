@@ -11,14 +11,22 @@ import kotlin.reflect.typeOf
  * The result of inspekting a member that can be invoked like a function. Includes functions, constructors, and accessors.
  */
 public sealed class FunctionLike(
+    parameters: Parameters,
+    isAbstract: Boolean,
+    inheritedFrom: KClass<*>?,
+    /**
+     * The return type of the function.
+     */
+    public val returnType: KType,
+    annotations: List<Annotation>,
     protected val invoker: ((ArgumentList) -> Any?)?,
     protected val suspendInvoker: (suspend (ArgumentList) -> Any?)? = null,
     /**
      * Whether the referenced function is suspending.
      * If true, calling [invoke] will error - use [invokeSuspend] instead.
      */
-    public val isSuspend: Boolean = suspendInvoker != null
-) : Callable() {
+    public val isSuspend: Boolean = suspendInvoker != null,
+) : Callable(parameters, isAbstract, inheritedFrom, annotations) {
     public abstract override val kotlin: KFunction<*>
     public abstract override val name: CallableName
 
@@ -90,11 +98,6 @@ public sealed class FunctionLike(
      */
     public open val isCallable: Boolean get() = invoker != null || suspendInvoker != null
 
-    /**
-     * The return type of the function.
-     */
-    public abstract val returnType: KType
-
     protected fun StringBuilder.appendMethodSignature(includeFullName: Boolean) {
         appendContext()
         if (isSuspend) append("suspend ")
@@ -112,25 +115,24 @@ public sealed class FunctionLike(
         append(": ")
         append(returnType.friendlyName)
         if (inheritedFrom != null)
-            append(" @ ${inheritedFrom!!.friendlyName}")
+            append(" @ ${inheritedFrom.friendlyName}")
     }
 }
 
 public class Constructor internal constructor(
     override val name: CallableName.Member,
     override val kotlin: KFunction<*>,
-    override val annotations: List<Annotation>,
-    override val isAbstract: Boolean,
-    override val parameters: Parameters,
-    override val returnType: KType,
-    private val forClassRef: Lazy<Inspektion<*>>,
+    annotations: List<Annotation>,
+    isAbstract: Boolean,
+    parameters: Parameters,
+    returnType: KType,
+    forClassRef: Lazy<Inspektion<*>>,
     /**
      * Whether this is the primary constructor.
      */
     public val isPrimary: Boolean,
     invoker: ((ArgumentList) -> Any?)?
-) : FunctionLike(invoker) {
-    override val inheritedFrom: KClass<*>? = null
+) : FunctionLike(parameters, isAbstract, null, returnType, annotations, invoker) {
 
     /**
      * The class constructed by this constructor.
@@ -149,10 +151,15 @@ public class Constructor internal constructor(
  * The result of inspekting a function-like declaration that is a normal function, not a constructor.
  */
 public sealed class Function(
+    parameters: Parameters,
+    isAbstract: Boolean,
+    inheritedFrom: KClass<*>?,
+    returnType: KType,
+    annotations: List<Annotation>,
     invoker: ((ArgumentList) -> Any?)?,
     suspendInvoker: (suspend (ArgumentList) -> Any?)? = null,
-    isSuspend: Boolean = suspendInvoker != null
-) : FunctionLike(invoker, suspendInvoker, isSuspend)
+    isSuspend: Boolean = suspendInvoker != null,
+) : FunctionLike(parameters, isAbstract, inheritedFrom, returnType, annotations, invoker, suspendInvoker, isSuspend)
 
 /**
  * The result of inspekting simple function declaration, i.e. one declared with `fun`.
@@ -160,10 +167,11 @@ public sealed class Function(
 public class SimpleFunction internal constructor(
     override val name: CallableName,
     override val kotlin: KFunction<*>,
-    override val annotations: List<Annotation>,
-    override val isAbstract: Boolean,
-    override val parameters: Parameters,
-    override val returnType: KType,
+    annotations: List<Annotation>,
+    isAbstract: Boolean,
+    parameters: Parameters,
+    returnType: KType,
+    inheritedFrom: KClass<*>?,
     /**
      * Whether the referenced function is suspending.
      * If true, calling [invoke] will error - use [invokeSuspend] instead.
@@ -171,8 +179,7 @@ public class SimpleFunction internal constructor(
     isSuspend: Boolean,
     invoker: ((ArgumentList) -> Any?)?,
     suspendInvoker: (suspend (ArgumentList) -> Any?)?,
-    override val inheritedFrom: KClass<*>?,
-) : Function(invoker, suspendInvoker, isSuspend) {
+) : Function(parameters, isAbstract, inheritedFrom, returnType, annotations, invoker, suspendInvoker, isSuspend) {
 
     internal fun asSetter(property: Property): PropertySetter {
         return PropertySetter(
@@ -194,7 +201,8 @@ public class SimpleFunction internal constructor(
             isAbstract,
             annotations,
             invoker!!,
-            inheritedFrom
+            inheritedFrom,
+            returnType
         )
     }
 
@@ -206,7 +214,14 @@ public class SimpleFunction internal constructor(
 /**
  * The result of inspekting a property accessor.
  */
-public sealed class PropertyAccessor(invoker: ((ArgumentList) -> Any?)?) : Function(invoker) {
+public sealed class PropertyAccessor(
+    parameters: Parameters,
+    isAbstract: Boolean,
+    inheritedFrom: KClass<*>?,
+    returnType: KType,
+    annotations: List<Annotation>,
+    invoker: ((ArgumentList) -> Any?)?
+) : Function(parameters, isAbstract, inheritedFrom, returnType, annotations, invoker) {
     /**
      * The property this accessor belongs to.
      */
@@ -219,16 +234,14 @@ public sealed class PropertyAccessor(invoker: ((ArgumentList) -> Any?)?) : Funct
 public class PropertyGetter internal constructor(
     propertyRef: Lazy<Property>,
     override val kotlin: KFunction<*>,
-    override val parameters: Parameters,
-    override val isAbstract: Boolean,
-    override val annotations: List<Annotation>,
+    parameters: Parameters,
+    isAbstract: Boolean,
+    annotations: List<Annotation>,
     invoker: ((ArgumentList) -> Any?)?,
-    override val inheritedFrom: KClass<*>?,
-) : PropertyAccessor(invoker) {
+    inheritedFrom: KClass<*>?,
+    returnType: KType
+) : PropertyAccessor(parameters, isAbstract, inheritedFrom, returnType, annotations, invoker) {
     public override val property: Property by propertyRef
-
-    override val returnType: KType
-        get() = property.type
 
     override val name: CallableName
         get() = property.name.sibling(SpecialNames.getter(property.name.name))
@@ -244,16 +257,13 @@ public class PropertyGetter internal constructor(
 public class PropertySetter internal constructor(
     propertyRef: Lazy<Property>,
     override val kotlin: KFunction<*>,
-    override val parameters: Parameters,
-    override val isAbstract: Boolean,
-    override val annotations: List<Annotation>,
+    parameters: Parameters,
+    isAbstract: Boolean,
+    annotations: List<Annotation>,
     invoker: ((ArgumentList) -> Any?)?,
-    override val inheritedFrom: KClass<*>?,
-) : PropertyAccessor(invoker) {
+    inheritedFrom: KClass<*>?,
+) : PropertyAccessor(parameters, isAbstract, inheritedFrom, typeOf<Unit>(), annotations, invoker) {
     public override val property: Property by propertyRef
-
-    override val returnType: KType
-        get() = typeOf<Unit>()
 
     override val name: CallableName
         get() = property.name.sibling(SpecialNames.setter(property.name.name))
