@@ -6,7 +6,7 @@ dokka = "2.1.0"
 publishing-plugin = "0.36.0"
 coroutines = "1.10.2"
 kcp-development = "0.0.2"
-symbol-export = "0.0.2-SNAPSHOT"
+symbol-export = "0.0.2"
 
 [libraries]
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
