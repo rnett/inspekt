@@ -46,7 +46,7 @@ FILE: Properties.kt
         lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestProperties>| = Q|auto/implementation/box/TestProperties|.R|auto/implementation/box/TestProperties.Companion.inspekt|()
         lval instance: R|auto/implementation/box/TestProperties| = R|auto/implementation/box/TestProperties.TestProperties|()
         lval pReadOnly: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/CallableName.name|, String(readOnly))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(readOnly))
         }
         ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(fixed), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(readOnly get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -57,7 +57,7 @@ FILE: Properties.kt
         }
         ))
         lval pMutable: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/CallableName.name|, String(mutable))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(mutable))
         }
         ) as R|dev/rnett/inspekt/MutableProperty|)
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(initial), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(mutable get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -84,7 +84,7 @@ FILE: Properties.kt
         }
         ))
         lval pWithGetter: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/CallableName.name|, String(withGetter))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(withGetter))
         }
         ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(changed_got), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(withGetter get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -95,7 +95,7 @@ FILE: Properties.kt
         }
         ))
         lval pWithSetter: R|dev/rnett/inspekt/MutableProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/CallableName.name|, String(withSetter))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(withSetter))
         }
         ) as R|dev/rnett/inspekt/MutableProperty|)
         R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(withSetter set), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
@@ -115,7 +115,7 @@ FILE: Properties.kt
         }
         ))
         lval pDelegated: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
-            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Callable.name|.R|dev/rnett/inspekt/CallableName.name|, String(delegated))
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(delegated))
         }
         ) as R|dev/rnett/inspekt/ReadOnlyProperty|)
         R|kotlin/test/assertEquals|<R|kotlin/Any?|>(String(lazy_value), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(delegated get), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {

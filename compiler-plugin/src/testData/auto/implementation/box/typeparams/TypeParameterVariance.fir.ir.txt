@@ -1,0 +1,350 @@
+FILE fqName:auto.implementation.box.typeparams fileName:/TypeParameterVariance.kt
+  CLASS INTERFACE name:VarianceTest modality:ABSTRACT visibility:public superTypes:[kotlin.Any]
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>
+    TYPE_PARAMETER name:I index:0 variance:in superTypes:[kotlin.Any?] reified:false
+    TYPE_PARAMETER name:O index:1 variance:out superTypes:[kotlin.Any?] reified:false
+    TYPE_PARAMETER name:INVARIANT index:2 variance: superTypes:[kotlin.Any?] reified:false
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+  FUN name:box visibility:public modality:FINAL returnType:kotlin.String
+    BLOCK_BODY
+      VAR name:inspektion type:dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> [val]
+        CALL 'public abstract fun toModel (): dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> declared in dev.rnett.inspekt.internal.InspektionResult' type=dev.rnett.inspekt.Inspektion<T of dev.rnett.inspekt.internal.InspektionResult> origin=null
+          ARG <this>: CONSTRUCTOR_CALL 'internal constructor <init> (kClass: kotlin.reflect.KClass<*>, isAbstract: kotlin.Boolean, packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>, supertypes: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>, functions: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, properties: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>, constructors: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>, sealedSubclasses: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out T of dev.rnett.inspekt.internal.InspektionResultV1>>?, cast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1>, isInstance: kotlin.Function1<kotlin.Any, kotlin.Boolean>, safeCast: kotlin.Function1<kotlin.Any, T of dev.rnett.inspekt.internal.InspektionResultV1?>, objectInstance: T of dev.rnett.inspekt.internal.InspektionResultV1?, companionObject: dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1' type=dev.rnett.inspekt.internal.InspektionResultV1<T of dev.rnett.inspekt.internal.InspektionResultV1> origin=null
+            TYPE_ARG (of class) T: <none>
+            ARG kClass: CLASS_REFERENCE 'CLASS INTERFACE name:VarianceTest modality:ABSTRACT visibility:public superTypes:[kotlin.Any]' type=kotlin.reflect.KClass<auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>>
+            ARG isAbstract: CONST Boolean type=kotlin.Boolean value=true
+            ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: kotlin.String
+              ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                CONST String type=kotlin.String value="auto"
+                CONST String type=kotlin.String value="implementation"
+                CONST String type=kotlin.String value="box"
+                CONST String type=kotlin.String value="typeparams"
+            ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: kotlin.String
+              ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                CONST String type=kotlin.String value="VarianceTest"
+            ARG supertypes: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: kotlin.reflect.KType
+              ARG elements: VARARG type=kotlin.Array<kotlin.reflect.KType> varargElementType=kotlin.reflect.KType
+                CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                  TYPE_ARG T: kotlin.Any
+            ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: kotlin.Annotation
+              ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+            ARG functions: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Function
+              ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Function
+                CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.String
+                    ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                      CONST String type=kotlin.String value="auto"
+                      CONST String type=kotlin.String value="implementation"
+                      CONST String type=kotlin.String value="box"
+                      CONST String type=kotlin.String value="typeparams"
+                  ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.String
+                    ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                      CONST String type=kotlin.String value="VarianceTest"
+                  ARG name: CONST String type=kotlin.String value="equals"
+                  ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
+                  ARG kotlin: FUNCTION_REFERENCE 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.typeparams.VarianceTest' type=kotlin.reflect.KFunction2<P1 of kotlin.reflect.KFunction2, P2 of kotlin.reflect.KFunction2, R of kotlin.reflect.KFunction2> origin=null reflectionTarget=<same>
+                    TYPE_ARG 1: I of auto.implementation.box.typeparams.VarianceTest
+                    TYPE_ARG 2: O of auto.implementation.box.typeparams.VarianceTest
+                    TYPE_ARG 3: INVARIANT of auto.implementation.box.typeparams.VarianceTest
+                  ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.Annotation
+                    ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                  ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
+                    ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
+                      CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        ARG name: CONST String type=kotlin.String value="<this>"
+                        ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                          TYPE_ARG T: kotlin.Annotation
+                          ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                        ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
+                        ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                          TYPE_ARG T: kotlin.Any
+                        ARG globalIndex: CONST Int type=kotlin.Int value=0
+                        ARG indexInKind: CONST Int type=kotlin.Int value=0
+                        ARG kind: CONST Int type=kotlin.Int value=0
+                      CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        ARG name: CONST String type=kotlin.String value="other"
+                        ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                          TYPE_ARG T: kotlin.Annotation
+                          ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                        ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
+                        ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                          TYPE_ARG T: kotlin.Any?
+                        ARG globalIndex: CONST Int type=kotlin.Int value=1
+                        ARG indexInKind: CONST Int type=kotlin.Int value=0
+                        ARG kind: CONST Int type=kotlin.Int value=3
+                  ARG returnType: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                    TYPE_ARG T: kotlin.Boolean
+                  ARG isSuspend: CONST Boolean type=kotlin.Boolean value=false
+                  ARG isPrimaryCtor: CONST Boolean type=kotlin.Boolean value=false
+                  ARG invoker: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?> origin=LAMBDA
+                    FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
+                      VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
+                      BLOCK_BODY
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.typeparams.box'
+                          CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.typeparams.VarianceTest' type=kotlin.Boolean origin=null
+                            ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                            ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=1
+                  ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
+                  ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
+                  ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+                    ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+                CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.String
+                    ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                      CONST String type=kotlin.String value="auto"
+                      CONST String type=kotlin.String value="implementation"
+                      CONST String type=kotlin.String value="box"
+                      CONST String type=kotlin.String value="typeparams"
+                  ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.String
+                    ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                      CONST String type=kotlin.String value="VarianceTest"
+                  ARG name: CONST String type=kotlin.String value="hashCode"
+                  ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
+                  ARG kotlin: FUNCTION_REFERENCE 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.typeparams.VarianceTest' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
+                    TYPE_ARG 1: I of auto.implementation.box.typeparams.VarianceTest
+                    TYPE_ARG 2: O of auto.implementation.box.typeparams.VarianceTest
+                    TYPE_ARG 3: INVARIANT of auto.implementation.box.typeparams.VarianceTest
+                  ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.Annotation
+                    ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                  ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
+                    ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
+                      CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        ARG name: CONST String type=kotlin.String value="<this>"
+                        ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                          TYPE_ARG T: kotlin.Annotation
+                          ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                        ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
+                        ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                          TYPE_ARG T: kotlin.Any
+                        ARG globalIndex: CONST Int type=kotlin.Int value=0
+                        ARG indexInKind: CONST Int type=kotlin.Int value=0
+                        ARG kind: CONST Int type=kotlin.Int value=0
+                  ARG returnType: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                    TYPE_ARG T: kotlin.Int
+                  ARG isSuspend: CONST Boolean type=kotlin.Boolean value=false
+                  ARG isPrimaryCtor: CONST Boolean type=kotlin.Boolean value=false
+                  ARG invoker: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?> origin=LAMBDA
+                    FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
+                      VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
+                      BLOCK_BODY
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.typeparams.box'
+                          CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.typeparams.VarianceTest' type=kotlin.Int origin=null
+                            ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                  ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
+                  ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
+                  ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+                    ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+                CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.String
+                    ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                      CONST String type=kotlin.String value="auto"
+                      CONST String type=kotlin.String value="implementation"
+                      CONST String type=kotlin.String value="box"
+                      CONST String type=kotlin.String value="typeparams"
+                  ARG classNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.String
+                    ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
+                      CONST String type=kotlin.String value="VarianceTest"
+                  ARG name: CONST String type=kotlin.String value="toString"
+                  ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
+                  ARG kotlin: FUNCTION_REFERENCE 'public open fun toString (): kotlin.String declared in auto.implementation.box.typeparams.VarianceTest' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
+                    TYPE_ARG 1: I of auto.implementation.box.typeparams.VarianceTest
+                    TYPE_ARG 2: O of auto.implementation.box.typeparams.VarianceTest
+                    TYPE_ARG 3: INVARIANT of auto.implementation.box.typeparams.VarianceTest
+                  ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.Annotation
+                    ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                  ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
+                    ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
+                      CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        ARG name: CONST String type=kotlin.String value="<this>"
+                        ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                          TYPE_ARG T: kotlin.Annotation
+                          ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                        ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
+                        ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                          TYPE_ARG T: kotlin.Any
+                        ARG globalIndex: CONST Int type=kotlin.Int value=0
+                        ARG indexInKind: CONST Int type=kotlin.Int value=0
+                        ARG kind: CONST Int type=kotlin.Int value=0
+                  ARG returnType: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                    TYPE_ARG T: kotlin.String
+                  ARG isSuspend: CONST Boolean type=kotlin.Boolean value=false
+                  ARG isPrimaryCtor: CONST Boolean type=kotlin.Boolean value=false
+                  ARG invoker: FUN_EXPR type=kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?> origin=LAMBDA
+                    FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
+                      VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
+                      BLOCK_BODY
+                        RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.typeparams.box'
+                          CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.typeparams.VarianceTest' type=kotlin.String origin=null
+                            ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.typeparams.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                  ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
+                  ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
+                  ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+                    ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+            ARG properties: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Property
+              ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Property
+            ARG constructors: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Function
+              ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Function
+            ARG sealedSubclasses: CONST Null type=kotlin.Nothing? value=null
+            ARG cast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>> origin=LAMBDA
+              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>
+                VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
+                BLOCK_BODY
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest> declared in auto.implementation.box.typeparams.box'
+                    TYPE_OP type=auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest> origin=CAST typeOperand=auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>
+                      GET_VAR 'it: kotlin.Any declared in auto.implementation.box.typeparams.box.<anonymous>' type=kotlin.Any origin=null
+            ARG isInstance: FUN_EXPR type=kotlin.Function1<kotlin.Any, kotlin.Boolean> origin=LAMBDA
+              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+                VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
+                BLOCK_BODY
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): kotlin.Boolean declared in auto.implementation.box.typeparams.box'
+                    TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>
+                      GET_VAR 'it: kotlin.Any declared in auto.implementation.box.typeparams.box.<anonymous>' type=kotlin.Any origin=null
+            ARG safeCast: FUN_EXPR type=kotlin.Function1<kotlin.Any, auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>?> origin=LAMBDA
+              FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>?
+                VALUE_PARAMETER kind:Regular name:it index:0 type:kotlin.Any
+                BLOCK_BODY
+                  RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: kotlin.Any): auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>? declared in auto.implementation.box.typeparams.box'
+                    TYPE_OP type=auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest> origin=SAFE_CAST typeOperand=auto.implementation.box.typeparams.VarianceTest<I of auto.implementation.box.typeparams.VarianceTest, O of auto.implementation.box.typeparams.VarianceTest, INVARIANT of auto.implementation.box.typeparams.VarianceTest>
+                      GET_VAR 'it: kotlin.Any declared in auto.implementation.box.typeparams.box.<anonymous>' type=kotlin.Any origin=null
+            ARG objectInstance: CONST Null type=kotlin.Nothing? value=null
+            ARG companionObject: CONST Null type=kotlin.Nothing? value=null
+            ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+              TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+              ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
+                CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, index: kotlin.Int, isReified: kotlin.Boolean, variance: kotlin.Int, upperBounds: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>) declared in dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter' type=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter origin=null
+                  ARG name: CONST String type=kotlin.String value="I"
+                  ARG index: CONST Int type=kotlin.Int value=0
+                  ARG isReified: CONST Boolean type=kotlin.Boolean value=false
+                  ARG variance: CONST Int type=kotlin.Int value=1
+                  ARG upperBounds: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.reflect.KType
+                    ARG elements: VARARG type=kotlin.Array<kotlin.reflect.KType> varargElementType=kotlin.reflect.KType
+                      CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                        TYPE_ARG T: kotlin.Any?
+                  ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.Annotation
+                    ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, index: kotlin.Int, isReified: kotlin.Boolean, variance: kotlin.Int, upperBounds: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>) declared in dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter' type=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter origin=null
+                  ARG name: CONST String type=kotlin.String value="O"
+                  ARG index: CONST Int type=kotlin.Int value=1
+                  ARG isReified: CONST Boolean type=kotlin.Boolean value=false
+                  ARG variance: CONST Int type=kotlin.Int value=2
+                  ARG upperBounds: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.reflect.KType
+                    ARG elements: VARARG type=kotlin.Array<kotlin.reflect.KType> varargElementType=kotlin.reflect.KType
+                      CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                        TYPE_ARG T: kotlin.Any?
+                  ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.Annotation
+                    ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, index: kotlin.Int, isReified: kotlin.Boolean, variance: kotlin.Int, upperBounds: kotlin.Array<kotlin.reflect.KType>, annotations: kotlin.Array<kotlin.Annotation>) declared in dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter' type=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter origin=null
+                  ARG name: CONST String type=kotlin.String value="INVARIANT"
+                  ARG index: CONST Int type=kotlin.Int value=2
+                  ARG isReified: CONST Boolean type=kotlin.Boolean value=false
+                  ARG variance: CONST Int type=kotlin.Int value=0
+                  ARG upperBounds: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.reflect.KType
+                    ARG elements: VARARG type=kotlin.Array<kotlin.reflect.KType> varargElementType=kotlin.reflect.KType
+                      CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
+                        TYPE_ARG T: kotlin.Any?
+                  ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                    TYPE_ARG T: kotlin.Annotation
+                    ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+      VAR name:typeParams type:kotlin.collections.List<dev.rnett.inspekt.TypeParameter> [val]
+        CALL 'public final fun <get-typeParameters> (): kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in dev.rnett.inspekt.Inspektion' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=GET_PROPERTY
+          ARG <this>: GET_VAR 'val inspektion: dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> declared in auto.implementation.box.typeparams.box' type=dev.rnett.inspekt.Inspektion<auto.implementation.box.typeparams.VarianceTest<*, *, *>> origin=null
+      CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
+        TYPE_ARG T: kotlin.Int
+        ARG expected: CONST Int type=kotlin.Int value=3
+        ARG actual: CALL 'public abstract fun <get-size> (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=GET_PROPERTY
+          ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+      CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
+        TYPE_ARG T: kotlin.String
+        ARG expected: CONST String type=kotlin.String value="I"
+        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+            ARG index: CONST Int type=kotlin.Int value=0
+      CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
+        TYPE_ARG T: dev.rnett.inspekt.TypeParameter.Variance
+        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:IN' type=dev.rnett.inspekt.TypeParameter.Variance
+        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.TypeParameter.Variance declared in dev.rnett.inspekt.TypeParameter' type=dev.rnett.inspekt.TypeParameter.Variance origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+            ARG index: CONST Int type=kotlin.Int value=0
+      CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
+        TYPE_ARG T: kotlin.String
+        ARG expected: CONST String type=kotlin.String value="O"
+        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+            ARG index: CONST Int type=kotlin.Int value=1
+      CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
+        TYPE_ARG T: dev.rnett.inspekt.TypeParameter.Variance
+        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:OUT' type=dev.rnett.inspekt.TypeParameter.Variance
+        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.TypeParameter.Variance declared in dev.rnett.inspekt.TypeParameter' type=dev.rnett.inspekt.TypeParameter.Variance origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+            ARG index: CONST Int type=kotlin.Int value=1
+      CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
+        TYPE_ARG T: kotlin.String
+        ARG expected: CONST String type=kotlin.String value="INVARIANT"
+        ARG actual: CALL 'public final fun <get-name> (): kotlin.String declared in dev.rnett.inspekt.TypeParameter' type=kotlin.String origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+            ARG index: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun assertEquals <T> (expected: T of kotlin.test.assertEquals, actual: T of kotlin.test.assertEquals, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
+        TYPE_ARG T: dev.rnett.inspekt.TypeParameter.Variance
+        ARG expected: GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:INVARIANT' type=dev.rnett.inspekt.TypeParameter.Variance
+        ARG actual: CALL 'public final fun <get-variance> (): dev.rnett.inspekt.TypeParameter.Variance declared in dev.rnett.inspekt.TypeParameter' type=dev.rnett.inspekt.TypeParameter.Variance origin=GET_PROPERTY
+          ARG <this>: CALL 'public abstract fun get (index: kotlin.Int): E of kotlin.collections.List declared in kotlin.collections.List' type=dev.rnett.inspekt.TypeParameter origin=GET_ARRAY_ELEMENT
+            ARG <this>: GET_VAR 'val typeParams: kotlin.collections.List<dev.rnett.inspekt.TypeParameter> declared in auto.implementation.box.typeparams.box' type=kotlin.collections.List<dev.rnett.inspekt.TypeParameter> origin=null
+            ARG index: CONST Int type=kotlin.Int value=2
+      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in auto.implementation.box.typeparams'
+        CONST String type=kotlin.String value="OK"

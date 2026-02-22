@@ -1,8 +1,8 @@
 FILE: Suspend.kt
-    package auto.implementation.box
+    package auto.implementation.box.invoke
 
     @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
-        public constructor(): R|auto/implementation/box/Test| {
+        public constructor(): R|auto/implementation/box/invoke/Test| {
             super<R|kotlin/Any|>()
         }
 
@@ -11,9 +11,9 @@ FILE: Suspend.kt
         }
 
         public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>|
+            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>|
 
-            private constructor(): R|auto/implementation/box/Test.Companion| {
+            private constructor(): R|auto/implementation/box/invoke/Test.Companion| {
                 super<R|kotlin/Any|>()
             }
 
@@ -21,8 +21,8 @@ FILE: Suspend.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>| = R|dev/rnett/inspekt/assertSuccessful|<R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>|>(String(Test.inspekt()), <L> = assertSuccessful@fun <anonymous>(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>| <inline=Inline, kind=UNKNOWN>  {
-            ^ Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.inspekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>| = R|dev/rnett/inspekt/assertSuccessful|<R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>|>(String(Test.inspekt()), <L> = assertSuccessful@fun <anonymous>(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>| <inline=Inline, kind=UNKNOWN>  {
+            ^ Q|auto/implementation/box/invoke/Test|.R|auto/implementation/box/invoke/Test.Companion.inspekt|()
         }
         )
         lval suspendFun: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
@@ -30,7 +30,7 @@ FILE: Suspend.kt
         }
         )
         R|kotlin/test/assertEquals|<R|kotlin/Boolean|>(Boolean(true), R|<local>/suspendFun|.R|dev/rnett/inspekt/FunctionLike.isSuspend|)
-        lval test: R|auto/implementation/box/Test| = R|auto/implementation/box/Test.Test|()
+        lval test: R|auto/implementation/box/invoke/Test| = R|auto/implementation/box/invoke/Test.Test|()
         R|kotlinx/coroutines/test/runTest|(<L> = runTest@fun R|kotlinx/coroutines/test/TestScope|.<anonymous>(): R|kotlin/Unit| <inline=NoInline>  {
             R|kotlin/test/assertEquals|<R|kotlin/Any?|>(Int(5), R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(suspend function invokeSuspend), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
                 ^ R|<local>/suspendFun|.R|dev/rnett/inspekt/FunctionLike.invokeSuspend|(<L> = invokeSuspend@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {

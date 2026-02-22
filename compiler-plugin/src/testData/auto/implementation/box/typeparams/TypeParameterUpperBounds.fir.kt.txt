@@ -1,0 +1,42 @@
+package auto.implementation.box.typeparams
+
+interface MultiBound<T> where T : Any, T : Comparable<T> {
+}
+
+fun box(): String {
+  val inspektion: Inspektion<MultiBound<*>> = InspektionResultV1</* null */>(kClass = MultiBound<T>::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["MultiBound"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["MultiBound"]), name = "equals", isAbstract = false, kotlin = MultiBound::equals/*<T>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["MultiBound"]), name = "hashCode", isAbstract = false, kotlin = MultiBound::hashCode/*<T>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.hashCode()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["MultiBound"]), name = "toString", isAbstract = false, kotlin = MultiBound::toString/*<T>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.toString()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = []), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): MultiBound<T> {
+    return it as MultiBound<T>
+  }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+    return it is MultiBound<T>
+  }
+, safeCast = local fun <anonymous>(it: Any): MultiBound<T>? {
+    return it as? MultiBound<T>
+  }
+, objectInstance = null, companionObject = null, typeParameters = arrayOf<TypeParameter>(elements = [TypeParameter(name = "T", index = 0, isReified = false, variance = 0, upperBounds = arrayOf<KType>(elements = [typeOf<Any>(), typeOf<Comparable<Any>>()]), annotations = arrayOf<Annotation>(elements = []))])).toModel()
+  val typeParam: TypeParameter = inspektion.<get-typeParameters>().get(index = 0)
+  assertEquals<String>(expected = "T", actual = typeParam.<get-name>())
+  assertEquals<Int>(expected = 2, actual = typeParam.<get-erasedUpperBounds>().<get-size>())
+  val boundClassNames: Set<String?> = toSet<String?>(/* <this> = map<KType, String?>(/* <this> = typeParam.<get-erasedUpperBounds>(), */ transform = local fun <anonymous>(it: KType): String? {
+    return { // BLOCK
+      val tmp_0: KClass<*>? = it.<get-classifier>() as? KClass<*>
+      when {
+        EQEQ(arg0 = tmp_0, arg1 = null) -> null
+        else -> tmp_0 /*as KClass<*> */.<get-simpleName>()
+      }
+    }
+  }
+) */)
+  assertTrue(actual = boundClassNames.contains(element = "Any"))
+  assertTrue(actual = boundClassNames.contains(element = "Comparable"))
+  return "OK"
+}

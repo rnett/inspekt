@@ -1,1 +1,1 @@
-- Move all error reporting to the frontend
+- Code reflection (i.e. bodies)? Can't access bodies

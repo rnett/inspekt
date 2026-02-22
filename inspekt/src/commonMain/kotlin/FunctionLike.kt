@@ -47,7 +47,7 @@ public sealed class FunctionLike(
      *
      * @throws FunctionInvocationException if invocation fails
      */
-    public open operator fun invoke(arguments: ArgumentList): Any? = wrapInvocation {
+    public operator fun invoke(arguments: ArgumentList): Any? = wrapInvocation {
         if (isSuspend) throw IllegalArgumentException("Can only invoke suspend function via invokeSuspend")
         assertInvokable()
         return invoker!!.invoke(arguments)
@@ -80,12 +80,14 @@ public sealed class FunctionLike(
 
 
     init {
-        if (isSuspend) {
-            require(invoker == null) { "Cannot specify a non-suspend invoker for a suspend function" }
-            require(suspendInvoker != null) { "Must specify a suspend invoker for a suspend function" }
-        } else {
-            require(invoker != null) { "Must specify a non-suspend invoker for a non-suspend function" }
-            require(suspendInvoker == null) { "Cannot specify a suspend invoker for a non-suspend function" }
+        if (isCallable) {
+            if (isSuspend) {
+                require(invoker == null) { "Cannot specify a non-suspend invoker for a suspend function" }
+                require(suspendInvoker != null) { "Must specify a suspend invoker for a suspend function" }
+            } else {
+                require(invoker != null) { "Must specify a non-suspend invoker for a non-suspend function" }
+                require(suspendInvoker == null) { "Cannot specify a suspend invoker for a non-suspend function" }
+            }
         }
     }
 
@@ -94,7 +96,8 @@ public sealed class FunctionLike(
     }
 
     /**
-     * Whether the method can be invoked. **Almost** always equal to `!isAbstract`.
+     * Whether the method can be invoked. **Almost** always equal to `!isAbstract`,
+     * but may be false if conditions (such as `reified` type parameters) prevent generating an invoker lambda.
      */
     public open val isCallable: Boolean get() = invoker != null || suspendInvoker != null
 
@@ -139,6 +142,8 @@ public class Constructor internal constructor(
      */
     public val forClass: Inspektion<*> by forClassRef
 
+    public val classTypeParameters: List<TypeParameter> get() = forClass.typeParameters
+
     public override fun toString(includeFullName: Boolean): String = buildString {
         append(if (includeFullName) name.toString() else "<init>")
         append("(")
@@ -170,6 +175,7 @@ public class SimpleFunction internal constructor(
     annotations: List<Annotation>,
     isAbstract: Boolean,
     parameters: Parameters,
+    public val typeParameters: List<TypeParameter>,
     returnType: KType,
     inheritedFrom: KClass<*>?,
     /**

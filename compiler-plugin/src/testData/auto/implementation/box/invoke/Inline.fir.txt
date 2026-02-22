@@ -1,0 +1,27 @@
+FILE: Inline.kt
+    package auto.implementation.box.invoke
+
+    @R|kotlin/Suppress|(names = vararg(String(NOTHING_TO_INLINE))) public final class Test : R|kotlin/Any| {
+        public constructor(): R|auto/implementation/box/invoke/Test| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final inline fun test(): R|kotlin/Int| {
+            ^test Int(5)
+        }
+
+        public final inline fun <reified R : R|kotlin/Comparable<R>|> testReified(): R|kotlin/Int| {
+            ^testReified Int(6)
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval cls: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/Test|>(<getClass>(Q|auto/implementation/box/invoke/Test|))
+        lval inst: R|auto/implementation/box/invoke/Test| = R|auto/implementation/box/invoke/Test.Test|()
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(5), (R|<local>/cls|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.function: R|dev/rnett/inspekt/SimpleFunction|>|(String(test)).R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            this@R|special/anonymous|.R|dev/rnett/inspekt/ArgumentList.Builder.dispatchReceiver| = R|auto/implementation/box/invoke/Test.Test|()
+        }
+        ) as R|kotlin/Int|), String(inline invocation))
+        R|kotlin/test/assertFalse|(R|<local>/cls|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.function: R|dev/rnett/inspekt/SimpleFunction|>|(String(testReified)).R|dev/rnett/inspekt/FunctionLike.isCallable|)
+        ^box String(OK)
+    }

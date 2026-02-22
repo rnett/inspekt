@@ -1,0 +1,39 @@
+package auto.implementation.box.typeparams
+
+interface Interdependent<T : Any?, U : List<T>> {
+}
+
+fun box(): String {
+  val inspektion: Inspektion<Interdependent<*, *>> = InspektionResultV1</* null */>(kClass = Interdependent<T, U>::class, isAbstract = true, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["Interdependent"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["Interdependent"]), name = "equals", isAbstract = false, kotlin = Interdependent::equals/*<T, U>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["Interdependent"]), name = "hashCode", isAbstract = false, kotlin = Interdependent::hashCode/*<T, U>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.hashCode()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["Interdependent"]), name = "toString", isAbstract = false, kotlin = Interdependent::toString/*<T, U>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.toString()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = []), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): Interdependent<T, U> {
+    return it as Interdependent<T, U>
+  }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+    return it is Interdependent<T, U>
+  }
+, safeCast = local fun <anonymous>(it: Any): Interdependent<T, U>? {
+    return it as? Interdependent<T, U>
+  }
+, objectInstance = null, companionObject = null, typeParameters = arrayOf<TypeParameter>(elements = [TypeParameter(name = "T", index = 0, isReified = false, variance = 0, upperBounds = arrayOf<KType>(elements = [typeOf<Any?>()]), annotations = arrayOf<Annotation>(elements = [])), TypeParameter(name = "U", index = 1, isReified = false, variance = 0, upperBounds = arrayOf<KType>(elements = [typeOf<List<Any?>>()]), annotations = arrayOf<Annotation>(elements = []))])).toModel()
+  val typeParams: List<TypeParameter> = inspektion.<get-typeParameters>()
+  assertEquals<Int>(expected = 2, actual = typeParams.<get-size>())
+  assertEquals<String>(expected = "T", actual = typeParams.get(index = 0).<get-name>())
+  assertEquals<String>(expected = "U", actual = typeParams.get(index = 1).<get-name>())
+  val uUpperBound: KType = typeParams.get(index = 1).<get-erasedUpperBounds>().get(index = 0)
+  assertEquals<String?>(expected = "List", actual = { // BLOCK
+    val tmp_0: KClass<*>? = uUpperBound.<get-classifier>() as? KClass<*>
+    when {
+      EQEQ(arg0 = tmp_0, arg1 = null) -> null
+      else -> tmp_0 /*as KClass<*> */.<get-simpleName>()
+    }
+  })
+  return "OK"
+}

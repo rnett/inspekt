@@ -25,6 +25,7 @@ object Names {
             val safeCast = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_safeCast
             val objectInstance = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_objectInstance
             val companionObject = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_companionObject
+            val typeParameters = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_typeParameters
         }
 
         object FunctionCtor {
@@ -41,6 +42,7 @@ object Names {
             val invoker = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_invoker
             val suspendInvoker = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_suspendInvoker
             val inheritedFrom = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_inheritedFrom
+            val typeParameters = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_typeParameters
         }
 
         object ParamCtor {
@@ -77,6 +79,14 @@ object Names {
             val originalProperty = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_originalProperty
             val args = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_args
             val isSetter = Symbols.inspekt.dev_rnett_inspekt_internal_v1ProxyHelper_isSetter
+        }
+        object TypeParameterCtor {
+            val name = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_name
+            val index = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_index
+            val isReified = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_isReified
+            val variance = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_variance
+            val upperBounds = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_upperBounds
+            val annotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_annotations
         }
     }
 

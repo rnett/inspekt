@@ -4,8 +4,6 @@ import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 
-//TODO type parameters, for everything
-
 /**
  * The result of inspekting a class.
  */
@@ -15,6 +13,7 @@ public class Inspektion<T : Any> internal constructor(
     public val name: ClassName,
     public val supertypes: Set<KType>,
     override val annotations: List<Annotation>,
+    public val typeParameters: List<TypeParameter>,
     public val objectInstance: T?,
     public val functions: List<SimpleFunction>,
     public val properties: List<Property>,
@@ -47,7 +46,7 @@ public class Inspektion<T : Any> internal constructor(
     public val declaredFunctions: List<SimpleFunction> get() = functions.filter { it.isDeclared }
     public val declaredProperties: List<Property> get() = properties.filter { it.isDeclared }
 
-    public fun singleProperty(name: String): Property = properties.single { it.shortName == name }
+    public fun property(name: String): Property = properties.single { it.shortName == name }
     public fun function(name: String): SimpleFunction = functions.single { it.shortName == name }
 
     override fun toString(): String = toString(false)

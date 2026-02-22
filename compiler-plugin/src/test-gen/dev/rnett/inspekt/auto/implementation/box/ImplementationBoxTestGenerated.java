@@ -11,6 +11,7 @@ import dev.rnett.kcp.development.testing.generation.configuration.ConfigurationH
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder;
 import dev.rnett.kcp.development.testing.tests.levels.AbstractLeveledBoxTest;
 import org.jetbrains.kotlin.test.TestMetadata;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -43,24 +44,6 @@ public class ImplementationBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
-  @TestMetadata("ComplexParameters.kt")
-  public void testComplexParameters() {
-    runTest("src/testData/auto/implementation/box/ComplexParameters.kt");
-  }
-
-  @Test
-  @TestMetadata("DefaultArgs.kt")
-  public void testDefaultArgs() {
-    runTest("src/testData/auto/implementation/box/DefaultArgs.kt");
-  }
-
-  @Test
-  @TestMetadata("DependentDefaultArgs.kt")
-  public void testDependentDefaultArgs() {
-    runTest("src/testData/auto/implementation/box/DependentDefaultArgs.kt");
-  }
-
-  @Test
   @TestMetadata("Inheritance.kt")
   public void testInheritance() {
     runTest("src/testData/auto/implementation/box/Inheritance.kt");
@@ -84,9 +67,91 @@ public class ImplementationBoxTestGenerated extends AbstractLeveledBoxTest {
     runTest("src/testData/auto/implementation/box/Sealed.kt");
   }
 
-  @Test
-  @TestMetadata("Suspend.kt")
-  public void testSuspend() {
-    runTest("src/testData/auto/implementation/box/Suspend.kt");
+  @Nested
+  @TestMetadata("src/testData/auto/implementation/box/invoke")
+  @TestDataPath("$PROJECT_ROOT")
+  @TestWithLevel(level = TestLevel.Diagnostics)
+  @TestWithLevel(level = TestLevel.FIR)
+  @TestWithLevel(level = TestLevel.IR)
+  @TestWithLevel(level = TestLevel.Run)
+  public class Invoke {
+    @Test
+    public void testAllFilesPresentInInvoke() {
+      KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("src/testData/auto/implementation/box/invoke"), Pattern.compile("^(.+)\\.kt$"), null, true);
+    }
+
+    @Test
+    @TestMetadata("ComplexParameters.kt")
+    public void testComplexParameters() {
+      runTest("src/testData/auto/implementation/box/invoke/ComplexParameters.kt");
+    }
+
+    @Test
+    @TestMetadata("DefaultArgs.kt")
+    public void testDefaultArgs() {
+      runTest("src/testData/auto/implementation/box/invoke/DefaultArgs.kt");
+    }
+
+    @Test
+    @TestMetadata("DependentDefaultArgs.kt")
+    public void testDependentDefaultArgs() {
+      runTest("src/testData/auto/implementation/box/invoke/DependentDefaultArgs.kt");
+    }
+
+    @Test
+    @TestMetadata("Inline.kt")
+    public void testInline() {
+      runTest("src/testData/auto/implementation/box/invoke/Inline.kt");
+    }
+
+    @Test
+    @TestMetadata("Suspend.kt")
+    public void testSuspend() {
+      runTest("src/testData/auto/implementation/box/invoke/Suspend.kt");
+    }
+  }
+
+  @Nested
+  @TestMetadata("src/testData/auto/implementation/box/typeparams")
+  @TestDataPath("$PROJECT_ROOT")
+  @TestWithLevel(level = TestLevel.Diagnostics)
+  @TestWithLevel(level = TestLevel.FIR)
+  @TestWithLevel(level = TestLevel.IR)
+  @TestWithLevel(level = TestLevel.Run)
+  public class Typeparams {
+    @Test
+    public void testAllFilesPresentInTypeparams() {
+      KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("src/testData/auto/implementation/box/typeparams"), Pattern.compile("^(.+)\\.kt$"), null, true);
+    }
+
+    @Test
+    @TestMetadata("FunctionTypeParameters.kt")
+    public void testFunctionTypeParameters() {
+      runTest("src/testData/auto/implementation/box/typeparams/FunctionTypeParameters.kt");
+    }
+
+    @Test
+    @TestMetadata("TypeParameterInterdependencies.kt")
+    public void testTypeParameterInterdependencies() {
+      runTest("src/testData/auto/implementation/box/typeparams/TypeParameterInterdependencies.kt");
+    }
+
+    @Test
+    @TestMetadata("TypeParameterUpperBounds.kt")
+    public void testTypeParameterUpperBounds() {
+      runTest("src/testData/auto/implementation/box/typeparams/TypeParameterUpperBounds.kt");
+    }
+
+    @Test
+    @TestMetadata("TypeParameterVariance.kt")
+    public void testTypeParameterVariance() {
+      runTest("src/testData/auto/implementation/box/typeparams/TypeParameterVariance.kt");
+    }
+
+    @Test
+    @TestMetadata("TypeParameters.kt")
+    public void testTypeParameters() {
+      runTest("src/testData/auto/implementation/box/typeparams/TypeParameters.kt");
+    }
   }
 }

@@ -1,0 +1,15 @@
+FILE: TypeParameterInterdependencies.kt
+    package auto.implementation.box.typeparams
+
+    public abstract interface Interdependent<T, U : R|kotlin/collections/List<T>|> : R|kotlin/Any| {
+    }
+    public final fun box(): R|kotlin/String| {
+        lval inspektion: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/typeparams/Interdependent<*, *>>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/typeparams/Interdependent<*, *>|>(<getClass>(Q|auto/implementation/box/typeparams/Interdependent|))
+        lval typeParams: R|kotlin/collections/List<dev/rnett/inspekt/TypeParameter>| = R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.typeParameters: R|kotlin/collections/List<dev/rnett/inspekt/TypeParameter>|>|
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(2), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(T), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.name|)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(U), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(1)).R|dev/rnett/inspekt/TypeParameter.name|)
+        lval uUpperBound: R|kotlin/reflect/KType| = R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(1)).R|dev/rnett/inspekt/TypeParameter.erasedUpperBounds|.R|SubstitutionOverride<kotlin/collections/List.get: R|kotlin/reflect/KType|>|(Int(0))
+        R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(List), (R|<local>/uUpperBound|.R|kotlin/reflect/KType.classifier| as? R|kotlin/reflect/KClass<*>|)?.{ $subj$.R|SubstitutionOverride<kotlin/reflect/KClass.simpleName: R|kotlin/String?|>| })
+        ^box String(OK)
+    }

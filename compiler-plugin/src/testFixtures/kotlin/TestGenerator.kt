@@ -8,7 +8,8 @@ object TestGenerator : BaseTestGenerator() {
         "dev.rnett.inspekt.*",
         "dev.rnett.inspekt.proxy.*",
         "kotlinx.coroutines.*",
-        "kotlinx.coroutines.test.*"
+        "kotlinx.coroutines.test.*",
+        "kotlin.reflect.*"
     )
     override val optIns: Set<String> = setOf(
         "dev.rnett.inspekt.InspektCompilerPluginIntrinsic"

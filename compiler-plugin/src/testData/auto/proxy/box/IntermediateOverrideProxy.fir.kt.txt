@@ -24,19 +24,19 @@ fun box(): String {
       private /* final field */ val proxyMethod_1_test: Any = Function(packageNames = arrayOf<String>(elements = ["auto", "proxy", "box"]), classNames = arrayOf<String>(elements = ["Intermediate"]), name = "test", isAbstract = false, kotlin = Intermediate::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Intermediate>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Intermediate>.test()
       }
-, suspendInvoker = null, inheritedFrom = null).toModel()
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
       private /* final field */ val proxyMethod_2_equals: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "equals", isAbstract = false, kotlin = Any::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Any>.equals(other = args.v1Get(globalIndex = 1) as Any?)
       }
-, suspendInvoker = null, inheritedFrom = null).toModel()
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
       private /* final field */ val proxyMethod_3_hashCode: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "hashCode", isAbstract = false, kotlin = Any::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Any>.hashCode()
       }
-, suspendInvoker = null, inheritedFrom = null).toModel()
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
       private /* final field */ val proxyMethod_4_toString: Any = Function(packageNames = arrayOf<String>(elements = ["kotlin"]), classNames = arrayOf<String>(elements = ["Any"]), name = "toString", isAbstract = false, kotlin = Any::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
         return super<Any>.toString()
       }
-, suspendInvoker = null, inheritedFrom = null).toModel()
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
       constructor() /* primary */ {
         super/*Any*/()
         /* <init>() */

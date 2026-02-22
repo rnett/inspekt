@@ -1,0 +1,27 @@
+FILE: TypeParameters.kt
+    package auto.implementation.box.typeparams
+
+    public final class GenericClass<T, R> : R|kotlin/Any| {
+        public constructor<T, R>(): R|auto/implementation/box/typeparams/GenericClass<T, R>| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final fun test(): R|T| {
+            ^test R|kotlin/TODO|()
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval inspektion: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/typeparams/GenericClass<*, *>>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/typeparams/GenericClass<*, *>|>(<getClass>(Q|auto/implementation/box/typeparams/GenericClass|))
+        lval typeParams: R|kotlin/collections/List<dev/rnett/inspekt/TypeParameter>| = R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.typeParameters: R|kotlin/collections/List<dev/rnett/inspekt/TypeParameter>|>|
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(2), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(T), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.name|)
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(0), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.index|)
+        R|kotlin/test/assertFalse|(R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.isReified|)
+        R|kotlin/test/assertEquals|<R|dev/rnett/inspekt/TypeParameter.Variance|>(Q|dev/rnett/inspekt/TypeParameter.Variance|.R|dev/rnett/inspekt/TypeParameter.Variance.INVARIANT|, R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.variance|)
+        R|kotlin/test/assertEquals|<R|kotlin/String|>(String(R), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(1)).R|dev/rnett/inspekt/TypeParameter.name|)
+        R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(1), R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(1)).R|dev/rnett/inspekt/TypeParameter.index|)
+        R|kotlin/test/assertFalse|(R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(1)).R|dev/rnett/inspekt/TypeParameter.isReified|)
+        R|kotlin/test/assertEquals|<R|dev/rnett/inspekt/TypeParameter.Variance|>(Q|dev/rnett/inspekt/TypeParameter.Variance|.R|dev/rnett/inspekt/TypeParameter.Variance.INVARIANT|, R|<local>/typeParams|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(1)).R|dev/rnett/inspekt/TypeParameter.variance|)
+        ^box String(OK)
+    }

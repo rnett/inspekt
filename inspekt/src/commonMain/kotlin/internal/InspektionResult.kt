@@ -57,7 +57,8 @@ internal class InspektionResultV1<T : Any>
     @param:ExportSymbol private val isInstance: (Any) -> Boolean,
     @param:ExportSymbol private val safeCast: (Any) -> T?,
     @param:ExportSymbol private val objectInstance: T?,
-    @param:ExportSymbol private val companionObject: InspektionResultV1<Any>?
+    @param:ExportSymbol private val companionObject: InspektionResultV1<Any>?,
+    @param:ExportSymbol private val typeParameters: Array<TypeParameter>
 ) : InspektionResult<T>() {
 
     internal val name = ClassName(PackageName(packageNames.toList()), classNames.toList())
@@ -73,6 +74,7 @@ internal class InspektionResultV1<T : Any>
             name,
             supertypes.toSet(),
             annotations.toList(),
+            typeParameters.map { it.toModel() },
             objectInstance,
             functions.map {
                 it.toModel()
@@ -109,6 +111,7 @@ internal class InspektionResultV1<T : Any>
         @param:ExportSymbol private val invoker: ((ArgumentsProviderV1) -> Any?)?,
         @param:ExportSymbol private val suspendInvoker: (suspend (ArgumentsProviderV1) -> Any?)?,
         @param:ExportSymbol private val inheritedFrom: KClass<*>?,
+        @param:ExportSymbol private val typeParameters: Array<TypeParameter>,
     ) {
         private val name = CallableName(packageNames.toList(), classNames?.toList(), name)
 
@@ -120,6 +123,7 @@ internal class InspektionResultV1<T : Any>
             annotations.toList(),
             isAbstract,
             Parameters(parameters.map { it.toModel() }),
+            typeParameters.map { it.toModel() },
             returnType,
             inheritedFrom,
             isSuspend,
@@ -248,6 +252,39 @@ internal class InspektionResultV1<T : Any>
                     inheritedFrom
                 )
             }.also { ref = it }
+        }
+    }
+
+    @PublishedApi
+    @ExportSymbol
+    internal class TypeParameter @ExportSymbol constructor(
+        @param:ExportSymbol val name: String,
+        @param:ExportSymbol val index: Int,
+        @param:ExportSymbol val isReified: Boolean,
+        /**
+         * 0 -> Invariant
+         * 1 -> In
+         * 2 -> Out
+         */
+        @param:ExportSymbol val variance: Int,
+        @param:ExportSymbol val upperBounds: Array<KType>,
+        @param:ExportSymbol val annotations: Array<Annotation>
+    ) {
+        fun toModel(): dev.rnett.inspekt.TypeParameter {
+            val variance = when (variance) {
+                0 -> dev.rnett.inspekt.TypeParameter.Variance.INVARIANT
+                1 -> dev.rnett.inspekt.TypeParameter.Variance.IN
+                2 -> dev.rnett.inspekt.TypeParameter.Variance.OUT
+                else -> error("Unexpected variance index: $variance")
+            }
+            return dev.rnett.inspekt.TypeParameter(
+                name,
+                index,
+                variance,
+                upperBounds.toList(),
+                isReified,
+                annotations.toList()
+            )
         }
     }
 }

@@ -41,6 +41,7 @@ import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrParameterKind
 import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
+import org.jetbrains.kotlin.ir.declarations.IrTypeParameter
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.expressions.IrExpression
@@ -59,6 +60,7 @@ import org.jetbrains.kotlin.ir.util.companionObject
 import org.jetbrains.kotlin.ir.util.constructors
 import org.jetbrains.kotlin.ir.util.deepCopyWithSymbols
 import org.jetbrains.kotlin.ir.util.defaultType
+import org.jetbrains.kotlin.ir.util.eraseTypeParameters
 import org.jetbrains.kotlin.ir.util.functions
 import org.jetbrains.kotlin.ir.util.hasDefaultValue
 import org.jetbrains.kotlin.ir.util.isFakeOverride
@@ -66,6 +68,7 @@ import org.jetbrains.kotlin.ir.util.isSuspend
 import org.jetbrains.kotlin.ir.util.parentAsClass
 import org.jetbrains.kotlin.ir.util.parentClassOrNull
 import org.jetbrains.kotlin.ir.util.properties
+import org.jetbrains.kotlin.types.Variance
 
 @OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
@@ -76,6 +79,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     private val ImplFunction get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function.asClassId())!!
     private val ImplProperty get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property.asClassId())!!
     private val ImplParam get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param.asClassId())!!
+    private val ImplTypeParameter get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter.asClassId())!!
     private val ArgumentsProviderV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1.asClassId())!!
 
     private val SpektFunction_toSpekt get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_toModel.asCallableId()).single()
@@ -135,6 +139,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[safeCast] = creatSafeCastLambda(declaration)
                 arguments[objectInstance] = if (declaration.kind == ClassKind.OBJECT) irGetObject(declaration.symbol) else irNull()
                 arguments[companionObject] = declaration.companionObject()?.takeIf { it.visibility.isPublicAPI }?.let { createInspektionImplementation(it) } ?: irNull()
+                arguments[typeParameters] = irArrayOf(ImplTypeParameter.defaultType, declaration.typeParameters.map { createTypeParamObject(it) })
             }
         }
     }
@@ -187,7 +192,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                     endOffset,
                     builtIns.getKPropertyClass(property.isVar, property.getter!!.parameters.size).defaultType,
                     property.symbol,
-                    typeArgumentsCount = property.getter?.typeParameters?.size ?: 0,
+                    typeArgumentsCount = 0,
                     field = property.backingField?.symbol,
                     getter = property.getter?.symbol,
                     setter = property.setter?.symbol,
@@ -206,7 +211,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         if (function.parameters.count { it.hasDefaultValue() } > 32) {
             this@SpektGenerator.context.messageCollector.report(
                 CompilerMessageSeverity.ERROR,
-                "Can not generate spekt for function ${function.callableId.asSingleFqName().asString()} with more than 32 default args.",
+                "Can not generate inspektion for function ${function.callableId.asSingleFqName().asString()} with more than 32 default args.",
                 context.reportLocation
             )
             return irNull()
@@ -215,6 +220,8 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         val classNames = function.callableId.className?.pathSegments()?.map { it.asString() }
 
         val originalType = if (function.isFakeOverride) function.realOverrideTarget.parentAsClass else null
+
+        val owningClassTypeParams = function.parentClassOrNull?.typeParameters?.size ?: 0
 
         return irCall(ImplFunction.constructors.single()).apply {
             with(Names.Impl.FunctionCtor) {
@@ -227,17 +234,30 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                     endOffset,
                     builtIns.kFunctionN(function.parameters.size).defaultType,
                     function.symbol,
-                    function.typeParameters.size,
+                    owningClassTypeParams + function.typeParameters.size,
                     function.symbol
-                )
+                ).apply {
+                    repeat(owningClassTypeParams) {
+                        this.typeArguments[it] = function.parentAsClass.typeParameters[it].defaultType
+                    }
+                    function.typeParameters.forEachIndexed { index, typeParam ->
+                        this.typeArguments[index + owningClassTypeParams] = typeParam.defaultType
+                    }
+                }
                 arguments[annotations] = irArrayOf(builtIns.annotationType, function.annotations.map { it.deepCopyWithSymbols(parent) })
                 arguments[parameters] = irArrayOf(ImplParam.defaultType, function.parameters.map { createParamObject(function, it) })
-                arguments[returnType] = irTypeOf(function.returnType)
+                arguments[returnType] = irTypeOf(function.returnType.eraseTypeParameters())
                 arguments[isSuspend] = irBoolean(function.isSuspend)
                 arguments[isPrimaryCtor] = irBoolean(function is IrConstructor && function.isPrimary)
-                arguments[invoker] = if (!function.isSuspend) createInvokerLambda(false, function) else irNull()
-                arguments[suspendInvoker] = if (function.isSuspend) createInvokerLambda(true, function) else irNull()
+                if (function.typeParameters.any { it.isReified }) {
+                    arguments[invoker] = irNull()
+                    arguments[suspendInvoker] = irNull()
+                } else {
+                    arguments[invoker] = if (!function.isSuspend) createInvokerLambda(false, function) else irNull()
+                    arguments[suspendInvoker] = if (function.isSuspend) createInvokerLambda(true, function) else irNull()
+                }
                 arguments[inheritedFrom] = originalType?.let { IrClassReferenceImpl(startOffset, endOffset, builtIns.kClassClass.defaultType, it.symbol, it.defaultType) } ?: irNull()
+                arguments[typeParameters] = irArrayOf(ImplTypeParameter.defaultType, function.typeParameters.map { createTypeParamObject(it) })
             }
         }
     }
@@ -248,7 +268,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[name] = irString(param.name.asString())
                 arguments[annotations] = irArrayOf(builtIns.annotationType, param.annotations.map { it.deepCopyWithSymbols(parent) })
                 arguments[hasDefault] = irBoolean(param.hasDefaultValue())
-                arguments[type] = irTypeOf(param.type)
+                arguments[type] = irTypeOf(param.type.eraseTypeParameters())
                 arguments[globalIndex] = irInt(param.indexInParameters)
 
                 val numBefore = function.parameters.count { it.kind < param.kind }
@@ -263,6 +283,25 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                         IrParameterKind.Regular -> 3
                     }
                 )
+            }
+        }
+    }
+
+    private fun IrBuilderWithScope.createTypeParamObject(param: IrTypeParameter): IrExpression {
+        return irCall(ImplTypeParameter.constructors.single()).apply {
+            with(Names.Impl.TypeParameterCtor) {
+                arguments[name] = irString(param.name.asString())
+                arguments[index] = irInt(param.index)
+                arguments[isReified] = irBoolean(param.isReified)
+                arguments[variance] = irInt(
+                    when (param.variance) {
+                        Variance.INVARIANT -> 0
+                        Variance.IN_VARIANCE -> 1
+                        Variance.OUT_VARIANCE -> 2
+                    }
+                )
+                arguments[upperBounds] = irArrayOf(builtIns.kTypeClass.defaultType, param.superTypes.map { irTypeOf(it.eraseTypeParameters()) })
+                arguments[annotations] = irArrayOf(builtIns.annotationClass.defaultType, param.annotations.map { it.deepCopyWithSymbols(parent) })
             }
         }
     }

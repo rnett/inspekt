@@ -1,0 +1,36 @@
+FILE: FunctionTypeParameters.kt
+    package auto.implementation.box.typeparams
+
+    public final class FunctionTypeParams : R|kotlin/Any| {
+        public constructor(): R|auto/implementation/box/typeparams/FunctionTypeParams| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final fun <T> nonRefied(r: R|T|): R|T| {
+            ^nonRefied R|<local>/r|
+        }
+
+        public final inline fun <reified R : R|kotlin/Any|> genericFunction(r: R|R|): R|R| {
+            ^genericFunction R|<local>/r|
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval inspektion: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/typeparams/FunctionTypeParams>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/typeparams/FunctionTypeParams|>(<getClass>(Q|auto/implementation/box/typeparams/FunctionTypeParams|))
+        R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.function: R|dev/rnett/inspekt/SimpleFunction|>|(String(nonRefied)).R|kotlin/apply|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = apply@fun R|dev/rnett/inspekt/SimpleFunction|.<anonymous>(): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            R|kotlin/test/assertEquals|<R|kotlin/String|>(String(T), this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.name|)
+            R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(0), this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.index|)
+            R|kotlin/test/assertFalse|(this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.isReified|)
+        }
+        )
+        R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.function: R|dev/rnett/inspekt/SimpleFunction|>|(String(genericFunction)).R|kotlin/apply|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = apply@fun R|dev/rnett/inspekt/SimpleFunction|.<anonymous>(): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {
+            R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(1), this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|)
+            R|kotlin/test/assertEquals|<R|kotlin/String|>(String(R), this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.name|)
+            R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(0), this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.index|)
+            R|kotlin/test/assertTrue|(this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.isReified|)
+            R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(1), this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.erasedUpperBounds|.R|SubstitutionOverride<kotlin/collections/List.size: R|kotlin/Int|>|)
+            R|kotlin/test/assertEquals|<R|kotlin/String?|>(String(Any), (this@R|special/anonymous|.R|dev/rnett/inspekt/SimpleFunction.typeParameters|.R|SubstitutionOverride<kotlin/collections/List.get: R|dev/rnett/inspekt/TypeParameter|>|(Int(0)).R|dev/rnett/inspekt/TypeParameter.erasedUpperBounds|.R|SubstitutionOverride<kotlin/collections/List.get: R|kotlin/reflect/KType|>|(Int(0)).R|kotlin/reflect/KType.classifier| as? R|kotlin/reflect/KClass<*>|)?.{ $subj$.R|SubstitutionOverride<kotlin/reflect/KClass.simpleName: R|kotlin/String?|>| })
+        }
+        )
+        ^box String(OK)
+    }

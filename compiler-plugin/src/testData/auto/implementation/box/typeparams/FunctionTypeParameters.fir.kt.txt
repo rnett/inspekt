@@ -1,0 +1,68 @@
+package auto.implementation.box.typeparams
+
+class FunctionTypeParams {
+  constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  inline fun <reified R : Any> genericFunction(r: R): R {
+    return r
+  }
+
+  fun <T : Any?> nonRefied(r: T): T {
+    return r
+  }
+
+}
+
+fun box(): String {
+  val inspektion: Inspektion<FunctionTypeParams> = InspektionResultV1</* null */>(kClass = FunctionTypeParams::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["FunctionTypeParams"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["FunctionTypeParams"]), name = "nonRefied", isAbstract = false, kotlin = FunctionTypeParams::nonRefied/*<T>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<FunctionTypeParams>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "r", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Any?>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as FunctionTypeParams.nonRefied</* null */>(r = args.v1Get(globalIndex = 1) as T)
+  }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [TypeParameter(name = "T", index = 0, isReified = false, variance = 0, upperBounds = arrayOf<KType>(elements = [typeOf<Any?>()]), annotations = arrayOf<Annotation>(elements = []))])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["FunctionTypeParams"]), name = "genericFunction", isAbstract = false, kotlin = FunctionTypeParams::genericFunction/*<R>() */, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<FunctionTypeParams>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "r", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Any>(), isSuspend = false, isPrimaryCtor = false, invoker = null, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [TypeParameter(name = "R", index = 0, isReified = true, variance = 0, upperBounds = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []))])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["FunctionTypeParams"]), name = "equals", isAbstract = false, kotlin = FunctionTypeParams::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["FunctionTypeParams"]), name = "hashCode", isAbstract = false, kotlin = FunctionTypeParams::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.hashCode()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["FunctionTypeParams"]), name = "toString", isAbstract = false, kotlin = FunctionTypeParams::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return args.v1Get(globalIndex = 0) as Any.toString()
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "typeparams"]), classNames = arrayOf<String>(elements = ["FunctionTypeParams"]), name = "<init>", isAbstract = false, kotlin = ::FunctionTypeParams, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<FunctionTypeParams>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return FunctionTypeParams()
+  }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = []))]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): FunctionTypeParams {
+    return it as FunctionTypeParams
+  }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+    return it is FunctionTypeParams
+  }
+, safeCast = local fun <anonymous>(it: Any): FunctionTypeParams? {
+    return it as? FunctionTypeParams
+  }
+, objectInstance = null, companionObject = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
+  apply<SimpleFunction>(/* <this> = inspektion.function(name = "nonRefied"), */ block = local fun SimpleFunction.<anonymous>() {
+    assertEquals<String>(expected = "T", actual = $this$apply.<get-typeParameters>().get(index = 0).<get-name>())
+    assertEquals<Int>(expected = 0, actual = $this$apply.<get-typeParameters>().get(index = 0).<get-index>())
+    assertFalse(actual = $this$apply.<get-typeParameters>().get(index = 0).<get-isReified>())
+  }
+) /*~> Unit */
+  apply<SimpleFunction>(/* <this> = inspektion.function(name = "genericFunction"), */ block = local fun SimpleFunction.<anonymous>() {
+    assertEquals<Int>(expected = 1, actual = $this$apply.<get-typeParameters>().<get-size>())
+    assertEquals<String>(expected = "R", actual = $this$apply.<get-typeParameters>().get(index = 0).<get-name>())
+    assertEquals<Int>(expected = 0, actual = $this$apply.<get-typeParameters>().get(index = 0).<get-index>())
+    assertTrue(actual = $this$apply.<get-typeParameters>().get(index = 0).<get-isReified>())
+    assertEquals<Int>(expected = 1, actual = $this$apply.<get-typeParameters>().get(index = 0).<get-erasedUpperBounds>().<get-size>())
+    assertEquals<String?>(expected = "Any", actual = { // BLOCK
+      val tmp_0: KClass<*>? = $this$apply.<get-typeParameters>().get(index = 0).<get-erasedUpperBounds>().get(index = 0).<get-classifier>() as? KClass<*>
+      when {
+        EQEQ(arg0 = tmp_0, arg1 = null) -> null
+        else -> tmp_0 /*as KClass<*> */.<get-simpleName>()
+      }
+    })
+  }
+) /*~> Unit */
+  return "OK"
+}

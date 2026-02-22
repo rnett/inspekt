@@ -54,12 +54,12 @@ abstract class dev.rnett.inspekt/QualifiedName { // dev.rnett.inspekt/QualifiedN
 }
 
 final class <#A: kotlin/Any> dev.rnett.inspekt.internal/InspektionResultV1 : dev.rnett.inspekt.internal/InspektionResult<#A> { // dev.rnett.inspekt.internal/InspektionResultV1|null[0]
-    constructor <init>(kotlin.reflect/KClass<*>, kotlin/Boolean, kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>, kotlin/Array<kotlin.reflect/KType>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Function>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Property>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Function>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1<out #A>>?, kotlin/Function1<kotlin/Any, #A>, kotlin/Function1<kotlin/Any, kotlin/Boolean>, kotlin/Function1<kotlin/Any, #A?>, #A?, dev.rnett.inspekt.internal/InspektionResultV1<kotlin/Any>?) // dev.rnett.inspekt.internal/InspektionResultV1.<init>|<init>(kotlin.reflect.KClass<*>;kotlin.Boolean;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.reflect.KType>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out|1:0>>?;kotlin.Function1<kotlin.Any,1:0>;kotlin.Function1<kotlin.Any,kotlin.Boolean>;kotlin.Function1<kotlin.Any,1:0?>;1:0?;dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?){}[0]
+    constructor <init>(kotlin.reflect/KClass<*>, kotlin/Boolean, kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>, kotlin/Array<kotlin.reflect/KType>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Function>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Property>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Function>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1<out #A>>?, kotlin/Function1<kotlin/Any, #A>, kotlin/Function1<kotlin/Any, kotlin/Boolean>, kotlin/Function1<kotlin/Any, #A?>, #A?, dev.rnett.inspekt.internal/InspektionResultV1<kotlin/Any>?, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter>) // dev.rnett.inspekt.internal/InspektionResultV1.<init>|<init>(kotlin.reflect.KClass<*>;kotlin.Boolean;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>;kotlin.Array<kotlin.reflect.KType>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Property>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Function>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1<out|1:0>>?;kotlin.Function1<kotlin.Any,1:0>;kotlin.Function1<kotlin.Any,kotlin.Boolean>;kotlin.Function1<kotlin.Any,1:0?>;1:0?;dev.rnett.inspekt.internal.InspektionResultV1<kotlin.Any>?;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>){}[0]
 
     final fun toModel(): dev.rnett.inspekt/Inspektion<#A> // dev.rnett.inspekt.internal/InspektionResultV1.toModel|toModel(){}[0]
 
     final class Function { // dev.rnett.inspekt.internal/InspektionResultV1.Function|null[0]
-        constructor <init>(kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>?, kotlin/String, kotlin/Boolean, kotlin.reflect/KFunction<*>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Param>, kotlin.reflect/KType, kotlin/Boolean, kotlin/Boolean, kotlin/Function1<dev.rnett.inspekt.internal/ArgumentsProviderV1, kotlin/Any?>?, kotlin.coroutines/SuspendFunction1<dev.rnett.inspekt.internal/ArgumentsProviderV1, kotlin/Any?>?, kotlin.reflect/KClass<*>?) // dev.rnett.inspekt.internal/InspektionResultV1.Function.<init>|<init>(kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>?;kotlin.String;kotlin.Boolean;kotlin.reflect.KFunction<*>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>;kotlin.reflect.KType;kotlin.Boolean;kotlin.Boolean;kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1,kotlin.Any?>?;kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1,kotlin.Any?>?;kotlin.reflect.KClass<*>?){}[0]
+        constructor <init>(kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>?, kotlin/String, kotlin/Boolean, kotlin.reflect/KFunction<*>, kotlin/Array<kotlin/Annotation>, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.Param>, kotlin.reflect/KType, kotlin/Boolean, kotlin/Boolean, kotlin/Function1<dev.rnett.inspekt.internal/ArgumentsProviderV1, kotlin/Any?>?, kotlin.coroutines/SuspendFunction1<dev.rnett.inspekt.internal/ArgumentsProviderV1, kotlin/Any?>?, kotlin.reflect/KClass<*>?, kotlin/Array<dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter>) // dev.rnett.inspekt.internal/InspektionResultV1.Function.<init>|<init>(kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>?;kotlin.String;kotlin.Boolean;kotlin.reflect.KFunction<*>;kotlin.Array<kotlin.Annotation>;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>;kotlin.reflect.KType;kotlin.Boolean;kotlin.Boolean;kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1,kotlin.Any?>?;kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1,kotlin.Any?>?;kotlin.reflect.KClass<*>?;kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>){}[0]
 
         final fun toModel(): dev.rnett.inspekt/SimpleFunction // dev.rnett.inspekt.internal/InspektionResultV1.Function.toModel|toModel(){}[0]
     }
@@ -72,6 +72,25 @@ final class <#A: kotlin/Any> dev.rnett.inspekt.internal/InspektionResultV1 : dev
         constructor <init>(kotlin/Array<kotlin/String>, kotlin/Array<kotlin/String>?, kotlin/String, kotlin/Array<kotlin/Annotation>, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin.reflect/KType, kotlin.reflect/KProperty1<*, *>, dev.rnett.inspekt.internal/InspektionResultV1.Function, dev.rnett.inspekt.internal/InspektionResultV1.Function?, kotlin.reflect/KClass<*>?) // dev.rnett.inspekt.internal/InspektionResultV1.Property.<init>|<init>(kotlin.Array<kotlin.String>;kotlin.Array<kotlin.String>?;kotlin.String;kotlin.Array<kotlin.Annotation>;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.reflect.KType;kotlin.reflect.KProperty1<*,*>;dev.rnett.inspekt.internal.InspektionResultV1.Function;dev.rnett.inspekt.internal.InspektionResultV1.Function?;kotlin.reflect.KClass<*>?){}[0]
 
         final fun toModel(): dev.rnett.inspekt/Property // dev.rnett.inspekt.internal/InspektionResultV1.Property.toModel|toModel(){}[0]
+    }
+
+    final class TypeParameter { // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter|null[0]
+        constructor <init>(kotlin/String, kotlin/Int, kotlin/Boolean, kotlin/Int, kotlin/Array<kotlin.reflect/KType>, kotlin/Array<kotlin/Annotation>) // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.<init>|<init>(kotlin.String;kotlin.Int;kotlin.Boolean;kotlin.Int;kotlin.Array<kotlin.reflect.KType>;kotlin.Array<kotlin.Annotation>){}[0]
+
+        final val annotations // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.annotations|{}annotations[0]
+            final fun <get-annotations>(): kotlin/Array<kotlin/Annotation> // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.annotations.<get-annotations>|<get-annotations>(){}[0]
+        final val index // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.index|{}index[0]
+            final fun <get-index>(): kotlin/Int // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.index.<get-index>|<get-index>(){}[0]
+        final val isReified // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.isReified|{}isReified[0]
+            final fun <get-isReified>(): kotlin/Boolean // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.isReified.<get-isReified>|<get-isReified>(){}[0]
+        final val name // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.name|{}name[0]
+            final fun <get-name>(): kotlin/String // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.name.<get-name>|<get-name>(){}[0]
+        final val upperBounds // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.upperBounds|{}upperBounds[0]
+            final fun <get-upperBounds>(): kotlin/Array<kotlin.reflect/KType> // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.upperBounds.<get-upperBounds>|<get-upperBounds>(){}[0]
+        final val variance // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.variance|{}variance[0]
+            final fun <get-variance>(): kotlin/Int // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.variance.<get-variance>|<get-variance>(){}[0]
+
+        final fun toModel(): dev.rnett.inspekt/TypeParameter // dev.rnett.inspekt.internal/InspektionResultV1.TypeParameter.toModel|toModel(){}[0]
     }
 }
 
@@ -119,6 +138,8 @@ final class <#A: kotlin/Any> dev.rnett.inspekt/Inspektion : dev.rnett.inspekt/An
         final fun <get-superclasses>(): kotlin.collections/Set<kotlin.reflect/KClass<*>> // dev.rnett.inspekt/Inspektion.superclasses.<get-superclasses>|<get-superclasses>(){}[0]
     final val supertypes // dev.rnett.inspekt/Inspektion.supertypes|{}supertypes[0]
         final fun <get-supertypes>(): kotlin.collections/Set<kotlin.reflect/KType> // dev.rnett.inspekt/Inspektion.supertypes.<get-supertypes>|<get-supertypes>(){}[0]
+    final val typeParameters // dev.rnett.inspekt/Inspektion.typeParameters|{}typeParameters[0]
+        final fun <get-typeParameters>(): kotlin.collections/List<dev.rnett.inspekt/TypeParameter> // dev.rnett.inspekt/Inspektion.typeParameters.<get-typeParameters>|<get-typeParameters>(){}[0]
 
     final fun cast(kotlin/Any): #A // dev.rnett.inspekt/Inspektion.cast|cast(kotlin.Any){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // dev.rnett.inspekt/Inspektion.equals|equals(kotlin.Any?){}[0]
@@ -126,8 +147,8 @@ final class <#A: kotlin/Any> dev.rnett.inspekt/Inspektion : dev.rnett.inspekt/An
     final fun hashCode(): kotlin/Int // dev.rnett.inspekt/Inspektion.hashCode|hashCode(){}[0]
     final fun isInstance(kotlin/Any): kotlin/Boolean // dev.rnett.inspekt/Inspektion.isInstance|isInstance(kotlin.Any){}[0]
     final fun isSubtypeOf(kotlin.reflect/KClass<*>): kotlin/Boolean // dev.rnett.inspekt/Inspektion.isSubtypeOf|isSubtypeOf(kotlin.reflect.KClass<*>){}[0]
+    final fun property(kotlin/String): dev.rnett.inspekt/Property // dev.rnett.inspekt/Inspektion.property|property(kotlin.String){}[0]
     final fun safeCast(kotlin/Any): #A? // dev.rnett.inspekt/Inspektion.safeCast|safeCast(kotlin.Any){}[0]
-    final fun singleProperty(kotlin/String): dev.rnett.inspekt/Property // dev.rnett.inspekt/Inspektion.singleProperty|singleProperty(kotlin.String){}[0]
     final fun toString(): kotlin/String // dev.rnett.inspekt/Inspektion.toString|toString(){}[0]
     final fun toString(kotlin/Boolean, kotlin/Boolean = ...): kotlin/String // dev.rnett.inspekt/Inspektion.toString|toString(kotlin.Boolean;kotlin.Boolean){}[0]
 }
@@ -220,6 +241,8 @@ final class dev.rnett.inspekt/ClassName : dev.rnett.inspekt/QualifiedName { // d
 }
 
 final class dev.rnett.inspekt/Constructor : dev.rnett.inspekt/FunctionLike { // dev.rnett.inspekt/Constructor|null[0]
+    final val classTypeParameters // dev.rnett.inspekt/Constructor.classTypeParameters|{}classTypeParameters[0]
+        final fun <get-classTypeParameters>(): kotlin.collections/List<dev.rnett.inspekt/TypeParameter> // dev.rnett.inspekt/Constructor.classTypeParameters.<get-classTypeParameters>|<get-classTypeParameters>(){}[0]
     final val forClass // dev.rnett.inspekt/Constructor.forClass|{}forClass[0]
         final fun <get-forClass>(): dev.rnett.inspekt/Inspektion<*> // dev.rnett.inspekt/Constructor.forClass.<get-forClass>|<get-forClass>(){}[0]
     final val isPrimary // dev.rnett.inspekt/Constructor.isPrimary|{}isPrimary[0]
@@ -401,8 +424,52 @@ final class dev.rnett.inspekt/SimpleFunction : dev.rnett.inspekt/Function { // d
         final fun <get-kotlin>(): kotlin.reflect/KFunction<*> // dev.rnett.inspekt/SimpleFunction.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
     final val name // dev.rnett.inspekt/SimpleFunction.name|{}name[0]
         final fun <get-name>(): dev.rnett.inspekt/CallableName // dev.rnett.inspekt/SimpleFunction.name.<get-name>|<get-name>(){}[0]
+    final val typeParameters // dev.rnett.inspekt/SimpleFunction.typeParameters|{}typeParameters[0]
+        final fun <get-typeParameters>(): kotlin.collections/List<dev.rnett.inspekt/TypeParameter> // dev.rnett.inspekt/SimpleFunction.typeParameters.<get-typeParameters>|<get-typeParameters>(){}[0]
 
     final fun toString(kotlin/Boolean): kotlin/String // dev.rnett.inspekt/SimpleFunction.toString|toString(kotlin.Boolean){}[0]
+}
+
+final class dev.rnett.inspekt/TypeParameter : dev.rnett.inspekt/AnnotatedElement { // dev.rnett.inspekt/TypeParameter|null[0]
+    constructor <init>(kotlin/String, kotlin/Int, dev.rnett.inspekt/TypeParameter.Variance, kotlin.collections/List<kotlin.reflect/KType>, kotlin/Boolean, kotlin.collections/List<kotlin/Annotation>) // dev.rnett.inspekt/TypeParameter.<init>|<init>(kotlin.String;kotlin.Int;dev.rnett.inspekt.TypeParameter.Variance;kotlin.collections.List<kotlin.reflect.KType>;kotlin.Boolean;kotlin.collections.List<kotlin.Annotation>){}[0]
+
+    final val annotations // dev.rnett.inspekt/TypeParameter.annotations|{}annotations[0]
+        final fun <get-annotations>(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.inspekt/TypeParameter.annotations.<get-annotations>|<get-annotations>(){}[0]
+    final val erasedUpperBounds // dev.rnett.inspekt/TypeParameter.erasedUpperBounds|{}erasedUpperBounds[0]
+        final fun <get-erasedUpperBounds>(): kotlin.collections/List<kotlin.reflect/KType> // dev.rnett.inspekt/TypeParameter.erasedUpperBounds.<get-erasedUpperBounds>|<get-erasedUpperBounds>(){}[0]
+    final val index // dev.rnett.inspekt/TypeParameter.index|{}index[0]
+        final fun <get-index>(): kotlin/Int // dev.rnett.inspekt/TypeParameter.index.<get-index>|<get-index>(){}[0]
+    final val isReified // dev.rnett.inspekt/TypeParameter.isReified|{}isReified[0]
+        final fun <get-isReified>(): kotlin/Boolean // dev.rnett.inspekt/TypeParameter.isReified.<get-isReified>|<get-isReified>(){}[0]
+    final val kotlin // dev.rnett.inspekt/TypeParameter.kotlin|{}kotlin[0]
+        final fun <get-kotlin>(): kotlin.reflect/KTypeParameter // dev.rnett.inspekt/TypeParameter.kotlin.<get-kotlin>|<get-kotlin>(){}[0]
+    final val name // dev.rnett.inspekt/TypeParameter.name|{}name[0]
+        final fun <get-name>(): kotlin/String // dev.rnett.inspekt/TypeParameter.name.<get-name>|<get-name>(){}[0]
+    final val variance // dev.rnett.inspekt/TypeParameter.variance|{}variance[0]
+        final fun <get-variance>(): dev.rnett.inspekt/TypeParameter.Variance // dev.rnett.inspekt/TypeParameter.variance.<get-variance>|<get-variance>(){}[0]
+
+    final fun component1(): kotlin/String // dev.rnett.inspekt/TypeParameter.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // dev.rnett.inspekt/TypeParameter.component2|component2(){}[0]
+    final fun component3(): dev.rnett.inspekt/TypeParameter.Variance // dev.rnett.inspekt/TypeParameter.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/List<kotlin.reflect/KType> // dev.rnett.inspekt/TypeParameter.component4|component4(){}[0]
+    final fun component5(): kotlin/Boolean // dev.rnett.inspekt/TypeParameter.component5|component5(){}[0]
+    final fun component6(): kotlin.collections/List<kotlin/Annotation> // dev.rnett.inspekt/TypeParameter.component6|component6(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int = ..., dev.rnett.inspekt/TypeParameter.Variance = ..., kotlin.collections/List<kotlin.reflect/KType> = ..., kotlin/Boolean = ..., kotlin.collections/List<kotlin/Annotation> = ...): dev.rnett.inspekt/TypeParameter // dev.rnett.inspekt/TypeParameter.copy|copy(kotlin.String;kotlin.Int;dev.rnett.inspekt.TypeParameter.Variance;kotlin.collections.List<kotlin.reflect.KType>;kotlin.Boolean;kotlin.collections.List<kotlin.Annotation>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // dev.rnett.inspekt/TypeParameter.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // dev.rnett.inspekt/TypeParameter.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // dev.rnett.inspekt/TypeParameter.toString|toString(){}[0]
+
+    final enum class Variance : kotlin/Enum<dev.rnett.inspekt/TypeParameter.Variance> { // dev.rnett.inspekt/TypeParameter.Variance|null[0]
+        enum entry IN // dev.rnett.inspekt/TypeParameter.Variance.IN|null[0]
+        enum entry INVARIANT // dev.rnett.inspekt/TypeParameter.Variance.INVARIANT|null[0]
+        enum entry OUT // dev.rnett.inspekt/TypeParameter.Variance.OUT|null[0]
+
+        final val entries // dev.rnett.inspekt/TypeParameter.Variance.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<dev.rnett.inspekt/TypeParameter.Variance> // dev.rnett.inspekt/TypeParameter.Variance.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): dev.rnett.inspekt/TypeParameter.Variance // dev.rnett.inspekt/TypeParameter.Variance.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<dev.rnett.inspekt/TypeParameter.Variance> // dev.rnett.inspekt/TypeParameter.Variance.values|values#static(){}[0]
+    }
 }
 
 sealed class <#A: kotlin/Any> dev.rnett.inspekt.internal/InspektionResult { // dev.rnett.inspekt.internal/InspektionResult|null[0]
@@ -602,11 +669,11 @@ sealed class dev.rnett.inspekt/FunctionLike : dev.rnett.inspekt/Callable { // de
         open fun <get-isCallable>(): kotlin/Boolean // dev.rnett.inspekt/FunctionLike.isCallable.<get-isCallable>|<get-isCallable>(){}[0]
 
     final fun (kotlin.text/StringBuilder).appendMethodSignature(kotlin/Boolean) // dev.rnett.inspekt/FunctionLike.appendMethodSignature|appendMethodSignature@kotlin.text.StringBuilder(kotlin.Boolean){}[0]
+    final fun invoke(dev.rnett.inspekt/ArgumentList): kotlin/Any? // dev.rnett.inspekt/FunctionLike.invoke|invoke(dev.rnett.inspekt.ArgumentList){}[0]
     final inline fun invoke(kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.inspekt/FunctionLike.invoke|invoke(kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
     final suspend fun invokeSuspend(dev.rnett.inspekt/ArgumentList): kotlin/Any? // dev.rnett.inspekt/FunctionLike.invokeSuspend|invokeSuspend(dev.rnett.inspekt.ArgumentList){}[0]
     final suspend inline fun invokeSuspend(kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit>): kotlin/Any? // dev.rnett.inspekt/FunctionLike.invokeSuspend|invokeSuspend(kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]
     open fun assertInvokable() // dev.rnett.inspekt/FunctionLike.assertInvokable|assertInvokable(){}[0]
-    open fun invoke(dev.rnett.inspekt/ArgumentList): kotlin/Any? // dev.rnett.inspekt/FunctionLike.invoke|invoke(dev.rnett.inspekt.ArgumentList){}[0]
 }
 
 sealed class dev.rnett.inspekt/Property : dev.rnett.inspekt/Callable { // dev.rnett.inspekt/Property|null[0]
