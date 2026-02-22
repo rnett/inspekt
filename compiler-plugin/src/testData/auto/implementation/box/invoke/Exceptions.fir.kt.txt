@@ -1,0 +1,89 @@
+package auto.implementation.box.invoke
+
+class Test {
+  constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  fun test(): Int {
+    return error(message = "Test!")
+  }
+
+}
+
+fun box(): String {
+  val spekt: Inspektion<Test> = assertSuccessful<Inspektion<Test>>(message = "inspekt(Test::class)", block = local fun <anonymous>(): Inspektion<Test> {
+    return InspektionResultV1</* null */>(kClass = Test::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Test"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Test"]), name = "test", isAbstract = false, kotlin = Test::test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Test>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      val tmp_0: Test = args.v1Get(globalIndex = 0) as Test
+      return try tmp_0.test()
+      catch (tmp1: Throwable)args.throwWrappedException(e = tmp_1)
+
+    }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Test"]), name = "equals", isAbstract = false, kotlin = Test::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      val tmp_2: Any = args.v1Get(globalIndex = 0) as Any
+      val tmp_3: Any? = args.v1Get(globalIndex = 1) as Any?
+      return try tmp_2.equals(other = tmp_3)
+      catch (tmp2: Throwable)args.throwWrappedException(e = tmp_4)
+
+    }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Test"]), name = "hashCode", isAbstract = false, kotlin = Test::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      val tmp_5: Any = args.v1Get(globalIndex = 0) as Any
+      return try tmp_5.hashCode()
+      catch (tmp1: Throwable)args.throwWrappedException(e = tmp_6)
+
+    }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Test"]), name = "toString", isAbstract = false, kotlin = Test::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      val tmp_7: Any = args.v1Get(globalIndex = 0) as Any
+      return try tmp_7.toString()
+      catch (tmp1: Throwable)args.throwWrappedException(e = tmp_8)
+
+    }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box", "invoke"]), classNames = arrayOf<String>(elements = ["Test"]), name = "<init>", isAbstract = false, kotlin = ::Test, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Test>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+      return try Test()
+      catch (tmp0: Throwable)args.throwWrappedException(e = tmp_9)
+
+    }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = []))]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): Test {
+      return it as Test
+    }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+      return it is Test
+    }
+, safeCast = local fun <anonymous>(it: Any): Test? {
+      return it as? Test
+    }
+, objectInstance = null, companionObject = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
+  }
+)
+  val e: Throwable = assertFailsWith<Throwable>(block = local fun <anonymous>(): Any? {
+    return spekt.invoke(receiver = Test(), name = "test")
+  }
+)
+  assertTrue(actual = e is IllegalStateException, message = "Expected IllegalStateException, got " + e)
+  assertEquals<String?>(expected = e.<get-message>(), actual = "Test!")
+  val e2: Throwable = assertFailsWith<Throwable>(block = local fun <anonymous>(): Any? {
+    return spekt.function(name = "test").invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      $this$invoke.value(values = [1])
+    }
+)
+  }
+)
+  assertTrue(actual = e2 is FunctionInvocationException, message = "Expected FunctionInvocationException, got " + e2)
+  assertEquals<String?>(expected = "Failed to invoke function auto.implementation.box.invoke.Test.test", actual = e2.<get-message>())
+  assertTrue(actual = e2 /*as FunctionInvocationException */.<get-cause>() is IndexOutOfBoundsException, message = "Expected IndexOutOfBoundsException, got " + e2 /*as FunctionInvocationException */.<get-cause>())
+  assertEquals<String?>(expected = "Parameter index out of bounds: 0, number of parameters of kind VALUE is 0", actual = e2 /*as FunctionInvocationException */.<get-cause>().<get-message>())
+  val e3: Throwable = assertFailsWith<Throwable>(block = local fun <anonymous>(): Any? {
+    return spekt.function(name = "test").invoke(arguments = local fun Builder.<anonymous>(it: Parameters) {
+      return Unit
+    }
+)
+  }
+)
+  assertTrue(actual = e3 is FunctionInvocationException, message = "Expected FunctionInvocationException, got " + e3)
+  assertEquals<String?>(expected = "Failed to invoke function auto.implementation.box.invoke.Test.test", actual = e3.<get-message>())
+  assertTrue(actual = e3 /*as FunctionInvocationException */.<get-cause>() is IllegalArgumentException, message = "Expected IllegalArgumentException, got " + e3 /*as FunctionInvocationException */.<get-cause>())
+  assertEquals<String?>(expected = "Argument for the dispatch receiver was null. This is not allowed.", actual = e3 /*as FunctionInvocationException */.<get-cause>().<get-message>())
+  return "OK"
+}

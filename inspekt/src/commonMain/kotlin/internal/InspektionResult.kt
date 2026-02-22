@@ -12,6 +12,8 @@ import dev.rnett.inspekt.Parameters
 import dev.rnett.inspekt.PropertyGetter
 import dev.rnett.inspekt.PropertySetter
 import dev.rnett.inspekt.ReadOnlyProperty
+import dev.rnett.inspekt.UnderlyingFunExceptionWrapper
+import dev.rnett.inspekt.UnderlyingFunInvocationWrapper
 import dev.rnett.symbolexport.ExportSymbol
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
@@ -32,11 +34,17 @@ internal interface ArgumentsProviderV1 {
     @ExportSymbol
     val v1DefaultableHasValueBitmask: Int
 
+    /**
+     * Gets the arg, or null if it was not set.
+     */
     @ExportSymbol
     fun v1Get(globalIndex: Int): Any?
 
     @ExportSymbol
-    fun throwInvalidBitmask(): Nothing = throw IllegalArgumentException("Invalid defaults bitmask")
+    fun throwInvalidBitmask(): Nothing = throw UnderlyingFunInvocationWrapper(IllegalArgumentException("Invalid defaults bitmask"))
+
+    @ExportSymbol
+    fun throwWrappedException(e: Throwable): Nothing = throw UnderlyingFunExceptionWrapper(e)
 }
 
 @PublishedApi

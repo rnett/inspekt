@@ -164,64 +164,61 @@ FILE fqName:auto.implementation.box.invoke fileName:/DependentDefaultArgs.kt
                         VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:kotlin.Int [val]
                           CALL 'public abstract fun <get-v1DefaultableHasValueBitmask> (): kotlin.Int declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Int origin=null
                             ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:auto.implementation.box.invoke.TestDefaults? [val]
+                          TYPE_OP type=auto.implementation.box.invoke.TestDefaults? origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults?
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=0
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_2 type:kotlin.Int? [val]
+                          TYPE_OP type=kotlin.Int? origin=CAST typeOperand=kotlin.Int?
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=1
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_3 type:kotlin.String? [val]
+                          TYPE_OP type=kotlin.String? origin=CAST typeOperand=kotlin.String?
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=2
                         RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                          WHEN type=kotlin.String origin=null
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=0
-                              then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
-                                ARG <this>: TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=1
-                              then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
-                                ARG <this>: TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                ARG c: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=1
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=2
-                              then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
-                                ARG <this>: TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                ARG d: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=2
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=3
-                              then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
-                                ARG <this>: TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                ARG c: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=1
-                                ARG d: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=2
-                            BRANCH
-                              if: CONST Boolean type=kotlin.Boolean value=true
-                              then: CALL 'public open fun throwInvalidBitmask (): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
+                          TRY type=kotlin.String
+                            try: WHEN type=kotlin.String origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=0
+                                then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
+                                  ARG <this>: GET_VAR 'val tmp_1: auto.implementation.box.invoke.TestDefaults? declared in auto.implementation.box.invoke.box.<anonymous>' type=auto.implementation.box.invoke.TestDefaults? origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=1
+                                then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
+                                  ARG <this>: GET_VAR 'val tmp_1: auto.implementation.box.invoke.TestDefaults? declared in auto.implementation.box.invoke.box.<anonymous>' type=auto.implementation.box.invoke.TestDefaults? origin=null
+                                  ARG c: GET_VAR 'val tmp_2: kotlin.Int? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int? origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=2
+                                then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
+                                  ARG <this>: GET_VAR 'val tmp_1: auto.implementation.box.invoke.TestDefaults? declared in auto.implementation.box.invoke.box.<anonymous>' type=auto.implementation.box.invoke.TestDefaults? origin=null
+                                  ARG d: GET_VAR 'val tmp_3: kotlin.String? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.String? origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_0: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=3
+                                then: CALL 'public final fun test (c: kotlin.Int, d: kotlin.String): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
+                                  ARG <this>: GET_VAR 'val tmp_1: auto.implementation.box.invoke.TestDefaults? declared in auto.implementation.box.invoke.box.<anonymous>' type=auto.implementation.box.invoke.TestDefaults? origin=null
+                                  ARG c: GET_VAR 'val tmp_2: kotlin.Int? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int? origin=null
+                                  ARG d: GET_VAR 'val tmp_3: kotlin.String? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.String? origin=null
+                              BRANCH
+                                if: CONST Boolean type=kotlin.Boolean value=true
+                                then: CALL 'public open fun throwInvalidBitmask (): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                            CATCH parameter=val tmp_4: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>
+                              VAR IR_TEMPORARY_VARIABLE name:tmp_4 type:kotlin.Throwable [val]
+                              CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                 ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG e: GET_VAR 'val tmp_4: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Throwable origin=null
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                   ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -278,16 +275,26 @@ FILE fqName:auto.implementation.box.invoke fileName:/DependentDefaultArgs.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_5 type:kotlin.Any [val]
+                          TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=0
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_6 type:kotlin.Any? [val]
+                          TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=1
                         RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                          CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.Boolean origin=null
-                            ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
-                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                          TRY type=kotlin.Boolean
+                            try: CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.Boolean origin=null
+                              ARG <this>: GET_VAR 'val tmp_5: kotlin.Any declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Any origin=null
+                              ARG other: GET_VAR 'val tmp_6: kotlin.Any? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Any? origin=null
+                            CATCH parameter=val tmp_7: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>
+                              VAR IR_TEMPORARY_VARIABLE name:tmp_7 type:kotlin.Throwable [val]
+                              CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                 ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                ARG globalIndex: CONST Int type=kotlin.Int value=0
-                            ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
-                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                ARG e: GET_VAR 'val tmp_7: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Throwable origin=null
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
                   ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -333,12 +340,20 @@ FILE fqName:auto.implementation.box.invoke fileName:/DependentDefaultArgs.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_8 type:kotlin.Any [val]
+                          TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=0
                         RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                          CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.Int origin=null
-                            ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
-                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                          TRY type=kotlin.Int
+                            try: CALL 'public open fun hashCode (): kotlin.Int declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.Int origin=null
+                              ARG <this>: GET_VAR 'val tmp_8: kotlin.Any declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Any origin=null
+                            CATCH parameter=val tmp_9: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>
+                              VAR IR_TEMPORARY_VARIABLE name:tmp_9 type:kotlin.Throwable [val]
+                              CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                 ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                ARG e: GET_VAR 'val tmp_9: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Throwable origin=null
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
                   ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -384,12 +399,20 @@ FILE fqName:auto.implementation.box.invoke fileName:/DependentDefaultArgs.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_10 type:kotlin.Any [val]
+                          TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=0
                         RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                          CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
-                            ARG <this>: TYPE_OP type=kotlin.Any origin=CAST typeOperand=kotlin.Any
-                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                          TRY type=kotlin.String
+                            try: CALL 'public open fun toString (): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
+                              ARG <this>: GET_VAR 'val tmp_10: kotlin.Any declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Any origin=null
+                            CATCH parameter=val tmp_11: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>
+                              VAR IR_TEMPORARY_VARIABLE name:tmp_11 type:kotlin.Throwable [val]
+                              CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                 ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                ARG e: GET_VAR 'val tmp_11: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Throwable origin=null
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.reflect.KClass<T of kotlin.reflect.KClass>
                   ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -461,12 +484,20 @@ FILE fqName:auto.implementation.box.invoke fileName:/DependentDefaultArgs.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_12 type:auto.implementation.box.invoke.TestDefaults [val]
+                            TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
                           RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                            CALL 'public final fun <get-a> (): kotlin.Int declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.Int origin=null
-                              ARG <this>: TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                            TRY type=kotlin.Int
+                              try: CALL 'public final fun <get-a> (): kotlin.Int declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.Int origin=null
+                                ARG <this>: GET_VAR 'val tmp_12: auto.implementation.box.invoke.TestDefaults declared in auto.implementation.box.invoke.box.<anonymous>' type=auto.implementation.box.invoke.TestDefaults origin=null
+                              CATCH parameter=val tmp_13: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>
+                                VAR IR_TEMPORARY_VARIABLE name:tmp_13 type:kotlin.Throwable [val]
+                                CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                   ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                  ARG e: GET_VAR 'val tmp_13: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Throwable origin=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -537,12 +568,20 @@ FILE fqName:auto.implementation.box.invoke fileName:/DependentDefaultArgs.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_14 type:auto.implementation.box.invoke.TestDefaults [val]
+                            TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
                           RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                            CALL 'public final fun <get-b> (): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
-                              ARG <this>: TYPE_OP type=auto.implementation.box.invoke.TestDefaults origin=CAST typeOperand=auto.implementation.box.invoke.TestDefaults
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                            TRY type=kotlin.String
+                              try: CALL 'public final fun <get-b> (): kotlin.String declared in auto.implementation.box.invoke.TestDefaults' type=kotlin.String origin=null
+                                ARG <this>: GET_VAR 'val tmp_14: auto.implementation.box.invoke.TestDefaults declared in auto.implementation.box.invoke.box.<anonymous>' type=auto.implementation.box.invoke.TestDefaults origin=null
+                              CATCH parameter=val tmp_15: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>
+                                VAR IR_TEMPORARY_VARIABLE name:tmp_15 type:kotlin.Throwable [val]
+                                CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                   ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                  ARG e: GET_VAR 'val tmp_15: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Throwable origin=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -604,51 +643,55 @@ FILE fqName:auto.implementation.box.invoke fileName:/DependentDefaultArgs.kt
                     FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                       VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                       BLOCK_BODY
-                        VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:kotlin.Int [val]
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_16 type:kotlin.Int [val]
                           CALL 'public abstract fun <get-v1DefaultableHasValueBitmask> (): kotlin.Int declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Int origin=null
                             ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_17 type:kotlin.Int? [val]
+                          TYPE_OP type=kotlin.Int? origin=CAST typeOperand=kotlin.Int?
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=0
+                        VAR IR_TEMPORARY_VARIABLE name:tmp_18 type:kotlin.String? [val]
+                          TYPE_OP type=kotlin.String? origin=CAST typeOperand=kotlin.String?
+                            CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                              ARG globalIndex: CONST Int type=kotlin.Int value=1
                         RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.implementation.box.invoke.box'
-                          WHEN type=auto.implementation.box.invoke.TestDefaults origin=null
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=0
-                              then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=1
-                              then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
-                                ARG a: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=2
-                              then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
-                                ARG b: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=1
-                            BRANCH
-                              if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
-                                ARG arg0: GET_VAR 'val tmp_1: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
-                                ARG arg1: CONST Int type=kotlin.Int value=3
-                              then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
-                                ARG a: TYPE_OP type=kotlin.Int origin=CAST typeOperand=kotlin.Int
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                ARG b: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=1
-                            BRANCH
-                              if: CONST Boolean type=kotlin.Boolean value=true
-                              then: CALL 'public open fun throwInvalidBitmask (): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
+                          TRY type=auto.implementation.box.invoke.TestDefaults
+                            try: WHEN type=auto.implementation.box.invoke.TestDefaults origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_16: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=0
+                                then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_16: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=1
+                                then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
+                                  ARG a: GET_VAR 'val tmp_17: kotlin.Int? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int? origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_16: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=2
+                                then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
+                                  ARG b: GET_VAR 'val tmp_18: kotlin.String? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.String? origin=null
+                              BRANCH
+                                if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=SYNTHETIC_NOT_AUTOBOXED_CHECK
+                                  ARG arg0: GET_VAR 'val tmp_16: kotlin.Int declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int origin=null
+                                  ARG arg1: CONST Int type=kotlin.Int value=3
+                                then: CONSTRUCTOR_CALL 'public constructor <init> (a: kotlin.Int, b: kotlin.String) declared in auto.implementation.box.invoke.TestDefaults' type=auto.implementation.box.invoke.TestDefaults origin=null
+                                  ARG a: GET_VAR 'val tmp_17: kotlin.Int? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Int? origin=null
+                                  ARG b: GET_VAR 'val tmp_18: kotlin.String? declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.String? origin=null
+                              BRANCH
+                                if: CONST Boolean type=kotlin.Boolean value=true
+                                then: CALL 'public open fun throwInvalidBitmask (): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                            CATCH parameter=val tmp_19: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>
+                              VAR IR_TEMPORARY_VARIABLE name:tmp_19 type:kotlin.Throwable [val]
+                              CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                 ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.implementation.box.invoke.box.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG e: GET_VAR 'val tmp_19: kotlin.Throwable declared in auto.implementation.box.invoke.box.<anonymous>' type=kotlin.Throwable origin=null
                   ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                   ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                   ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null

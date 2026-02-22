@@ -38,7 +38,7 @@ public sealed class FunctionLike(
      */
     public inline operator fun invoke(arguments: ArgumentsBuilder): Any? {
         contract { callsInPlace(arguments, InvocationKind.EXACTLY_ONCE) }
-        return wrapInvocation { invoke(parameters.buildArguments(arguments)) }
+        return invoke(wrapInvocation { parameters.buildArguments(arguments) })
     }
 
     /**
@@ -61,7 +61,7 @@ public sealed class FunctionLike(
      */
     public suspend inline fun invokeSuspend(arguments: ArgumentsBuilder): Any? {
         contract { callsInPlace(arguments, InvocationKind.EXACTLY_ONCE) }
-        return wrapInvocation { invokeSuspend(parameters.buildArguments(arguments)) }
+        return invokeSuspend(wrapInvocation { parameters.buildArguments(arguments) })
     }
 
     /**

@@ -42,6 +42,7 @@ public final class dev/rnett/inspekt/ArgumentList : dev/rnett/inspekt/internal/A
 	public fun sort (Ljava/util/Comparator;)V
 	public fun subList (II)Ljava/util/List;
 	public fun throwInvalidBitmask ()Ljava/lang/Void;
+	public fun throwWrappedException (Ljava/lang/Throwable;)Ljava/lang/Void;
 	public fun toArray ()[Ljava/lang/Object;
 	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
 	public fun toString ()Ljava/lang/String;
@@ -174,6 +175,7 @@ public final class dev/rnett/inspekt/Constructor : dev/rnett/inspekt/FunctionLik
 }
 
 public final class dev/rnett/inspekt/ExceptionsKt {
+	public static final fun handleException (Ldev/rnett/inspekt/CallableName;Ljava/lang/Throwable;)Ljava/lang/Void;
 	public static final fun wrapInvocation (Ldev/rnett/inspekt/Callable;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 }
 
@@ -184,6 +186,7 @@ public abstract class dev/rnett/inspekt/Function : dev/rnett/inspekt/FunctionLik
 
 public final class dev/rnett/inspekt/FunctionInvocationException : java/lang/RuntimeException {
 	public fun <init> (Ldev/rnett/inspekt/QualifiedName;Ljava/lang/Throwable;)V
+	public fun getCause ()Ljava/lang/Throwable;
 	public final fun getName ()Ldev/rnett/inspekt/QualifiedName;
 }
 
@@ -514,11 +517,13 @@ public final class dev/rnett/inspekt/UtilsKt {
 public abstract interface class dev/rnett/inspekt/internal/ArgumentsProviderV1 {
 	public abstract fun getV1DefaultableHasValueBitmask ()I
 	public fun throwInvalidBitmask ()Ljava/lang/Void;
+	public fun throwWrappedException (Ljava/lang/Throwable;)Ljava/lang/Void;
 	public abstract fun v1Get (I)Ljava/lang/Object;
 }
 
 public final class dev/rnett/inspekt/internal/ArgumentsProviderV1$DefaultImpls {
 	public static fun throwInvalidBitmask (Ldev/rnett/inspekt/internal/ArgumentsProviderV1;)Ljava/lang/Void;
+	public static fun throwWrappedException (Ldev/rnett/inspekt/internal/ArgumentsProviderV1;Ljava/lang/Throwable;)Ljava/lang/Void;
 }
 
 public abstract class dev/rnett/inspekt/internal/InspektionResult {

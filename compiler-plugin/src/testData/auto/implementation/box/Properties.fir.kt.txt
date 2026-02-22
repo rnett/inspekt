@@ -41,37 +41,72 @@ class TestProperties {
 
 fun box(): String {
   val spekt: Inspektion<TestProperties> = InspektionResultV1</* null */>(kClass = TestProperties::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), supertypes = arrayOf<KType>(elements = [typeOf<Any>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "equals", isAbstract = false, kotlin = TestProperties::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+    val tmp_0: Any = args.v1Get(globalIndex = 0) as Any
+    val tmp_1: Any? = args.v1Get(globalIndex = 1) as Any?
+    return try tmp_0.equals(other = tmp_1)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_2)
+
   }
 , suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "hashCode", isAbstract = false, kotlin = TestProperties::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Any.hashCode()
+    val tmp_3: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_3.hashCode()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_4)
+
   }
 , suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "toString", isAbstract = false, kotlin = TestProperties::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Any.toString()
+    val tmp_5: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_5.toString()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_6)
+
   }
 , suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = [Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "readOnly", annotations = arrayOf<Annotation>(elements = []), isMutable = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::readOnly, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<get-readOnly>", isAbstract = false, kotlin = TestProperties::<get-readOnly>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as TestProperties.<get-readOnly>()
+    val tmp_7: TestProperties = args.v1Get(globalIndex = 0) as TestProperties
+    return try tmp_7.<get-readOnly>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_8)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = null, inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "mutable", annotations = arrayOf<Annotation>(elements = []), isMutable = true, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::mutable, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<get-mutable>", isAbstract = false, kotlin = TestProperties::<get-mutable>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as TestProperties.<get-mutable>()
+    val tmp_9: TestProperties = args.v1Get(globalIndex = 0) as TestProperties
+    return try tmp_9.<get-mutable>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_10)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<set-mutable>", isAbstract = false, kotlin = TestProperties::<set-mutable>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "<set-?>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as TestProperties.<set-mutable>(<set-?> = args.v1Get(globalIndex = 1) as String)
+    val tmp_11: TestProperties = args.v1Get(globalIndex = 0) as TestProperties
+    val tmp_12: String = args.v1Get(globalIndex = 1) as String
+    return try tmp_11.<set-mutable>(<set-?> = tmp_12)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_13)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "withGetter", annotations = arrayOf<Annotation>(elements = []), isMutable = false, hasBackingField = false, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::withGetter, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<get-withGetter>", isAbstract = false, kotlin = TestProperties::<get-withGetter>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as TestProperties.<get-withGetter>()
+    val tmp_14: TestProperties = args.v1Get(globalIndex = 0) as TestProperties
+    return try tmp_14.<get-withGetter>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_15)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = null, inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "withSetter", annotations = arrayOf<Annotation>(elements = []), isMutable = true, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = TestProperties::withSetter, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<get-withSetter>", isAbstract = false, kotlin = TestProperties::<get-withSetter>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as TestProperties.<get-withSetter>()
+    val tmp_16: TestProperties = args.v1Get(globalIndex = 0) as TestProperties
+    return try tmp_16.<get-withSetter>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_17)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<set-withSetter>", isAbstract = false, kotlin = TestProperties::<set-withSetter>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "value", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<String>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as TestProperties.<set-withSetter>(value = args.v1Get(globalIndex = 1) as String)
+    val tmp_18: TestProperties = args.v1Get(globalIndex = 0) as TestProperties
+    val tmp_19: String = args.v1Get(globalIndex = 1) as String
+    return try tmp_18.<set-withSetter>(value = tmp_19)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_20)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "delegated", annotations = arrayOf<Annotation>(elements = []), isMutable = false, hasBackingField = true, isAbstract = false, hasDelegate = true, type = typeOf<String>(), kotlin = TestProperties::delegated, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<get-delegated>", isAbstract = false, kotlin = TestProperties::<get-delegated>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<TestProperties>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as TestProperties.<get-delegated>()
+    val tmp_21: TestProperties = args.v1Get(globalIndex = 0) as TestProperties
+    return try tmp_21.<get-delegated>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_22)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["TestProperties"]), name = "<init>", isAbstract = false, kotlin = ::TestProperties, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<TestProperties>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return TestProperties()
+    return try TestProperties()
+    catch (tmp0: Throwable)args.throwWrappedException(e = tmp_23)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = []))]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): TestProperties {
     return it as TestProperties

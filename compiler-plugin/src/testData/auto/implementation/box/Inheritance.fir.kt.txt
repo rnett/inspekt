@@ -61,37 +61,70 @@ class Derived : Base {
 
 fun box(): String {
   val spekt: Inspektion<Derived> = InspektionResultV1</* null */>(kClass = Derived::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), supertypes = arrayOf<KType>(elements = [typeOf<Base>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "abstractFun", isAbstract = false, kotlin = Derived::abstractFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Derived.abstractFun()
+    val tmp_0: Derived = args.v1Get(globalIndex = 0) as Derived
+    return try tmp_0.abstractFun()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_1)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "openFun", isAbstract = false, kotlin = Derived::openFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Derived.openFun()
+    val tmp_2: Derived = args.v1Get(globalIndex = 0) as Derived
+    return try tmp_2.openFun()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_3)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "derivedFun", isAbstract = false, kotlin = Derived::derivedFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Derived.derivedFun()
+    val tmp_4: Derived = args.v1Get(globalIndex = 0) as Derived
+    return try tmp_4.derivedFun()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_5)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "baseFun", isAbstract = false, kotlin = Derived::baseFun, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Base.baseFun()
+    val tmp_6: Base = args.v1Get(globalIndex = 0) as Base
+    return try tmp_6.baseFun()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_7)
+
   }
 , suspendInvoker = null, inheritedFrom = Base::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "equals", isAbstract = false, kotlin = Derived::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Any.equals(other = args.v1Get(globalIndex = 1) as Any?)
+    val tmp_8: Any = args.v1Get(globalIndex = 0) as Any
+    val tmp_9: Any? = args.v1Get(globalIndex = 1) as Any?
+    return try tmp_8.equals(other = tmp_9)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_10)
+
   }
 , suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "hashCode", isAbstract = false, kotlin = Derived::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Any.hashCode()
+    val tmp_11: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_11.hashCode()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_12)
+
   }
 , suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "toString", isAbstract = false, kotlin = Derived::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Any.toString()
+    val tmp_13: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_13.toString()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_14)
+
   }
 , suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = [Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "abstractProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Derived::abstractProp, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "<get-abstractProp>", isAbstract = false, kotlin = Derived::<get-abstractProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Derived.<get-abstractProp>()
+    val tmp_15: Derived = args.v1Get(globalIndex = 0) as Derived
+    return try tmp_15.<get-abstractProp>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_16)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = null, inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "openProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Derived::openProp, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "<get-openProp>", isAbstract = false, kotlin = Derived::<get-openProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Derived>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Derived.<get-openProp>()
+    val tmp_17: Derived = args.v1Get(globalIndex = 0) as Derived
+    return try tmp_17.<get-openProp>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_18)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = null, inheritedFrom = null), Property(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "baseProp", annotations = arrayOf<Annotation>(elements = []), isMutable = false, hasBackingField = false, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Derived::baseProp, getter = Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "<get-baseProp>", isAbstract = false, kotlin = Derived::<get-baseProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Base>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as Base.<get-baseProp>()
+    val tmp_19: Base = args.v1Get(globalIndex = 0) as Base
+    return try tmp_19.<get-baseProp>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_20)
+
   }
 , suspendInvoker = null, inheritedFrom = Base::class, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = null, inheritedFrom = Base::class)]), constructors = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "implementation", "box"]), classNames = arrayOf<String>(elements = ["Derived"]), name = "<init>", isAbstract = false, kotlin = ::Derived, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Derived>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return Derived()
+    return try Derived()
+    catch (tmp0: Throwable)args.throwWrappedException(e = tmp_21)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = []))]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): Derived {
     return it as Derived

@@ -140,12 +140,20 @@ FILE fqName:auto.proxy.box fileName:/IntermediateSetterProxy.kt
                         FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                           VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                           BLOCK_BODY
+                            VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:auto.proxy.box.box.Inspekt_Proxy [val]
+                              TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
+                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
                             RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop'
-                              CALL 'public open fun <get-prop> (): kotlin.String declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.String origin=null
-                                ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              TRY type=kotlin.String
+                                try: CALL 'public open fun <get-prop> (): kotlin.String declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.String origin=null
+                                  ARG <this>: GET_VAR 'val tmp_0: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                                CATCH parameter=val tmp_1: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>
+                                  VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:kotlin.Throwable [val]
+                                  CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                     ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                    ARG e: GET_VAR 'val tmp_1: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=kotlin.Throwable origin=null
                       ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                       ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                       ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -201,16 +209,26 @@ FILE fqName:auto.proxy.box fileName:/IntermediateSetterProxy.kt
                         FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                           VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                           BLOCK_BODY
+                            VAR IR_TEMPORARY_VARIABLE name:tmp_2 type:auto.proxy.box.box.Inspekt_Proxy [val]
+                              TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
+                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
+                            VAR IR_TEMPORARY_VARIABLE name:tmp_3 type:kotlin.String [val]
+                              TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
+                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                  ARG globalIndex: CONST Int type=kotlin.Int value=1
                             RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop'
-                              CALL 'public open fun <set-prop> (value: kotlin.String): kotlin.Unit declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.Unit origin=null
-                                ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                              TRY type=kotlin.Unit
+                                try: CALL 'public open fun <set-prop> (value: kotlin.String): kotlin.Unit declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.Unit origin=null
+                                  ARG <this>: GET_VAR 'val tmp_2: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                                  ARG value: GET_VAR 'val tmp_3: kotlin.String declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=kotlin.String origin=null
+                                CATCH parameter=val tmp_4: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>
+                                  VAR IR_TEMPORARY_VARIABLE name:tmp_4 type:kotlin.Throwable [val]
+                                  CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                     ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=0
-                                ARG value: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                  CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                    ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                    ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                    ARG e: GET_VAR 'val tmp_4: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_prop.<anonymous>' type=kotlin.Throwable origin=null
                       ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                       ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                       ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -259,12 +277,20 @@ FILE fqName:auto.proxy.box fileName:/IntermediateSetterProxy.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_5 type:auto.proxy.box.box.Inspekt_Proxy [val]
+                            TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_get-prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
                           RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_get-prop'
-                            CALL 'public open fun <get-prop> (): kotlin.String declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.String origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                            TRY type=kotlin.String
+                              try: CALL 'public open fun <get-prop> (): kotlin.String declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.String origin=null
+                                ARG <this>: GET_VAR 'val tmp_5: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_get-prop.<anonymous>' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                              CATCH parameter=val tmp_6: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_get-prop.<anonymous>
+                                VAR IR_TEMPORARY_VARIABLE name:tmp_6 type:kotlin.Throwable [val]
+                                CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                   ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_get-prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                  ARG e: GET_VAR 'val tmp_6: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_get-prop.<anonymous>' type=kotlin.Throwable origin=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -323,16 +349,26 @@ FILE fqName:auto.proxy.box fileName:/IntermediateSetterProxy.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_7 type:auto.proxy.box.box.Inspekt_Proxy [val]
+                            TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_8 type:kotlin.String [val]
+                            TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=1
                           RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop'
-                            CALL 'public open fun <set-prop> (value: kotlin.String): kotlin.Unit declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.Unit origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                            TRY type=kotlin.Unit
+                              try: CALL 'public open fun <set-prop> (value: kotlin.String): kotlin.Unit declared in auto.proxy.box.Intermediate' superQualifier='CLASS INTERFACE name:Intermediate modality:ABSTRACT visibility:public superTypes:[auto.proxy.box.Base]' type=kotlin.Unit origin=null
+                                ARG <this>: GET_VAR 'val tmp_7: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                                ARG value: GET_VAR 'val tmp_8: kotlin.String declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>' type=kotlin.String origin=null
+                              CATCH parameter=val tmp_9: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>
+                                VAR IR_TEMPORARY_VARIABLE name:tmp_9 type:kotlin.Throwable [val]
+                                CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                   ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
-                              ARG value: TYPE_OP type=kotlin.String origin=CAST typeOperand=kotlin.String
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                  ARG e: GET_VAR 'val tmp_9: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_1_set-prop.<anonymous>' type=kotlin.Throwable origin=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -389,16 +425,26 @@ FILE fqName:auto.proxy.box fileName:/IntermediateSetterProxy.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_10 type:auto.proxy.box.box.Inspekt_Proxy [val]
+                            TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_11 type:kotlin.Any? [val]
+                            TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=1
                           RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals'
-                            CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.Boolean origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                            TRY type=kotlin.Boolean
+                              try: CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.Boolean origin=null
+                                ARG <this>: GET_VAR 'val tmp_10: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                                ARG other: GET_VAR 'val tmp_11: kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>' type=kotlin.Any? origin=null
+                              CATCH parameter=val tmp_12: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>
+                                VAR IR_TEMPORARY_VARIABLE name:tmp_12 type:kotlin.Throwable [val]
+                                CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                   ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
-                              ARG other: TYPE_OP type=kotlin.Any? origin=CAST typeOperand=kotlin.Any?
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
-                                  ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=1
+                                  ARG e: GET_VAR 'val tmp_12: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_2_equals.<anonymous>' type=kotlin.Throwable origin=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -444,12 +490,20 @@ FILE fqName:auto.proxy.box fileName:/IntermediateSetterProxy.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_13 type:auto.proxy.box.box.Inspekt_Proxy [val]
+                            TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_3_hashCode.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
                           RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_3_hashCode'
-                            CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.Int origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                            TRY type=kotlin.Int
+                              try: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.Int origin=null
+                                ARG <this>: GET_VAR 'val tmp_13: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_3_hashCode.<anonymous>' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                              CATCH parameter=val tmp_14: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_3_hashCode.<anonymous>
+                                VAR IR_TEMPORARY_VARIABLE name:tmp_14 type:kotlin.Throwable [val]
+                                CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                   ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_3_hashCode.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                  ARG e: GET_VAR 'val tmp_14: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_3_hashCode.<anonymous>' type=kotlin.Throwable origin=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
@@ -495,12 +549,20 @@ FILE fqName:auto.proxy.box fileName:/IntermediateSetterProxy.kt
                       FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Any?
                         VALUE_PARAMETER kind:Regular name:args index:0 type:dev.rnett.inspekt.internal.ArgumentsProviderV1
                         BLOCK_BODY
+                          VAR IR_TEMPORARY_VARIABLE name:tmp_15 type:auto.proxy.box.box.Inspekt_Proxy [val]
+                            TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
+                              CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                                ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_4_toString.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
+                                ARG globalIndex: CONST Int type=kotlin.Int value=0
                           RETURN type=kotlin.Nothing from='local final fun <anonymous> (args: dev.rnett.inspekt.internal.ArgumentsProviderV1): kotlin.Any? declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_4_toString'
-                            CALL 'public open fun toString (): kotlin.String declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.String origin=null
-                              ARG <this>: TYPE_OP type=auto.proxy.box.box.Inspekt_Proxy origin=CAST typeOperand=auto.proxy.box.box.Inspekt_Proxy
-                                CALL 'public abstract fun v1Get (globalIndex: kotlin.Int): kotlin.Any? declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Any? origin=null
+                            TRY type=kotlin.String
+                              try: CALL 'public open fun toString (): kotlin.String declared in kotlin.Any' superQualifier='CLASS IR_EXTERNAL_DECLARATION_STUB CLASS name:Any modality:OPEN visibility:public superTypes:[]' type=kotlin.String origin=null
+                                ARG <this>: GET_VAR 'val tmp_15: auto.proxy.box.box.Inspekt_Proxy declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_4_toString.<anonymous>' type=auto.proxy.box.box.Inspekt_Proxy origin=null
+                              CATCH parameter=val tmp_16: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_4_toString.<anonymous>
+                                VAR IR_TEMPORARY_VARIABLE name:tmp_16 type:kotlin.Throwable [val]
+                                CALL 'public open fun throwWrappedException (e: kotlin.Throwable): kotlin.Nothing declared in dev.rnett.inspekt.internal.ArgumentsProviderV1' type=kotlin.Nothing origin=null
                                   ARG <this>: GET_VAR 'args: dev.rnett.inspekt.internal.ArgumentsProviderV1 declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_4_toString.<anonymous>' type=dev.rnett.inspekt.internal.ArgumentsProviderV1 origin=null
-                                  ARG globalIndex: CONST Int type=kotlin.Int value=0
+                                  ARG e: GET_VAR 'val tmp_16: kotlin.Throwable declared in auto.proxy.box.box.Inspekt_Proxy.$$proxyMethod_4_toString.<anonymous>' type=kotlin.Throwable origin=null
                     ARG suspendInvoker: CONST Null type=kotlin.Nothing? value=null
                     ARG inheritedFrom: CONST Null type=kotlin.Nothing? value=null
                     ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null

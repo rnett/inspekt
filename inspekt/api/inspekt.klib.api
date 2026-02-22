@@ -34,6 +34,7 @@ abstract interface dev.rnett.inspekt.internal/ArgumentsProviderV1 { // dev.rnett
 
     abstract fun v1Get(kotlin/Int): kotlin/Any? // dev.rnett.inspekt.internal/ArgumentsProviderV1.v1Get|v1Get(kotlin.Int){}[0]
     open fun throwInvalidBitmask(): kotlin/Nothing // dev.rnett.inspekt.internal/ArgumentsProviderV1.throwInvalidBitmask|throwInvalidBitmask(){}[0]
+    open fun throwWrappedException(kotlin/Throwable): kotlin/Nothing // dev.rnett.inspekt.internal/ArgumentsProviderV1.throwWrappedException|throwWrappedException(kotlin.Throwable){}[0]
 }
 
 abstract interface dev.rnett.inspekt/AnnotatedElement { // dev.rnett.inspekt/AnnotatedElement|null[0]
@@ -265,6 +266,8 @@ final class dev.rnett.inspekt/Constructor : dev.rnett.inspekt/FunctionLike { // 
 final class dev.rnett.inspekt/FunctionInvocationException : kotlin/RuntimeException { // dev.rnett.inspekt/FunctionInvocationException|null[0]
     constructor <init>(dev.rnett.inspekt/QualifiedName, kotlin/Throwable) // dev.rnett.inspekt/FunctionInvocationException.<init>|<init>(dev.rnett.inspekt.QualifiedName;kotlin.Throwable){}[0]
 
+    final val cause // dev.rnett.inspekt/FunctionInvocationException.cause|{}cause[0]
+        final fun <get-cause>(): kotlin/Throwable // dev.rnett.inspekt/FunctionInvocationException.cause.<get-cause>|<get-cause>(){}[0]
     final val name // dev.rnett.inspekt/FunctionInvocationException.name|{}name[0]
         final fun <get-name>(): dev.rnett.inspekt/QualifiedName // dev.rnett.inspekt/FunctionInvocationException.name.<get-name>|<get-name>(){}[0]
 }
@@ -738,6 +741,7 @@ final fun <#A: kotlin/Any> dev.rnett.inspekt/inspekt(kotlin.reflect/KClass<#A>):
 final fun dev.rnett.inspekt.internal/v1ProxyHelper(kotlin/String, kotlin/Any, dev.rnett.inspekt.proxy/ProxyHandler, kotlin/Any, kotlin/Any?, kotlin/Boolean, kotlin/Array<kotlin/Any?>): kotlin/Any? // dev.rnett.inspekt.internal/v1ProxyHelper|v1ProxyHelper(kotlin.String;kotlin.Any;dev.rnett.inspekt.proxy.ProxyHandler;kotlin.Any;kotlin.Any?;kotlin.Boolean;kotlin.Array<kotlin.Any?>){}[0]
 final fun dev.rnett.inspekt/ArgumentList(dev.rnett.inspekt/Parameters, kotlin.collections/List<kotlin/Any?>): dev.rnett.inspekt/ArgumentList // dev.rnett.inspekt/ArgumentList|ArgumentList(dev.rnett.inspekt.Parameters;kotlin.collections.List<kotlin.Any?>){}[0]
 final fun dev.rnett.inspekt/CallableName(kotlin.collections/List<kotlin/String>, kotlin.collections/List<kotlin/String>?, kotlin/String): dev.rnett.inspekt/CallableName // dev.rnett.inspekt/CallableName|CallableName(kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.String>?;kotlin.String){}[0]
+final fun dev.rnett.inspekt/handleException(dev.rnett.inspekt/CallableName, kotlin/Throwable): kotlin/Nothing // dev.rnett.inspekt/handleException|handleException(dev.rnett.inspekt.CallableName;kotlin.Throwable){}[0]
 final fun dev.rnett.inspekt/inspekt(kotlin.reflect/KFunction<*>): dev.rnett.inspekt/SimpleFunction // dev.rnett.inspekt/inspekt|inspekt(kotlin.reflect.KFunction<*>){}[0]
 final fun dev.rnett.inspekt/inspekt(kotlin.reflect/KProperty<*>): dev.rnett.inspekt/Property // dev.rnett.inspekt/inspekt|inspekt(kotlin.reflect.KProperty<*>){}[0]
 final inline fun (dev.rnett.inspekt/Callable).dev.rnett.inspekt/buildArguments(kotlin/Function2<dev.rnett.inspekt/ArgumentList.Builder, dev.rnett.inspekt/Parameters, kotlin/Unit>): dev.rnett.inspekt/ArgumentList // dev.rnett.inspekt/buildArguments|buildArguments@dev.rnett.inspekt.Callable(kotlin.Function2<dev.rnett.inspekt.ArgumentList.Builder,dev.rnett.inspekt.Parameters,kotlin.Unit>){}[0]

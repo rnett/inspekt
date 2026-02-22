@@ -2,10 +2,17 @@ package auto.inspekt.box
 
 fun box(): String {
   return Property(packageNames = arrayOf<String>(elements = ["dev", "rnett", "inspekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "testProp", annotations = arrayOf<Annotation>(elements = []), isMutable = true, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<Int>(), kotlin = ExternalTest::testProp, getter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "inspekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<get-testProp>", isAbstract = false, kotlin = ExternalTest::<get-testProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as ExternalTest.<get-testProp>()
+    val tmp_0: ExternalTest = args.v1Get(globalIndex = 0) as ExternalTest
+    return try tmp_0.<get-testProp>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_1)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = Function(packageNames = arrayOf<String>(elements = ["dev", "rnett", "inspekt"]), classNames = arrayOf<String>(elements = ["ExternalTest"]), name = "<set-testProp>", isAbstract = false, kotlin = ExternalTest::<set-testProp>, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<ExternalTest>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "<set-?>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Int>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
-    return args.v1Get(globalIndex = 0) as ExternalTest.<set-testProp>(<set-?> = args.v1Get(globalIndex = 1) as Int)
+    val tmp_2: ExternalTest = args.v1Get(globalIndex = 0) as ExternalTest
+    val tmp_3: Int = args.v1Get(globalIndex = 1) as Int
+    return try tmp_2.<set-testProp>(<set-?> = tmp_3)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_4)
+
   }
 , suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), inheritedFrom = null).toModel().toString()
 }

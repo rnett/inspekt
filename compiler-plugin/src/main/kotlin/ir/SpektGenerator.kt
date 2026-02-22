@@ -10,6 +10,7 @@ import dev.rnett.symbolexport.symbol.compiler.asCallableId
 import dev.rnett.symbolexport.symbol.compiler.asClassId
 import dev.rnett.symbolexport.symbol.compiler.set
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
+import org.jetbrains.kotlin.backend.common.lower.irCatch
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageLocation
 import org.jetbrains.kotlin.cli.common.messages.CompilerMessageSeverity
 import org.jetbrains.kotlin.descriptors.ClassKind
@@ -33,6 +34,7 @@ import org.jetbrains.kotlin.ir.builders.irNull
 import org.jetbrains.kotlin.ir.builders.irReturn
 import org.jetbrains.kotlin.ir.builders.irString
 import org.jetbrains.kotlin.ir.builders.irTemporary
+import org.jetbrains.kotlin.ir.builders.irTry
 import org.jetbrains.kotlin.ir.builders.irWhen
 import org.jetbrains.kotlin.ir.builders.parent
 import org.jetbrains.kotlin.ir.declarations.IrClass
@@ -51,6 +53,7 @@ import org.jetbrains.kotlin.ir.expressions.impl.IrFunctionReferenceImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrPropertyReferenceImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrTypeOperatorCallImpl
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
+import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.types.makeNullable
 import org.jetbrains.kotlin.ir.types.typeWith
@@ -69,6 +72,7 @@ import org.jetbrains.kotlin.ir.util.parentAsClass
 import org.jetbrains.kotlin.ir.util.parentClassOrNull
 import org.jetbrains.kotlin.ir.util.properties
 import org.jetbrains.kotlin.types.Variance
+import org.jetbrains.kotlin.utils.addToStdlib.assignFrom
 
 @OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
@@ -307,6 +311,8 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         }
     }
 
+    private val throwWrappedException get() = context.referenceFunctions(Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1_throwWrappedException.asCallableId()).single()
+
     context(context: GenerationContext)
     private fun IrBuilderWithScope.createInvokerLambda(suspend: Boolean, function: IrFunction): IrExpression {
         val functionClass = if (suspend) builtIns.suspendFunctionN(1) else builtIns.functionN(1)
@@ -340,26 +346,48 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                             Symbols.inspekt.dev_rnett_inspekt_internal_ArgumentsProviderV1_v1Get.asCallableId()
                         ).single()
 
-                        +irReturn(irCall(function).apply {
-
-                            if (shouldBeSuper && this is IrCall) {
-                                superQualifierSymbol = function.parentClassOrNull?.symbol
-                            }
-
-                            function.parameters.forEach { param ->
-                                arguments[param.indexInParameters] = irAs(
+                        val arguments = function.parameters.map { param ->
+                            irTemporary(
+                                irAs(
                                     irCall(getParam).apply {
                                         arguments[0] = irGet(argsParam)
                                         arguments[1] = irInt(param.indexInParameters)
                                     },
                                     if (param.indexInParameters == 0 && shouldBeSuper) context.makeSuperFor.defaultType else param.type
                                 )
-                            }
-                        })
+                            )
+                        }
+
+                        +irReturn(
+                            wrapUnderlyingExceptions(
+                                function.returnType, argsParam,
+                                this.irCall(function).apply {
+                                    this.arguments.assignFrom(arguments.map { this@irBlockBody.irGet(it) })
+                                    if (shouldBeSuper && this is IrCall) {
+                                        superQualifierSymbol = function.parentClassOrNull?.symbol
+                                    }
+                                }
+                            )
+                        )
                     }
                 }
             }
         }
+    }
+
+    private fun IrBuilderWithScope.wrapUnderlyingExceptions(type: IrType, argsParameter: IrValueParameter, body: IrExpression): IrExpression {
+        val catchVar = scope.createTemporaryVariableDeclaration(builtIns.throwableType, startOffset = startOffset, endOffset = endOffset)
+        return irTry(
+            type,
+            body,
+            listOf(
+                irCatch(catchVar, irCall(throwWrappedException).apply {
+                    this.arguments[0] = irGet(argsParameter)
+                    this.arguments[1] = irGet(catchVar)
+                })
+            ),
+            null
+        )
     }
 
     context(builder: IrBuilderWithScope, context: GenerationContext)
@@ -384,8 +412,19 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
             arguments[0] = irGet(argsParam)
         })
 
-        val branches = List(maxBitset) { hasValueMark ->
+        val argumentVars = function.parameters.map { param ->
+            irTemporary(
+                irAs(
+                    irCall(getParam).apply {
+                        arguments[0] = irGet(argsParam)
+                        arguments[1] = irInt(param.indexInParameters)
+                    },
+                    (if (param.indexInParameters == 0 && shouldBeSuper) context.makeSuperFor!!.defaultType else param.type).makeNullable()
+                )
+            )
+        }
 
+        val branches = List(maxBitset) { hasValueMark ->
             val call = irCall(function).apply {
                 var defaultIndex = 0
                 function.parameters.forEach { param ->
@@ -395,14 +434,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                             return@forEach
                     }
 
-                    arguments[param] = irAs(
-                        irCall(getParam).apply {
-                            arguments[0] = irGet(argsParam)
-                            arguments[1] = irInt(param.indexInParameters)
-                        },
-                        if (param.indexInParameters == 0 && shouldBeSuper) context.makeSuperFor!!.defaultType else param.type
-                    )
-
+                    arguments[param] = irGet(argumentVars[param.indexInParameters])
                 }
 
                 if (shouldBeSuper && this is IrCall) {
@@ -415,7 +447,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
             arguments[0] = irGet(argsParam)
         })
 
-        return irWhen(function.returnType, branches)
+        return wrapUnderlyingExceptions(function.returnType, argsParam, irWhen(function.returnType, branches))
     }
 
     private fun IrBuilderWithScope.createCastLambda(declaration: IrClass): IrExpression {

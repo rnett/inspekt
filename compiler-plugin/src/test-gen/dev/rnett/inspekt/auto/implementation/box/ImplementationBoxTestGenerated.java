@@ -105,6 +105,12 @@ public class ImplementationBoxTestGenerated extends AbstractLeveledBoxTest {
     }
 
     @Test
+    @TestMetadata("Exceptions.kt")
+    public void testExceptions() {
+      runTest("src/testData/auto/implementation/box/invoke/Exceptions.kt");
+    }
+
+    @Test
     @TestMetadata("Inline.kt")
     public void testInline() {
       runTest("src/testData/auto/implementation/box/invoke/Inline.kt");

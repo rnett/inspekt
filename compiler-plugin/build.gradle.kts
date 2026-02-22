@@ -14,6 +14,8 @@ compilerPluginDevelopment {
 dependencies {
     implementation(libs.symbols.kotlin.compiler)
     compilerTestRuntimeClasspath(project(":test-helpers"))
+    testImplementation((kotlin("test-junit5")))
+    compilerTestRuntimeClasspath((kotlin("test-junit5")))
 
     importSymbols(project(":inspekt"))
 }
