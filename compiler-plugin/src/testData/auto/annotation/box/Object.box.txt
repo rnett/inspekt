@@ -1,8 +1,0 @@
-object auto.annotation.box.Test : java.lang.Object {
-    fun test(): int
-    fun inspekt(): dev.rnett.inspekt.Inspektion<auto.annotation.box.Test>
-    fun equals(other: java.lang.Object?): boolean @ class java.lang.Object
-    fun hashCode(): int @ class java.lang.Object
-    fun toString(): java.lang.String @ class java.lang.Object
-    val test2: int
-}

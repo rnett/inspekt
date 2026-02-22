@@ -1,7 +1,7 @@
 FILE: Objects.kt
     package auto.implementation.box
 
-    @R|dev/rnett/inspekt/Inspekt|() public final object TestObject : R|kotlin/Any| {
+    public final object TestObject : R|kotlin/Any| {
         private constructor(): R|auto/implementation/box/TestObject| {
             super<R|kotlin/Any|>()
         }
@@ -13,11 +13,9 @@ FILE: Objects.kt
             ^test String(obj_fun)
         }
 
-        public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestObject>|
-
     }
     public final fun box(): R|kotlin/String| {
-        lval spektObj: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestObject>| = Q|auto/implementation/box/TestObject|.R|auto/implementation/box/TestObject.inspekt|()
+        lval spektObj: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestObject>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/TestObject|>(<getClass>(Q|auto/implementation/box/TestObject|))
         R|kotlin/test/assertEquals|<R|auto/implementation/box/TestObject?|>(Q|auto/implementation/box/TestObject|, R|<local>/spektObj|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.objectInstance: R|auto/implementation/box/TestObject?|>|)
         lval pObj: R|dev/rnett/inspekt/Property| = R|<local>/spektObj|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(prop))

@@ -1,7 +1,7 @@
 FILE: WithCompanion.kt
     package auto.spekt_method.fir
 
-    @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
+    @<ERROR TYPE REF: Symbol not found for Inspekt>() public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/spekt_method/fir/Test| {
             super<R|kotlin/Any|>()
         }
@@ -13,8 +13,6 @@ FILE: WithCompanion.kt
 
             public final val test: R|kotlin/Int| = Int(3)
                 public get(): R|kotlin/Int|
-
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/spekt_method/fir/Test>|
 
         }
 

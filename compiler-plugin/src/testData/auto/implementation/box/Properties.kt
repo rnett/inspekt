@@ -1,4 +1,3 @@
-@Inspekt
 class TestProperties {
     val readOnly = "fixed"
     var mutable = "initial"
@@ -14,7 +13,7 @@ class TestProperties {
 }
 
 fun box(): String {
-    val spekt = TestProperties.inspekt()
+    val spekt = inspekt(TestProperties::class)
     val instance = TestProperties()
     
     val pReadOnly = spekt.properties.single { it.name.name == "readOnly" } as ReadOnlyProperty

@@ -3,7 +3,6 @@ package dev.rnett.inspekt
 import org.jetbrains.kotlin.name.Name
 
 object Names {
-    val InspektAnnotation = Symbols.inspekt.dev_rnett_inspekt_Inspekt
     val Inspektion = Symbols.inspekt.dev_rnett_inspekt_Inspektion
 
     val inspect = Symbols.inspekt.dev_rnett_inspekt_inspekt

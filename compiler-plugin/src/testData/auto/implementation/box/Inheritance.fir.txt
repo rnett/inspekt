@@ -1,7 +1,7 @@
 FILE: Inheritance.kt
     package auto.implementation.box
 
-    @R|dev/rnett/inspekt/Inspekt|() public abstract class Base : R|kotlin/Any| {
+    public abstract class Base : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/Base| {
             super<R|kotlin/Any|>()
         }
@@ -25,17 +25,8 @@ FILE: Inheritance.kt
             ^baseFun String(base_fun)
         }
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Base>|
-
-            private constructor(): R|auto/implementation/box/Base.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
-    @R|dev/rnett/inspekt/Inspekt|() public final class Derived : R|auto/implementation/box/Base| {
+    public final class Derived : R|auto/implementation/box/Base| {
         public constructor(): R|auto/implementation/box/Derived| {
             super<R|auto/implementation/box/Base|>()
         }
@@ -58,18 +49,9 @@ FILE: Inheritance.kt
             ^derivedFun String(derived_fun)
         }
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Derived>|
-
-            private constructor(): R|auto/implementation/box/Derived.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Derived>| = Q|auto/implementation/box/Derived|.R|auto/implementation/box/Derived.Companion.inspekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Derived>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/Derived|>(<getClass>(Q|auto/implementation/box/Derived|))
         lval instance: R|auto/implementation/box/Derived| = R|auto/implementation/box/Derived.Derived|()
         lval pAbstract: R|dev/rnett/inspekt/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(abstractProp))

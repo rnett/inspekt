@@ -1,4 +1,3 @@
-@Inspekt
 class Test(val test1: String = "test") {
     fun test() = 5
     val test2 = 6
@@ -11,5 +10,5 @@ class Test(val test1: String = "test") {
 }
 
 fun box(): String {
-    return Test.inspekt().toString()
+    return inspekt(Test::class).toString()
 }

@@ -205,9 +205,6 @@ public abstract class dev/rnett/inspekt/FunctionLike : dev/rnett/inspekt/Callabl
 	public final fun isSuspend ()Z
 }
 
-public abstract interface annotation class dev/rnett/inspekt/Inspekt : java/lang/annotation/Annotation {
-}
-
 public abstract interface annotation class dev/rnett/inspekt/InspektCompilerPluginIntrinsic : java/lang/annotation/Annotation {
 }
 

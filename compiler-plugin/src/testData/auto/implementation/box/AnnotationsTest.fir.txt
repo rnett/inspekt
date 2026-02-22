@@ -10,7 +10,7 @@ FILE: AnnotationsTest.kt
             public get(): R|kotlin/Int|
 
     }
-    @R|dev/rnett/inspekt/Inspekt|() @R|auto/implementation/box/TestAnnotation|(a = Int(1)) public final class Test : R|kotlin/Any| {
+    @R|auto/implementation/box/TestAnnotation|(a = Int(1)) public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/Test| {
             super<R|kotlin/Any|>()
         }
@@ -22,18 +22,9 @@ FILE: AnnotationsTest.kt
             ^test String()
         }
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>|
-
-            private constructor(): R|auto/implementation/box/Test.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>| = Q|auto/implementation/box/Test|.R|auto/implementation/box/Test.Companion.inspekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/Test>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/Test|>(<getClass>(Q|auto/implementation/box/Test|))
         R|kotlin/test/assertEquals|<R|auto/implementation/box/TestAnnotation?|>(R|auto/implementation/box/TestAnnotation.TestAnnotation|(Int(1)), R|<local>/spekt|.R|dev/rnett/inspekt/annotation|<R|auto/implementation/box/TestAnnotation|>(), String(Test annotation should be present))
         lval prop: R|dev/rnett/inspekt/Property| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>()
         R|kotlin/test/assertEquals|<R|auto/implementation/box/TestAnnotation?|>(R|auto/implementation/box/TestAnnotation.TestAnnotation|(Int(2)), R|<local>/prop|.R|dev/rnett/inspekt/annotation|<R|auto/implementation/box/TestAnnotation|>(), String(Property annotation should be present))

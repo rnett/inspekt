@@ -1,4 +1,3 @@
-@Inspekt
 class Complex {
     fun String.extension(other: Int) = "$this-$other"
     
@@ -6,7 +5,7 @@ class Complex {
 }
 
 fun box(): String {
-    val spekt = Complex.inspekt()
+    val spekt = inspekt(Complex::class)
     val instance = Complex()
     
     val fExtension = spekt.functions.single { it.name.name == "extension" }

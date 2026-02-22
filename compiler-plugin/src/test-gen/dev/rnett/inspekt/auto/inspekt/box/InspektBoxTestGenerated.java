@@ -61,12 +61,6 @@ public class InspektBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
-  @TestMetadata("InspektAnnotatedClass.kt")
-  public void testInspektAnnotatedClass() {
-    runTest("src/testData/auto/inspekt/box/InspektAnnotatedClass.kt");
-  }
-
-  @Test
   @TestMetadata("Property.kt")
   public void testProperty() {
     runTest("src/testData/auto/inspekt/box/Property.kt");

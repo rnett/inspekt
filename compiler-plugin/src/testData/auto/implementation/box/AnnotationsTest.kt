@@ -1,6 +1,5 @@
 annotation class TestAnnotation(val a: Int)
 
-@Inspekt
 @TestAnnotation(1)
 class Test {
     @TestAnnotation(2)
@@ -11,7 +10,7 @@ class Test {
 }
 
 fun box(): String {
-    val spekt = Test.inspekt()
+    val spekt = inspekt(Test::class)
 
     assertEquals(TestAnnotation(1), spekt.annotation<TestAnnotation>(), "Test annotation should be present")
 

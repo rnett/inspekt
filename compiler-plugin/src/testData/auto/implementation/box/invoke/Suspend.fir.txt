@@ -1,7 +1,7 @@
 FILE: Suspend.kt
     package auto.implementation.box.invoke
 
-    @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
+    public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/invoke/Test| {
             super<R|kotlin/Any|>()
         }
@@ -10,19 +10,10 @@ FILE: Suspend.kt
             ^test Int(5)
         }
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>|
-
-            private constructor(): R|auto/implementation/box/invoke/Test.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>| = R|dev/rnett/inspekt/assertSuccessful|<R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>|>(String(Test.inspekt()), <L> = assertSuccessful@fun <anonymous>(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>| <inline=Inline, kind=UNKNOWN>  {
-            ^ Q|auto/implementation/box/invoke/Test|.R|auto/implementation/box/invoke/Test.Companion.inspekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>| = R|dev/rnett/inspekt/assertSuccessful|<R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>|>(String(inspekt(Test::class)), <L> = assertSuccessful@fun <anonymous>(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Test>| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/Test|>(<getClass>(Q|auto/implementation/box/invoke/Test|))
         }
         )
         lval suspendFun: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {

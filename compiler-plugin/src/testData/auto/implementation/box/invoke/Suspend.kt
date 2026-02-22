@@ -1,10 +1,9 @@
-@Inspekt
 class Test {
     suspend fun test() = 5
 }
 
 fun box(): String {
-    val spekt = assertSuccessful("Test.inspekt()") { Test.inspekt() }
+    val spekt = assertSuccessful("inspekt(Test::class)") { inspekt(Test::class) }
     val suspendFun = spekt.functions.single { it.name.name == "test" }
     assertEquals(true, suspendFun.isSuspend)
     

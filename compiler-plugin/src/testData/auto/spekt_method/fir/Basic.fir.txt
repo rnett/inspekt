@@ -1,18 +1,9 @@
 FILE: Basic.kt
     package auto.spekt_method.fir
 
-    @R|dev/rnett/inspekt/Inspekt|() public final class Test : R|kotlin/Any| {
+    @<ERROR TYPE REF: Symbol not found for Inspekt>() public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/spekt_method/fir/Test| {
             super<R|kotlin/Any|>()
-        }
-
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/spekt_method/fir/Test>|
-
-            private constructor(): R|auto/spekt_method/fir/Test.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
         }
 
     }

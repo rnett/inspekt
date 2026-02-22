@@ -1,4 +1,3 @@
-@Inspekt
 object TestObject {
     val prop = "obj_prop"
     fun test() = "obj_fun"
@@ -6,7 +5,7 @@ object TestObject {
 
 fun box(): String {
     // Object
-    val spektObj = TestObject.inspekt()
+    val spektObj = inspekt(TestObject::class)
     assertEquals(TestObject, spektObj.objectInstance)
     
     val pObj = spektObj.properties.single { it.name.name == "prop" }

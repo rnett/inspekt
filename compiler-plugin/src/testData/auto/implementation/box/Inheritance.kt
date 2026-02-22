@@ -1,4 +1,3 @@
-@Inspekt
 abstract class Base {
     abstract val abstractProp: String
     open val openProp = "base_open"
@@ -9,7 +8,6 @@ abstract class Base {
     fun baseFun() = "base_fun"
 }
 
-@Inspekt
 class Derived : Base() {
     override val abstractProp = "derived_abstract"
     override val openProp = "derived_open"
@@ -21,7 +19,7 @@ class Derived : Base() {
 }
 
 fun box(): String {
-    val spekt = Derived.inspekt()
+    val spekt = inspekt(Derived::class)
     val instance = Derived()
     
     // Properties

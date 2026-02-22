@@ -1,7 +1,7 @@
 FILE: ComplexParameters.kt
     package auto.implementation.box.invoke
 
-    @R|dev/rnett/inspekt/Inspekt|() public final class Complex : R|kotlin/Any| {
+    public final class Complex : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/invoke/Complex| {
             super<R|kotlin/Any|>()
         }
@@ -14,18 +14,9 @@ FILE: ComplexParameters.kt
             ^multi <strcat>(R|<local>/a|, String(-), R|<local>/b|, String(-), R|<local>/c|)
         }
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Complex>|
-
-            private constructor(): R|auto/implementation/box/invoke/Complex.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Complex>| = Q|auto/implementation/box/invoke/Complex|.R|auto/implementation/box/invoke/Complex.Companion.inspekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/Complex>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/Complex|>(<getClass>(Q|auto/implementation/box/invoke/Complex|))
         lval instance: R|auto/implementation/box/invoke/Complex| = R|auto/implementation/box/invoke/Complex.Complex|()
         lval fExtension: R|dev/rnett/inspekt/SimpleFunction| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/SimpleFunction>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/SimpleFunction|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/SimpleFunction.name|.R|dev/rnett/inspekt/CallableName.name|, String(extension))

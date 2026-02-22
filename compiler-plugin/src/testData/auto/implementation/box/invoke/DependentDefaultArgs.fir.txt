@@ -1,7 +1,7 @@
 FILE: DependentDefaultArgs.kt
     package auto.implementation.box.invoke
 
-    @R|dev/rnett/inspekt/Inspekt|() public final class TestDefaults : R|kotlin/Any| {
+    public final class TestDefaults : R|kotlin/Any| {
         public constructor(a: R|kotlin/Int| = Int(1), b: R|kotlin/String| = R|<local>/a|.R|kotlin/Int.toString|()): R|auto/implementation/box/invoke/TestDefaults| {
             super<R|kotlin/Any|>()
         }
@@ -16,18 +16,9 @@ FILE: DependentDefaultArgs.kt
             ^test <strcat>(this@R|auto/implementation/box/invoke/TestDefaults|.R|auto/implementation/box/invoke/TestDefaults.a|, String(-), this@R|auto/implementation/box/invoke/TestDefaults|.R|auto/implementation/box/invoke/TestDefaults.b|, String(-), R|<local>/c|, String(-), R|<local>/d|)
         }
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/TestDefaults>|
-
-            private constructor(): R|auto/implementation/box/invoke/TestDefaults.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/TestDefaults>| = Q|auto/implementation/box/invoke/TestDefaults|.R|auto/implementation/box/invoke/TestDefaults.Companion.inspekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/invoke/TestDefaults>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/invoke/TestDefaults|>(<getClass>(Q|auto/implementation/box/invoke/TestDefaults|))
         lval constructor: R|dev/rnett/inspekt/Constructor| = R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.primaryConstructor: R|dev/rnett/inspekt/Constructor?|>|!!
         lval instance1: R|auto/implementation/box/invoke/TestDefaults| = (R|dev/rnett/inspekt/assertSuccessful|<R|kotlin/Any?|>(String(constructor all defaults), <L> = assertSuccessful@fun <anonymous>(): R|kotlin/Any?| <inline=Inline, kind=UNKNOWN>  {
             ^ R|<local>/constructor|.R|dev/rnett/inspekt/FunctionLike.invoke|(<L> = invoke@fun R|dev/rnett/inspekt/ArgumentList.Builder|.<anonymous>(it: R|dev/rnett/inspekt/Parameters|): R|kotlin/Unit| <inline=Inline, kind=EXACTLY_ONCE>  {

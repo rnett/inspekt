@@ -1,7 +1,7 @@
 FILE: Properties.kt
     package auto.implementation.box
 
-    @R|dev/rnett/inspekt/Inspekt|() public final class TestProperties : R|kotlin/Any| {
+    public final class TestProperties : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/TestProperties| {
             super<R|kotlin/Any|>()
         }
@@ -32,18 +32,9 @@ FILE: Properties.kt
                 ^ this@R|auto/implementation/box/TestProperties|.D|auto/implementation/box/TestProperties.delegated|.R|kotlin/getValue|<R|kotlin/String|>(this@R|auto/implementation/box/TestProperties|, ::R|auto/implementation/box/TestProperties.delegated|)
             }
 
-        public final companion object Companion : R|kotlin/Any| {
-            public final fun inspekt(): R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestProperties>|
-
-            private constructor(): R|auto/implementation/box/TestProperties.Companion| {
-                super<R|kotlin/Any|>()
-            }
-
-        }
-
     }
     public final fun box(): R|kotlin/String| {
-        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestProperties>| = Q|auto/implementation/box/TestProperties|.R|auto/implementation/box/TestProperties.Companion.inspekt|()
+        lval spekt: R|dev/rnett/inspekt/Inspektion<auto/implementation/box/TestProperties>| = R|dev/rnett/inspekt/inspekt|<R|auto/implementation/box/TestProperties|>(<getClass>(Q|auto/implementation/box/TestProperties|))
         lval instance: R|auto/implementation/box/TestProperties| = R|auto/implementation/box/TestProperties.TestProperties|()
         lval pReadOnly: R|dev/rnett/inspekt/ReadOnlyProperty| = (R|<local>/spekt|.R|SubstitutionOverride<dev/rnett/inspekt/Inspektion.properties: R|kotlin/collections/List<dev/rnett/inspekt/Property>|>|.R|kotlin/collections/single|<R|dev/rnett/inspekt/Property|>(<L> = single@fun <anonymous>(it: R|dev/rnett/inspekt/Property|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
             ^ ==(R|<local>/it|.R|dev/rnett/inspekt/Property.name|.R|dev/rnett/inspekt/CallableName.name|, String(readOnly))

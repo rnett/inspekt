@@ -6,10 +6,6 @@
 // - Show declarations: true
 
 // Library unique name: <dev.rnett.inspekt:inspekt>
-open annotation class dev.rnett.inspekt/Inspekt : kotlin/Annotation { // dev.rnett.inspekt/Inspekt|null[0]
-    constructor <init>() // dev.rnett.inspekt/Inspekt.<init>|<init>(){}[0]
-}
-
 open annotation class dev.rnett.inspekt/InspektCompilerPluginIntrinsic : kotlin/Annotation { // dev.rnett.inspekt/InspektCompilerPluginIntrinsic|null[0]
     constructor <init>() // dev.rnett.inspekt/InspektCompilerPluginIntrinsic.<init>|<init>(){}[0]
 }
