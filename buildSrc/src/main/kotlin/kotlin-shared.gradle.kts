@@ -14,6 +14,7 @@ plugins {
 }
 
 val kotlin = project.extensions.findByName("kotlin") as KotlinBaseExtension
+val onlyJvm = providers.systemProperty("inspekt.onlyJvm").orNull?.lowercase() == "true"
 
 kotlin.apply {
     this as HasConfigurableKotlinCompilerOptions<out KotlinCommonCompilerOptions>
@@ -45,7 +46,7 @@ if (!pluginManager.hasPlugin("internal")) {
         kotlin.the<AbiValidationMultiplatformExtension>().apply {
             enabled = true
             klib {
-                enabled = true
+                enabled = !onlyJvm
                 keepUnsupportedTargets = true
             }
         }
