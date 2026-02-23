@@ -18,13 +18,21 @@ kotlin {
 }
 
 graalvmNative {
+    toolchainDetection = false
+    useArgFile = false
     binaries {
         named("main") {
             javaLauncher = javaToolchains.launcherFor {
+                vendor = JvmVendorSpec.BELLSOFT
                 languageVersion = JavaLanguageVersion.of(21)
                 nativeImageCapable = true
             }
+            fallback = false
+            debug = true
+            verbose = true
             mainClass.set("dev.rnett.inspekt.example.Main")
+            richOutput = true
+            resources.autodetect()
         }
     }
 }
