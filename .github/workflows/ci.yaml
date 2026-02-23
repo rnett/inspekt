@@ -82,9 +82,6 @@ jobs:
       - name: Test library
         run: ./gradlew check
 
-      - name: Generate docs
-        run: ./gradlew :dokkaGenerate
-
   publishSnapshot:
     name: Publish snapshot
     needs: [ checkVersion, buildAndTest ]
