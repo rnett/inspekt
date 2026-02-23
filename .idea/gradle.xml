@@ -35,6 +35,7 @@
             <option value="$PROJECT_DIR$/examples" />
             <option value="$PROJECT_DIR$/examples/graalvm" />
             <option value="$PROJECT_DIR$/examples/hello-world" />
+            <option value="$PROJECT_DIR$/examples/java-interop" />
           </set>
         </option>
       </GradleProjectSettings>

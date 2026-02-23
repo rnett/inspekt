@@ -14,7 +14,7 @@
 * `is` checking and casting
 * JVM-like proxies
 * Reflecting over dependencies
-* GraalVM compatible out of the box
+* GraalVM compatible out of the box (I think, it's not tested yet)
 
 ## Getting started
 

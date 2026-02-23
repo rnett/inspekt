@@ -30,3 +30,4 @@ dependencyResolutionManagement {
 
 include("hello-world")
 include("graalvm")
+include("java-interop")
