@@ -43,5 +43,5 @@ tasks.named<UpdateDaemonJvm>("updateDaemonJvm") {
 }
 
 dokka {
-    moduleName = "Inspekt"
+    moduleName = "Inspekt-parent"
 }
