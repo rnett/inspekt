@@ -1,3 +1,3 @@
 # Module Inspekt
 
-API documentation for [inspekt](https://inspekt.rnett.dev/latest/).
+API documentation for [Inspekt](https://inspekt.rnett.dev/latest/).

@@ -28,6 +28,10 @@ afterEvaluate {
     }
 }
 
+dokka {
+    moduleName = "Inspekt"
+}
+
 dependencies {
     dokka(project(":inspekt"))
     dokka(project(":gradle-plugin"))
@@ -40,8 +44,4 @@ tasks.withType<KotlinNpmInstallTask>().configureEach {
 
 tasks.named<UpdateDaemonJvm>("updateDaemonJvm") {
     languageVersion = JavaLanguageVersion.of(24)
-}
-
-dokka {
-    moduleName = "Inspekt-parent"
 }
