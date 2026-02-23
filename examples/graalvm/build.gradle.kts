@@ -9,6 +9,14 @@ application {
     mainClass.set("dev.rnett.inspekt.example.Main")
 }
 
+java {
+    toolchain { version = JavaLanguageVersion.of(21) }
+}
+
+kotlin {
+    jvmToolchain(21)
+}
+
 graalvmNative {
     binaries {
         named("main") {
@@ -16,7 +24,6 @@ graalvmNative {
                 languageVersion = JavaLanguageVersion.of(21)
                 nativeImageCapable = true
             }
-            imageName.set("inspekt-graalvm")
             mainClass.set("dev.rnett.inspekt.example.Main")
         }
     }

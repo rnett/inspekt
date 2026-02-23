@@ -8,18 +8,22 @@ class Example(val message: String) {
     }
 }
 
-fun main() {
-    println("Inspekt GraalVM Example")
-    val exampleClass = inspekt(Example::class)
-    println("Class name: ${exampleClass.shortName}")
+object Main {
 
-    val constructor = exampleClass.primaryConstructor!!
-    val instance = constructor.invoke {
-        value("Hello from GraalVM!")
-    }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        println("Inspekt GraalVM Example")
+        val exampleClass = inspekt(Example::class)
+        println("Class name: ${exampleClass.shortName}")
 
-    println("Invoking greet via reflection:")
-    exampleClass.function("greet").invoke {
-        dispatchReceiver = instance
+        val constructor = exampleClass.primaryConstructor!!
+        val instance = constructor.invoke {
+            value("Hello from GraalVM!")
+        }
+
+        println("Invoking greet via reflection:")
+        exampleClass.function("greet").invoke {
+            dispatchReceiver = instance
+        }
     }
 }
