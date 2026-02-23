@@ -1,1 +1,0 @@
-sourceset_dependencies = '{":gradle-plugin/main":[]}'
