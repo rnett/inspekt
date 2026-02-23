@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="inspekt-wasm-wasi-0.0.2-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/inspekt/build/libs</output-path>
+    <root id="archive" name="inspekt-wasm-wasi-0.0.2-SNAPSHOT.jar">
+      <element id="module-output" name="inspekt-parent.inspekt.wasmWasiMain" />
+    </root>
+  </artifact>
+</component>

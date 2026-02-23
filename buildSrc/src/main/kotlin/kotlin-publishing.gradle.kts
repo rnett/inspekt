@@ -19,6 +19,7 @@ extensionIfPresent<MavenPublishBaseExtension> {
         name = "Klif - ${project.name}"
         description = "A Kotlin Multiplatform logging facade"
         inceptionYear = "2025"
+        url = "https://inspekt.rnett.dev/"
         licenses {
             license {
                 name = "The Apache License, Version 2.0"

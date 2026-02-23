@@ -23,7 +23,7 @@ jobs:
       contents: write
 
   release:
-    needs: ci
+    needs: [ ci, publishDocs ]
     name: Release to Maven Central and tag
     runs-on: ubuntu-latest
     env:
