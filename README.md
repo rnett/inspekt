@@ -47,3 +47,7 @@ foo.function("bar").invoke {
 ## Documentation
 
 More detailed documentation is available at https://inspekt.rnett.dev/latest/.
+
+## Examples
+
+Some basic examples are located in the [examples](./examples) directory.

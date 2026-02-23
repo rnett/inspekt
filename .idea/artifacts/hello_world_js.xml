@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="hello-world-js">
+    <output-path>$PROJECT_DIR$/examples/hello-world/build/libs</output-path>
+    <root id="archive" name="hello-world-js.jar">
+      <element id="module-output" name="inspekt-examples.hello-world.jsMain" />
+    </root>
+  </artifact>
+</component>

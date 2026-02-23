@@ -46,3 +46,7 @@ foo.function("bar").invoke {
     It is 0% compatible with `@Compsoable` functions.
 
 [//]: # (@formatter:on)
+
+## Examples
+
+Some basic examples are located in the [examples](https://github.com/rnett/inspekt/tree/main/examples) directory of the GitHub repo.
