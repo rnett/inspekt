@@ -48,7 +48,7 @@ jobs:
       - name: Generate docs
         run: ./gradlew :dokkaGenerate
       - name: Copy docs to site dir
-        run: cp ./build/dokka/html ./docs/api
+        run: cp -r -f ./build/dokka/html ./docs/api
 
       - uses: actions/setup-python@v6
         with:
