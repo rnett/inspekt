@@ -14,6 +14,7 @@ public sealed class Callable(
     public val parameters: Parameters,
     /**
      * Whether the declaration is abstract.
+     * If checking whether you can invoke a function, use [FunctionLike.isInvokable] instead of this.
      */
     public val isAbstract: Boolean,
 

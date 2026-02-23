@@ -468,7 +468,7 @@ FILE fqName:auto.implementation.box.invoke fileName:/Inline.kt
                     ARG value: CONSTRUCTOR_CALL 'public constructor <init> () declared in auto.implementation.box.invoke.Test' type=auto.implementation.box.invoke.Test origin=null
         ARG message: CONST String type=kotlin.String value="inline invocation"
       CALL 'public final fun assertFalse (actual: kotlin.Boolean, message: kotlin.String?): kotlin.Unit declared in kotlin.test' type=kotlin.Unit origin=null
-        ARG actual: CALL 'public open fun <get-isCallable> (): kotlin.Boolean declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.Boolean origin=GET_PROPERTY
+        ARG actual: CALL 'public open fun <get-isInvokable> (): kotlin.Boolean declared in dev.rnett.inspekt.model.SimpleFunction' type=kotlin.Boolean origin=GET_PROPERTY
           ARG <this>: CALL 'public final fun function (name: kotlin.String): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.model.Inspektion' type=dev.rnett.inspekt.model.SimpleFunction origin=null
             ARG <this>: GET_VAR 'val cls: dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> declared in auto.implementation.box.invoke.box' type=dev.rnett.inspekt.model.Inspektion<auto.implementation.box.invoke.Test> origin=null
             ARG name: CONST String type=kotlin.String value="testReified"

@@ -127,6 +127,12 @@ public data class ArgumentList internal constructor(
         }
     }
 
+    override fun toString(): String {
+        return parameters.zip(arguments).joinToString(prefix = "(", postfix = ")", separator = ", ") { (param, arg) ->
+            param.name + " = " + if (isDefaulted(param)) "<default>" else arg
+        }
+    }
+
     /**
      * A builder to assemble an [ArgumentList] for a set of parameters.
      * Parameters which are not set will use their default values if they have one.

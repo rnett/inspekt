@@ -17,7 +17,7 @@ fun box(): String {
         "inline invocation"
     )
 
-    assertFalse(cls.function("testReified").isCallable)
+    assertFalse(cls.function("testReified").isInvokable)
 
     return "OK"
 }

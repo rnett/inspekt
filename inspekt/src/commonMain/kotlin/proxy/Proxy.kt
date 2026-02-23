@@ -14,6 +14,7 @@ import dev.rnett.inspekt.model.PropertySetter
 import dev.rnett.inspekt.model.SimpleFunction
 import dev.rnett.inspekt.model.arguments.ArgumentList
 import dev.rnett.inspekt.model.arguments.ArgumentsBuilder
+import dev.rnett.inspekt.model.name.SpecialNames
 import dev.rnett.inspekt.utils.ReferenceLiteral
 import dev.rnett.inspekt.utils.StringLiteral
 import dev.rnett.symbolexport.ExportSymbol
@@ -29,6 +30,8 @@ public sealed class SuperCall {
      */
     public abstract val superFun: Function
 
+    public open val superProperty: Property? get() = null
+
     /**
      * The parameters of the function originally being called.
      */
@@ -40,9 +43,25 @@ public sealed class SuperCall {
     public abstract val args: ArgumentList
 
     /**
+     * The short name of the function called.
+     * May be a name like `<get-foo>` for a property accessor.
+     *
+     * @see Function.shortName
+     * @see SpecialNames
+     */
+    public val functionName: String get() = superFun.shortName
+
+    /**
+     * If this is an accessor call, return the short name of the property.
+     *
+     * @see Property.shortName
+     */
+    public val propertyName: String? get() = superProperty?.shortName
+
+    /**
      * Whether [superFun] can be invoked.
      */
-    public val isSuperCallable: Boolean get() = superFun.isCallable
+    public val isSuperCallable: Boolean get() = superFun.isInvokable
 
     /**
      * Whether [superFun] is abstract.
@@ -88,7 +107,7 @@ public sealed class SuperCall {
     public suspend inline fun callSuperSuspend(builder: ArgumentsBuilder): Any? = superFun.invokeSuspend(builder)
 
     public sealed class PropertyAccess : SuperCall() {
-        public abstract val superProperty: Property
+        public abstract override val superProperty: Property
         public abstract override val superFun: PropertyAccessor
     }
 

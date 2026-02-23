@@ -64,6 +64,6 @@ fun box(): String {
     $this$invoke.<set-dispatchReceiver>(value = Test())
   }
 ) as Int, message = "inline invocation")
-  assertFalse(actual = cls.function(name = "testReified").<get-isCallable>())
+  assertFalse(actual = cls.function(name = "testReified").<get-isInvokable>())
   return "OK"
 }

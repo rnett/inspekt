@@ -22,6 +22,6 @@ FILE: Inline.kt
             this@R|special/anonymous|.R|dev/rnett/inspekt/model/arguments/ArgumentList.Builder.dispatchReceiver| = R|auto/implementation/box/invoke/Test.Test|()
         }
         ) as R|kotlin/Int|), String(inline invocation))
-        R|kotlin/test/assertFalse|(R|<local>/cls|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(testReified)).R|dev/rnett/inspekt/model/FunctionLike.isCallable|)
+        R|kotlin/test/assertFalse|(R|<local>/cls|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(testReified)).R|dev/rnett/inspekt/model/FunctionLike.isInvokable|)
         ^box String(OK)
     }

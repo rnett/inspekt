@@ -134,7 +134,7 @@ public abstract class dev/rnett/inspekt/model/FunctionLike : dev/rnett/inspekt/m
 	public final fun invoke (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public final fun invokeSuspend (Ldev/rnett/inspekt/model/arguments/ArgumentList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun invokeSuspend (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun isCallable ()Z
+	public fun isInvokable ()Z
 	public final fun isSuspend ()Z
 }
 
@@ -585,8 +585,11 @@ public abstract class dev/rnett/inspekt/proxy/SuperCall {
 	public final fun callSuperSuspend (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun copyArgs (Ldev/rnett/inspekt/model/arguments/ArgumentList$Builder;)V
 	public abstract fun getArgs ()Ldev/rnett/inspekt/model/arguments/ArgumentList;
+	public final fun getFunctionName ()Ljava/lang/String;
 	public final fun getParameters ()Ldev/rnett/inspekt/model/Parameters;
+	public final fun getPropertyName ()Ljava/lang/String;
 	public abstract fun getSuperFun ()Ldev/rnett/inspekt/model/Function;
+	public fun getSuperProperty ()Ldev/rnett/inspekt/model/Property;
 	public final fun isSuperAbstract ()Z
 	public final fun isSuperCallable ()Z
 	public final fun isSuspending ()Z

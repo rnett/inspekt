@@ -58,4 +58,9 @@ markdown_extensions:
 
 nav:
   - 'Introduction': index.md
+  - 'Inspektions': inspektion.md
+  - 'Invoking methods': invoking.md
+  - 'Proxies': proxies.md
+  - 'Binary size': binary-size.md
+  - 'How it works': how-it-works.md
   - 'API ↗': api/index.html
