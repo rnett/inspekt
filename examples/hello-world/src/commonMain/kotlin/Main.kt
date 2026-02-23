@@ -1,21 +1,28 @@
+package dev.rnett.inspekt.example
+
 import dev.rnett.inspekt.inspekt
+import kotlin.jvm.JvmStatic
 
 class Greeter(val name: String) {
     fun greet() = "Hello, $name!"
 }
 
-fun main() {
-    val greeter = Greeter("World")
+object Main {
+    @JvmStatic
+    fun main(args: Array<String>) {
 
-    // Using Inspekt for compile-time reflection
-    val greeterClass = inspekt(Greeter::class)
+        val greeter = Greeter("World")
 
-    println("Class name: ${greeterClass.name}")
+        // Using Inspekt for compile-time reflection
+        val greeterClass = inspekt(Greeter::class)
 
-    val greetMethod = greeterClass.function("greet")
-    val result = greetMethod.invoke {
-        dispatchReceiver = greeter
+        println("Class name: ${greeterClass.name}")
+
+        val greetMethod = greeterClass.function("greet")
+        val result = greetMethod.invoke {
+            dispatchReceiver = greeter
+        }
+
+        println("Result of greet(): $result")
     }
-
-    println("Result of greet(): $result")
 }

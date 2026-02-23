@@ -7,7 +7,7 @@ publishing-plugin = "0.36.0"
 coroutines = "1.10.2"
 kcp-development = "0.0.2"
 symbol-export = "0.0.2"
-
+graalvm = "0.10.6"
 [libraries]
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 symbols-kotlin-compiler = { module = "dev.rnett.symbol-export:symbols-kotlin-compiler", version.ref = "symbol-export" }
@@ -25,3 +25,4 @@ kcp-dev-compiler = { id = "dev.rnett.kcp-development.compiler-plugin", version.r
 kcp-dev-gradle = { id = "dev.rnett.kcp-development.gradle-plugin", version.ref = "kcp-development" }
 symbol-export-import = { id = "dev.rnett.symbol-export.import", version.ref = "symbol-export" }
 symbol-export-export = { id = "dev.rnett.symbol-export.export", version.ref = "symbol-export" }
+graalvm-native = { id = "org.graalvm.buildtools.native", version.ref = "graalvm" }

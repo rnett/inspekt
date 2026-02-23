@@ -29,3 +29,4 @@ dependencyResolutionManagement {
 }
 
 include("hello-world")
+include("graalvm")

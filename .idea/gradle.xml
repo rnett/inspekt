@@ -33,6 +33,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/examples" />
+            <option value="$PROJECT_DIR$/examples/graalvm" />
             <option value="$PROJECT_DIR$/examples/hello-world" />
           </set>
         </option>

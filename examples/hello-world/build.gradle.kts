@@ -1,12 +1,12 @@
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
+    kotlin("multiplatform")
     id("dev.rnett.inspekt")
 }
 
 kotlin {
     jvm {
         mainRun {
-            mainClass.set("MainKt")
+            mainClass.set("dev.rnett.inspekt.example.MainKt")
         }
     }
 
