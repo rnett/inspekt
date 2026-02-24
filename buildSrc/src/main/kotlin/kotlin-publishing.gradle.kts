@@ -85,19 +85,22 @@ afterEvaluate {
 
     when {
         hasKotlinJvm -> {
-            gradlePublishing.publications.register<MavenPublication>("maven") {
+            val publication = gradlePublishing.publications.register<MavenPublication>("maven") {
                 val componentName = if (hasShadowPlugin) "shadow" else "java"
+                artifact(tasks.named("kotlinSourcesJar")) {
+                    classifier = "sources"
+                }
 
                 from(project.components.getByName(componentName))
-            }
-
-            extensionIfPresent<JavaPluginExtension> {
-                withSourcesJar()
             }
 
             val javadocTask = registerDokkaJavadocTask()
             mavenPublicationsWithoutPluginMarker {
                 artifact(javadocTask)
+            }
+
+            tasks.named("generateMetadataFileForMavenPublication") {
+                dependsOn("kotlinSourcesJar")
             }
         }
 

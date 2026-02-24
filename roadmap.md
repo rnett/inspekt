@@ -1,4 +1,5 @@
-- Set up GH pages
-- Test run 0.0.1 release
-- Documentation
+## TODO
+
+## Maybe
+
 - Code reflection (i.e. bodies)? Can't access bodies
