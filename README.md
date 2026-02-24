@@ -1,3 +1,4 @@
+![Stability: ALPHA](https://img.shields.io/badge/stability-alpha-red?style=for-the-badge)
 [![Maven Central Version](https://img.shields.io/maven-central/v/dev.rnett.inspekt/inspekt?style=for-the-badge)](https://central.sonatype.com/artifact/dev.rnett.inspekt/inspekt)
 [![Maven snapshots](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fdev%2Frnett%2Finspekt%2Finspekt%2Fmaven-metadata.xml&strategy=latestProperty&style=for-the-badge&label=SNAPSHOT&color=yellow)]()
 [![Documentation](https://img.shields.io/badge/Documentation-2C3E50?style=for-the-badge&logo=googledocs&logoColor=D7DBDD)](https://inspekt.rnett.dev/latest/)
