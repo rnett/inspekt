@@ -15,6 +15,7 @@
 * `is` checking and casting
 * JVM-like proxies
 * Reflecting over dependencies
+* Seamless reflection over Java classes
 * GraalVM compatible out of the box (I think, it's not tested yet)
 
 ## Getting started
