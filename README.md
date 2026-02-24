@@ -48,6 +48,8 @@ foo.function("bar").invoke {
 
 More detailed documentation is available at https://inspekt.rnett.dev/latest/.
 
+Snapshot version docs are available at https://inspekt.rnett.dev/snapshot/, if there is currently a next-version snapshot build.
+
 ## Examples
 
 Some basic examples are located in the [examples](./examples) directory.
