@@ -14,7 +14,7 @@
 * Function invocation, including `suspend` functions
 * `is` checking and casting
 * JVM-like proxies
-* Reflecting over dependencies
+* Reflecting over dependencies (whether they use Inspekt or not)
 * Seamless reflection over Java classes
 * GraalVM compatible out of the box (I think, it's not tested yet)
 
