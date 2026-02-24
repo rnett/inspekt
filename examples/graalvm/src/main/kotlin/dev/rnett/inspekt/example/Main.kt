@@ -25,5 +25,6 @@ object Main {
         exampleClass.function("greet").invoke {
             dispatchReceiver = instance
         }
+        println("Class inspektion:\n$exampleClass")
     }
 }

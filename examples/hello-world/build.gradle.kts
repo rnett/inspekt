@@ -21,31 +21,17 @@ kotlin {
         binaries.executable()
     }
 
-    linuxX64() {
-        binaries {
-            executable()
-        }
-    }
-    linuxArm64() {
-        binaries {
-            executable()
-        }
-    }
-
-    mingwX64() {
-        binaries {
-            executable()
-        }
-    }
-
-    macosX64() {
-        binaries {
-            executable()
-        }
-    }
-    macosArm64() {
-        binaries {
-            executable()
+    listOf(
+        linuxX64(),
+        linuxArm64(),
+        macosX64(),
+        macosArm64(),
+        mingwX64()
+    ).forEach { target ->
+        target.binaries {
+            executable {
+                entryPoint = "dev.rnett.inspekt.example.main"
+            }
         }
     }
 

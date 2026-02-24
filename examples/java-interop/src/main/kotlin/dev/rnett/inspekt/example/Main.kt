@@ -22,4 +22,5 @@ fun main() {
         dispatchReceiver = greeter
     }
     println("Result of getName(): $nameValue")
+    println("Class inspektion:\n$greeterClass")
 }
