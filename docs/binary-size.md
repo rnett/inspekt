@@ -4,7 +4,7 @@ Unlike traditional reflection, which relies on metadata already present in your 
 This is what makes Kotlin Multiplatform support possible, but it also means that the more you use `inspekt()`, the larger your binary becomes.
 This is true of all of Inspekt's intrinsic methods: `inspekt`, `proxy`, `proxyFactory`, etc.
 
-See [How it works](how-it-works.md) for details on the transformations done by the compiler plugin.
+See [How it works](how-it-works.md) for details on the transformations done by the compiler plugin, which is what can lead to binary size increases.
 
 ## What Contributes to Binary Size?
 
@@ -40,19 +40,13 @@ object MyReflection {
     val fooInspektion = inspekt(Foo::class)
 }
 
-// Bad: Each call adds to the binary
-fun doSomething() {
-    val foo = inspekt(Foo::class)
-}
+// Also good: Multiple calls, but a single call site.  Binary implementation is added once, inspektion object is re-created each call
+fun fooInspektion() = inspekt(Foo::class)
+
+// Bad: Each call site adds to the binary
+val foo1 = inspekt(Foo::class)
+val foo2 = inspekt(Foo::class)
 ```
-
-Because the call itself is replaced by the compiler plugin, using a helper method will also work fine:
-
-```kotlin
-fun getFooInspektion() = inspekt(Foo::class)
-```
-
-But you would still needlessly re-create the object each time.
 
 #### Proxies
 
