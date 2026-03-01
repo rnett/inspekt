@@ -52,3 +52,7 @@ foo.function("bar").invoke {
 ## Examples
 
 Some basic examples are located in the [examples](https://github.com/rnett/inspekt/tree/main/examples) directory of the GitHub repo.
+
+## Chat
+
+<script src="https://context7.com/widget.js" data-library="/rnett/inspekt" data-placeholder="Ask context7 about Inspekt..."></script>
