@@ -53,7 +53,7 @@ jobs:
       GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m -Dinspekt.onlyJvm=${{ needs.checkVersion.outputs.jvm_only }}"
     steps:
       - uses: actions/checkout@v6
-      - name: Setup Java 17
+      - name: Setup Java 17 and 24
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
