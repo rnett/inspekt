@@ -9,6 +9,8 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m -Dinspekt.onlyJvm=true"
     permissions:
       contents: write
     steps:
@@ -24,12 +26,6 @@ jobs:
           java-version: |
             17
             24
-
-      - name: Cache .konan
-        uses: actions/cache@v5
-        with:
-          path: ~/.konan
-          key: ${{ runner.os }}-konan
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5

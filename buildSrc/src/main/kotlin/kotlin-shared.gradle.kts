@@ -19,10 +19,11 @@ val onlyJvm = providers.systemProperty("inspekt.onlyJvm").orNull?.lowercase() ==
 kotlin.apply {
     this as HasConfigurableKotlinCompilerOptions<out KotlinCommonCompilerOptions>
 
+    jvmToolchain(17)
+
     if (!pluginManager.hasPlugin("internal")) {
         explicitApi()
     }
-    jvmToolchain(17)
     sourceSets.all {
         languageSettings {
             optIn("kotlin.RequiresOptIn")

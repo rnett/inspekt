@@ -9,10 +9,12 @@ val onlyJvm = providers.systemProperty("inspekt.onlyJvm").orNull?.lowercase() ==
 
 kotlin {
     jvm()
+    js() {
+        nodejs()
+    }
     if (!onlyJvm) {
         js() {
             browser()
-            nodejs()
         }
         @OptIn(ExperimentalWasmDsl::class)
         wasmJs() {
