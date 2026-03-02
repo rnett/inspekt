@@ -52,6 +52,11 @@ More detailed documentation is available at https://inspekt.rnett.dev/latest/.
 
 Snapshot version docs are available at https://inspekt.rnett.dev/snapshot/, if there is currently a next-version snapshot build.
 
+## Stability
+
+This library has been initially released as alpha because it depends on a number of compiler internals.
+However, I plan no significant changes and will strive to avoid any backwards incompatible changes.
+
 ## Examples
 
 Some basic examples are located in the [examples](./examples) directory.

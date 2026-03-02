@@ -49,6 +49,11 @@ foo.function("bar").invoke {
 
 [//]: # (@formatter:on)
 
+## Stability
+
+This library has been initially released as alpha because it depends on a number of compiler internals.
+However, I plan no significant changes and will strive to avoid any backwards incompatible changes.
+
 ## Examples
 
 Some basic examples are located in the [examples](https://github.com/rnett/inspekt/tree/main/examples) directory of the GitHub repo.
