@@ -1,4 +1,6 @@
 import org.jetbrains.dokka.gradle.DokkaExtension
+import org.jetbrains.dokka.gradle.formats.DokkaFormatPlugin
+import org.jetbrains.dokka.gradle.internal.InternalDokkaGradlePluginApi
 import java.net.URI
 
 plugins {
@@ -35,3 +37,19 @@ the<DokkaExtension>().apply {
             includes.from(moduleFile)
     }
 }
+
+@OptIn(InternalDokkaGradlePluginApi::class)
+abstract class DokkaMarkdownPlugin : DokkaFormatPlugin(formatName = "markdown") {
+    override fun DokkaFormatPlugin.DokkaFormatPluginContext.configure() {
+        project.dependencies {
+            // Sets up current project generation
+            dokkaPlugin(dokka("gfm-plugin"))
+
+            // Sets up multi-project generation
+            formatDependencies.dokkaPublicationPluginClasspathApiOnly.dependencies.addLater(
+                dokka("gfm-template-processing-plugin")
+            )
+        }
+    }
+}
+apply<DokkaMarkdownPlugin>()

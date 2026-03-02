@@ -28,17 +28,6 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/examples" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/examples" />
-            <option value="$PROJECT_DIR$/examples/graalvm" />
-            <option value="$PROJECT_DIR$/examples/hello-world" />
-            <option value="$PROJECT_DIR$/examples/java-interop" />
-          </set>
-        </option>
-      </GradleProjectSettings>
     </option>
   </component>
 </project>

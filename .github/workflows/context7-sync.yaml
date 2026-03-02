@@ -1,0 +1,48 @@
+name: Context7 API Documentation Sync
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '24'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Generate Markdown
+        run: ./gradlew :dokkaGeneratePublicationMarkdown
+
+      - name: Sync context7 branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Force-create context7 branch from main
+          git checkout -B context7
+          
+          # Replace docs/api with fresh Markdown docs
+          rm -rf docs/api
+          mkdir -p docs/api
+          cp -r build/dokka/gfm/* docs/api/
+          
+          # Commit and force-push to overwrite
+          git add docs/api
+          git commit -m "chore: Sync sources and Markdown API docs for Context7"
+          git push origin context7 --force

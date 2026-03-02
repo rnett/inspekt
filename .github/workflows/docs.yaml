@@ -46,7 +46,7 @@ jobs:
           build-scan-terms-of-use-agree: 'yes'
 
       - name: Generate docs
-        run: ./gradlew :dokkaGenerate
+        run: ./gradlew :dokkaGenerateHtml
       - name: Copy docs to site dir
         run: cp -r -f ./build/dokka/html ./docs/api
 
