@@ -5,7 +5,8 @@
 <script src="https://context7.com/widget.js" data-library="/rnett/inspekt" data-placeholder="Ask context7 about Inspekt..."></script>
 <script>
     document.addEventListener("keydown", function (e) {
-        if ((e.key === "s" || e.key === "f") && !(e.ctrlKey || e.metaKey)) {
+        const blockedKeys = ["s", "f", "p", "n", ",", ".", "h", "?", "/"];
+        if (blockedKeys.includes(e.key) && !(e.ctrlKey || e.metaKey)) {
             const activeElement = document.activeElement;
             const isInput = activeElement.tagName === "INPUT" || activeElement.tagName === "TEXTAREA" || activeElement.isContentEditable;
             if (!isInput) {
