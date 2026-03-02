@@ -1,5 +1,8 @@
 {
   "url": "https://context7.com/rnett/inspekt",
   "public_key": "pk_n1ueAzwgu1nrYer4AHzlF",
-  "branch": "context7"
+  "branch": "context7",
+  "excludeFolders": [
+    "compiler-tests/**/*.txt"
+  ]
 }
