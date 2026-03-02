@@ -53,7 +53,7 @@ jobs:
           # Replace docs/api with fresh Markdown docs
           rm -rf docs/api
           mkdir -p docs/api
-          cp -r build/dokka/gfm/* docs/api/
+          cp -r build/dokka/markdown/* docs/api/
           
           # Commit and force-push to overwrite
           git add docs/api
