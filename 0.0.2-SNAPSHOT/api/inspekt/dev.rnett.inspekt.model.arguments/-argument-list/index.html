@@ -1,0 +1,465 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ArgumentList</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    Inspekt
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">0.0.2-SNAPSHOT
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true" data-filter=":inspekt/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":inspekt/commonMain" data-filter=":inspekt/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Inspekt
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="inspekt::dev.rnett.inspekt.model.arguments/ArgumentList///PointingToDeclaration//162778885">
+  <div class="breadcrumbs"><a href="../../index.html">inspekt</a><span class="delimiter">/</span><a href="../index.html">dev.rnett.inspekt.model.arguments</a><span class="delimiter">/</span><span class="current">ArgumentList</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Argument</span><wbr><span><span>List</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">ArgumentList</a> : <span data-unresolved-link="dev.rnett.inspekt.internal/ArgumentsProviderV1///PointingToDeclaration/">ArgumentsProviderV1</span>, <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt; </span><span class="source-link-wrapper"><span class="source-link" data-element-type="source-link">(<a href="https://github.com/rnett/inspekt/blob/a402fdd62d53a1290fbe25efa2d60d9b67e2a123/inspekt/src/commonMain/kotlin/model/arguments/Arguments.kt#L16">source</a>)</span></span></div><p class="paragraph">A list of argument value assignments for a set of parameters. Guarantees that an argument is provided for all parameters without default values.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-1961288501%2FClasslikes%2F162778885" anchor-label="Builder" id="-1961288501%2FClasslikes%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-builder/index.html"><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1961288501%2FClasslikes%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-builder/index.html">Builder</a></div><div class="brief "><p class="paragraph">A builder to assemble an <a href="index.html">ArgumentList</a> for a set of parameters. Parameters which are not set will use their default values if they have one. Successfully building an <a href="index.html">ArgumentList</a> guarantees that values are provided for all parameters without default values.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="1707604574%2FProperties%2F162778885" anchor-label="dispatchReceiver" id="1707604574%2FProperties%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dispatch-receiver.html"><span>dispatch</span><wbr><span><span>Receiver</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1707604574%2FProperties%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="dispatch-receiver.html">dispatchReceiver</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Gets the dispatch receiver if one is set.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1183754853%2FProperties%2F162778885" anchor-label="extensionReceiver" id="1183754853%2FProperties%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="extension-receiver.html"><span>extension</span><wbr><span><span>Receiver</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1183754853%2FProperties%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="extension-receiver.html">extensionReceiver</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Gets the extension receiver if one is set.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-747970659%2FProperties%2F162778885" anchor-label="parameters" id="-747970659%2FProperties%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="parameters.html"><span><span>parameters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-747970659%2FProperties%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="parameters.html">parameters</a><span class="token operator">: </span><a href="../../dev.rnett.inspekt.model/-parameters/index.html">Parameters</a></div><div class="brief "><p class="paragraph">The parameters these arguments correspond to.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="844915858%2FProperties%2F162778885" anchor-label="size" id="844915858%2FProperties%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#844915858%2FProperties%2F162778885"><span><span>size</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="844915858%2FProperties%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="index.html#844915858%2FProperties%2F162778885">size</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="621013317%2FProperties%2F162778885" anchor-label="v1DefaultableHasValueBitmask" id="621013317%2FProperties%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="v1-defaultable-has-value-bitmask.html"><span>v1Defaultable</span><wbr><span>Has</span><wbr><span>Value</span><wbr><span><span>Bitmask</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="621013317%2FProperties%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="v1-defaultable-has-value-bitmask.html">v1DefaultableHasValueBitmask</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="765883978%2FFunctions%2F162778885" anchor-label="contains" id="765883978%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#765883978%2FFunctions%2F162778885"><span><span>contains</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="765883978%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#765883978%2FFunctions%2F162778885"><span class="token function">contains</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-225903147%2FFunctions%2F162778885" anchor-label="containsAll" id="-225903147%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-225903147%2FFunctions%2F162778885"><span>contains</span><wbr><span><span>All</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-225903147%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-225903147%2FFunctions%2F162778885"><span class="token function">containsAll</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">elements<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2128090946%2FFunctions%2F162778885" anchor-label="context" id="2128090946%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="context.html"><span><span>context</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2128090946%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="context.html"><span class="token function">context</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Gets the contex parameter at <a href="context.html">index</a>, if it is set. To distinguish between explicitly passing <code class="lang-kotlin">null</code> and using the default value, use <a href="is-defaulted.html">isDefaulted</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1695197393%2FFunctions%2F162778885" anchor-label="get" id="-1695197393%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get.html"><span><span>get</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1695197393%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="get.html"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">parameter<span class="token operator">: </span><a href="../../dev.rnett.inspekt.model/-parameter/index.html">Parameter</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Get the argument for <a href="get.html">parameter</a>, or null if one was not set. To distinguish between explicitly passing <code class="lang-kotlin">null</code> and using the default value, use <a href="is-defaulted.html">isDefaulted</a>.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="get.html"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Get the argument for the parameter at <a href="get.html">index</a>, or null if one was not set. To distinguish between explicitly passing <code class="lang-kotlin">null</code> and using the default value, use <a href="is-defaulted.html">isDefaulted</a>.</p></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="get.html"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Get the argument for the parameter with the given <a href="get.html">name</a>, or null if one was not set. To distinguish between explicitly passing <code class="lang-kotlin">null</code> and using the default value, use <a href="is-defaulted.html">isDefaulted</a>.</p></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="get.html"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">kind<span class="token operator">: </span><a href="../../dev.rnett.inspekt.model/-parameter/-kind/index.html">Parameter.Kind</a><span class="token punctuation">, </span></span><span class="parameter ">indexInKind<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Get the argument for the <a href="get.html">kind</a> parameter at <a href="get.html">indexInKind</a>, or null if one was not set. To distinguish between explicitly passing <code class="lang-kotlin">null</code> and using the default value, use <a href="is-defaulted.html">isDefaulted</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-407930336%2FFunctions%2F162778885" anchor-label="indexOf" id="-407930336%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-407930336%2FFunctions%2F162778885"><span>index</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-407930336%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-407930336%2FFunctions%2F162778885"><span class="token function">indexOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1103388596%2FFunctions%2F162778885" anchor-label="isDefaulted" id="1103388596%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-defaulted.html"><span>is</span><wbr><span><span>Defaulted</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1103388596%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-defaulted.html"><span class="token function">isDefaulted</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">parameter<span class="token operator">: </span><a href="../../dev.rnett.inspekt.model/-parameter/index.html">Parameter</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true if the argument for <a href="is-defaulted.html">parameter</a> is defaulted (i.e. not set, and the parameter has a default value).</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-defaulted.html"><span class="token function">isDefaulted</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">globalIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true if the argument for the parameter at <a href="is-defaulted.html">globalIndex</a> is defaulted (i.e. not set, and the parameter has a default value).</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-defaulted.html"><span class="token function">isDefaulted</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">kind<span class="token operator">: </span><a href="../../dev.rnett.inspekt.model/-parameter/-kind/index.html">Parameter.Kind</a><span class="token punctuation">, </span></span><span class="parameter ">indexInKind<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true if the argument for the <a href="is-defaulted.html">kind</a> parameter at <a href="is-defaulted.html">indexInKind</a> is defaulted (i.e. not set, and the parameter has a default value).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1000881820%2FFunctions%2F162778885" anchor-label="isEmpty" id="-1000881820%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1000881820%2FFunctions%2F162778885"><span>is</span><wbr><span><span>Empty</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1000881820%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1000881820%2FFunctions%2F162778885"><span class="token function">isEmpty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1577986619%2FFunctions%2F162778885" anchor-label="iterator" id="-1577986619%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1577986619%2FFunctions%2F162778885"><span><span>iterator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1577986619%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#-1577986619%2FFunctions%2F162778885"><span class="token function">iterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterator/index.html">Iterator</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1327716778%2FFunctions%2F162778885" anchor-label="lastIndexOf" id="1327716778%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1327716778%2FFunctions%2F162778885"><span>last</span><wbr><span>Index</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1327716778%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#1327716778%2FFunctions%2F162778885"><span class="token function">lastIndexOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1452260150%2FFunctions%2F162778885" anchor-label="listIterator" id="-1452260150%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-236165689%2FFunctions%2F162778885"><span>list</span><wbr><span><span>Iterator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1452260150%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-236165689%2FFunctions%2F162778885"><span class="token function">listIterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list-iterator/index.html">ListIterator</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#845091493%2FFunctions%2F162778885"><span class="token function">listIterator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list-iterator/index.html">ListIterator</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="423386006%2FFunctions%2F162778885" anchor-label="subList" id="423386006%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#423386006%2FFunctions%2F162778885"><span>sub</span><wbr><span><span>List</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="423386006%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#423386006%2FFunctions%2F162778885"><span class="token function">subList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">fromIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">toIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1372718228%2FFunctions%2F162778885" anchor-label="throwInvalidBitmask" id="1372718228%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1372718228%2FFunctions%2F162778885"><span>throw</span><wbr><span>Invalid</span><wbr><span><span>Bitmask</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1372718228%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1372718228%2FFunctions%2F162778885"><span class="token function">throwInvalidBitmask</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-nothing/index.html">Nothing</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1532414393%2FFunctions%2F162778885" anchor-label="throwWrappedException" id="1532414393%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1532414393%2FFunctions%2F162778885"><span>throw</span><wbr><span>Wrapped</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1532414393%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1532414393%2FFunctions%2F162778885"><span class="token function">throwWrappedException</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-nothing/index.html">Nothing</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-422207525%2FFunctions%2F162778885" anchor-label="toString" id="-422207525%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-string.html"><span>to</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-422207525%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-783826922%2FFunctions%2F162778885" anchor-label="v1Get" id="-783826922%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="v1-get.html"><span><span>v1Get</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-783826922%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="v1-get.html"><span class="token function">v1Get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">globalIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Gets the arg, or null if it was not set.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-47208000%2FFunctions%2F162778885" anchor-label="value" id="-47208000%2FFunctions%2F162778885" data-filterable-set=":inspekt/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inspekt/commonMain" data-filterable-set=":inspekt/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="value.html"><span><span>value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-47208000%2FFunctions%2F162778885"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inspekt/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="value.html"><span class="token function">value</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Gets the value parameter at <a href="value.html">index</a>, if it is set. To distinguish between explicitly passing <code class="lang-kotlin">null</code> and using the default value, use <a href="is-defaulted.html">isDefaulted</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

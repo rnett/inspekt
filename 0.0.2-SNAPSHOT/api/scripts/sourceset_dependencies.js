@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":inspekt/commonMain":[],":inspekt/jsMain":[":inspekt/webMain"],":inspekt/jvmMain":[":inspekt/commonMain"],":inspekt/webMain":[":inspekt/commonMain"],":gradle-plugin/main":[]}'
