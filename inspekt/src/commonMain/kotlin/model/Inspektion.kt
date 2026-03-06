@@ -30,6 +30,14 @@ public class Inspektion<T : Any> internal constructor(
      */
     override val annotations: List<Annotation>,
     /**
+     * Annotations declared directly on this class.
+     */
+    public override val declaredAnnotations: List<Annotation>,
+    /**
+     * All annotations on this class with their source information.
+     */
+    public override val allAnnotations: List<AnnotationInfo>,
+    /**
      * The class's type parameters.
      */
     public val typeParameters: List<TypeParameter>,

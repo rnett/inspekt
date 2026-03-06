@@ -228,6 +228,8 @@ public data class Parameter internal constructor(
      */
     public val name: String,
     public override val annotations: List<Annotation>,
+    public override val declaredAnnotations: List<Annotation>,
+    public override val allAnnotations: List<AnnotationInfo>,
     /**
      * The global index of the parameter in the list of all parameters.
      * @see Parameters

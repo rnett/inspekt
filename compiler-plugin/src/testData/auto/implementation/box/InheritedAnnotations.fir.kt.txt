@@ -1,0 +1,159 @@
+package auto
+
+open annotation class Ann1 : Annotation {
+  val value: String
+    field = value
+    get
+
+  constructor(value: String) /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+}
+
+open annotation class Ann2 : Annotation {
+  val value: String
+    field = value
+    get
+
+  constructor(value: String) /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+}
+
+class Child : Parent {
+  @Ann2(value = "childProp")
+  override val myProp: String
+    field = "child"
+    override get
+
+  constructor() /* primary */ {
+    super/*Parent*/()
+    /* <init>() */
+
+  }
+
+  @Ann1(value = "childMethod")
+  override fun myMethod() {
+  }
+
+}
+
+open class Parent : Base {
+  @Ann1(value = "parentProp")
+  override val myProp: String
+    field = "parent"
+    override get
+
+  constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  @Ann2(value = "parentMethod")
+  override fun myMethod() {
+  }
+
+}
+
+interface Base {
+  @Ann1(value = "baseMethod")
+  abstract fun myMethod()
+
+  @Ann2(value = "baseProp")
+  abstract val myProp: String
+    abstract get
+
+}
+
+fun box(): String {
+  val childInspektion: Inspektion<Child> = InspektionResultV1</* null */>(kClass = Child::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), supertypes = arrayOf<KType>(elements = [typeOf<Parent>()]), annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), name = "myMethod", isAbstract = false, kotlin = Child::myMethod, annotations = arrayOf<Annotation>(elements = [Ann1(value = "childMethod")]), allAnnotations = arrayOf<AnnotationInfoV1>(elements = [AnnotationInfoV1(annotation = Ann1(value = "childMethod"), source = null), AnnotationInfoV1(annotation = Ann2(value = "parentMethod"), source = Parent::class), AnnotationInfoV1(annotation = Ann1(value = "baseMethod"), source = Base::class)]), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), hasDefault = false, type = typeOf<Child>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_0: Child = args.v1Get(globalIndex = 0) as Child
+    return try tmp_0.myMethod()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_1)
+
+  }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), name = "equals", isAbstract = false, kotlin = Child::equals, annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_2: Any = args.v1Get(globalIndex = 0) as Any
+    val tmp_3: Any? = args.v1Get(globalIndex = 1) as Any?
+    return try tmp_2.equals(other = tmp_3)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_4)
+
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), name = "hashCode", isAbstract = false, kotlin = Child::hashCode, annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_5: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_5.hashCode()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_6)
+
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), name = "toString", isAbstract = false, kotlin = Child::toString, annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_7: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_7.toString()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_8)
+
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = [Property(packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), name = "myProp", annotations = arrayOf<Annotation>(elements = [Ann2(value = "childProp")]), allAnnotations = arrayOf<AnnotationInfoV1>(elements = [AnnotationInfoV1(annotation = Ann2(value = "childProp"), source = null), AnnotationInfoV1(annotation = Ann1(value = "parentProp"), source = Parent::class), AnnotationInfoV1(annotation = Ann2(value = "baseProp"), source = Base::class)]), isMutable = false, hasBackingField = true, isAbstract = false, hasDelegate = false, type = typeOf<String>(), kotlin = Child::myProp, getter = Function(packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), name = "<get-myProp>", isAbstract = false, kotlin = Child::<get-myProp>, annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), hasDefault = false, type = typeOf<Child>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_9: Child = args.v1Get(globalIndex = 0) as Child
+    return try tmp_9.<get-myProp>()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_10)
+
+  }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), setter = null, inheritedFrom = null)]), constructors = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto"]), classNames = arrayOf<String>(elements = ["Child"]), name = "<init>", isAbstract = false, kotlin = ::Child, annotations = arrayOf<Annotation>(elements = []), allAnnotations = arrayOf<AnnotationInfoV1>(elements = []), parameters = arrayOf<Param>(elements = []), returnType = typeOf<Child>(), isSuspend = false, isPrimaryCtor = true, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    return try Child()
+    catch (tmp0: Throwable)args.throwWrappedException(e = tmp_11)
+
+  }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = []))]), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): Child {
+    return it as Child
+  }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+    return it is Child
+  }
+, safeCast = local fun <anonymous>(it: Any): Child? {
+    return it as? Child
+  }
+, objectInstance = null, companionObject = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
+  val childMethod: SimpleFunction = childInspektion.function(name = "myMethod")
+  val mAnns: Set<Pair<String, String?>> = toSet<Pair<String, String?>>(/* <this> = map<AnnotationInfo, Pair<String, String?>>(/* <this> = childMethod.<get-allAnnotations>(), */ transform = local fun <anonymous>(it: AnnotationInfo): Pair<String, String?> {
+    return to<String, String?>(/* <this> = it.<get-annotation>() /*as Any */.toString(), */ that = { // BLOCK
+      val tmp_12: KClass<*>? = it.<get-source>()
+      when {
+        EQEQ(arg0 = tmp_12, arg1 = null) -> null
+        else -> tmp_12 /*as KClass<*> */.<get-simpleName>()
+      }
+    })
+  }
+) */)
+  when {
+    EQEQ(arg0 = mAnns.<get-size>(), arg1 = 3).not() -> return "Fail: myMethod annotations size is " + mAnns.<get-size>()
+  }
+  val expectedMethod: Set<Pair<String, String?>> = setOf<Pair<String, String?>>(elements = [to<String, Nothing?>(/* <this> = "@auto.Ann1(value=childMethod)", */ that = null), to<String, String>(/* <this> = "@auto.Ann2(value=parentMethod)", */ that = "Parent"), to<String, String>(/* <this> = "@auto.Ann1(value=baseMethod)", */ that = "Base")])
+  when {
+    EQEQ(arg0 = mAnns, arg1 = expectedMethod).not() -> return "Fail: myMethod annotations mismatch: " + mAnns
+  }
+  val childProp: Property = childInspektion.property(name = "myProp")
+  val pAnns: Set<Pair<String, String?>> = toSet<Pair<String, String?>>(/* <this> = map<AnnotationInfo, Pair<String, String?>>(/* <this> = childProp.<get-allAnnotations>(), */ transform = local fun <anonymous>(it: AnnotationInfo): Pair<String, String?> {
+    return to<String, String?>(/* <this> = it.<get-annotation>() /*as Any */.toString(), */ that = { // BLOCK
+      val tmp_13: KClass<*>? = it.<get-source>()
+      when {
+        EQEQ(arg0 = tmp_13, arg1 = null) -> null
+        else -> tmp_13 /*as KClass<*> */.<get-simpleName>()
+      }
+    })
+  }
+) */)
+  when {
+    EQEQ(arg0 = pAnns.<get-size>(), arg1 = 3).not() -> return "Fail: myProp annotations size is " + pAnns.<get-size>()
+  }
+  val expectedProp: Set<Pair<String, String?>> = setOf<Pair<String, String?>>(elements = [to<String, Nothing?>(/* <this> = "@auto.Ann2(value=childProp)", */ that = null), to<String, String>(/* <this> = "@auto.Ann1(value=parentProp)", */ that = "Parent"), to<String, String>(/* <this> = "@auto.Ann2(value=baseProp)", */ that = "Base")])
+  when {
+    EQEQ(arg0 = pAnns, arg1 = expectedProp).not() -> return "Fail: myProp annotations mismatch: " + pAnns
+  }
+  return "OK"
+}

@@ -15,6 +15,7 @@ object Names {
             val classNames = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_classNames
             val supertypes = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_supertypes
             val annotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_annotations
+            val allAnnotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_allAnnotations
             val functions = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_functions
             val properties = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_properties
             val constructors = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_init_constructors
@@ -34,6 +35,7 @@ object Names {
             val isAbstract = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_isAbstract
             val kotlin = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_kotlin
             val annotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_annotations
+            val allAnnotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_allAnnotations
             val parameters = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_parameters
             val returnType = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_returnType
             val isSuspend = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Function_init_isSuspend
@@ -47,6 +49,7 @@ object Names {
         object ParamCtor {
             val name = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param_init_name
             val annotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param_init_annotations
+            val allAnnotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param_init_allAnnotations
             val hasDefault = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param_init_hasDefault
             val type = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param_init_type
             val globalIndex = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Param_init_globalIndex
@@ -59,6 +62,7 @@ object Names {
             val classNames = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_init_classNames
             val name = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_init_name
             val annotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_init_annotations
+            val allAnnotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_init_allAnnotations
             val isMutable = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_init_isMutable
             val hasBackingField = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_init_hasBackingField
             val isAbstract = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_Property_init_isAbstract
@@ -87,6 +91,7 @@ object Names {
             val variance = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_variance
             val upperBounds = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_upperBounds
             val annotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_annotations
+            val allAnnotations = Symbols.inspekt.dev_rnett_inspekt_internal_InspektionResultV1_TypeParameter_init_allAnnotations
         }
     }
 

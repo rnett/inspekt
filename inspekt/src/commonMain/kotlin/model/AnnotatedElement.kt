@@ -7,7 +7,20 @@ import dev.rnett.inspekt.InternalInspektApi
  */
 @SubclassOptInRequired(InternalInspektApi::class)
 public interface AnnotatedElement {
+    /**
+     * All annotations on this element, including inherited ones.
+     */
     public val annotations: List<Annotation>
+
+    /**
+     * Annotations declared directly on this element.
+     */
+    public val declaredAnnotations: List<Annotation>
+
+    /**
+     * All annotations on this element with their source information.
+     */
+    public val allAnnotations: List<AnnotationInfo>
 }
 
 /**

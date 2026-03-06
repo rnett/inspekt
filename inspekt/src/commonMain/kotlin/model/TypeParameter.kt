@@ -13,7 +13,9 @@ public data class TypeParameter(
     val variance: Variance,
     val erasedUpperBounds: List<KType>,
     val isReified: Boolean,
-    override val annotations: List<Annotation>
+    override val annotations: List<Annotation>,
+    public override val declaredAnnotations: List<Annotation>,
+    public override val allAnnotations: List<AnnotationInfo>
 ) : AnnotatedElement {
     public enum class Variance {
         INVARIANT,

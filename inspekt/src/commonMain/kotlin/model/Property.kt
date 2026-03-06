@@ -17,6 +17,8 @@ public sealed class Property(
     isAbstract: Boolean,
     inheritedFrom: KClass<*>?,
     annotations: List<Annotation>,
+    declaredAnnotations: List<Annotation>,
+    allAnnotations: List<AnnotationInfo>,
     /**
      * Whether the property has a backing field.
      */
@@ -34,7 +36,7 @@ public sealed class Property(
      */
     public val getter: PropertyGetter,
     override val name: CallableName
-) : Callable(parameters, isAbstract, inheritedFrom, annotations) {
+) : Callable(parameters, isAbstract, inheritedFrom, annotations, declaredAnnotations, allAnnotations) {
     abstract override val kotlin: KProperty1<*, *>
 
 
@@ -88,9 +90,11 @@ public class ReadOnlyProperty internal constructor(
     name: CallableName,
     parameters: Parameters,
     annotations: List<Annotation>,
+    declaredAnnotations: List<Annotation>,
+    allAnnotations: List<AnnotationInfo>,
     isAbstract: Boolean,
     inheritedFrom: KClass<*>?,
-) : Property(parameters, isAbstract, inheritedFrom, annotations, hasBackingField, hasDelegate, type, getter, name) {
+) : Property(parameters, isAbstract, inheritedFrom, annotations, declaredAnnotations, allAnnotations, hasBackingField, hasDelegate, type, getter, name) {
 
     override fun toString(includeFullName: Boolean): String = buildString {
         appendPropertySignature("val", includeFullName)
@@ -110,9 +114,11 @@ public class MutableProperty internal constructor(
     name: CallableName,
     parameters: Parameters,
     annotations: List<Annotation>,
+    declaredAnnotations: List<Annotation>,
+    allAnnotations: List<AnnotationInfo>,
     isAbstract: Boolean,
     inheritedFrom: KClass<*>?
-) : Property(parameters, isAbstract, inheritedFrom, annotations, hasBackingField, hasDelegate, type, getter, name) {
+) : Property(parameters, isAbstract, inheritedFrom, annotations, declaredAnnotations, allAnnotations, hasBackingField, hasDelegate, type, getter, name) {
     /**
      * Set the value of a property by calling its setter.
      *

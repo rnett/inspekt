@@ -32,6 +32,13 @@ public final class dev/rnett/inspekt/exceptions/ProxyInvocationException : java/
 	public final fun getProxyInstance ()Ljava/lang/Object;
 }
 
+public final class dev/rnett/inspekt/internal/AnnotationInfoV1 {
+	public fun <init> (Ljava/lang/annotation/Annotation;Lkotlin/reflect/KClass;)V
+	public final fun getAnnotation ()Ljava/lang/annotation/Annotation;
+	public final fun getSource ()Lkotlin/reflect/KClass;
+	public final fun toModel ()Ldev/rnett/inspekt/model/AnnotationInfo;
+}
+
 public abstract interface class dev/rnett/inspekt/internal/ArgumentsProviderV1 {
 	public abstract fun getV1DefaultableHasValueBitmask ()I
 	public fun throwInvalidBitmask ()Ljava/lang/Void;
@@ -49,26 +56,32 @@ public abstract class dev/rnett/inspekt/internal/InspektionResult {
 }
 
 public final class dev/rnett/inspekt/internal/InspektionResultV1 : dev/rnett/inspekt/internal/InspektionResult {
+	public fun <init> (Lkotlin/reflect/KClass;Z[Ljava/lang/String;[Ljava/lang/String;[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/AnnotationInfoV1;[Ldev/rnett/inspekt/internal/InspektionResultV1$Function;[Ldev/rnett/inspekt/internal/InspektionResultV1$Property;[Ldev/rnett/inspekt/internal/InspektionResultV1$Function;[Ldev/rnett/inspekt/internal/InspektionResultV1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ldev/rnett/inspekt/internal/InspektionResultV1;[Ldev/rnett/inspekt/internal/InspektionResultV1$TypeParameter;)V
 	public fun <init> (Lkotlin/reflect/KClass;Z[Ljava/lang/String;[Ljava/lang/String;[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/InspektionResultV1$Function;[Ldev/rnett/inspekt/internal/InspektionResultV1$Property;[Ldev/rnett/inspekt/internal/InspektionResultV1$Function;[Ldev/rnett/inspekt/internal/InspektionResultV1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Ldev/rnett/inspekt/internal/InspektionResultV1;[Ldev/rnett/inspekt/internal/InspektionResultV1$TypeParameter;)V
 	public fun toModel ()Ldev/rnett/inspekt/model/Inspektion;
 }
 
 public final class dev/rnett/inspekt/internal/InspektionResultV1$Function {
+	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;ZLkotlin/reflect/KFunction;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/AnnotationInfoV1;[Ldev/rnett/inspekt/internal/InspektionResultV1$Param;Lkotlin/reflect/KType;ZZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/reflect/KClass;[Ldev/rnett/inspekt/internal/InspektionResultV1$TypeParameter;)V
 	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;ZLkotlin/reflect/KFunction;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/InspektionResultV1$Param;Lkotlin/reflect/KType;ZZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/reflect/KClass;[Ldev/rnett/inspekt/internal/InspektionResultV1$TypeParameter;)V
 	public final fun toModel ()Ldev/rnett/inspekt/model/SimpleFunction;
 }
 
 public final class dev/rnett/inspekt/internal/InspektionResultV1$Param {
 	public fun <init> (Ljava/lang/String;[Ljava/lang/annotation/Annotation;ZLkotlin/reflect/KType;III)V
+	public fun <init> (Ljava/lang/String;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/AnnotationInfoV1;ZLkotlin/reflect/KType;III)V
 }
 
 public final class dev/rnett/inspekt/internal/InspektionResultV1$Property {
 	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/annotation/Annotation;ZZZZLkotlin/reflect/KType;Lkotlin/reflect/KProperty1;Ldev/rnett/inspekt/internal/InspektionResultV1$Function;Ldev/rnett/inspekt/internal/InspektionResultV1$Function;Lkotlin/reflect/KClass;)V
+	public fun <init> ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/AnnotationInfoV1;ZZZZLkotlin/reflect/KType;Lkotlin/reflect/KProperty1;Ldev/rnett/inspekt/internal/InspektionResultV1$Function;Ldev/rnett/inspekt/internal/InspektionResultV1$Function;Lkotlin/reflect/KClass;)V
 	public final fun toModel ()Ldev/rnett/inspekt/model/Property;
 }
 
 public final class dev/rnett/inspekt/internal/InspektionResultV1$TypeParameter {
 	public fun <init> (Ljava/lang/String;IZI[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;)V
+	public fun <init> (Ljava/lang/String;IZI[Lkotlin/reflect/KType;[Ljava/lang/annotation/Annotation;[Ldev/rnett/inspekt/internal/AnnotationInfoV1;)V
+	public final fun getAllAnnotations ()[Ldev/rnett/inspekt/internal/AnnotationInfoV1;
 	public final fun getAnnotations ()[Ljava/lang/annotation/Annotation;
 	public final fun getIndex ()I
 	public final fun getName ()Ljava/lang/String;
@@ -85,15 +98,32 @@ public final class dev/rnett/inspekt/internal/ProxyHelpersKt {
 }
 
 public abstract interface class dev/rnett/inspekt/model/AnnotatedElement {
+	public abstract fun getAllAnnotations ()Ljava/util/List;
 	public abstract fun getAnnotations ()Ljava/util/List;
+	public abstract fun getDeclaredAnnotations ()Ljava/util/List;
+}
+
+public final class dev/rnett/inspekt/model/AnnotationInfo {
+	public fun <init> (Ljava/lang/annotation/Annotation;Lkotlin/reflect/KClass;)V
+	public final fun component1 ()Ljava/lang/annotation/Annotation;
+	public final fun component2 ()Lkotlin/reflect/KClass;
+	public final fun copy (Ljava/lang/annotation/Annotation;Lkotlin/reflect/KClass;)Ldev/rnett/inspekt/model/AnnotationInfo;
+	public static synthetic fun copy$default (Ldev/rnett/inspekt/model/AnnotationInfo;Ljava/lang/annotation/Annotation;Lkotlin/reflect/KClass;ILjava/lang/Object;)Ldev/rnett/inspekt/model/AnnotationInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnnotation ()Ljava/lang/annotation/Annotation;
+	public final fun getSource ()Lkotlin/reflect/KClass;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public abstract class dev/rnett/inspekt/model/Callable : dev/rnett/inspekt/model/AnnotatedElement {
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	protected final fun appendContext (Ljava/lang/StringBuilder;)V
 	protected final fun appendExtension (Ljava/lang/StringBuilder;)V
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllAnnotations ()Ljava/util/List;
 	public final fun getAnnotations ()Ljava/util/List;
+	public final fun getDeclaredAnnotations ()Ljava/util/List;
 	public final fun getInheritedFrom ()Lkotlin/reflect/KClass;
 	public abstract fun getKotlin ()Lkotlin/reflect/KCallable;
 	public abstract fun getName ()Ldev/rnett/inspekt/model/name/CallableName;
@@ -119,13 +149,13 @@ public final class dev/rnett/inspekt/model/Constructor : dev/rnett/inspekt/model
 }
 
 public abstract class dev/rnett/inspekt/model/Function : dev/rnett/inspekt/model/FunctionLike {
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public abstract class dev/rnett/inspekt/model/FunctionLike : dev/rnett/inspekt/model/Callable {
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	protected final fun appendMethodSignature (Ljava/lang/StringBuilder;Z)V
 	protected fun assertInvokable ()V
 	protected final fun getInvoker ()Lkotlin/jvm/functions/Function1;
@@ -153,10 +183,12 @@ public final class dev/rnett/inspekt/model/Inspektion : dev/rnett/inspekt/model/
 	public final fun function (Ljava/lang/String;)Ldev/rnett/inspekt/model/SimpleFunction;
 	public final fun get (Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public static synthetic fun get$default (Ldev/rnett/inspekt/model/Inspektion;Ljava/lang/Object;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun getAllAnnotations ()Ljava/util/List;
 	public fun getAnnotations ()Ljava/util/List;
 	public final fun getCompanionObject ()Ldev/rnett/inspekt/model/Inspektion;
 	public final fun getCompanionObjectInstance ()Ljava/lang/Object;
 	public final fun getConstructors ()Ljava/util/List;
+	public fun getDeclaredAnnotations ()Ljava/util/List;
 	public final fun getDeclaredFunctions ()Ljava/util/List;
 	public final fun getDeclaredProperties ()Ljava/util/List;
 	public final fun getFunctions ()Ljava/util/List;
@@ -209,11 +241,15 @@ public final class dev/rnett/inspekt/model/Parameter : dev/rnett/inspekt/model/A
 	public final fun component2 ()Z
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/util/List;
-	public final fun component5 ()I
-	public final fun component6 ()I
-	public final fun component7 ()Ldev/rnett/inspekt/model/Parameter$Kind;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()I
+	public final fun component8 ()I
+	public final fun component9 ()Ldev/rnett/inspekt/model/Parameter$Kind;
 	public fun equals (Ljava/lang/Object;)Z
+	public fun getAllAnnotations ()Ljava/util/List;
 	public fun getAnnotations ()Ljava/util/List;
+	public fun getDeclaredAnnotations ()Ljava/util/List;
 	public final fun getGlobalIndex ()I
 	public final fun getHasDefault ()Z
 	public final fun getIndexInKind ()I
@@ -293,7 +329,7 @@ public final class dev/rnett/inspekt/model/Parameters : java/util/List, kotlin/j
 }
 
 public abstract class dev/rnett/inspekt/model/Property : dev/rnett/inspekt/model/Callable {
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Ljava/util/List;ZZLkotlin/reflect/KType;Ldev/rnett/inspekt/model/PropertyGetter;Ldev/rnett/inspekt/model/name/CallableName;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Ljava/util/List;Ljava/util/List;Ljava/util/List;ZZLkotlin/reflect/KType;Ldev/rnett/inspekt/model/PropertyGetter;Ldev/rnett/inspekt/model/name/CallableName;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	protected final fun appendPropertySignature (Ljava/lang/StringBuilder;Ljava/lang/String;Z)V
 	public final fun get (Ldev/rnett/inspekt/model/arguments/ArgumentList;)Ljava/lang/Object;
 	public final fun get (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
@@ -307,7 +343,7 @@ public abstract class dev/rnett/inspekt/model/Property : dev/rnett/inspekt/model
 }
 
 public abstract class dev/rnett/inspekt/model/PropertyAccessor : dev/rnett/inspekt/model/Function {
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public abstract fun getProperty ()Ldev/rnett/inspekt/model/Property;
 }
 
@@ -342,17 +378,21 @@ public final class dev/rnett/inspekt/model/SimpleFunction : dev/rnett/inspekt/mo
 }
 
 public final class dev/rnett/inspekt/model/TypeParameter : dev/rnett/inspekt/model/AnnotatedElement {
-	public fun <init> (Ljava/lang/String;ILdev/rnett/inspekt/model/TypeParameter$Variance;Ljava/util/List;ZLjava/util/List;)V
+	public fun <init> (Ljava/lang/String;ILdev/rnett/inspekt/model/TypeParameter$Variance;Ljava/util/List;ZLjava/util/List;Ljava/util/List;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()I
 	public final fun component3 ()Ldev/rnett/inspekt/model/TypeParameter$Variance;
 	public final fun component4 ()Ljava/util/List;
 	public final fun component5 ()Z
 	public final fun component6 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;ILdev/rnett/inspekt/model/TypeParameter$Variance;Ljava/util/List;ZLjava/util/List;)Ldev/rnett/inspekt/model/TypeParameter;
-	public static synthetic fun copy$default (Ldev/rnett/inspekt/model/TypeParameter;Ljava/lang/String;ILdev/rnett/inspekt/model/TypeParameter$Variance;Ljava/util/List;ZLjava/util/List;ILjava/lang/Object;)Ldev/rnett/inspekt/model/TypeParameter;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;ILdev/rnett/inspekt/model/TypeParameter$Variance;Ljava/util/List;ZLjava/util/List;Ljava/util/List;Ljava/util/List;)Ldev/rnett/inspekt/model/TypeParameter;
+	public static synthetic fun copy$default (Ldev/rnett/inspekt/model/TypeParameter;Ljava/lang/String;ILdev/rnett/inspekt/model/TypeParameter$Variance;Ljava/util/List;ZLjava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ldev/rnett/inspekt/model/TypeParameter;
 	public fun equals (Ljava/lang/Object;)Z
+	public fun getAllAnnotations ()Ljava/util/List;
 	public fun getAnnotations ()Ljava/util/List;
+	public fun getDeclaredAnnotations ()Ljava/util/List;
 	public final fun getErasedUpperBounds ()Ljava/util/List;
 	public final fun getIndex ()I
 	public final fun getKotlin ()Lkotlin/reflect/KTypeParameter;

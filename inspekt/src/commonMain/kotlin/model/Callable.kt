@@ -22,7 +22,9 @@ public sealed class Callable(
      * If the declaration is inherited from a superclass (**not** overridden), the superclass it is inherited from.
      */
     public val inheritedFrom: KClass<*>?,
-    public final override val annotations: List<Annotation>
+    public final override val annotations: List<Annotation>,
+    public final override val declaredAnnotations: List<Annotation>,
+    public final override val allAnnotations: List<AnnotationInfo>
 ) : AnnotatedElement {
     /**
      * A reference to the Kotlin declaration this represents.

@@ -121,9 +121,70 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         }
     }
 
+    private val AnnotationInfoV1 get() = context.referenceClass(Symbols.inspekt.dev_rnett_inspekt_internal_AnnotationInfoV1.asClassId())!!
+
+    context(context: GenerationContext)
+    private fun IrBuilderWithScope.getAllAnnotationsWithSources(declaration: org.jetbrains.kotlin.ir.declarations.IrDeclaration): IrExpression {
+        val allAnnotations = mutableListOf<IrExpression>()
+        val ctor = AnnotationInfoV1.constructors.single()
+
+        val overrides = mutableListOf<org.jetbrains.kotlin.ir.declarations.IrDeclaration>()
+        when (declaration) {
+            is IrSimpleFunction -> overrides.addAll(declaration.overriddenSymbols.map { it.owner })
+            is IrProperty -> overrides.addAll(declaration.getter?.overriddenSymbols?.mapNotNull { it.owner.correspondingPropertySymbol?.owner } ?: emptyList())
+            is IrValueParameter -> {
+                val func = declaration.parent as? IrSimpleFunction
+                if (func != null) {
+                    val index = declaration.indexInParameters
+                    overrides.addAll(func.overriddenSymbols.mapNotNull { it.owner.parameters.getOrNull(index) })
+                }
+            }
+        }
+
+        val visited = mutableSetOf<org.jetbrains.kotlin.ir.declarations.IrDeclaration>()
+        val queue = ArrayDeque<Pair<org.jetbrains.kotlin.ir.declarations.IrDeclaration, IrClass?>>()
+        queue.add(declaration to null)
+        for (override in overrides) {
+            queue.add(override to override.parentClassOrNull)
+        }
+
+        while (queue.isNotEmpty()) {
+            val (curr, source) = queue.removeFirst()
+            if (!visited.add(curr)) continue
+
+            for (ann in curr.annotations) {
+                allAnnotations += irCall(ctor.owner).apply {
+                    this.arguments[0] = ann.deepCopyWithSymbols(parent)
+                    this.arguments[1] = source?.let { IrClassReferenceImpl(startOffset, endOffset, builtIns.kClassClass.defaultType, it.symbol, it.defaultType) } ?: irNull()
+                }
+            }
+
+            when (curr) {
+                is IrSimpleFunction -> queue.addAll(curr.overriddenSymbols.map { it.owner to it.owner.parentClassOrNull })
+                is IrProperty -> queue.addAll(curr.getter?.overriddenSymbols?.mapNotNull {
+                    val ownerProp = it.owner.correspondingPropertySymbol?.owner
+                    if (ownerProp != null) ownerProp to ownerProp.parentClassOrNull else null
+                } ?: emptyList())
+
+                is IrValueParameter -> {
+                    val func = curr.parent as? IrSimpleFunction
+                    if (func != null) {
+                        val index = curr.indexInParameters
+                        queue.addAll(func.overriddenSymbols.mapNotNull {
+                            val param = it.owner.parameters.getOrNull(index)
+                            if (param != null) param to it.owner.parentClassOrNull else null
+                        })
+                    }
+                }
+            }
+        }
+
+        return irArrayOf(AnnotationInfoV1.defaultType, allAnnotations)
+    }
+
     context(context: GenerationContext)
     private fun IrBuilderWithScope.createInspektionImplementation(declaration: IrClass): IrExpression {
-        return irCall(ImplementationV1.constructors.single().owner).apply {
+        return irCall(ImplementationV1.constructors.single { it.owner.isPrimary }.owner).apply {
             val packageNamesValue = declaration.classIdOrFail.packageFqName.pathSegments().map { it.asString() }
             val classNamesValue = declaration.classIdOrFail.relativeClassName.pathSegments().map { it.asString() }
             with(Names.Impl.Ctor) {
@@ -133,6 +194,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[classNames] = classNamesValue.toArrayOfStrings()
                 arguments[supertypes] = irArrayOf(builtIns.kTypeClass.defaultType, declaration.superTypes.map { irTypeOf(it) })
                 arguments[annotations] = irArrayOf(builtIns.annotationType, declaration.annotations.map { it.deepCopyWithSymbols(parent) })
+                arguments[allAnnotations] = getAllAnnotationsWithSources(declaration)
                 arguments[functions] = irArrayOf(ImplFunction.defaultType, getFunctions(declaration))
                 arguments[properties] = irArrayOf(ImplProperty.defaultType, getProperties(declaration))
                 arguments[constructors] = irArrayOf(ImplFunction.defaultType, getConstructors(declaration))
@@ -178,12 +240,13 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
 
         val originalType = if (property.isFakeOverride) property.realOverrideTarget.parentAsClass else null
 
-        return irCall(ImplProperty.constructors.single()).apply {
+        return irCall(ImplProperty.constructors.single { it.owner.isPrimary }).apply {
             with(Names.Impl.PropertyCtor) {
                 arguments[name] = irString(property.name.asString())
                 arguments[this.packageNames] = packageNames.toArrayOfStrings()
                 arguments[this.classNames] = classNames?.toArrayOfStrings() ?: irNull()
                 arguments[annotations] = irArrayOf(builtIns.annotationType, property.annotations.map { it.deepCopyWithSymbols(parent) })
+                arguments[allAnnotations] = getAllAnnotationsWithSources(property)
                 arguments[isMutable] = irBoolean(property.isVar)
                 val returnType = property.getter?.returnType ?: property.backingField?.type ?: error("Could not identify property type")
                 arguments[hasBackingField] = irBoolean(property.backingField != null)
@@ -221,7 +284,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
 
         val owningClassTypeParams = function.parentClassOrNull?.typeParameters?.size ?: 0
 
-        return irCall(ImplFunction.constructors.single()).apply {
+        return irCall(ImplFunction.constructors.single { it.owner.isPrimary }).apply {
             with(Names.Impl.FunctionCtor) {
                 arguments[name] = irString(function.name.asString())
                 arguments[this.packageNames] = packageNames.toArrayOfStrings()
@@ -243,6 +306,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                     }
                 }
                 arguments[annotations] = irArrayOf(builtIns.annotationType, function.annotations.map { it.deepCopyWithSymbols(parent) })
+                arguments[allAnnotations] = getAllAnnotationsWithSources(function)
                 arguments[parameters] = irArrayOf(ImplParam.defaultType, function.parameters.map { createParamObject(function, it) })
                 arguments[returnType] = irTypeOf(function.returnType.eraseTypeParameters())
                 arguments[isSuspend] = irBoolean(function.isSuspend)
@@ -260,11 +324,13 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         }
     }
 
+    context(context: GenerationContext)
     private fun IrBuilderWithScope.createParamObject(function: IrFunction, param: IrValueParameter): IrExpression {
-        return irCall(ImplParam.constructors.single()).apply {
+        return irCall(ImplParam.constructors.single { it.owner.isPrimary }).apply {
             with(Names.Impl.ParamCtor) {
                 arguments[name] = irString(param.name.asString())
                 arguments[annotations] = irArrayOf(builtIns.annotationType, param.annotations.map { it.deepCopyWithSymbols(parent) })
+                arguments[allAnnotations] = getAllAnnotationsWithSources(param)
                 arguments[hasDefault] = irBoolean(param.hasDefaultValue())
                 arguments[type] = irTypeOf(param.type.eraseTypeParameters())
                 arguments[globalIndex] = irInt(param.indexInParameters)
@@ -285,8 +351,9 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
         }
     }
 
+    context(context: GenerationContext)
     private fun IrBuilderWithScope.createTypeParamObject(param: IrTypeParameter): IrExpression {
-        return irCall(ImplTypeParameter.constructors.single()).apply {
+        return irCall(ImplTypeParameter.constructors.single { it.owner.isPrimary }).apply {
             with(Names.Impl.TypeParameterCtor) {
                 arguments[name] = irString(param.name.asString())
                 arguments[index] = irInt(param.index)
@@ -300,6 +367,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 )
                 arguments[upperBounds] = irArrayOf(builtIns.kTypeClass.defaultType, param.superTypes.map { irTypeOf(it.eraseTypeParameters()) })
                 arguments[annotations] = irArrayOf(builtIns.annotationClass.defaultType, param.annotations.map { it.deepCopyWithSymbols(parent) })
+                arguments[allAnnotations] = getAllAnnotationsWithSources(param)
             }
         }
     }

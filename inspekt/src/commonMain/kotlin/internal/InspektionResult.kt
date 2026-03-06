@@ -51,6 +51,15 @@ internal interface ArgumentsProviderV1 {
 
 @PublishedApi
 @ExportSymbol
+internal class AnnotationInfoV1 @ExportSymbol constructor(
+    @param:ExportSymbol val annotation: Annotation,
+    @param:ExportSymbol val source: KClass<*>?
+) {
+    fun toModel(): dev.rnett.inspekt.model.AnnotationInfo = dev.rnett.inspekt.model.AnnotationInfo(annotation, source)
+}
+
+@PublishedApi
+@ExportSymbol
 internal class InspektionResultV1<T : Any>
 @ExportSymbol @PublishedApi internal constructor(
     @param:ExportSymbol private val kClass: KClass<*>,
@@ -59,6 +68,7 @@ internal class InspektionResultV1<T : Any>
     @ExportSymbol classNames: Array<String>,
     @param:ExportSymbol private val supertypes: Array<KType>,
     @param:ExportSymbol private val annotations: Array<Annotation>,
+    @param:ExportSymbol private val allAnnotations: Array<AnnotationInfoV1>,
     @param:ExportSymbol private val functions: Array<Function>,
     @param:ExportSymbol private val properties: Array<Property>,
     @param:ExportSymbol private val constructors: Array<Function>,
@@ -70,6 +80,31 @@ internal class InspektionResultV1<T : Any>
     @param:ExportSymbol private val companionObject: InspektionResultV1<Any>?,
     @param:ExportSymbol private val typeParameters: Array<TypeParameter>
 ) : InspektionResult<T>() {
+
+    @ExportSymbol
+    @PublishedApi
+    internal constructor(
+        kClass: KClass<*>,
+        isAbstract: Boolean,
+        packageNames: Array<String>,
+        classNames: Array<String>,
+        supertypes: Array<KType>,
+        annotations: Array<Annotation>,
+        functions: Array<Function>,
+        properties: Array<Property>,
+        constructors: Array<Function>,
+        sealedSubclasses: Array<InspektionResultV1<out T>>?,
+        cast: (Any) -> T,
+        isInstance: (Any) -> Boolean,
+        safeCast: (Any) -> T?,
+        objectInstance: T?,
+        companionObject: InspektionResultV1<Any>?,
+        typeParameters: Array<TypeParameter>
+    ) : this(
+        kClass, isAbstract, packageNames, classNames, supertypes, annotations,
+        Array(annotations.size) { AnnotationInfoV1(annotations[it], null) },
+        functions, properties, constructors, sealedSubclasses, cast, isInstance, safeCast, objectInstance, companionObject, typeParameters
+    )
 
     internal val name = ClassName(PackageName(packageNames.toList()), classNames.toList())
 
@@ -83,7 +118,9 @@ internal class InspektionResultV1<T : Any>
             kClass as KClass<T>,
             name,
             supertypes.toSet(),
+            allAnnotations.map { it.annotation },
             annotations.toList(),
+            allAnnotations.map { it.toModel() },
             typeParameters.map { it.toModel() },
             objectInstance,
             functions.map {
@@ -114,6 +151,7 @@ internal class InspektionResultV1<T : Any>
         @param:ExportSymbol private val isAbstract: Boolean,
         @param:ExportSymbol private val kotlin: KFunction<*>,
         @param:ExportSymbol private val annotations: Array<Annotation>,
+        @param:ExportSymbol private val allAnnotations: Array<AnnotationInfoV1>,
         @param:ExportSymbol private val parameters: Array<Param>,
         @param:ExportSymbol private val returnType: KType,
         @param:ExportSymbol private val isSuspend: Boolean,
@@ -123,6 +161,28 @@ internal class InspektionResultV1<T : Any>
         @param:ExportSymbol private val inheritedFrom: KClass<*>?,
         @param:ExportSymbol private val typeParameters: Array<TypeParameter>,
     ) {
+        @ExportSymbol
+        constructor(
+            packageNames: Array<String>,
+            classNames: Array<String>?,
+            name: String,
+            isAbstract: Boolean,
+            kotlin: KFunction<*>,
+            annotations: Array<Annotation>,
+            parameters: Array<Param>,
+            returnType: KType,
+            isSuspend: Boolean,
+            isPrimaryCtor: Boolean,
+            invoker: ((ArgumentsProviderV1) -> Any?)?,
+            suspendInvoker: (suspend (ArgumentsProviderV1) -> Any?)?,
+            inheritedFrom: KClass<*>?,
+            typeParameters: Array<TypeParameter>,
+        ) : this(
+            packageNames, classNames, name, isAbstract, kotlin, annotations,
+            Array(annotations.size) { AnnotationInfoV1(annotations[it], null) },
+            parameters, returnType, isSuspend, isPrimaryCtor, invoker, suspendInvoker, inheritedFrom, typeParameters
+        )
+
         private val name = CallableName(packageNames.toList(), classNames?.toList(), name)
 
         @ExportSymbol
@@ -130,7 +190,9 @@ internal class InspektionResultV1<T : Any>
         internal fun toModel(): SimpleFunction = SimpleFunction(
             name,
             kotlin,
+            allAnnotations.map { it.annotation },
             annotations.toList(),
+            allAnnotations.map { it.toModel() },
             isAbstract,
             Parameters(parameters.map { it.toModel() }),
             typeParameters.map { it.toModel() },
@@ -146,7 +208,9 @@ internal class InspektionResultV1<T : Any>
             kotlin,
             Parameters(parameters.map { it.toModel() }),
             isAbstract,
+            allAnnotations.map { it.annotation },
             annotations.toList(),
+            allAnnotations.map { it.toModel() },
             invoker,
             inheritedFrom,
             returnType,
@@ -157,7 +221,9 @@ internal class InspektionResultV1<T : Any>
             kotlin,
             Parameters(parameters.map { it.toModel() }),
             isAbstract,
+            allAnnotations.map { it.annotation },
             annotations.toList(),
+            allAnnotations.map { it.toModel() },
             invoker,
             inheritedFrom
         )
@@ -165,7 +231,9 @@ internal class InspektionResultV1<T : Any>
         internal fun toModelCtor(cls: Lazy<Inspektion<*>>): Constructor = Constructor(
             name as CallableName.Member,
             kotlin,
+            allAnnotations.map { it.annotation },
             annotations.toList(),
+            allAnnotations.map { it.toModel() },
             isAbstract,
             Parameters(parameters.map { it.toModel() }),
             returnType,
@@ -181,6 +249,7 @@ internal class InspektionResultV1<T : Any>
     @ExportSymbol constructor(
         @param:ExportSymbol private val name: String,
         @param:ExportSymbol private val annotations: Array<Annotation>,
+        @param:ExportSymbol private val allAnnotations: Array<AnnotationInfoV1>,
         @param:ExportSymbol private val hasDefault: Boolean,
         @param:ExportSymbol private val type: KType,
         @param:ExportSymbol private val globalIndex: Int,
@@ -190,11 +259,27 @@ internal class InspektionResultV1<T : Any>
          */
         @param:ExportSymbol private val kind: Int
     ) {
+        @ExportSymbol
+        constructor(
+            name: String,
+            annotations: Array<Annotation>,
+            hasDefault: Boolean,
+            type: KType,
+            globalIndex: Int,
+            indexInKind: Int,
+            kind: Int
+        ) : this(
+            name, annotations, Array(annotations.size) { AnnotationInfoV1(annotations[it], null) },
+            hasDefault, type, globalIndex, indexInKind, kind
+        )
+
         internal fun toModel(): Parameter = Parameter(
             type,
             hasDefault,
             name,
+            allAnnotations.map { it.annotation },
             annotations.toList(),
+            allAnnotations.map { it.toModel() },
             globalIndex,
             indexInKind,
             when (kind) {
@@ -215,6 +300,7 @@ internal class InspektionResultV1<T : Any>
         @ExportSymbol classNames: Array<String>?,
         @ExportSymbol name: String,
         @param:ExportSymbol private val annotations: Array<Annotation>,
+        @param:ExportSymbol private val allAnnotations: Array<AnnotationInfoV1>,
         @param:ExportSymbol private val isMutable: Boolean,
         @param:ExportSymbol private val hasBackingField: Boolean,
         @param:ExportSymbol private val isAbstract: Boolean,
@@ -225,6 +311,26 @@ internal class InspektionResultV1<T : Any>
         @param:ExportSymbol private val setter: Function?,
         @param:ExportSymbol private val inheritedFrom: KClass<*>?
     ) {
+        @ExportSymbol
+        constructor(
+            packageNames: Array<String>,
+            classNames: Array<String>?,
+            name: String,
+            annotations: Array<Annotation>,
+            isMutable: Boolean,
+            hasBackingField: Boolean,
+            isAbstract: Boolean,
+            hasDelegate: Boolean,
+            type: KType,
+            kotlin: KProperty1<*, *>,
+            getter: Function,
+            setter: Function?,
+            inheritedFrom: KClass<*>?
+        ) : this(
+            packageNames, classNames, name, annotations, Array(annotations.size) { AnnotationInfoV1(annotations[it], null) },
+            isMutable, hasBackingField, isAbstract, hasDelegate, type, kotlin, getter, setter, inheritedFrom
+        )
+
         private val name = CallableName(packageNames.toList(), classNames?.toList(), name)
 
         @ExportSymbol
@@ -244,7 +350,9 @@ internal class InspektionResultV1<T : Any>
                     setter!!.toPropertySetterModel(lazy),
                     name,
                     getter.parameters,
+                    allAnnotations.map { it.annotation },
                     annotations.toList(),
+                    allAnnotations.map { it.toModel() },
                     isAbstract,
                     inheritedFrom
                 )
@@ -257,7 +365,9 @@ internal class InspektionResultV1<T : Any>
                     getter,
                     name,
                     getter.parameters,
+                    allAnnotations.map { it.annotation },
                     annotations.toList(),
+                    allAnnotations.map { it.toModel() },
                     isAbstract,
                     inheritedFrom
                 )
@@ -278,8 +388,21 @@ internal class InspektionResultV1<T : Any>
          */
         @param:ExportSymbol val variance: Int,
         @param:ExportSymbol val upperBounds: Array<KType>,
-        @param:ExportSymbol val annotations: Array<Annotation>
+        @param:ExportSymbol val annotations: Array<Annotation>,
+        @param:ExportSymbol val allAnnotations: Array<AnnotationInfoV1>
     ) {
+        @ExportSymbol
+        constructor(
+            name: String,
+            index: Int,
+            isReified: Boolean,
+            variance: Int,
+            upperBounds: Array<KType>,
+            annotations: Array<Annotation>
+        ) : this(
+            name, index, isReified, variance, upperBounds, annotations, Array(annotations.size) { AnnotationInfoV1(annotations[it], null) }
+        )
+
         fun toModel(): dev.rnett.inspekt.model.TypeParameter {
             val variance = when (variance) {
                 0 -> dev.rnett.inspekt.model.TypeParameter.Variance.INVARIANT
@@ -293,7 +416,9 @@ internal class InspektionResultV1<T : Any>
                 variance,
                 upperBounds.toList(),
                 isReified,
-                annotations.toList()
+                allAnnotations.map { it.annotation },
+                annotations.toList(),
+                allAnnotations.map { it.toModel() }
             )
         }
     }

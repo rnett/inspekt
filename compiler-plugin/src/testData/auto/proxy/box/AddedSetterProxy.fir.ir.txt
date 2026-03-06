@@ -81,7 +81,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
             FIELD name:$$proxyMethod_1_prop type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.model.Property declared in dev.rnett.inspekt.internal.InspektionResultV1.Property' type=dev.rnett.inspekt.model.Property origin=null
-                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, isMutable: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.inspekt.internal.InspektionResultV1.Function, setter: dev.rnett.inspekt.internal.InspektionResultV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Property' type=dev.rnett.inspekt.internal.InspektionResultV1.Property origin=null
+                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, isMutable: kotlin.Boolean, hasBackingField: kotlin.Boolean, isAbstract: kotlin.Boolean, hasDelegate: kotlin.Boolean, type: kotlin.reflect.KType, kotlin: kotlin.reflect.KProperty1<*, *>, getter: dev.rnett.inspekt.internal.InspektionResultV1.Function, setter: dev.rnett.inspekt.internal.InspektionResultV1.Function?, inheritedFrom: kotlin.reflect.KClass<*>?) declared in dev.rnett.inspekt.internal.InspektionResultV1.Property' type=dev.rnett.inspekt.internal.InspektionResultV1.Property origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
                       ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -96,6 +96,9 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                     ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Annotation
                       ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                    ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                      TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                      ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                     ARG isMutable: CONST Boolean type=kotlin.Boolean value=true
                     ARG hasBackingField: CONST Boolean type=kotlin.Boolean value=false
                     ARG isAbstract: CONST Boolean type=kotlin.Boolean value=true
@@ -103,7 +106,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                     ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                       TYPE_ARG T: kotlin.String
                     ARG kotlin: PROPERTY_REFERENCE 'public abstract prop: kotlin.String declared in auto.proxy.box.Sub' field=null getter='public abstract fun <get-prop> (): kotlin.String declared in auto.proxy.box.Sub' setter='public abstract fun <set-prop> (<set-?>: kotlin.String): kotlin.Unit declared in auto.proxy.box.Sub' type=kotlin.reflect.KMutableProperty1<T of kotlin.reflect.KMutableProperty1, V of kotlin.reflect.KMutableProperty1> origin=null
-                    ARG getter: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                    ARG getter: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                       ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                         TYPE_ARG T: kotlin.String
                         ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -120,14 +123,20 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                       ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                         TYPE_ARG T: kotlin.Annotation
                         ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                      ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                        TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                        ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                       ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                         TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
                         ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
-                          CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                          CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                             ARG name: CONST String type=kotlin.String value="<this>"
                             ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                               TYPE_ARG T: kotlin.Annotation
                               ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                            ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                              TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                              ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                             ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                             ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                               TYPE_ARG T: auto.proxy.box.Sub
@@ -149,7 +158,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                       ARG typeParameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                         TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
                         ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter
-                    ARG setter: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                    ARG setter: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                       ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                         TYPE_ARG T: kotlin.String
                         ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -166,25 +175,34 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                       ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                         TYPE_ARG T: kotlin.Annotation
                         ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                      ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                        TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                        ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                       ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                         TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
                         ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
-                          CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                          CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                             ARG name: CONST String type=kotlin.String value="<this>"
                             ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                               TYPE_ARG T: kotlin.Annotation
                               ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                            ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                              TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                              ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                             ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                             ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                               TYPE_ARG T: auto.proxy.box.Sub
                             ARG globalIndex: CONST Int type=kotlin.Int value=0
                             ARG indexInKind: CONST Int type=kotlin.Int value=0
                             ARG kind: CONST Int type=kotlin.Int value=0
-                          CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                          CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                             ARG name: CONST String type=kotlin.String value="<set-?>"
                             ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                               TYPE_ARG T: kotlin.Annotation
                               ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                            ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                              TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                              ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                             ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                             ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                               TYPE_ARG T: kotlin.String
@@ -210,7 +228,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
             FIELD name:$$proxyMethod_1_get-prop type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.model.SimpleFunction origin=null
-                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
                       ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -227,14 +245,20 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                     ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Annotation
                       ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                    ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                      TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                      ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                     ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
                       ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
-                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                           ARG name: CONST String type=kotlin.String value="<this>"
                           ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                             TYPE_ARG T: kotlin.Annotation
                             ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                          ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                            TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                            ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                           ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                           ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                             TYPE_ARG T: auto.proxy.box.Sub
@@ -259,7 +283,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
             FIELD name:$$proxyMethod_1_set-prop type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.model.SimpleFunction origin=null
-                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
                       ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -276,25 +300,34 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                     ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Annotation
                       ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                    ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                      TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                      ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                     ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
                       ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
-                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                           ARG name: CONST String type=kotlin.String value="<this>"
                           ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                             TYPE_ARG T: kotlin.Annotation
                             ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                          ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                            TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                            ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                           ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                           ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                             TYPE_ARG T: auto.proxy.box.Sub
                           ARG globalIndex: CONST Int type=kotlin.Int value=0
                           ARG indexInKind: CONST Int type=kotlin.Int value=0
                           ARG kind: CONST Int type=kotlin.Int value=0
-                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                           ARG name: CONST String type=kotlin.String value="<set-?>"
                           ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                             TYPE_ARG T: kotlin.Annotation
                             ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                          ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                            TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                            ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                           ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                           ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                             TYPE_ARG T: kotlin.String
@@ -319,7 +352,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
             FIELD name:$$proxyMethod_2_equals type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.model.SimpleFunction origin=null
-                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
                       ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -334,25 +367,34 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                     ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Annotation
                       ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                    ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                      TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                      ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                     ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
                       ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
-                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                           ARG name: CONST String type=kotlin.String value="<this>"
                           ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                             TYPE_ARG T: kotlin.Annotation
                             ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                          ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                            TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                            ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                           ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                           ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                             TYPE_ARG T: kotlin.Any
                           ARG globalIndex: CONST Int type=kotlin.Int value=0
                           ARG indexInKind: CONST Int type=kotlin.Int value=0
                           ARG kind: CONST Int type=kotlin.Int value=0
-                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                           ARG name: CONST String type=kotlin.String value="other"
                           ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                             TYPE_ARG T: kotlin.Annotation
                             ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                          ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                            TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                            ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                           ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                           ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                             TYPE_ARG T: kotlin.Any?
@@ -395,7 +437,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
             FIELD name:$$proxyMethod_3_hashCode type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.model.SimpleFunction origin=null
-                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
                       ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -410,14 +452,20 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                     ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Annotation
                       ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                    ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                      TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                      ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                     ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
                       ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
-                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                           ARG name: CONST String type=kotlin.String value="<this>"
                           ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                             TYPE_ARG T: kotlin.Annotation
                             ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                          ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                            TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                            ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                           ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                           ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                             TYPE_ARG T: kotlin.Any
@@ -454,7 +502,7 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
             FIELD name:$$proxyMethod_4_toString type:kotlin.Any visibility:private [final]
               EXPRESSION_BODY
                 CALL 'internal final fun toModel (): dev.rnett.inspekt.model.SimpleFunction declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.model.SimpleFunction origin=null
-                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
+                  ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> (packageNames: kotlin.Array<kotlin.String>, classNames: kotlin.Array<kotlin.String>?, name: kotlin.String, isAbstract: kotlin.Boolean, kotlin: kotlin.reflect.KFunction<*>, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, parameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param>, returnType: kotlin.reflect.KType, isSuspend: kotlin.Boolean, isPrimaryCtor: kotlin.Boolean, invoker: kotlin.Function1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, suspendInvoker: kotlin.coroutines.SuspendFunction1<dev.rnett.inspekt.internal.ArgumentsProviderV1, kotlin.Any?>?, inheritedFrom: kotlin.reflect.KClass<*>?, typeParameters: kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.TypeParameter>) declared in dev.rnett.inspekt.internal.InspektionResultV1.Function' type=dev.rnett.inspekt.internal.InspektionResultV1.Function origin=null
                     ARG packageNames: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.String
                       ARG elements: VARARG type=kotlin.Array<kotlin.String> varargElementType=kotlin.String
@@ -469,14 +517,20 @@ FILE fqName:auto.proxy.box fileName:/AddedSetterProxy.kt
                     ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: kotlin.Annotation
                       ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                    ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                      TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                      ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                     ARG parameters: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                       TYPE_ARG T: dev.rnett.inspekt.internal.InspektionResultV1.Param
                       ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.InspektionResultV1.Param> varargElementType=dev.rnett.inspekt.internal.InspektionResultV1.Param
-                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
+                        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, annotations: kotlin.Array<kotlin.Annotation>, allAnnotations: kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1>, hasDefault: kotlin.Boolean, type: kotlin.reflect.KType, globalIndex: kotlin.Int, indexInKind: kotlin.Int, kind: kotlin.Int) declared in dev.rnett.inspekt.internal.InspektionResultV1.Param' type=dev.rnett.inspekt.internal.InspektionResultV1.Param origin=null
                           ARG name: CONST String type=kotlin.String value="<this>"
                           ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                             TYPE_ARG T: kotlin.Annotation
                             ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation
+                          ARG allAnnotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
+                            TYPE_ARG T: dev.rnett.inspekt.internal.AnnotationInfoV1
+                            ARG elements: VARARG type=kotlin.Array<dev.rnett.inspekt.internal.AnnotationInfoV1> varargElementType=dev.rnett.inspekt.internal.AnnotationInfoV1
                           ARG hasDefault: CONST Boolean type=kotlin.Boolean value=false
                           ARG type: CALL 'public final fun typeOf <T> (): kotlin.reflect.KType declared in kotlin.reflect' type=kotlin.reflect.KType origin=null
                             TYPE_ARG T: kotlin.Any

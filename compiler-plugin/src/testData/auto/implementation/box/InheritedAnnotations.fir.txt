@@ -1,0 +1,92 @@
+FILE: InheritedAnnotations.kt
+    package auto
+
+    public final annotation class Ann1 : R|kotlin/Annotation| {
+        public constructor(value: R|kotlin/String|): R|auto/Ann1| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val value: R|kotlin/String| = R|<local>/value|
+            public get(): R|kotlin/String|
+
+    }
+    public final annotation class Ann2 : R|kotlin/Annotation| {
+        public constructor(value: R|kotlin/String|): R|auto/Ann2| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val value: R|kotlin/String| = R|<local>/value|
+            public get(): R|kotlin/String|
+
+    }
+    public abstract interface Base : R|kotlin/Any| {
+        @R|auto/Ann1|(value = String(baseMethod)) public abstract fun myMethod(): R|kotlin/Unit|
+
+        @R|auto/Ann2|(value = String(baseProp)) public abstract val myProp: R|kotlin/String|
+            public get(): R|kotlin/String|
+
+    }
+    public open class Parent : R|auto/Base| {
+        public constructor(): R|auto/Parent| {
+            super<R|kotlin/Any|>()
+        }
+
+        @R|auto/Ann2|(value = String(parentMethod)) public open override fun myMethod(): R|kotlin/Unit| {
+        }
+
+        @R|auto/Ann1|(value = String(parentProp)) public open override val myProp: R|kotlin/String| = String(parent)
+            public get(): R|kotlin/String|
+
+    }
+    public final class Child : R|auto/Parent| {
+        public constructor(): R|auto/Child| {
+            super<R|auto/Parent|>()
+        }
+
+        @R|auto/Ann1|(value = String(childMethod)) public open override fun myMethod(): R|kotlin/Unit| {
+        }
+
+        @R|auto/Ann2|(value = String(childProp)) public open override val myProp: R|kotlin/String| = String(child)
+            public get(): R|kotlin/String|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval childInspektion: R|dev/rnett/inspekt/model/Inspektion<auto/Child>| = R|dev/rnett/inspekt/inspekt|<R|auto/Child|>(<getClass>(Q|auto/Child|))
+        lval childMethod: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/childInspektion|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.function: R|dev/rnett/inspekt/model/SimpleFunction|>|(String(myMethod))
+        lval mAnns: R|kotlin/collections/Set<kotlin/Pair<kotlin/String, kotlin/String?>>| = R|<local>/childMethod|.R|dev/rnett/inspekt/model/Callable.allAnnotations|.R|kotlin/collections/map|<R|dev/rnett/inspekt/model/AnnotationInfo|, R|kotlin/Pair<kotlin/String, kotlin/String?>|>(<L> = map@fun <anonymous>(it: R|dev/rnett/inspekt/model/AnnotationInfo|): R|kotlin/Pair<kotlin/String, kotlin/String?>| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/it|.R|dev/rnett/inspekt/model/AnnotationInfo.annotation|.R|kotlin/Any.toString|().R|kotlin/to|<R|kotlin/String|, R|kotlin/String?|>(R|<local>/it|.R|dev/rnett/inspekt/model/AnnotationInfo.source|?.{ $subj$.R|SubstitutionOverride<kotlin/reflect/KClass.simpleName: R|kotlin/String?|>| })
+        }
+        ).R|kotlin/collections/toSet|<R|kotlin/Pair<kotlin/String, kotlin/String?>|>()
+        when () {
+            !=(R|<local>/mAnns|.R|SubstitutionOverride<kotlin/collections/Set.size: R|kotlin/Int|>|, Int(3)) ->  {
+                ^box <strcat>(String(Fail: myMethod annotations size is ), R|<local>/mAnns|.R|SubstitutionOverride<kotlin/collections/Set.size: R|kotlin/Int|>|)
+            }
+        }
+
+        lval expectedMethod: R|kotlin/collections/Set<kotlin/Pair<kotlin/String, kotlin/String?>>| = R|kotlin/collections/setOf|<R|kotlin/Pair<kotlin/String, kotlin/String?>|>(vararg(String(@auto.Ann1(value=childMethod)).R|kotlin/to|<R|kotlin/String|, R|kotlin/Nothing?|>(Null(null)), String(@auto.Ann2(value=parentMethod)).R|kotlin/to|<R|kotlin/String|, R|kotlin/String|>(String(Parent)), String(@auto.Ann1(value=baseMethod)).R|kotlin/to|<R|kotlin/String|, R|kotlin/String|>(String(Base))))
+        when () {
+            !=(R|<local>/mAnns|, R|<local>/expectedMethod|) ->  {
+                ^box <strcat>(String(Fail: myMethod annotations mismatch: ), R|<local>/mAnns|)
+            }
+        }
+
+        lval childProp: R|dev/rnett/inspekt/model/Property| = R|<local>/childInspektion|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.property: R|dev/rnett/inspekt/model/Property|>|(String(myProp))
+        lval pAnns: R|kotlin/collections/Set<kotlin/Pair<kotlin/String, kotlin/String?>>| = R|<local>/childProp|.R|dev/rnett/inspekt/model/Callable.allAnnotations|.R|kotlin/collections/map|<R|dev/rnett/inspekt/model/AnnotationInfo|, R|kotlin/Pair<kotlin/String, kotlin/String?>|>(<L> = map@fun <anonymous>(it: R|dev/rnett/inspekt/model/AnnotationInfo|): R|kotlin/Pair<kotlin/String, kotlin/String?>| <inline=Inline, kind=UNKNOWN>  {
+            ^ R|<local>/it|.R|dev/rnett/inspekt/model/AnnotationInfo.annotation|.R|kotlin/Any.toString|().R|kotlin/to|<R|kotlin/String|, R|kotlin/String?|>(R|<local>/it|.R|dev/rnett/inspekt/model/AnnotationInfo.source|?.{ $subj$.R|SubstitutionOverride<kotlin/reflect/KClass.simpleName: R|kotlin/String?|>| })
+        }
+        ).R|kotlin/collections/toSet|<R|kotlin/Pair<kotlin/String, kotlin/String?>|>()
+        when () {
+            !=(R|<local>/pAnns|.R|SubstitutionOverride<kotlin/collections/Set.size: R|kotlin/Int|>|, Int(3)) ->  {
+                ^box <strcat>(String(Fail: myProp annotations size is ), R|<local>/pAnns|.R|SubstitutionOverride<kotlin/collections/Set.size: R|kotlin/Int|>|)
+            }
+        }
+
+        lval expectedProp: R|kotlin/collections/Set<kotlin/Pair<kotlin/String, kotlin/String?>>| = R|kotlin/collections/setOf|<R|kotlin/Pair<kotlin/String, kotlin/String?>|>(vararg(String(@auto.Ann2(value=childProp)).R|kotlin/to|<R|kotlin/String|, R|kotlin/Nothing?|>(Null(null)), String(@auto.Ann1(value=parentProp)).R|kotlin/to|<R|kotlin/String|, R|kotlin/String|>(String(Parent)), String(@auto.Ann2(value=baseProp)).R|kotlin/to|<R|kotlin/String|, R|kotlin/String|>(String(Base))))
+        when () {
+            !=(R|<local>/pAnns|, R|<local>/expectedProp|) ->  {
+                ^box <strcat>(String(Fail: myProp annotations mismatch: ), R|<local>/pAnns|)
+            }
+        }
+
+        ^box String(OK)
+    }
