@@ -1,0 +1,13 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:gradle-plugin
+dev.rnett.inspekt
+module:inspekt
+dev.rnett.inspekt
+dev.rnett.inspekt.exceptions
+dev.rnett.inspekt.model
+dev.rnett.inspekt.model.arguments
+dev.rnett.inspekt.model.name
+dev.rnett.inspekt.proxy
+dev.rnett.inspekt.utils
