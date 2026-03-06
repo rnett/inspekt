@@ -1,0 +1,34 @@
+FILE: ContextParameterExternal.kt
+    package auto.inspekt.box
+
+    public final object Impl : R|dev/rnett/inspekt/test/ExternalBase| {
+        private constructor(): R|auto/inspekt/box/Impl| {
+            super<R|kotlin/Any|>()
+        }
+
+        context(ctx: R|dev/rnett/inspekt/test/MyContext|)
+        public open override fun foo(): R|kotlin/Unit| {
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval inspektion: R|dev/rnett/inspekt/model/Inspektion<auto/inspekt/box/Impl>| = R|dev/rnett/inspekt/inspekt|<R|auto/inspekt/box/Impl|>(<getClass>(Q|auto/inspekt/box/Impl|))
+        lval foo: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/first|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = first@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/name/CallableName.name|, String(foo))
+        }
+        )
+        lval result: R|kotlin/String| = R|<local>/foo|.R|dev/rnett/inspekt/model/Callable.parameters|.R|kotlin/collections/joinToString|<R|dev/rnett/inspekt/model/Parameter|>(<L> = joinToString@fun <anonymous>(it: R|dev/rnett/inspekt/model/Parameter|): R|kotlin/CharSequence| <inline=NoInline>  {
+            ^ <strcat>(R|<local>/it|.R|dev/rnett/inspekt/model/Parameter.name|, String(: ), R|<local>/it|.R|dev/rnett/inspekt/model/Parameter.kind|)
+        }
+        )
+        lval expected: R|kotlin/String| = String(<this>: DISPATCH, ctx: CONTEXT)
+        ^box when () {
+            ==(R|<local>/result|, R|<local>/expected|) ->  {
+                String(OK)
+            }
+            else ->  {
+                <strcat>(String(Actual: ), R|<local>/result|)
+            }
+        }
+
+    }

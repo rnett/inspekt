@@ -1,8 +1,11 @@
 package dev.rnett.inspekt.model
 
+import dev.rnett.inspekt.InternalInspektApi
+
 /**
  * An element which has annotations.
  */
+@SubclassOptInRequired(InternalInspektApi::class)
 public interface AnnotatedElement {
     public val annotations: List<Annotation>
 }

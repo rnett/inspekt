@@ -1,0 +1,66 @@
+package auto.inspekt.box
+
+object Impl : ExternalBase {
+  private constructor() /* primary */ {
+    super/*Any*/()
+    /* <init>() */
+
+  }
+
+  context(ctx: MyContext)
+  override fun foo() {
+  }
+
+}
+
+fun box(): String {
+  val inspektion: Inspektion<Impl> = InspektionResultV1</* null */>(kClass = Impl::class, isAbstract = false, packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Impl"]), supertypes = arrayOf<KType>(elements = [typeOf<ExternalBase>()]), annotations = arrayOf<Annotation>(elements = []), functions = arrayOf<Function>(elements = [Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Impl"]), name = "foo", isAbstract = false, kotlin = Impl::foo, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Impl>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "ctx", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<MyContext>(), globalIndex = 1, indexInKind = 0, kind = 1)]), returnType = typeOf<Unit>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_0: Impl = args.v1Get(globalIndex = 0) as Impl
+    val tmp_1: MyContext = args.v1Get(globalIndex = 1) as MyContext
+    return try tmp_0.foo(/* ctx = tmp_1 */)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_2)
+
+  }
+, suspendInvoker = null, inheritedFrom = null, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Impl"]), name = "equals", isAbstract = false, kotlin = Impl::equals, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0), Param(name = "other", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any?>(), globalIndex = 1, indexInKind = 0, kind = 3)]), returnType = typeOf<Boolean>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_3: Any = args.v1Get(globalIndex = 0) as Any
+    val tmp_4: Any? = args.v1Get(globalIndex = 1) as Any?
+    return try tmp_3.equals(other = tmp_4)
+    catch (tmp2: Throwable)args.throwWrappedException(e = tmp_5)
+
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Impl"]), name = "hashCode", isAbstract = false, kotlin = Impl::hashCode, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<Int>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_6: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_6.hashCode()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_7)
+
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = [])), Function(packageNames = arrayOf<String>(elements = ["auto", "inspekt", "box"]), classNames = arrayOf<String>(elements = ["Impl"]), name = "toString", isAbstract = false, kotlin = Impl::toString, annotations = arrayOf<Annotation>(elements = []), parameters = arrayOf<Param>(elements = [Param(name = "<this>", annotations = arrayOf<Annotation>(elements = []), hasDefault = false, type = typeOf<Any>(), globalIndex = 0, indexInKind = 0, kind = 0)]), returnType = typeOf<String>(), isSuspend = false, isPrimaryCtor = false, invoker = local fun <anonymous>(args: ArgumentsProviderV1): Any? {
+    val tmp_8: Any = args.v1Get(globalIndex = 0) as Any
+    return try tmp_8.toString()
+    catch (tmp1: Throwable)args.throwWrappedException(e = tmp_9)
+
+  }
+, suspendInvoker = null, inheritedFrom = Any::class, typeParameters = arrayOf<TypeParameter>(elements = []))]), properties = arrayOf<Property>(elements = []), constructors = arrayOf<Function>(elements = []), sealedSubclasses = null, cast = local fun <anonymous>(it: Any): Impl {
+    return it as Impl
+  }
+, isInstance = local fun <anonymous>(it: Any): Boolean {
+    return it is Impl
+  }
+, safeCast = local fun <anonymous>(it: Any): Impl? {
+    return it as? Impl
+  }
+, objectInstance = Impl, companionObject = null, typeParameters = arrayOf<TypeParameter>(elements = [])).toModel()
+  val foo: SimpleFunction = first<SimpleFunction>(/* <this> = inspektion.<get-functions>(), */ predicate = local fun <anonymous>(it: SimpleFunction): Boolean {
+    return EQEQ(arg0 = it.<get-name>().<get-name>(), arg1 = "foo")
+  }
+)
+  val result: String = joinToString<Parameter>(/* <this> = foo.<get-parameters>(), */ transform = local fun <anonymous>(it: Parameter): CharSequence {
+    return it.<get-name>() + ": " + it.<get-kind>()
+  }
+)
+  val expected: String = "<this>: DISPATCH, ctx: CONTEXT"
+  return when {
+    EQEQ(arg0 = result, arg1 = expected) -> "OK"
+    else -> "Actual: " + result
+  }
+}

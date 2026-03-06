@@ -23,6 +23,10 @@ open annotation class dev.rnett.inspekt.utils/StringLiteral : kotlin/Annotation 
     constructor <init>() // dev.rnett.inspekt.utils/StringLiteral.<init>|<init>(){}[0]
 }
 
+open annotation class dev.rnett.inspekt/InternalInspektApi : kotlin/Annotation { // dev.rnett.inspekt/InternalInspektApi|null[0]
+    constructor <init>() // dev.rnett.inspekt/InternalInspektApi.<init>|<init>(){}[0]
+}
+
 abstract fun interface dev.rnett.inspekt.proxy/ProxyHandler { // dev.rnett.inspekt.proxy/ProxyHandler|null[0]
     abstract fun (dev.rnett.inspekt.proxy/SuperCall).handle(): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.handle|handle@dev.rnett.inspekt.proxy.SuperCall(){}[0]
     open suspend fun (dev.rnett.inspekt.proxy/SuperCall).handleSuspend(): kotlin/Any? // dev.rnett.inspekt.proxy/ProxyHandler.handleSuspend|handleSuspend@dev.rnett.inspekt.proxy.SuperCall(){}[0]

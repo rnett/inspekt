@@ -49,6 +49,18 @@ public class InspektBoxTestGenerated extends AbstractLeveledBoxTest {
   }
 
   @Test
+  @TestMetadata("ContextParameterExternal.kt")
+  public void testContextParameterExternal() {
+    runTest("src/testData/auto/inspekt/box/ContextParameterExternal.kt");
+  }
+
+  @Test
+  @TestMetadata("ContextParameterOverride.kt")
+  public void testContextParameterOverride() {
+    runTest("src/testData/auto/inspekt/box/ContextParameterOverride.kt");
+  }
+
+  @Test
   @TestMetadata("Function.kt")
   public void testFunction() {
     runTest("src/testData/auto/inspekt/box/Function.kt");

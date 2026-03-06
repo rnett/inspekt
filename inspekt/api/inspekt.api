@@ -4,6 +4,9 @@ public final class dev/rnett/inspekt/InspektKt {
 	public static final fun inspekt (Lkotlin/reflect/KProperty;)Ldev/rnett/inspekt/model/Property;
 }
 
+public abstract interface annotation class dev/rnett/inspekt/InternalInspektApi : java/lang/annotation/Annotation {
+}
+
 public final class dev/rnett/inspekt/exceptions/ExceptionsKt {
 	public static final fun handleException (Ldev/rnett/inspekt/model/name/CallableName;Ljava/lang/Throwable;)Ljava/lang/Void;
 	public static final fun wrapInvocation (Ldev/rnett/inspekt/model/Callable;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;

@@ -1,0 +1,51 @@
+FILE: ContextParameterOverride.kt
+    package auto.inspekt.box
+
+    public final class MyContext : R|kotlin/Any| {
+        public constructor(): R|auto/inspekt/box/MyContext| {
+            super<R|kotlin/Any|>()
+        }
+
+    }
+    public final class OtherContext : R|kotlin/Any| {
+        public constructor(): R|auto/inspekt/box/OtherContext| {
+            super<R|kotlin/Any|>()
+        }
+
+    }
+    public abstract interface Base : R|kotlin/Any| {
+        context(ctx1: R|auto/inspekt/box/MyContext|, ctx2: R|auto/inspekt/box/OtherContext|)
+        public abstract fun foo(): R|kotlin/Unit|
+
+    }
+    public final object Impl : R|auto/inspekt/box/Base| {
+        private constructor(): R|auto/inspekt/box/Impl| {
+            super<R|kotlin/Any|>()
+        }
+
+        context(ctx1: R|auto/inspekt/box/MyContext|, ctx2: R|auto/inspekt/box/OtherContext|)
+        public open override fun foo(): R|kotlin/Unit| {
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval inspektion: R|dev/rnett/inspekt/model/Inspektion<auto/inspekt/box/Impl>| = R|dev/rnett/inspekt/inspekt|<R|auto/inspekt/box/Impl|>(<getClass>(Q|auto/inspekt/box/Impl|))
+        lval foo: R|dev/rnett/inspekt/model/SimpleFunction| = R|<local>/inspektion|.R|SubstitutionOverride<dev/rnett/inspekt/model/Inspektion.functions: R|kotlin/collections/List<dev/rnett/inspekt/model/SimpleFunction>|>|.R|kotlin/collections/first|<R|dev/rnett/inspekt/model/SimpleFunction|>(<L> = first@fun <anonymous>(it: R|dev/rnett/inspekt/model/SimpleFunction|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            ^ ==(R|<local>/it|.R|dev/rnett/inspekt/model/SimpleFunction.name|.R|dev/rnett/inspekt/model/name/CallableName.name|, String(foo))
+        }
+        )
+        lval result: R|kotlin/String| = R|<local>/foo|.R|dev/rnett/inspekt/model/Callable.parameters|.R|kotlin/collections/joinToString|<R|dev/rnett/inspekt/model/Parameter|>(<L> = joinToString@fun <anonymous>(it: R|dev/rnett/inspekt/model/Parameter|): R|kotlin/CharSequence| <inline=NoInline>  {
+            ^ <strcat>(R|<local>/it|.R|dev/rnett/inspekt/model/Parameter.name|, String(: ), R|<local>/it|.R|dev/rnett/inspekt/model/Parameter.kind|)
+        }
+        )
+        lval expected: R|kotlin/String| = String(<this>: DISPATCH, ctx1: CONTEXT, ctx2: CONTEXT)
+        ^box when () {
+            ==(R|<local>/result|, R|<local>/expected|) ->  {
+                String(OK)
+            }
+            else ->  {
+                <strcat>(String(Actual: ), R|<local>/result|)
+            }
+        }
+
+    }
