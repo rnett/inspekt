@@ -56,7 +56,6 @@ import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.types.makeNullable
 import org.jetbrains.kotlin.ir.types.typeWith
-import org.jetbrains.kotlin.ir.util.callableId
 import org.jetbrains.kotlin.ir.util.classIdOrFail
 import org.jetbrains.kotlin.ir.util.companionObject
 import org.jetbrains.kotlin.ir.util.constructors
@@ -174,8 +173,8 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
 
     context(context: GenerationContext)
     private fun IrBuilderWithScope.createPropertyObject(property: IrProperty): IrExpression {
-        val packageNames = property.callableId.packageName.pathSegments().map { it.asString() }
-        val classNames = property.callableId.className?.pathSegments()?.map { it.asString() }
+        val packageNames = property.safeCallableId?.packageName?.pathSegments()?.map { it.asString() } ?: emptyList()
+        val classNames = property.safeCallableId?.className?.pathSegments()?.map { it.asString() }
 
         val originalType = if (property.isFakeOverride) property.realOverrideTarget.parentAsClass else null
 
@@ -213,10 +212,10 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
     context(context: GenerationContext)
     private fun IrBuilderWithScope.createFunctionObject(function: IrFunction): IrExpression {
         if (function.parameters.count { it.hasDefaultValue() } > 32) {
-            error("Can not generate inspektion for function ${function.callableId.asSingleFqName().asString()} with more than 32 default args. This should have been caught in the frontend.")
+            error("Can not generate inspektion for function ${function.safeCallableId?.asSingleFqName()?.asString() ?: function.name.asString()} with more than 32 default args. This should have been caught in the frontend.")
         }
-        val packageNames = function.callableId.packageName.pathSegments().map { it.asString() }
-        val classNames = function.callableId.className?.pathSegments()?.map { it.asString() }
+        val packageNames = function.safeCallableId?.packageName?.pathSegments()?.map { it.asString() } ?: emptyList()
+        val classNames = function.safeCallableId?.className?.pathSegments()?.map { it.asString() }
 
         val originalType = if (function.isFakeOverride) function.realOverrideTarget.parentAsClass else null
 

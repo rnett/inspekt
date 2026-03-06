@@ -2,6 +2,7 @@ package dev.rnett.inspekt.ir.passes
 
 import dev.rnett.inspekt.Symbols
 import dev.rnett.inspekt.ir.ProxyGenerator
+import dev.rnett.inspekt.ir.safeCallableId
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.IrFullTransformerWithContext
 import dev.rnett.kcp.development.utils.ir.createLambda
@@ -28,7 +29,6 @@ import org.jetbrains.kotlin.ir.expressions.IrVarargElement
 import org.jetbrains.kotlin.ir.expressions.impl.IrFunctionExpressionImpl
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
 import org.jetbrains.kotlin.ir.types.defaultType
-import org.jetbrains.kotlin.ir.util.callableId
 import org.jetbrains.kotlin.ir.util.defaultType
 import org.jetbrains.kotlin.ir.util.isInterface
 import org.jetbrains.kotlin.name.Name
@@ -39,7 +39,7 @@ class ReplaceProxyCalls(context: IrPluginContext) : IrFullTransformerWithContext
     private val usedNames = mutableSetOf<String>()
 
     override fun visitCall(expression: IrCall): IrExpression {
-        val result = when (expression.symbol.owner.callableId) {
+        val result = when (expression.symbol.owner.safeCallableId) {
             Symbols.inspekt.dev_rnett_inspekt_proxy_proxy.asCallableId() ->
                 intrinsifyProxy(expression)
 

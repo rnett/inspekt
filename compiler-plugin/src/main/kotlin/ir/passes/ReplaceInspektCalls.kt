@@ -2,6 +2,7 @@ package dev.rnett.inspekt.ir.passes
 
 import dev.rnett.inspekt.Names
 import dev.rnett.inspekt.ir.SpektGenerator
+import dev.rnett.inspekt.ir.safeCallableId
 import dev.rnett.kcp.development.utils.ir.ExperimentalIrHelpers
 import dev.rnett.kcp.development.utils.ir.IrFullTransformerWithContext
 import dev.rnett.symbolexport.symbol.compiler.asCallableId
@@ -14,14 +15,13 @@ import org.jetbrains.kotlin.ir.expressions.IrFunctionReference
 import org.jetbrains.kotlin.ir.expressions.IrPropertyReference
 import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
-import org.jetbrains.kotlin.ir.util.callableId
 
 @OptIn(ExperimentalIrHelpers::class, UnsafeDuringIrConstructionAPI::class)
 class ReplaceInspektCalls(context: IrPluginContext) : IrFullTransformerWithContext(context) {
     val generator = SpektGenerator(context)
 
     override fun visitCall(expression: IrCall): IrExpression {
-        val result = if (expression.symbol.owner.callableId == Names.inspect.asCallableId()) {
+        val result = if (expression.symbol.owner.safeCallableId == Names.inspect.asCallableId()) {
             intrinsify(expression)
         } else {
             expression

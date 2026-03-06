@@ -6,7 +6,11 @@ import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.builders.IrBuilderWithScope
 import org.jetbrains.kotlin.ir.builders.irCall
 import org.jetbrains.kotlin.ir.builders.irVararg
+import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrDeclarationParent
+import org.jetbrains.kotlin.ir.declarations.IrFunction
+import org.jetbrains.kotlin.ir.declarations.IrPackageFragment
+import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.expressions.IrExpression
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.util.DeepCopyIrTreeWithSymbols
@@ -14,6 +18,7 @@ import org.jetbrains.kotlin.ir.util.DeepCopySymbolRemapper
 import org.jetbrains.kotlin.ir.util.DeepCopyTypeRemapper
 import org.jetbrains.kotlin.ir.util.SymbolRemapper
 import org.jetbrains.kotlin.ir.util.TypeRemapper
+import org.jetbrains.kotlin.ir.util.classId
 import org.jetbrains.kotlin.ir.util.patchDeclarationParents
 import org.jetbrains.kotlin.ir.util.toIrConst
 import org.jetbrains.kotlin.ir.visitors.acceptVoid
@@ -57,3 +62,17 @@ fun IrBuilderWithScope.irArrayOf(elementType: IrType, exprs: List<IrExpression>)
         arguments[0] = irVararg(elementType, exprs)
     }
 }
+
+val IrFunction.safeCallableId: CallableId?
+    get() = when (val parent = this.parent) {
+        is IrClass -> parent.classId?.let { CallableId(it, name) }
+        is IrPackageFragment -> CallableId(parent.packageFqName, name)
+        else -> null
+    }
+
+val IrProperty.safeCallableId: CallableId?
+    get() = when (val parent = this.parent) {
+        is IrClass -> parent.classId?.let { CallableId(it, name) }
+        is IrPackageFragment -> CallableId(parent.packageFqName, name)
+        else -> null
+    }
