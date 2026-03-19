@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://inspekt.rnett.dev/0.0.3/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://inspekt.rnett.dev/0.0.3/binary-size/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://inspekt.rnett.dev/0.0.3/how-it-works/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://inspekt.rnett.dev/0.0.3/inspektion/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://inspekt.rnett.dev/0.0.3/invoking/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://inspekt.rnett.dev/0.0.3/proxies/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+</urlset>
