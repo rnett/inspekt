@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block footer %}
+{{ super() }}
+<img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=7e430ffc-9d32-4dcf-9ad8-481d98b88d73"/>
+{% endblock %}
+
 {% block scripts %}
 {{ super() }}
 <script src="https://context7.com/widget.js" data-library="/rnett/inspekt" data-placeholder="Ask context7 about Inspekt..."></script>

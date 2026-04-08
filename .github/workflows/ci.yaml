@@ -2,6 +2,8 @@ name: CI
 run-name: CI
 on:
   push:
+    branches: [ main ]
+  pull_request:
   workflow_dispatch:
     inputs:
       run_all_platforms:
