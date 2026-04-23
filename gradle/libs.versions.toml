@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.3.20"
+kotlin = "2.3.21"
 buildconfig = "6.0.9"
 shadow = "9.4.1"
 dokka = "2.2.0"
