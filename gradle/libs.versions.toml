@@ -7,7 +7,7 @@ publishing-plugin = "0.36.0"
 coroutines = "1.10.2"
 kcp-development = "0.0.3"
 symbol-export = "0.0.3"
-graalvm = "1.0.0"
+graalvm = "1.1.0"
 
 [libraries]
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
