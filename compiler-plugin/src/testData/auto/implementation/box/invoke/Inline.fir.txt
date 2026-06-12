@@ -1,7 +1,7 @@
 FILE: Inline.kt
     package auto.implementation.box.invoke
 
-    @R|kotlin/Suppress|(names = vararg(String(NOTHING_TO_INLINE))) public final class Test : R|kotlin/Any| {
+    @R|kotlin/Suppress|(names = vararg(String(NOTHING_TO_INLINE)) [evaluated = vararg(String(NOTHING_TO_INLINE))]) public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/invoke/Test| {
             super<R|kotlin/Any|>()
         }

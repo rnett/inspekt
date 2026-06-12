@@ -20,9 +20,9 @@ FILE: InheritedAnnotations.kt
 
     }
     public abstract interface Base : R|kotlin/Any| {
-        @R|auto/Ann1|(value = String(baseMethod)) public abstract fun myMethod(): R|kotlin/Unit|
+        @R|auto/Ann1|(value = String(baseMethod) [evaluated = String(baseMethod)]) public abstract fun myMethod(): R|kotlin/Unit|
 
-        @R|auto/Ann2|(value = String(baseProp)) public abstract val myProp: R|kotlin/String|
+        @R|auto/Ann2|(value = String(baseProp) [evaluated = String(baseProp)]) public abstract val myProp: R|kotlin/String|
             public get(): R|kotlin/String|
 
     }
@@ -31,10 +31,10 @@ FILE: InheritedAnnotations.kt
             super<R|kotlin/Any|>()
         }
 
-        @R|auto/Ann2|(value = String(parentMethod)) public open override fun myMethod(): R|kotlin/Unit| {
+        @R|auto/Ann2|(value = String(parentMethod) [evaluated = String(parentMethod)]) public open override fun myMethod(): R|kotlin/Unit| {
         }
 
-        @R|auto/Ann1|(value = String(parentProp)) public open override val myProp: R|kotlin/String| = String(parent)
+        @R|auto/Ann1|(value = String(parentProp) [evaluated = String(parentProp)]) public open override val myProp: R|kotlin/String| = String(parent)
             public get(): R|kotlin/String|
 
     }
@@ -43,10 +43,10 @@ FILE: InheritedAnnotations.kt
             super<R|auto/Parent|>()
         }
 
-        @R|auto/Ann1|(value = String(childMethod)) public open override fun myMethod(): R|kotlin/Unit| {
+        @R|auto/Ann1|(value = String(childMethod) [evaluated = String(childMethod)]) public open override fun myMethod(): R|kotlin/Unit| {
         }
 
-        @R|auto/Ann2|(value = String(childProp)) public open override val myProp: R|kotlin/String| = String(child)
+        @R|auto/Ann2|(value = String(childProp) [evaluated = String(childProp)]) public open override val myProp: R|kotlin/String| = String(child)
             public get(): R|kotlin/String|
 
     }

@@ -10,7 +10,7 @@ FILE: BasicProxy.kt
             ^ Int(4)
         }
         ))
-        @R|kotlin/Suppress|(names = vararg(String(USELESS_IS_CHECK))) R|kotlin/test/assertTrue|((R|<local>/proxy| is R|auto/proxy/box/Test|), String(proxy is subtype of test))
+        @R|kotlin/Suppress|(names = vararg(String(USELESS_IS_CHECK)) [evaluated = vararg(String(USELESS_IS_CHECK))]) R|kotlin/test/assertTrue|((R|<local>/proxy| is R|auto/proxy/box/Test|), String(proxy is subtype of test))
         R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), R|<local>/proxy|.R|auto/proxy/box/Test.test|(), String(proxy method returns correct result call))
         ^box String(OK)
     }

@@ -77,7 +77,7 @@ FILE fqName:auto.implementation.box.invoke fileName:/Suspend.kt
                                 CONST String type=kotlin.String value="Test"
                             ARG name: CONST String type=kotlin.String value="test"
                             ARG isAbstract: CONST Boolean type=kotlin.Boolean value=false
-                            ARG kotlin: FUNCTION_REFERENCE 'public final fun test (): kotlin.Int declared in auto.implementation.box.invoke.Test' type=kotlin.reflect.KFunction1<P1 of kotlin.reflect.KFunction1, R of kotlin.reflect.KFunction1> origin=null reflectionTarget=<same>
+                            ARG kotlin: FUNCTION_REFERENCE 'public final fun test (): kotlin.Int declared in auto.implementation.box.invoke.Test' type=kotlin.coroutines.SuspendFunction1<P1 of kotlin.coroutines.SuspendFunction1, R of kotlin.coroutines.SuspendFunction1> origin=null reflectionTarget=<same>
                             ARG annotations: CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<T of kotlin.arrayOf> origin=null
                               TYPE_ARG T: kotlin.Annotation
                               ARG elements: VARARG type=kotlin.Array<kotlin.Annotation> varargElementType=kotlin.Annotation

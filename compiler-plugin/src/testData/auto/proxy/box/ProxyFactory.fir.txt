@@ -11,7 +11,7 @@ FILE: ProxyFactory.kt
             ^ Int(4)
         }
         ))
-        @R|kotlin/Suppress|(names = vararg(String(USELESS_IS_CHECK))) R|kotlin/test/assertTrue|((R|<local>/proxy| is R|auto/proxy/box/TestFactory|), String(proxy is subtype of TestFactory))
+        @R|kotlin/Suppress|(names = vararg(String(USELESS_IS_CHECK)) [evaluated = vararg(String(USELESS_IS_CHECK))]) R|kotlin/test/assertTrue|((R|<local>/proxy| is R|auto/proxy/box/TestFactory|), String(proxy is subtype of TestFactory))
         R|kotlin/test/assertEquals|<R|kotlin/Int|>(Int(4), R|<local>/proxy|.R|auto/proxy/box/TestFactory.test|(), String(proxy method returns correct result call))
         ^box String(OK)
     }

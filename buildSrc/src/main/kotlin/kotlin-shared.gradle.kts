@@ -4,8 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.dsl.abi.AbiValidationExtension
-import org.jetbrains.kotlin.gradle.dsl.abi.AbiValidationMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 import org.jetbrains.kotlin.powerassert.gradle.PowerAssertGradleExtension
 
@@ -34,8 +32,6 @@ kotlin.apply {
 
     compilerOptions {
         freeCompilerArgs.addAll(
-            "-Xannotation-default-target=param-property",
-            "-Xcontext-parameters",
             "-Xconsistent-data-class-copy-visibility",
             "-Xexpect-actual-classes"
         )
@@ -45,22 +41,24 @@ kotlin.apply {
 if (!pluginManager.hasPlugin("internal")) {
     if (kotlin is KotlinMultiplatformExtension) {
         @OptIn(ExperimentalAbiValidation::class)
-        kotlin.the<AbiValidationMultiplatformExtension>().apply {
-            enabled = true
-            klib {
-                enabled = !onlyJvm
-                keepUnsupportedTargets = true
-            }
+        kotlin.abiValidation {
+            keepLocallyUnsupportedTargets = true
         }
     } else if (kotlin is KotlinJvmProjectExtension) {
         @OptIn(ExperimentalAbiValidation::class)
-        kotlin.the<AbiValidationExtension>().apply { enabled = true }
+        kotlin.abiValidation()
     } else {
         error("Unsupported kotlin type: $kotlin")
     }
 
-    tasks.named("check").configure {
-        dependsOn("checkLegacyAbi")
+    afterEvaluate {
+        // Skip klib ABI check when running JVM-only (native targets not registered)
+        if (onlyJvm) {
+            tasks.findByName("checkKotlinAbi")?.enabled = false
+        }
+        if (tasks.findByName("checkLegacyAbi") != null) {
+            tasks.named("check").configure { dependsOn("checkLegacyAbi") }
+        }
     }
 }
 
