@@ -8,7 +8,7 @@ import dev.rnett.kcp.development.testing.tests.levels.TestWithLevel;
 import dev.rnett.kcp.development.testing.tests.levels.TestLevel;
 import dev.rnett.inspekt.TestGenerator;
 import dev.rnett.kcp.development.testing.generation.configuration.ConfigurationHost;
-import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder;
+import org.jetbrains.kotlin.test.builders.NonGroupingPhaseTestConfigurationBuilder;
 import dev.rnett.kcp.development.testing.tests.levels.AbstractLeveledFirTest;
 import org.jetbrains.kotlin.test.TestMetadata;
 import org.junit.jupiter.api.Test;
@@ -23,9 +23,13 @@ import java.util.regex.Pattern;
 @TestWithLevel(level = TestLevel.FIR)
 public class Spekt_methodFirTestGenerated extends AbstractLeveledFirTest {
   @Override
-  public void configure(TestConfigurationBuilder builder) {
+  public void configure(NonGroupingPhaseTestConfigurationBuilder builder) {
     super.configure(builder);
     ConfigurationHost.applyRuntimeConfiguration(this, builder, TestGenerator.class);
+  }
+
+  private void run(String fileName) {
+    runTest("src/testData/auto/spekt_method/fir/" + fileName);
   }
 
   @Test
@@ -36,18 +40,18 @@ public class Spekt_methodFirTestGenerated extends AbstractLeveledFirTest {
   @Test
   @TestMetadata("Basic.kt")
   public void testBasic() {
-    runTest("src/testData/auto/spekt_method/fir/Basic.kt");
+    run("Basic.kt");
   }
 
   @Test
   @TestMetadata("WithCompanion.kt")
   public void testWithCompanion() {
-    runTest("src/testData/auto/spekt_method/fir/WithCompanion.kt");
+    run("WithCompanion.kt");
   }
 
   @Test
   @TestMetadata("WithNamedCompanion.kt")
   public void testWithNamedCompanion() {
-    runTest("src/testData/auto/spekt_method/fir/WithNamedCompanion.kt");
+    run("WithNamedCompanion.kt");
   }
 }

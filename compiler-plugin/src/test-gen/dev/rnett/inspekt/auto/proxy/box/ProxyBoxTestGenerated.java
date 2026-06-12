@@ -8,7 +8,7 @@ import dev.rnett.kcp.development.testing.tests.levels.TestWithLevel;
 import dev.rnett.kcp.development.testing.tests.levels.TestLevel;
 import dev.rnett.inspekt.TestGenerator;
 import dev.rnett.kcp.development.testing.generation.configuration.ConfigurationHost;
-import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder;
+import org.jetbrains.kotlin.test.builders.NonGroupingPhaseTestConfigurationBuilder;
 import dev.rnett.kcp.development.testing.tests.levels.AbstractLeveledBoxTest;
 import org.jetbrains.kotlin.test.TestMetadata;
 import org.junit.jupiter.api.Test;
@@ -26,15 +26,19 @@ import java.util.regex.Pattern;
 @TestWithLevel(level = TestLevel.Run)
 public class ProxyBoxTestGenerated extends AbstractLeveledBoxTest {
   @Override
-  public void configure(TestConfigurationBuilder builder) {
+  public void configure(NonGroupingPhaseTestConfigurationBuilder builder) {
     super.configure(builder);
     ConfigurationHost.applyRuntimeConfiguration(this, builder, TestGenerator.class);
+  }
+
+  private void run(String fileName) {
+    runTest("src/testData/auto/proxy/box/" + fileName);
   }
 
   @Test
   @TestMetadata("AddedSetterProxy.kt")
   public void testAddedSetterProxy() {
-    runTest("src/testData/auto/proxy/box/AddedSetterProxy.kt");
+    run("AddedSetterProxy.kt");
   }
 
   @Test
@@ -45,48 +49,48 @@ public class ProxyBoxTestGenerated extends AbstractLeveledBoxTest {
   @Test
   @TestMetadata("BasicProxy.kt")
   public void testBasicProxy() {
-    runTest("src/testData/auto/proxy/box/BasicProxy.kt");
+    run("BasicProxy.kt");
   }
 
   @Test
   @TestMetadata("DefaultArgsProxy.kt")
   public void testDefaultArgsProxy() {
-    runTest("src/testData/auto/proxy/box/DefaultArgsProxy.kt");
+    run("DefaultArgsProxy.kt");
   }
 
   @Test
   @TestMetadata("IntermediateOverrideProxy.kt")
   public void testIntermediateOverrideProxy() {
-    runTest("src/testData/auto/proxy/box/IntermediateOverrideProxy.kt");
+    run("IntermediateOverrideProxy.kt");
   }
 
   @Test
   @TestMetadata("IntermediateSetterProxy.kt")
   public void testIntermediateSetterProxy() {
-    runTest("src/testData/auto/proxy/box/IntermediateSetterProxy.kt");
+    run("IntermediateSetterProxy.kt");
   }
 
   @Test
   @TestMetadata("ProxyFactory.kt")
   public void testProxyFactory() {
-    runTest("src/testData/auto/proxy/box/ProxyFactory.kt");
+    run("ProxyFactory.kt");
   }
 
   @Test
   @TestMetadata("ProxyWithDefault.kt")
   public void testProxyWithDefault() {
-    runTest("src/testData/auto/proxy/box/ProxyWithDefault.kt");
+    run("ProxyWithDefault.kt");
   }
 
   @Test
   @TestMetadata("ProxyableSpekt.kt")
   public void testProxyableSpekt() {
-    runTest("src/testData/auto/proxy/box/ProxyableSpekt.kt");
+    run("ProxyableSpekt.kt");
   }
 
   @Test
   @TestMetadata("SuspendProxy.kt")
   public void testSuspendProxy() {
-    runTest("src/testData/auto/proxy/box/SuspendProxy.kt");
+    run("SuspendProxy.kt");
   }
 }

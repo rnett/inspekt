@@ -8,7 +8,7 @@ import dev.rnett.kcp.development.testing.tests.levels.TestWithLevel;
 import dev.rnett.kcp.development.testing.tests.levels.TestLevel;
 import dev.rnett.inspekt.TestGenerator;
 import dev.rnett.kcp.development.testing.generation.configuration.ConfigurationHost;
-import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder;
+import org.jetbrains.kotlin.test.builders.NonGroupingPhaseTestConfigurationBuilder;
 import dev.rnett.kcp.development.testing.tests.levels.AbstractLeveledBoxTest;
 import org.jetbrains.kotlin.test.TestMetadata;
 import org.junit.jupiter.api.Test;
@@ -26,9 +26,13 @@ import java.util.regex.Pattern;
 @TestWithLevel(level = TestLevel.Run)
 public class InspektBoxTestGenerated extends AbstractLeveledBoxTest {
   @Override
-  public void configure(TestConfigurationBuilder builder) {
+  public void configure(NonGroupingPhaseTestConfigurationBuilder builder) {
     super.configure(builder);
     ConfigurationHost.applyRuntimeConfiguration(this, builder, TestGenerator.class);
+  }
+
+  private void run(String fileName) {
+    runTest("src/testData/auto/inspekt/box/" + fileName);
   }
 
   @Test
@@ -39,48 +43,48 @@ public class InspektBoxTestGenerated extends AbstractLeveledBoxTest {
   @Test
   @TestMetadata("Class.kt")
   public void testClass() {
-    runTest("src/testData/auto/inspekt/box/Class.kt");
+    run("Class.kt");
   }
 
   @Test
   @TestMetadata("ClassExternal.kt")
   public void testClassExternal() {
-    runTest("src/testData/auto/inspekt/box/ClassExternal.kt");
+    run("ClassExternal.kt");
   }
 
   @Test
   @TestMetadata("ContextParameterExternal.kt")
   public void testContextParameterExternal() {
-    runTest("src/testData/auto/inspekt/box/ContextParameterExternal.kt");
+    run("ContextParameterExternal.kt");
   }
 
   @Test
   @TestMetadata("ContextParameterOverride.kt")
   public void testContextParameterOverride() {
-    runTest("src/testData/auto/inspekt/box/ContextParameterOverride.kt");
+    run("ContextParameterOverride.kt");
   }
 
   @Test
   @TestMetadata("Function.kt")
   public void testFunction() {
-    runTest("src/testData/auto/inspekt/box/Function.kt");
+    run("Function.kt");
   }
 
   @Test
   @TestMetadata("FunctionExternal.kt")
   public void testFunctionExternal() {
-    runTest("src/testData/auto/inspekt/box/FunctionExternal.kt");
+    run("FunctionExternal.kt");
   }
 
   @Test
   @TestMetadata("Property.kt")
   public void testProperty() {
-    runTest("src/testData/auto/inspekt/box/Property.kt");
+    run("Property.kt");
   }
 
   @Test
   @TestMetadata("PropertyExternal.kt")
   public void testPropertyExternal() {
-    runTest("src/testData/auto/inspekt/box/PropertyExternal.kt");
+    run("PropertyExternal.kt");
   }
 }

@@ -8,7 +8,7 @@ import dev.rnett.kcp.development.testing.tests.levels.TestWithLevel;
 import dev.rnett.kcp.development.testing.tests.levels.TestLevel;
 import dev.rnett.inspekt.TestGenerator;
 import dev.rnett.kcp.development.testing.generation.configuration.ConfigurationHost;
-import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder;
+import org.jetbrains.kotlin.test.builders.NonGroupingPhaseTestConfigurationBuilder;
 import dev.rnett.kcp.development.testing.tests.levels.AbstractLeveledFirTest;
 import org.jetbrains.kotlin.test.TestMetadata;
 import org.junit.jupiter.api.Nested;
@@ -24,9 +24,13 @@ import java.util.regex.Pattern;
 @TestWithLevel(level = TestLevel.Diagnostics)
 public class AutoDiagnosticsTestGenerated extends AbstractLeveledFirTest {
   @Override
-  public void configure(TestConfigurationBuilder builder) {
+  public void configure(NonGroupingPhaseTestConfigurationBuilder builder) {
     super.configure(builder);
     ConfigurationHost.applyRuntimeConfiguration(this, builder, TestGenerator.class);
+  }
+
+  private void run(String fileName) {
+    runTest("src/testData/auto/diagnostics/" + fileName);
   }
 
   @Test
@@ -39,6 +43,10 @@ public class AutoDiagnosticsTestGenerated extends AbstractLeveledFirTest {
   @TestDataPath("$PROJECT_ROOT")
   @TestWithLevel(level = TestLevel.Diagnostics)
   public class Defaults {
+    private void run(String fileName) {
+      runTest("src/testData/auto/diagnostics/defaults/" + fileName);
+    }
+
     @Test
     public void testAllFilesPresentInDefaults() {
       KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("src/testData/auto/diagnostics/defaults"), Pattern.compile("^(.+)\\.kt$"), null, true);
@@ -47,7 +55,7 @@ public class AutoDiagnosticsTestGenerated extends AbstractLeveledFirTest {
     @Test
     @TestMetadata("Defaults.kt")
     public void testDefaults() {
-      runTest("src/testData/auto/diagnostics/defaults/Defaults.kt");
+      run("Defaults.kt");
     }
   }
 
@@ -56,6 +64,10 @@ public class AutoDiagnosticsTestGenerated extends AbstractLeveledFirTest {
   @TestDataPath("$PROJECT_ROOT")
   @TestWithLevel(level = TestLevel.Diagnostics)
   public class References {
+    private void run(String fileName) {
+      runTest("src/testData/auto/diagnostics/references/" + fileName);
+    }
+
     @Test
     public void testAllFilesPresentInReferences() {
       KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("src/testData/auto/diagnostics/references"), Pattern.compile("^(.+)\\.kt$"), null, true);
@@ -64,13 +76,13 @@ public class AutoDiagnosticsTestGenerated extends AbstractLeveledFirTest {
     @Test
     @TestMetadata("Inspekt.kt")
     public void testInspekt() {
-      runTest("src/testData/auto/diagnostics/references/Inspekt.kt");
+      run("Inspekt.kt");
     }
 
     @Test
     @TestMetadata("Proxy.kt")
     public void testProxy() {
-      runTest("src/testData/auto/diagnostics/references/Proxy.kt");
+      run("Proxy.kt");
     }
   }
 }
