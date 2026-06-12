@@ -6,7 +6,7 @@ description: >-
   or integrating Renovate PRs.
 metadata:
   author: rnett
-  version: "1.1"
+  version: "2.0"
 ---
 
 # Kotlin Update & Release Workflow
@@ -21,6 +21,7 @@ A skill for integrating Kotlin updates from Renovate and releasing new versions 
 - **ALWAYS** follow the exact commit message conventions from past releases (see Workflow step 5 and 8).
 - **ALWAYS** ensure `version.txt` has no trailing newline and no UTF-8 BOM when writing it.
 - **DO NOT** add co-author trailers to commits unless explicitly requested.
+- **DO NOT** leave the `fix/kotlin-update` branch around after pushing — clean it up.
 
 ## Prerequisites
 
@@ -37,16 +38,14 @@ A skill for integrating Kotlin updates from Renovate and releasing new versions 
 gh pr list --state open --author renovate
 
 # Check specifically for Kotlin PRs
-gh pr list --head kotlin-update/kotlin --state open
 gh pr list --head renovate/kotlin-monorepo --state open
 ```
 
-There are typically **two** Kotlin update PRs:
+There is typically **one** Kotlin update PR:
 
-- **`kotlin-update/kotlin`** — created by the custom `branchPrefix` in `renovate.json`. This is a **draft** PR with automerge disabled.
 - **`renovate/kotlin-monorepo`** — created by Renovate's default behavior. This is an **open** (non-draft) PR with automerge enabled.
 
-**Use `renovate/kotlin-monorepo`** (the non-draft one) as the primary PR for merging. Close the other after merging.
+If there happens to be a duplicate draft PR (e.g., from a custom `branchPrefix`), close it after merging.
 
 ### 2. Check CI Status
 
@@ -73,11 +72,9 @@ git checkout -b fix/kotlin-update origin/renovate/kotlin-monorepo
 git add <changed-files>
 git commit -m "<descriptive fix message>"
 git push origin fix/kotlin-update:renovate/kotlin-monorepo
-
-# Clean up - switch back to main
-git checkout main
-git branch -D fix/kotlin-update
 ```
+
+Do NOT switch back to main or delete the branch yet — you may need additional fix pushes.
 
 ### 4. Wait for CI to Pass
 
@@ -87,7 +84,7 @@ Start-Sleep -Seconds 120
 gh pr checks <PR-NUMBER>
 ```
 
-Repeat until CI shows `pass`.
+Repeat until CI shows `pass`. If CI fails again, go back to step 3.
 
 ### 5. Merge the PR via GitHub
 
@@ -95,7 +92,7 @@ Repeat until CI shows `pass`.
 # Merge with admin bypass if branch protection blocks
 gh pr merge <PR-NUMBER> --merge --admin
 
-# Close the duplicate draft PR
+# Close the duplicate draft PR if one exists
 gh pr close <DRAFT-PR-NUMBER>
 ```
 
@@ -104,11 +101,12 @@ gh pr close <DRAFT-PR-NUMBER>
 ```powershell
 git checkout main
 git pull origin main
+git branch -D fix/kotlin-update
 ```
 
 ### 7. Prep for Release
 
-Update `version.txt` from `X.Y.Z-SNAPSHOT` to `X.Y.Z`:
+Update `version.txt` to the new release version:
 
 ```powershell
 [System.IO.File]::WriteAllText(
@@ -130,7 +128,7 @@ gh workflow run release.yaml
 
 The release workflow will:
 
-1. Run CI (build + test)
+1. Run CI (build + test on all platforms)
 2. Verify version is NOT a SNAPSHOT (fails if it is)
 3. Publish to Maven Central via `publishAndReleaseToMavenCentral`
 4. Create a GitHub Release with auto-generated notes
@@ -147,7 +145,7 @@ gh run list --workflow=release.yaml --limit 3
 gh run view <RUN-ID> --json status,conclusion
 ```
 
-Wait until `conclusion` is `success`. This typically takes 5-8 minutes.
+Wait until `conclusion` is `success`. The release workflow typically takes 15-25 minutes (builds on all 3 platforms: ubuntu, windows, macos).
 
 ### 10. Verify the Release
 
@@ -176,85 +174,95 @@ git push origin main
 
 **Error:** `'val enabled: Property<Boolean>' is deprecated. Property was removed, to enable ABI validation call function abiValidation().`
 
-**Fix in** `buildSrc/src/main/kotlin/build/public-abi.gradle.kts`:
+**Error:** `'interface AbiValidationMultiplatformExtension' is deprecated. The class was removed.`
 
-- Replace `extensionIfPresent<AbiValidationExtension> { enabled = true }` with `abiValidation()`
-- Remove the unused `import org.jetbrains.kotlin.gradle.dsl.abi.AbiValidationExtension`
+**Error:** `'fun klib(action: Action<AbiValidationKlibKindExtension>)' is deprecated. Block 'klib' was removed.`
+
+**Fix in** `buildSrc/src/main/kotlin/kotlin-shared.gradle.kts`:
+
+- Replace `kotlin.the<AbiValidationExtension>().apply { enabled = true }` with `kotlin.abiValidation()`
+- Replace `kotlin.the<AbiValidationMultiplatformExtension>().apply { enabled = true; klib { ... } }` with `kotlin.abiValidation { keepLocallyUnsupportedTargets = true }`
+- Remove imports for `AbiValidationExtension` and `AbiValidationMultiplatformExtension`
 - Keep `@OptIn(ExperimentalAbiValidation::class)`
+- The `klib {}` block is removed in 2.4.0:
+  - `klib.enabled` — **removed**, ABI dumps are always generated for klib targets
+  - `klib.keepUnsupportedTargets` — moved to `abiValidation { keepLocallyUnsupportedTargets = true }` (top level)
+- Since klib ABI dumps are always generated, you need to skip `checkKotlinAbi` when running with `inspekt.onlyJvm=true` (native targets not registered):
+  ```kotlin
+  afterEvaluate {
+      if (onlyJvm) {
+          tasks.findByName("checkKotlinAbi")?.enabled = false
+      }
+  }
+  ```
+- Update JVM ABI dumps with `:module:updateKotlinAbi` task
+- Update the klib ABI dump if needed (run `:inspekt:updateKotlinAbi` without `onlyJvm`)
 
-### `TestConfigurationBuilder` Renamed (Kotlin 2.4.0+)
+### `getBooleanArgument` API Change (Kotlin 2.4.0+)
 
-**Error:** `cannot find symbol: class TestConfigurationBuilder` in generated test files.
+**Error:** `Too many arguments for 'fun FirAnnotation.getBooleanArgument(name: Name): Boolean?'`
 
-**Fix:** `org.jetbrains.kotlin.test.builders.TestConfigurationBuilder` was renamed to `NonGroupingPhaseTestConfigurationBuilder`. Update all references in:
+**Fix in** `compiler-plugin/src/main/kotlin/fir/InspektChecker.kt`:
 
-- `test-support/src/main/kotlin/.../generation/` — generation templates and builders
-- `test-support/src/main/kotlin/.../tests/` — abstract test base classes
-- Regenerate test files by running the build (they are auto-generated from templates)
+- In Kotlin 2.4.0, `FirAnnotation.getBooleanArgument()` no longer accepts a `session` parameter
+- Remove the `session` argument from calls
+- Use the elvis operator for defaults: `annotation.getBooleanArgument(Name.identifier("foo")) ?: false`
 
-### `IrAnnotation` Type Change (Kotlin 2.4.0+)
+### `suspendFunctionN` for Suspend Function References (Kotlin 2.4.0+)
 
-**Error:** `IrAnnotationImpl` constructor or `makeIrAnnotationImpl` no longer available / type mismatch.
+**Error:** `AddContinuationLowering` assertion: `FUN name:invoke ... has no continuation; can't call FUN name:test ... [suspend]`
 
-**Fix:** In Kotlin 2.4.0, `IrAnnotationImpl` was replaced by `IrAnnotation` as the primary type. Use `IrAnnotationImpl.fromSymbolOwner()` to create annotations from symbol owners, and return `IrAnnotation` instead of `IrAnnotationImpl` where the API expects it.
+**Fix in** `compiler-plugin/src/main/kotlin/ir/SpektGenerator.kt`:
 
-**Affected areas:**
+- In `createFunctionObject()`, when creating `IrFunctionReferenceImpl` for suspend functions, use `suspendFunctionN(N)` instead of `kFunctionN(N)` for the type:
+  ```kotlin
+  (if (function.isSuspend) builtIns.suspendFunctionN(function.parameters.size) else builtIns.kFunctionN(function.parameters.size)).defaultType
+  ```
+- In Kotlin 2.4.0, `AddContinuationLowering` strictly enforces that only suspend functions can call other suspend functions. A `KFunctionN` reference type has a non-suspend `invoke`, while `SuspendFunctionN` has a suspend `invoke`. Using `KFunctionN` for a suspend function reference causes the IR backend to fail because it tries to call a suspend function from a non-suspend context.
 
-- Compiler plugin IR transformers that create or manipulate annotations
-- Any code that directly constructs `IrAnnotationImpl` objects
+### `-Xcontext-parameters` and `-Xannotation-default-target` Compiler Arguments (Kotlin 2.4.0+)
 
-### `ClasspathBasedStandardLibrariesPathProvider` Abstract Members (Kotlin 2.4.0+)
+**Error:** `The argument '-Xcontext-parameters' is redundant for the current language version 2.4.`
 
-**Error:** `ClasspathBasedStandardLibrariesPathProvider` does not implement `fullWasmStdlib` and `kotlinTestWasmKLib`.
+**Warning:** `The argument '-Xannotation-default-target=param-property' is redundant for the current language version 2.4.`
 
-**Fix in** `test/symbols-integration-tests/compiler/src/testFixtures/kotlin/test/ClasspathBasedStandardLibrariesPathProvider.kt`:
+**Fix in** `buildSrc/src/main/kotlin/kotlin-shared.gradle.kts`:
 
-Kotlin 2.4.0 added two new abstract members to `KotlinStandardLibrariesPathProvider`:
+- Remove `-Xcontext-parameters` from `freeCompilerArgs` (now redundant, context parameters are enabled by default)
+- Remove `-Xannotation-default-target=param-property` from `freeCompilerArgs` (default behavior changed in 2.4)
 
-```kotlin
-import org.jetbrains.kotlin.platform.wasm.WasmTarget
+### `getPluginArtifactForNative` Removed (Kotlin 2.4.0+)
 
-override fun fullWasmStdlib(target: WasmTarget): File {
-    TODO("Not yet implemented")
-}
+**Error:** ABI check failed — `getPluginArtifactForNative` missing from the generated ABI.
 
-override fun kotlinTestWasmKLib(target: WasmTarget): File {
-    TODO("Not yet implemented")
-}
-```
+**Fix:** `KotlinCompilerPluginSupportPlugin.getPluginArtifactForNative()` was removed in Kotlin 2.4.0. Update the ABI dump:
+- Run `:gradle-plugin:updateKotlinAbi` to regenerate the dump
+- Or manually remove the `getPluginArtifactForNative` line from `gradle-plugin/api/gradle-plugin.api`
 
-The `TODO()` stubs are appropriate because:
-- The existing code already uses `TODO()` for `commonStdlibForTests()` and `scriptingPluginFilesForTests()`
-- Only JVM tests are run in this project (wasm targets are not tested)
+### `kcp-development` and `symbol-export` Dependency Updates
 
-### `abiValidation` Additional Configuration (Kotlin 2.4.0+)
+When upgrading Kotlin, also check if `kcp-development` and `symbol-export` need updates:
 
-**Error:** `keepLocallyUnsupportedTargets` property not found or `checkLegacyAbi` task dependency issues.
+- The `kcp-development` library inlines compiler plugin code and must be compatible with the target Kotlin version
+- Look up available versions: `mcp_gradle_lookup_maven_versions(coordinates: "dev.rnett.kcp-development:dev.rnett.kcp-development.gradle.plugin")`
+- Check `symbol-export` similarly
+- Update both in `gradle/libs.versions.toml`
+- A `ClassCastException` in `BaseSpecCompilerPluginRegistrar.registerExtensions` (FirExtensionRegistrarAdapter cannot be cast to ProjectExtensionDescriptor) indicates the `kcp-development` version is incompatible with the current Kotlin version
 
-**Fix:**
+### Updating Compiler Plugin Test Golden Files
 
-- `keepLocallyUnsupportedTargets` is now configurable in the `abiValidation {}` DSL block
-- The `checkLegacyAbi` task may not exist in all subprojects — conditionally add dependencies:
+After fixing compilation and runtime errors, the test golden files (*.fir.txt, *.ir.txt) need to be actualized:
 
-```kotlin
-tasks.named("checkLegacyAbi") {
-    // Only add if the task exists
-}
-// Or use:
-afterEvaluate {
-    if (tasks.findByName("checkLegacyAbi") != null) {
-        tasks.check { dependsOn("checkLegacyAbi") }
-    }
-}
-```
-
-- If `abiValidation` causes issues on JVM-only builds with enabled wasm/js targets, conditionally disable it with `enabled = false` after evaluation
-
-### `-Xcontext-parameters` Compiler Argument Removal (Kotlin 2.4.0+)
-
-**Error:** Unrecognized compiler argument `-Xcontext-parameters`.
-
-**Fix:** Remove any `-Xcontext-parameters` entries from `freeCompilerArgs` in build scripts. This was likely an experimental flag that has been removed or renamed in Kotlin 2.4.0.
+1. Run `:compiler-plugin:clearDumps` to remove old expected dump files
+2. Run tests with `OVERWRITE_EXPECTED=true` system property:
+   ```powershell
+   .\gradlew :compiler-plugin:test -PtestJvmArgs="-DOVERWRITE_EXPECTED=true" --rerun
+   ```
+3. Verify all tests pass without the overwrite flag:
+   ```powershell
+   .\gradlew :compiler-plugin:test --rerun
+   ```
+4. The `clearDumps` task is provided by `kcp-development`'s `CompilerPluginTestingPlugin`
 
 ### JS/Yarn Lock Cross-Platform Issues
 
@@ -262,10 +270,13 @@ afterEvaluate {
 
 **Fix in** `.github/workflows/ci.yaml`:
 
-- Add a `kotlinUpgradeYarnLock` step before the main build/check
-- Run `./gradlew kotlinUpgradeYarnLock` (or `:symbol-export:kotlinUpgradeYarnLock`) before the `check` task
+- Add a `kotlinUpgradeYarnLock` step before the `check` task:
+  ```yaml
+  - name: Upgrade yarn lock
+    run: ./gradlew kotlinUpgradeYarnLock
+  ```
 - This ensures the yarn lock is regenerated consistently for the current platform and Kotlin version
-- Alternative: add `-Pkotlin.yarn.update=true` to the Gradle command, but `kotlinUpgradeYarnLock` as a separate step is more reliable
+- The yarn lock may be consistent on Windows but differ on Linux — always verify CI passes
 
 ## Project Configuration
 
@@ -273,7 +284,9 @@ afterEvaluate {
 - **Kotlin version:** `gradle/libs.versions.toml` → `[versions] kotlin = "X.Y.Z"`
 - **Release workflow:** `.github/workflows/release.yaml` (manual `workflow_dispatch` trigger)
 - **CI workflow:** `.github/workflows/ci.yaml` (runs on push and workflow_call)
-- **Renovate config:** `renovate.json` — Kotlin PRs are draft + no automerge, custom `branchPrefix: "kotlin-update/"`
+- **Renovate config:** No custom `renovate.json` — uses Renovate defaults with automerge enabled
+- **Only-JVM mode:** `inspekt.onlyJvm=true` system property disables native/wasm targets and klib ABI checks
+- **Dependencies:** `kcp-development` and `symbol-export` in `gradle/libs.versions.toml` must be compatible with the Kotlin version
 
 ## Push Restrictions
 
