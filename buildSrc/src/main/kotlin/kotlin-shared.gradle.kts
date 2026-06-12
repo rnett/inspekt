@@ -4,8 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.dsl.abi.AbiValidationExtension
-import org.jetbrains.kotlin.gradle.dsl.abi.AbiValidationMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 import org.jetbrains.kotlin.powerassert.gradle.PowerAssertGradleExtension
 
@@ -14,7 +12,6 @@ plugins {
 }
 
 val kotlin = project.extensions.findByName("kotlin") as KotlinBaseExtension
-val onlyJvm = providers.systemProperty("inspekt.onlyJvm").orNull?.lowercase() == "true"
 
 kotlin.apply {
     this as HasConfigurableKotlinCompilerOptions<out KotlinCommonCompilerOptions>
@@ -34,8 +31,6 @@ kotlin.apply {
 
     compilerOptions {
         freeCompilerArgs.addAll(
-            "-Xannotation-default-target=param-property",
-            "-Xcontext-parameters",
             "-Xconsistent-data-class-copy-visibility",
             "-Xexpect-actual-classes"
         )
@@ -45,22 +40,20 @@ kotlin.apply {
 if (!pluginManager.hasPlugin("internal")) {
     if (kotlin is KotlinMultiplatformExtension) {
         @OptIn(ExperimentalAbiValidation::class)
-        kotlin.the<AbiValidationMultiplatformExtension>().apply {
-            enabled = true
-            klib {
-                enabled = !onlyJvm
-                keepUnsupportedTargets = true
-            }
+        kotlin.abiValidation {
+            keepLocallyUnsupportedTargets = true
         }
     } else if (kotlin is KotlinJvmProjectExtension) {
         @OptIn(ExperimentalAbiValidation::class)
-        kotlin.the<AbiValidationExtension>().apply { enabled = true }
+        kotlin.abiValidation()
     } else {
         error("Unsupported kotlin type: $kotlin")
     }
 
-    tasks.named("check").configure {
-        dependsOn("checkLegacyAbi")
+    afterEvaluate {
+        if (tasks.findByName("checkLegacyAbi") != null) {
+            tasks.named("check").configure { dependsOn("checkLegacyAbi") }
+        }
     }
 }
 

@@ -293,7 +293,7 @@ class SpektGenerator(override val context: IrPluginContext) : WithIrContext {
                 arguments[kotlin] = IrFunctionReferenceImpl(
                     startOffset,
                     endOffset,
-                    builtIns.kFunctionN(function.parameters.size).defaultType,
+                    (if (function.isSuspend) builtIns.suspendFunctionN(function.parameters.size) else builtIns.kFunctionN(function.parameters.size)).defaultType,
                     function.symbol,
                     owningClassTypeParams + function.typeParameters.size,
                     function.symbol

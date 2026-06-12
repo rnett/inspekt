@@ -10,15 +10,15 @@ FILE: AnnotationsTest.kt
             public get(): R|kotlin/Int|
 
     }
-    @R|auto/implementation/box/TestAnnotation|(a = Int(1)) public final class Test : R|kotlin/Any| {
+    @R|auto/implementation/box/TestAnnotation|(a = Int(1) [evaluated = Int(1)]) public final class Test : R|kotlin/Any| {
         public constructor(): R|auto/implementation/box/Test| {
             super<R|kotlin/Any|>()
         }
 
-        @R|auto/implementation/box/TestAnnotation|(a = Int(2)) @R|dev/rnett/inspekt/ExternalAnnotation|(name = String(test), type = <getClass>(Q|kotlin/collections/List|)) public final val prop: R|kotlin/Int| = Int(2)
+        @R|auto/implementation/box/TestAnnotation|(a = Int(2) [evaluated = Int(2)]) @R|dev/rnett/inspekt/ExternalAnnotation|(name = String(test) [evaluated = String(test)], type = <getClass>(Q|kotlin/collections/List|) [evaluated = <getClass>(Q|kotlin/collections/List|)]) public final val prop: R|kotlin/Int| = Int(2)
             public get(): R|kotlin/Int|
 
-        public final fun test(@R|auto/implementation/box/TestAnnotation|(a = Int(3)) a: R|kotlin/Int| = Int(3)): R|kotlin/String| {
+        public final fun test(@R|auto/implementation/box/TestAnnotation|(a = Int(3) [evaluated = Int(3)]) a: R|kotlin/Int| = Int(3)): R|kotlin/String| {
             ^test String()
         }
 

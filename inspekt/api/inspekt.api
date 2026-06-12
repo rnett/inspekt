@@ -118,8 +118,6 @@ public final class dev/rnett/inspekt/model/AnnotationInfo {
 
 public abstract class dev/rnett/inspekt/model/Callable : dev/rnett/inspekt/model/AnnotatedElement {
 	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	protected final fun appendContext (Ljava/lang/StringBuilder;)V
-	protected final fun appendExtension (Ljava/lang/StringBuilder;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAllAnnotations ()Ljava/util/List;
 	public final fun getAnnotations ()Ljava/util/List;
@@ -149,20 +147,15 @@ public final class dev/rnett/inspekt/model/Constructor : dev/rnett/inspekt/model
 }
 
 public abstract class dev/rnett/inspekt/model/Function : dev/rnett/inspekt/model/FunctionLike {
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public abstract class dev/rnett/inspekt/model/FunctionLike : dev/rnett/inspekt/model/Callable {
-	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Lkotlin/reflect/KType;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	protected final fun appendMethodSignature (Ljava/lang/StringBuilder;Z)V
-	protected fun assertInvokable ()V
-	protected final fun getInvoker ()Lkotlin/jvm/functions/Function1;
+	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
 	public abstract fun getKotlin ()Lkotlin/reflect/KFunction;
 	public abstract fun getName ()Ldev/rnett/inspekt/model/name/CallableName;
 	public final fun getReturnType ()Lkotlin/reflect/KType;
-	protected final fun getSuspendInvoker ()Lkotlin/jvm/functions/Function2;
 	public final fun invoke (Ldev/rnett/inspekt/model/arguments/ArgumentList;)Ljava/lang/Object;
 	public final fun invoke (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public final fun invokeSuspend (Ldev/rnett/inspekt/model/arguments/ArgumentList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -330,12 +323,12 @@ public final class dev/rnett/inspekt/model/Parameters : java/util/List, kotlin/j
 
 public abstract class dev/rnett/inspekt/model/Property : dev/rnett/inspekt/model/Callable {
 	public synthetic fun <init> (Ldev/rnett/inspekt/model/Parameters;ZLkotlin/reflect/KClass;Ljava/util/List;Ljava/util/List;Ljava/util/List;ZZLkotlin/reflect/KType;Ldev/rnett/inspekt/model/PropertyGetter;Ldev/rnett/inspekt/model/name/CallableName;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	protected final fun appendPropertySignature (Ljava/lang/StringBuilder;Ljava/lang/String;Z)V
 	public final fun get (Ldev/rnett/inspekt/model/arguments/ArgumentList;)Ljava/lang/Object;
 	public final fun get (Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public final fun getGetter ()Ldev/rnett/inspekt/model/PropertyGetter;
 	public final fun getHasBackingField ()Z
 	public final fun getHasDelegate ()Z
+	public synthetic fun getKotlin ()Lkotlin/reflect/KCallable;
 	public abstract fun getKotlin ()Lkotlin/reflect/KProperty1;
 	public fun getName ()Ldev/rnett/inspekt/model/name/CallableName;
 	public fun getSetter ()Ldev/rnett/inspekt/model/PropertySetter;
@@ -654,6 +647,7 @@ public final class dev/rnett/inspekt/proxy/SuperCall$FunctionCall : dev/rnett/in
 }
 
 public abstract class dev/rnett/inspekt/proxy/SuperCall$PropertyAccess : dev/rnett/inspekt/proxy/SuperCall {
+	public synthetic fun getSuperFun ()Ldev/rnett/inspekt/model/Function;
 	public abstract fun getSuperFun ()Ldev/rnett/inspekt/model/PropertyAccessor;
 	public abstract fun getSuperProperty ()Ldev/rnett/inspekt/model/Property;
 }

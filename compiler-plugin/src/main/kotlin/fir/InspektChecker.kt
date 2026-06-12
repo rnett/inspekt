@@ -50,8 +50,8 @@ class InspektChecker(session: FirSession, val defaultWarnOn: Int) : FirAdditiona
 
                 if (parameter.hasAnnotation(ReferenceLiteral, session)) {
                     val annotation = parameter.getAnnotationByClassId(ReferenceLiteral, session)!!
-                    val mustBeInterface = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_utils_ReferenceLiteral_mustBeInterface.name(), session) ?: false
-                    val warnOnDefaults = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_utils_ReferenceLiteral_warnAboutDefaults.name(), session) ?: true
+                    val mustBeInterface = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_utils_ReferenceLiteral_mustBeInterface.name()) ?: false
+                    val warnOnDefaults = annotation.getBooleanArgument(Symbols.inspekt.dev_rnett_inspekt_utils_ReferenceLiteral_warnAboutDefaults.name()) ?: true
 
                     argument.unwrapAndFlattenArgument(flattenArrays = true).forEach { arg ->
                         val cls = arg.extractClassFromArgument(session)
