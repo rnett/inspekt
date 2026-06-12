@@ -81,6 +81,9 @@ jobs:
         run: |
           ./gradlew assemble
 
+      - name: Upgrade yarn lock
+        run: ./gradlew kotlinUpgradeYarnLock
+
       - name: Test library
         run: ./gradlew check
 
