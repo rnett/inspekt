@@ -12,6 +12,7 @@ plugins {
 }
 
 val kotlin = project.extensions.findByName("kotlin") as KotlinBaseExtension
+val onlyJvm = providers.systemProperty("inspekt.onlyJvm").orNull?.lowercase() == "true"
 
 kotlin.apply {
     this as HasConfigurableKotlinCompilerOptions<out KotlinCommonCompilerOptions>
@@ -51,6 +52,10 @@ if (!pluginManager.hasPlugin("internal")) {
     }
 
     afterEvaluate {
+        // Skip klib ABI check when running JVM-only (native targets not registered)
+        if (onlyJvm) {
+            tasks.findByName("checkKotlinAbi")?.enabled = false
+        }
         if (tasks.findByName("checkLegacyAbi") != null) {
             tasks.named("check").configure { dependsOn("checkLegacyAbi") }
         }
