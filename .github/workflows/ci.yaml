@@ -27,7 +27,7 @@ jobs:
       os_matrix: ${{ steps.get-matrix.outputs.os_matrix }}
       jvm_only: ${{ steps.get-matrix.outputs.jvm_only }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Get version
         id: get-version
         run: echo "version=$(cat version.txt)" >> "$GITHUB_OUTPUT"
@@ -54,7 +54,7 @@ jobs:
     env:
       GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m -Dinspekt.onlyJvm=${{ needs.checkVersion.outputs.jvm_only }}"
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Setup Java 17 and 24
         uses: actions/setup-java@v5
         with:
@@ -95,7 +95,7 @@ jobs:
     env:
       GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=512m"
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Setup Java 17
         uses: actions/setup-java@v5
         with:
